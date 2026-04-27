@@ -1,4 +1,4 @@
-export default function Products() {
+export default function ProductsSection() {
   return (
     <section className="products" id="products">
       <div className="section-inner">

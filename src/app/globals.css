@@ -47,15 +47,14 @@ ul { list-style: none; }
 /* ============================================================
    SCROLL PROGRESS BAR
    ============================================================ */
-#scroll-bar {
+.scroll-progress {
   position: fixed;
-  top: 0; left: 0;
+  top: 0; left: 0; right: 0;
   height: 3px;
   background: linear-gradient(90deg, #2dff7a, #4dc8ff);
   z-index: 300;
-  width: 0%;
-  transition: width .1s;
   pointer-events: none;
+  transform-origin: left;
 }
 
 /* ============================================================

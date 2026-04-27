@@ -16,10 +16,7 @@ const eslintConfig = defineConfig([
   {
     rules: {
       "react/no-unescaped-entities": "off",
-      "react/jsx-no-comment-textnodes": "off",
-      "@typescript-eslint/ban-ts-comment": "off",
-      "react-hooks/exhaustive-deps": "off",
-      "@typescript-eslint/no-explicit-any": "off"
+      "react/jsx-no-comment-textnodes": "off"
     }
   }
 ]);
