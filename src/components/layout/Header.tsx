@@ -9,15 +9,44 @@ interface NavLink {
   href: string;
   /** Path prefixes considered "active" for this link */
   matches: string[];
+  subLinks?: { label: string; href: string }[];
 }
 
 const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", matches: ["/"] },
-  { label: "Products", href: "/products", matches: ["/products"] },
-  { label: "Solution", href: "/solutions", matches: ["/solutions"] },
+  { 
+    label: "Products", 
+    href: "/products", 
+    matches: ["/products"],
+    subLinks: [
+      { label: "AI Factory as a Service", href: "/products#factory" },
+      { label: "GPU as a Service", href: "/products#gpu" },
+      { label: "ML as a Service", href: "/products#ml" },
+    ]
+  },
+  { 
+    label: "Solution", 
+    href: "/solutions", 
+    matches: ["/solutions"],
+    subLinks: [
+      { label: "AI Model Training", href: "/solutions#training" },
+      { label: "AI Inference & Deployment", href: "/solutions#inference" },
+      { label: "Rendering & Simulation", href: "/solutions#rendering" },
+      { label: "Research & Experimentation", href: "/solutions#research" },
+    ]
+  },
   { label: "Pricing", href: "/pricing", matches: ["/pricing"] },
   { label: "Enterprise", href: "/enterprise", matches: ["/enterprise"] },
-  { label: "Contact Us", href: "/contact", matches: ["/contact"] },
+  { 
+    label: "Company", 
+    href: "/contact", 
+    matches: ["/contact", "/about", "/career"],
+    subLinks: [
+      { label: "About", href: "/about" },
+      { label: "Career", href: "/career" },
+      { label: "Contact Us", href: "/contact" },
+    ]
+  },
 ];
 
 function isActive(pathname: string, link: NavLink): boolean {
@@ -39,9 +68,27 @@ export function Header() {
           const active = isActive(pathname, link);
           return (
             <li key={link.label}>
-              <Link href={link.href} className={active ? "active" : undefined}>
-                {link.label}
-              </Link>
+              {link.subLinks ? (
+                <div className="nav-item-dropdown">
+                  <Link href={link.href} className={`nav-link-with-arrow${active ? " active" : ""}`}>
+                    {link.label}
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </Link>
+                  <div className="dropdown-menu">
+                    {link.subLinks.map((sub) => (
+                      <Link key={sub.label} href={sub.href} className="dropdown-item">
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <Link href={link.href} className={active ? "active" : undefined}>
+                  {link.label}
+                </Link>
+              )}
             </li>
           );
         })}
@@ -69,6 +116,31 @@ export function Header() {
                   <Link href={link.href} className={active ? "active" : undefined}>
                     {link.label}
                   </Link>
+                  {link.subLinks && (
+                    <ul style={{ 
+                      listStyle: "none", 
+                      padding: "4px 0 12px 12px", 
+                      display: "flex", 
+                      flexDirection: "column", 
+                      gap: 2,
+                      borderLeft: "1px solid rgba(45, 255, 122, 0.15)",
+                      margin: "0 0 8px 16px"
+                    }}>
+                      {link.subLinks.map((sub) => (
+                        <li key={sub.label}>
+                          <Link href={sub.href} style={{ 
+                            fontSize: 13, 
+                            opacity: 0.6, 
+                            padding: "8px 12px",
+                            fontWeight: 500,
+                            display: "block"
+                          }}>
+                            {sub.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </li>
               );
             })}

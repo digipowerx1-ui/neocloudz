@@ -6,7 +6,7 @@ import {
   useDataflowCanvas,
   useHomeWaveCanvas,
   useNvlinkCanvas,
-  usePricingMeshCanvas,
+
 } from "./canvases";
 import {
   useBenchBars,
@@ -408,12 +408,12 @@ const PRICE_CARDS: PriceCard[] = [
 
 export function HomePricing() {
   const sectionRef = useRef<HTMLElement>(null);
-  const meshRef = useRef<HTMLCanvasElement>(null);
-  usePricingMeshCanvas(meshRef, sectionRef);
+
+
   usePricingSpotlight(sectionRef);
   return (
     <section className="hp-section mid" id="pricing" ref={sectionRef}>
-      <canvas id="pricing-mesh" ref={meshRef} />
+
       <div className="hp-label">Pricing</div>
       <div className="hp-h2">
         Simple, <span className="g">Transparent Pricing.</span>

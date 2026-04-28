@@ -12,7 +12,7 @@ export default function ProductsSection() {
         </p>
 
         <div className="products-grid">
-          <div className="prod-card reveal reveal-delay-1">
+          <div className="prod-card reveal reveal-delay-1" id="factory">
             <div className="prod-icon-wrap">🏭</div>
             <div className="prod-name">AI Factory</div>
             <p className="prod-desc">
@@ -24,7 +24,7 @@ export default function ProductsSection() {
             <a href="#" className="prod-link">Learn More →</a>
           </div>
 
-          <div className="prod-card reveal reveal-delay-2">
+          <div className="prod-card reveal reveal-delay-2" id="gpu">
             <div className="prod-icon-wrap">🎮</div>
             <div className="prod-name">GPU Service</div>
             <p className="prod-desc">
@@ -36,7 +36,7 @@ export default function ProductsSection() {
             <a href="#" className="prod-link">Learn More →</a>
           </div>
 
-          <div className="prod-card reveal reveal-delay-3">
+          <div className="prod-card reveal reveal-delay-3" id="ml">
             <div className="prod-icon-wrap">🤖</div>
             <div className="prod-name">ML Service</div>
             <p className="prod-desc">

@@ -63,7 +63,7 @@ export default function SolutionsSection() {
           from first experiment to full production deployment at scale.
         </p>
 
-        <div className="sol-card reveal mt-16" id="card-train">
+        <div className="sol-card reveal mt-16" id="training">
           <div className="sol-info">
             <span className="sol-icon">🧠</span>
             <h3 className="sol-title">AI Training at Scale</h3>
@@ -104,7 +104,7 @@ export default function SolutionsSection() {
           </div>
         </div>
 
-        <div className="sol-card reverse reveal">
+        <div className="sol-card reverse reveal" id="inference">
           <div className="sol-info">
             <span className="sol-icon">⚡</span>
             <h3 className="sol-title">Real-Time Inference</h3>
@@ -133,7 +133,7 @@ export default function SolutionsSection() {
           </div>
         </div>
 
-        <div className="sol-card reveal">
+        <div className="sol-card reveal" id="research">
           <div className="sol-info">
             <span className="sol-icon">🔬</span>
             <h3 className="sol-title">Rapid Prototyping</h3>

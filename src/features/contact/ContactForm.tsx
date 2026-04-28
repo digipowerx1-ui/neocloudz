@@ -213,13 +213,12 @@ export default function ContactForm() {
             Full name
           </label>
           <input
-            className={`field-input${
-              nameTouched && nameValid
+            className={`field-input${nameTouched && nameValid
                 ? " valid"
                 : nameTouched && form.name && !nameValid
                   ? " invalid"
                   : ""
-            }`}
+              }`}
             type="text"
             id="f-name"
             placeholder="Ada Lovelace"
@@ -234,13 +233,12 @@ export default function ContactForm() {
             Work email
           </label>
           <input
-            className={`field-input${
-              emailTouched && emailValid
+            className={`field-input${emailTouched && emailValid
                 ? " valid"
                 : emailTouched && form.email && !emailValid
                   ? " invalid"
                   : ""
-            }`}
+              }`}
             type="email"
             id="f-email"
             placeholder="ada@company.com"

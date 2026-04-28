@@ -11,7 +11,7 @@ import {
   usePricingHoverSpotlight,
   usePricingLiveStrip,
   usePricingMatrix,
-  usePricingMeshCanvas,
+
   usePricingParticleCanvas,
   usePricingScrollBar,
   usePricingScrollReveal,
@@ -247,7 +247,7 @@ export function PricingShell() {
   const particleRef = useRef<HTMLCanvasElement>(null);
   const typingRef = useRef<HTMLSpanElement>(null);
   const pricingSectionRef = useRef<HTMLDivElement>(null);
-  const meshRef = useRef<HTMLCanvasElement>(null);
+
   const matrixRef = useRef<HTMLTableElement>(null);
   const ctaCanvasRef = useRef<HTMLCanvasElement>(null);
   const ctaLaunchRef = useRef<HTMLAnchorElement>(null);
@@ -280,7 +280,7 @@ export function PricingShell() {
   const liveStrip = usePricingLiveStrip();
 
   // Pricing cards
-  usePricingMeshCanvas(meshRef, pricingSectionRef);
+
   usePricingDemandBars(pricingSectionRef);
   usePricingFeatureReveal(pricingSectionRef);
   usePricingHoverSpotlight(pricingSectionRef);
@@ -539,7 +539,7 @@ export function PricingShell() {
 
       {/* PRICING CARDS */}
       <div className="pricing-section" ref={pricingSectionRef}>
-        <canvas id="pricing-mesh-bg" ref={meshRef} />
+
         <div className="pricing-grid">
           {CARDS.map((c, ci) => {
             const showReserved = plan === "reserved" && c.onPrice !== null;
@@ -576,17 +576,17 @@ export function PricingShell() {
                     style={
                       c.customSavingsTag.color === "blue"
                         ? {
-                            color: "var(--blue)",
-                            background: "rgba(77,200,255,.1)",
-                            borderColor: "rgba(77,200,255,.25)",
-                            opacity: 1,
-                          }
+                          color: "var(--blue)",
+                          background: "rgba(77,200,255,.1)",
+                          borderColor: "rgba(77,200,255,.25)",
+                          opacity: 1,
+                        }
                         : {
-                            color: "var(--amber)",
-                            background: "rgba(255,184,77,.1)",
-                            borderColor: "rgba(255,184,77,.25)",
-                            opacity: 1,
-                          }
+                          color: "var(--amber)",
+                          background: "rgba(255,184,77,.1)",
+                          borderColor: "rgba(255,184,77,.25)",
+                          opacity: 1,
+                        }
                     }
                   >
                     {c.customSavingsTag.text}
@@ -832,9 +832,8 @@ export function PricingShell() {
               <div className="tier-node" key={i}>
                 <div className="tier-dot-wrap">
                   <div
-                    className={`tier-dot${
-                      i === activeTier ? " active" : i < activeTier ? " passed" : ""
-                    }`}
+                    className={`tier-dot${i === activeTier ? " active" : i < activeTier ? " passed" : ""
+                      }`}
                     onClick={() => setActiveTier(i)}
                   />
                 </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageEffects from "@/features/page-effects/PageEffects";
+import ProductHero from "@/features/products/ProductHero";
 
 export const metadata = {
   title: "Products — NeoCloudz",
@@ -13,6 +14,9 @@ interface Product {
   name: string;
   bullets: string[];
   cta: { label: string; href: string };
+  image: string;
+  video?: string;
+  id?: string;
 }
 
 const PRODUCTS: Product[] = [
@@ -27,6 +31,9 @@ const PRODUCTS: Product[] = [
       "Available in both shared and dedicated configurations",
     ],
     cta: { label: "Deploy Compute Nodes", href: "/products/gpu-as-a-service" },
+    image: "/Rectangle-4-4.png",
+    video: "/Holographic_car_on_202604281637.mp4",
+    id: "gpu"
   },
   {
     eyebrow: "AI Cloud",
@@ -39,6 +46,9 @@ const PRODUCTS: Product[] = [
       "Pre-built environments for HuggingFace, vLLM, and TensorRT",
     ],
     cta: { label: "Deploy AI Cloud", href: "/contact" },
+    image: "/Rectangle-4-6.png",
+    video: "/Data_center_server_202604281656.mp4",
+    id: "ml"
   },
   {
     eyebrow: "Self-Service AI Clusters",
@@ -51,6 +61,9 @@ const PRODUCTS: Product[] = [
       "Customizable node templates and auto-teardown options",
     ],
     cta: { label: "Create a Cluster", href: "/contact" },
+    image: "/Rectangle-4-7.png",
+    video: "/AI_server_infrastructure_202604281657.mp4",
+    id: "factory"
   },
   {
     eyebrow: "Managed Kubernetes for AI",
@@ -63,6 +76,8 @@ const PRODUCTS: Product[] = [
       "Enterprise SLAs and private networking",
     ],
     cta: { label: "About Managed Kubernetes", href: "/contact" },
+    image: "/Rectangle-4-8.png",
+    video: "/Futuristic_server_room_202604281656.mp4",
   },
   {
     eyebrow: "AI Storage",
@@ -75,6 +90,8 @@ const PRODUCTS: Product[] = [
       "Integrated with AI Cloud and Clusters",
     ],
     cta: { label: "View Storage Options", href: "/contact" },
+    image: "/Rectangle-4-9.png",
+    video: "/Data_center_corridor_202604281703.mp4",
   },
   {
     eyebrow: "JupyterLab® Applications",
@@ -87,6 +104,7 @@ const PRODUCTS: Product[] = [
       "Support for TensorFlow, PyTorch, Hugging Face, and RAPIDS",
     ],
     cta: { label: "Start with JupyterLab", href: "/contact" },
+    image: "/Rectangle-4-11.png",
   },
 ];
 
@@ -101,35 +119,7 @@ export default function ProductsPage() {
   return (
     <PageEffects>
       {/* HERO */}
-      <section className="hero" style={{ minHeight: "70vh" }}>
-        <div className="hero-grid"></div>
-        <div className="aurora-1"></div>
-        <div className="aurora-2"></div>
-        <div className="aurora-3"></div>
-
-        <div className="hero-content">
-          <div className="hero-tag">
-            <span className="hero-tag-dot"></span>
-            Products
-          </div>
-          <h1>
-            Next-Generation AI Infrastructure,{" "}
-            <span className="g">Delivered as a Service.</span>
-          </h1>
-          <p className="hero-sub">
-            A purpose-built suite of GPU-powered products covering every stage of the
-            AI lifecycle — compute, storage, orchestration, and notebooks.
-          </p>
-          <div className="hero-ctas">
-            <Link href="/contact" className="btn btn-green btn-lg">
-              Request Private Clusters ▶
-            </Link>
-            <Link href="/contact" className="btn btn-outline btn-lg">
-              Launch Instances →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ProductHero />
 
       {/* PRODUCT CATALOG */}
       <section className="solutions" id="catalog">
@@ -146,7 +136,8 @@ export default function ProductsPage() {
           {PRODUCTS.map((p, i) => (
             <div
               key={p.eyebrow}
-              className={`sol-card reveal mt-16${i % 2 === 1 ? " reverse" : ""}`}
+              id={p.id}
+              className={`sol-card reveal mt-16${i % 2 === 0 ? " reverse" : ""}`}
             >
               <div className="sol-info">
                 <div
@@ -178,30 +169,46 @@ export default function ProductsPage() {
                 <div
                   className="prod-card"
                   style={{
-                    height: "100%",
+                    minHeight: 340,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
-                    padding: 48,
+                    padding: 0,
                     textAlign: "center",
+                    overflow: "hidden",
+                    position: "relative",
                   }}
                 >
-                  <div
-                    className="prod-icon-wrap"
-                    style={{ width: 96, height: 96, fontSize: 44 }}
-                  >
-                    {p.icon}
-                  </div>
-                  <div
-                    className="prod-name"
-                    style={{ fontSize: 18, marginTop: 24 }}
-                  >
-                    {p.eyebrow}
-                  </div>
-                  <p className="prod-desc" style={{ marginBottom: 0 }}>
-                    {p.name}
-                  </p>
+                  {p.video ? (
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        position: "absolute",
+                        inset: 0,
+                      }}
+                    >
+                      <source src={p.video} type="video/mp4" />
+                    </video>
+                  ) : (
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "cover",
+                        position: "absolute",
+                        inset: 0,
+                      }}
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -241,29 +248,30 @@ export default function ProductsPage() {
               <div
                 className="prod-card"
                 style={{
-                  height: "100%",
+                  minHeight: 340,
                   display: "flex",
                   flexDirection: "column",
                   gap: 16,
-                  padding: 36,
+                  padding: 0,
+                  overflow: "hidden",
+                  position: "relative",
                 }}
               >
-                <div className="prod-name">NVIDIA Blackwell B200</div>
-                <p className="prod-desc">
-                  192 GB HBM3e · SXM5 · 9 PFLOPS · Available now
-                </p>
-                <div className="prod-name">NVIDIA H200</div>
-                <p className="prod-desc">
-                  141 GB HBM3e · Optimized for inference and fine-tuning
-                </p>
-                <div className="prod-name">InfiniBand 400G NDR</div>
-                <p className="prod-desc">
-                  3.2 Tbit/s per node · Full fabric topology
-                </p>
-                <div className="prod-name">NVMe Storage Fabric</div>
-                <p className="prod-desc">
-                  Sub-10μs latency · 1.4 TB/s throughput
-                </p>
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    position: "absolute",
+                    inset: 0,
+                  }}
+                >
+                  <source src="/Holographic_car_on_202604281637.mp4" type="video/mp4" />
+                </video>
               </div>
             </div>
           </div>

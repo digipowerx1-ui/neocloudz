@@ -1369,14 +1369,7 @@
   padding: 2px 6px;
 }
 
-/* Pricing mesh canvas */
-.home-page #pricing-mesh {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  opacity: 0.55;
-}
+
 .home-page #pricing { position: relative; overflow: hidden; }
 .home-page #pricing > * { position: relative; z-index: 1; }
 
