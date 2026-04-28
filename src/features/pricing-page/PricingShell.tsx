@@ -24,7 +24,7 @@ import {
 type Plan = "ondemand" | "reserved";
 
 interface CardData {
-  badge: "ON-DEMAND" | "BARE METAL";
+  badge: string;
   badgeClass: "on-demand" | "bare-metal";
   name: string;
   sub: string;
@@ -46,10 +46,10 @@ interface CardData {
 
 const CARDS: CardData[] = [
   {
-    badge: "ON-DEMAND",
+    badge: "AVAILABLE NOW",
     badgeClass: "on-demand",
-    name: "NVIDIA B200",
-    sub: "192 GB HBM3e · SXM5 · 9 PFLOPS",
+    name: "Blackwell B200 – Single Node",
+    sub: "For developers, startups, fine-tuning",
     onPrice: 28,
     resPrice: 22,
     resSavingsPct: 21,
@@ -57,91 +57,113 @@ const CARDS: CardData[] = [
     demandLabel: "HIGH",
     demandClass: "high",
     features: [
-      { text: "Full GPU isolation — no shared tenancy" },
-      { text: "InfiniBand 400G fabric included" },
-      { text: "NVMe local scratch storage" },
-      { text: "SSH + Jupyter + API access" },
-      { text: "No minimum commitment" },
+      { text: "GPU: 1× NVIDIA Blackwell B200 (180GB SXM)" },
+      { text: "CPU: Intel Emerald Rapids · vCPU: 16" },
+      { text: "RAM: 224 GB DDR5" },
+      { text: "Network: 3.2 Tbit/s InfiniBand" },
+      { text: "Storage: NVMe (optional add-on)" },
     ],
-    cta: "Deploy B200 →",
+    cta: "Launch Instance →",
     ctaClass: "outline",
   },
   {
-    badge: "ON-DEMAND",
+    badge: "AVAILABLE NOW",
     badgeClass: "on-demand",
-    name: "NVIDIA B300",
-    sub: "192 GB HBM3e+ · 1.8 TB/s NVLink",
-    onPrice: 36,
-    resPrice: 28,
+    name: "Blackwell B200 – 8-GPU Cluster",
+    sub: "8× B200 · Full fabric · Managed orchestration",
+    onPrice: 224,
+    resPrice: 175,
     resSavingsPct: 22,
+    demandPct: 85,
+    demandLabel: "VERY HIGH",
+    demandLabelColor: "var(--red)",
+    demandClass: "high",
+    features: [
+      { text: "GPU: 8× NVIDIA Blackwell B200 (1.4 TB total)" },
+      { text: "CPU: Intel Emerald Rapids · vCPU: 128" },
+      { text: "RAM: 1.7 TB DDR5" },
+      { text: "Network: 3.2 Tbit/s InfiniBand (full fabric)" },
+      { text: "Storage: Managed Kubernetes or Slurm" },
+    ],
+    cta: "Deploy Cluster →",
+    ctaClass: "primary",
+    featured: true,
+  },
+  {
+    badge: "VOLUME PRICING",
+    badgeClass: "bare-metal",
+    name: "B200 Reserved Volume",
+    sub: "1–100+ GPUs · 3–12 month terms · Dedicated capacity",
+    onPrice: null,
+    resPrice: null,
+    customSavingsTag: { text: "→ Up to 40% off on-demand", color: "blue" },
+    demandPct: 58,
+    demandLabel: "MEDIUM",
+    demandClass: "medium",
+    features: [
+      { text: "GPU: 1–100+ NVIDIA Blackwell B200", custom: true },
+      { text: "Term: 3–12 months", custom: true },
+      { text: "Savings: Up to 40% off on-demand rate", custom: true },
+      { text: "Includes: Dedicated capacity, SLA, priority support", custom: true },
+      { text: "Ideal for ongoing training and deployment", custom: true },
+    ],
+    cta: "Talk to Sales →",
+    ctaClass: "blue-outline",
+  },
+  {
+    badge: "AVAILABLE NOW",
+    badgeClass: "on-demand",
+    name: "Fractional B200 GPU",
+    sub: "1/4 or 1/2 GPU · Shared node · Isolated container",
+    onPrice: 7,
+    resPrice: 5,
+    resSavingsPct: 29,
+    demandPct: 44,
+    demandLabel: "MEDIUM",
+    demandClass: "medium",
+    features: [
+      { text: "1/4 or 1/2 of NVIDIA Blackwell B200 GPU" },
+      { text: "Shared node with isolated container environment" },
+      { text: "NVMe storage included (optional add-on)" },
+      { text: "Ideal for prototyping and experimentation" },
+      { text: "No minimum commitment" },
+    ],
+    cta: "Launch Instance →",
+    ctaClass: "outline",
+  },
+  {
+    badge: "PRE-REGISTER",
+    badgeClass: "bare-metal",
+    name: "Blackwell B300 – Coming Q1 2026",
+    sub: "Next-gen AI workloads · Ultra-high bandwidth",
+    onPrice: null,
+    resPrice: null,
+    customSavingsTag: { text: "✦ Pre-register for early access", color: "amber" },
     demandPct: 91,
     demandLabel: "VERY HIGH",
     demandLabelColor: "var(--red)",
     demandClass: "high",
     features: [
-      { text: "1.8 TB/s NVLink 4.0 bandwidth" },
-      { text: "InfiniBand NDR 400G per node" },
-      { text: "WEKA parallel storage integration" },
-      { text: "Full root bare-metal access" },
-      { text: "Priority support SLA <1hr response" },
-    ],
-    cta: "Deploy B300 →",
-    ctaClass: "primary",
-    featured: true,
-  },
-  {
-    badge: "BARE METAL",
-    badgeClass: "bare-metal",
-    name: "Grace Blackwell GB200",
-    sub: "NVL72 Rack · 72 GPUs · Dedicated",
-    onPrice: null,
-    resPrice: null,
-    customSavingsTag: { text: "→ Volume discounts available", color: "blue" },
-    demandPct: 58,
-    demandLabel: "MEDIUM",
-    demandClass: "medium",
-    features: [
-      { text: "Dedicated NVL72 rack", custom: true },
-      { text: "900 GB/s NVLink-C2C bandwidth", custom: true },
-      { text: "13.8 TB unified HBM3e memory", custom: true },
-      { text: "WEKA distributed storage", custom: true },
-      { text: "24/7 dedicated support engineer", custom: true },
-    ],
-    cta: "Contact Sales →",
-    ctaClass: "blue-outline",
-  },
-  {
-    badge: "BARE METAL",
-    badgeClass: "bare-metal",
-    name: "Grace Blackwell GB300",
-    sub: "NVL72 Rack · Next-Gen HBM3e Pro",
-    onPrice: null,
-    resPrice: null,
-    customSavingsTag: { text: "✦ Early access available now", color: "amber" },
-    demandPct: 44,
-    demandLabel: "AVAILABLE",
-    demandClass: "medium",
-    features: [
+      { text: "GPU: Next-gen NVIDIA Blackwell B300 (TBD)", custom: true },
+      { text: "Memory: Ultra-high bandwidth", custom: true },
+      { text: "Network: 6.4 Tbit/s InfiniBand (expected)", custom: true },
       { text: "Enhanced NVLink-C2C bandwidth", custom: true },
       { text: "HBM3e Pro memory technology", custom: true },
-      { text: "NVL144 multi-rack support", custom: true },
-      { text: "InfiniBand 800G networking", custom: true },
-      { text: "Dedicated infra engineer onsite", custom: true },
     ],
-    cta: "Contact Sales →",
+    cta: "Get Early Access →",
     ctaClass: "blue-outline",
   },
 ];
 
 const TICKER_ITEMS: Array<[string, string]> = [
-  ["NVIDIA B200", "$28/hr On-Demand"],
-  ["NVIDIA B300", "$36/hr On-Demand"],
-  ["Grace Blackwell GB200", "NVL72 Bare Metal"],
-  ["WEKA Storage", "<10μs latency · included"],
-  ["InfiniBand 400G", "Every Node"],
-  ["No Egress Fees", "Ever"],
-  ["Vera Rubin", "Coming 2025"],
-  ["Deploy in", "Under 60 Seconds"],
+  ["Blackwell B200", "$28/hr Single Node"],
+  ["Blackwell B200 Cluster", "$224/hr 8× GPU"],
+  ["Fractional GPU", "$7/hr 1/4 or 1/2"],
+  ["Volume Pricing", "Up to 40% off"],
+  ["No Egress Fees", "$0 always"],
+  ["InfiniBand 3.2 Tbit/s", "Every Node"],
+  ["B300", "Pre-register Q1 2026"],
+  ["Tier III", "U.S.-owned data centers"],
 ];
 
 const LOGO_NAMES = [
@@ -162,15 +184,15 @@ const FAQS = [
   },
   {
     q: "Are there any hidden fees or egress charges?",
-    a: "No. NeoCloudz charges $0 for all data egress — inbound and outbound — forever. What you see in the pricing table is exactly what you pay. We don't charge for InfiniBand usage, WEKA storage access on cluster plans, or API calls to our control plane.",
+    a: "No. NeoCloudz charges $0 for all data egress — inbound and outbound — forever. What you see in the pricing table is exactly what you pay. We don't charge for InfiniBand usage, NVMe storage, or API calls to our control plane.",
   },
   {
     q: "What's the difference between On-Demand and Reserved?",
-    a: "On-Demand GPUs are available immediately at the listed hourly rate with no commitment. Reserved instances are pre-purchased for 1, 3, 6, or 12-month terms at a discount (up to 22% off). Reserved instances also guarantee priority availability during high-demand periods when on-demand capacity may be limited.",
+    a: "On-Demand GPUs are available immediately at the listed hourly rate with no commitment. Reserved instances are pre-purchased for 1, 3, or 12-month terms at a discount (up to 35% off). Reserved instances also guarantee priority availability during high-demand periods when on-demand capacity may be limited.",
   },
   {
     q: "Can I get a volume discount for large deployments?",
-    a: "Yes — for clusters of 32+ GPUs or Grace Blackwell bare-metal racks, contact our sales team for custom pricing. We regularly work with research institutions, AI labs, and enterprises on multi-rack deployments with custom SLAs, dedicated networking, and white-glove onboarding.",
+    a: "Yes — for clusters of 32+ GPUs or dedicated bare-metal racks, contact our sales team for custom pricing. We regularly work with research institutions, AI labs, and enterprises on multi-rack deployments with custom SLAs, dedicated networking, and white-glove onboarding. Volume commitments of 1–100+ GPUs for 3–12 months can save up to 40%.",
   },
   {
     q: "Is there a free trial or credits program?",
@@ -179,13 +201,12 @@ const FAQS = [
 ];
 
 const TIERS = [
-  { name: "On-Demand", price: 28, save: "—", term: "No commitment" },
-  { name: "Monthly", price: 24, save: "Save 14%", term: "30-day reserved" },
-  { name: "6-Month", price: 23, save: "Save 18%", term: "6-month reserved" },
-  { name: "Annual", price: 22, save: "Save 22% ✦", term: "12-month reserved" },
+  { name: "1 Month", price: 25, save: "Up to 10% off", term: "Flexible short-term production workloads" },
+  { name: "3 Months", price: 22, save: "Up to 20% off", term: "Ideal for ongoing training and deployment" },
+  { name: "12 Months", price: 18, save: "Up to 35% off ✦", term: "Maximum savings for stable workloads" },
 ];
 
-const TIER_POSITIONS = [0, 33, 66, 100];
+const TIER_POSITIONS = [0, 50, 100];
 
 interface MatrixRow {
   label: string;
@@ -196,83 +217,16 @@ interface MatrixGroup {
   rows: MatrixRow[];
 }
 
-function CheckIcon({ variant, label }: { variant?: "blue" | "amber"; label?: string }) {
-  return (
-    <span className={`check-icon${variant ? ` ${variant}` : ""}`}>
-      {label || "✓"}
-    </span>
-  );
-}
-
-const DASH = <span className="dash-icon">—</span>;
-
 const MATRIX: MatrixGroup[] = [
   {
-    header: "⚡ Compute",
+    header: "⚡ Feature",
     rows: [
-      { label: "GPU Memory", values: ["192 GB HBM3e", "192 GB HBM3e+", "192 GB / GPU", "288 GB HBM3e Pro"] },
-      { label: "FP8 Tensor Performance", values: ["9 PFLOPS", "15 PFLOPS", "9 PFLOPS/GPU", "~16 PFLOPS/GPU"] },
-      {
-        label: "NVLink Bandwidth",
-        values: [
-          "1.8 TB/s",
-          "1.8 TB/s",
-          <>
-            <CheckIcon variant="amber" /> 900 GB/s C2C
-          </>,
-          <>
-            <CheckIcon variant="amber" /> Enhanced
-          </>,
-        ],
-      },
-      { label: "Full Root Access", values: [<CheckIcon key="0" />, <CheckIcon key="1" />, <CheckIcon key="2" />, <CheckIcon key="3" />] },
-      {
-        label: "GPU Isolation (no noisy neighbor)",
-        values: [<CheckIcon key="0" />, <CheckIcon key="1" />, <CheckIcon key="2" />, <CheckIcon key="3" />],
-      },
-    ],
-  },
-  {
-    header: "🔗 Networking",
-    rows: [
-      { label: "InfiniBand Fabric", values: ["400G HDR", "400G NDR", "400G NDR", "800G NDR"] },
-      { label: "RDMA / RoCE", values: [<CheckIcon key="0" />, <CheckIcon key="1" />, <CheckIcon key="2" />, <CheckIcon key="3" />] },
-      {
-        label: "Egress Fees",
-        values: [
-          <CheckIcon key="0" label="$0" />,
-          <CheckIcon key="1" label="$0" />,
-          <CheckIcon key="2" label="$0" />,
-          <CheckIcon key="3" label="$0" />,
-        ],
-      },
-      {
-        label: "Private VPC / VLAN",
-        values: [DASH, <CheckIcon key="1" variant="blue" />, <CheckIcon key="2" variant="blue" />, <CheckIcon key="3" variant="blue" />],
-      },
-    ],
-  },
-  {
-    header: "💾 Storage",
-    rows: [
-      {
-        label: "Local NVMe Scratch",
-        values: [<CheckIcon key="0" />, <CheckIcon key="1" />, <CheckIcon key="2" />, <CheckIcon key="3" />],
-      },
-      { label: "WEKA Parallel Filesystem", values: [DASH, <CheckIcon key="1" />, <CheckIcon key="2" />, <CheckIcon key="3" />] },
-      { label: "Storage Latency", values: ["~100μs", "<10μs", "<10μs", "<10μs"] },
-      { label: "Throughput", values: ["~100 GB/s", "1.4 TB/s", "1.4 TB/s", "1.4 TB/s"] },
-    ],
-  },
-  {
-    header: "🛡 Support",
-    rows: [
-      { label: "Support SLA", values: ["Business hours", "<1hr response", "24/7 dedicated", "24/7 + onsite"] },
-      { label: "Uptime SLA", values: ["99.9%", "99.99%", "99.99%", "99.99%"] },
-      {
-        label: "Dedicated Infra Engineer",
-        values: [DASH, DASH, <CheckIcon key="2" />, <CheckIcon key="3" />],
-      },
+      { label: "GPU Architecture", values: ["100% NVIDIA Blackwell & H200", "B200 / H200 / H100", "H100 / L40S"] },
+      { label: "Power Infrastructure", values: ["DigiPowerX low-carbon", "Cloud vendor mix", "Standard grid"] },
+      { label: "PUE Efficiency", values: ["< 1.3", "~1.4", "~1.5+"] },
+      { label: "Sustainability", values: ["Renewable + natural gas hybrid", "Limited public data", "No public data"] },
+      { label: "Data Centers", values: ["Tier III, U.S.-owned", "EU-based", "U.S.-based"] },
+      { label: "SLAs", values: ["99.99% uptime", "99.9%", "99.9%"] },
     ],
   },
 ];
@@ -282,8 +236,8 @@ function fmtCurrency(n: number): string {
 }
 
 const COMPETITOR_MULT = { aws: 1.5, gcp: 1.35, az: 1.4 };
-const GPU_RATES: Record<string, number> = { b200: 28, b300: 36, gb200: 0 };
-const GPU_LABELS: Record<string, string> = { b200: "B200", b300: "B300", gb200: "GB200" };
+const GPU_RATES: Record<string, number> = { b200: 28, b200cluster: 224, fractional: 7 };
+const GPU_LABELS: Record<string, string> = { b200: "B200", b200cluster: "B200 8× Cluster", fractional: "Fractional B200" };
 
 export function PricingShell() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -377,9 +331,9 @@ export function PricingShell() {
         const id = window.setInterval(() => {
           setActiveTier(step);
           step++;
-          if (step > 3) {
+          if (step > 2) {
             window.clearInterval(id);
-            setActiveTier(3);
+            setActiveTier(2);
           }
         }, 600);
         obs.unobserve(entries[0].target);
@@ -470,13 +424,18 @@ export function PricingShell() {
             <span className="cursor" />
           </div>
           <h1 className="hero-h1">
-            Simple.<br />
-            <span className="g">Honest.</span> Compute.
+            Simple, Transparent<br />
+            <span className="g">GPU Pricing</span> Scale<br />
+            Without Surprises.
           </h1>
           <p className="hero-sub">
-            By the minute. No ingress fees. No egress fees. No contracts. Just the
-            world&#39;s fastest GPUs at transparent prices.
+            Competitive pricing for NVIDIA GPUs. Access improved cost savings with a
+            commitment of hundreds of units for at least 3 months.
           </p>
+          <div className="hero-cta-row" style={{ display: "flex", gap: 16, marginTop: 28, flexWrap: "wrap" }}>
+            <a href="#" className="btn-launch">Launch AI Instances ▶</a>
+            <a href="#" className="btn-outline-cta">Request Custom Quote →</a>
+          </div>
 
           <div className="hero-live-strip">
             <div className="hlm">
@@ -574,7 +533,7 @@ export function PricingShell() {
           className="plan-savings-badge"
           style={{ opacity: plan === "reserved" ? 1 : 0 }}
         >
-          ✦ Save up to 22% with annual commitment
+          ✦ Save up to 35% with 12-month commitment
         </div>
       </div>
 
@@ -836,11 +795,11 @@ export function PricingShell() {
               <br />
               · No setup fees or cancellation penalties
               <br />
-              · Reserved pricing available for 3, 6, 12-month terms
+              · Reserved pricing available for 1, 3, 12-month terms
               <br />
               · Egress: $0.00/GB — always free
               <br />
-              · WEKA storage: included with cluster rentals
+              · NVMe storage: included with fractional instances
             </div>
           </div>
         </div>
@@ -903,38 +862,35 @@ export function PricingShell() {
 
       {/* FEATURE MATRIX */}
       <section className="matrix-section" id="matrix">
-        <div className="hp-label reveal">What&#39;s Included</div>
+        <div className="hp-label reveal">Platform Comparison</div>
         <div className="hp-h2 reveal">
-          Everything.<br />
-          <span className="g">No Surprises.</span>
+          Why Choose<br />
+          <span className="g">NeoCloudz.</span>
         </div>
         <p className="hp-sub reveal">
-          Every tier includes the full NeoCloudz stack. No features locked behind sales
-          calls.
+          All instances run on Supermicro AI-optimized servers in U.S. Tier III data centers.
         </p>
 
         <table className="matrix-table reveal" ref={matrixRef}>
           <thead>
             <tr>
               <th style={{ width: "32%" }}>Feature</th>
-              <th>B200</th>
-              <th className="featured-col">B300</th>
-              <th>GB200</th>
-              <th>GB300</th>
+              <th className="featured-col">NeoCloudz</th>
+              <th>Cloud Vendor</th>
+              <th>Other Provider</th>
             </tr>
           </thead>
           <tbody>
             {MATRIX.flatMap((g, gi) => [
               <tr className="matrix-section-header" key={`h-${gi}`}>
-                <td colSpan={5}>{g.header}</td>
+                <td colSpan={4}>{g.header}</td>
               </tr>,
               ...g.rows.map((r, ri) => (
                 <tr className="matrix-row" key={`r-${gi}-${ri}`}>
                   <td>{r.label}</td>
-                  <td>{r.values[0]}</td>
-                  <td className="featured-col">{r.values[1]}</td>
+                  <td className="featured-col">{r.values[0]}</td>
+                  <td>{r.values[1]}</td>
                   <td>{r.values[2]}</td>
-                  <td>{r.values[3]}</td>
                 </tr>
               )),
             ])}
@@ -996,21 +952,21 @@ export function PricingShell() {
             className="hp-label"
             style={{ justifyContent: "center", marginBottom: 20 }}
           >
-            Get Started Today
+            Ready to Scale Your AI Infrastructure?
           </div>
           <h2>
-            Start with 1 GPU.<br />
-            <span>Scale to 1,000.</span>
+            Request Private Clusters<br />
+            <span>or Launch AI Instances.</span>
           </h2>
           <p>
             Deploy a B200 in 60 seconds. No sales calls. No contracts. Cancel anytime.
           </p>
           <div className="cta-row">
             <a href="#" className="btn-launch" ref={ctaLaunchRef}>
-              Launch AI Instances ▶
+              Request Private Clusters ▶
             </a>
             <a href="#" className="btn-outline-cta">
-              Talk to Sales →
+              Launch AI Instances →
             </a>
           </div>
         </div>

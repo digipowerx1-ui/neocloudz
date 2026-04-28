@@ -254,10 +254,10 @@
 .enterprise-page .btn-launch {
   background: var(--green);
   color: #060a06;
-  padding: 13px 28px;
-  border-radius: 7px;
+  padding: 14px 32px;
+  border-radius: 8px;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 15px;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -271,10 +271,10 @@
 .enterprise-page .btn-outline {
   background: transparent;
   color: var(--text);
-  padding: 13px 28px;
-  border-radius: 7px;
-  font-weight: 600;
-  font-size: 14px;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 15px;
   text-decoration: none;
   display: flex;
   align-items: center;

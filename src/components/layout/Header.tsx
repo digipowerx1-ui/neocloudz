@@ -13,6 +13,7 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", matches: ["/"] },
+  { label: "Products", href: "/products", matches: ["/products"] },
   { label: "Solution", href: "/solutions", matches: ["/solutions"] },
   { label: "Pricing", href: "/pricing", matches: ["/pricing"] },
   { label: "Enterprise", href: "/enterprise", matches: ["/enterprise"] },
@@ -45,9 +46,9 @@ export function Header() {
           );
         })}
       </ul>
-      <a href="#" className="site-nav-cta">
+      <Link href="/contact" className="site-nav-cta">
         Launch AI Instances ▶
-      </a>
+      </Link>
       <button
         className="site-nav-toggle"
         aria-label="Toggle menu"
