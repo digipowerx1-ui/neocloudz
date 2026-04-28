@@ -17,11 +17,11 @@ const NAV_LINKS: NavLink[] = [
   { 
     label: "Products", 
     href: "/products", 
-    matches: ["/products"],
+    matches: ["/products", "/ai-factory-as-a-service", "/gpu-as-a-service", "/ml-as-a-service"],
     subLinks: [
-      { label: "AI Factory as a Service", href: "/products#factory" },
-      { label: "GPU as a Service", href: "/products#gpu" },
-      { label: "ML as a Service", href: "/products#ml" },
+      { label: "AI Factory as a Service", href: "/ai-factory-as-a-service" },
+      { label: "GPU as a Service", href: "/gpu-as-a-service" },
+      { label: "ML as a Service", href: "/ml-as-a-service" },
     ]
   },
   { 
