@@ -105,6 +105,7 @@ const PRODUCTS: Product[] = [
     ],
     cta: { label: "Start with JupyterLab", href: "/contact" },
     image: "/Rectangle-4-11.png",
+    video: "/Futuristic_data_center_202604281751.mp4",
   },
 ];
 
