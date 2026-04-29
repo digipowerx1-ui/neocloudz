@@ -88,9 +88,8 @@ export default function PricingSection() {
           {TIERS.map((t, i) => (
             <div
               key={t.name}
-              className={`price-card reveal reveal-delay-${i + 1}${
-                t.featured ? " featured" : ""
-              }`}
+              className={`price-card reveal reveal-delay-${i + 1}${t.featured ? " featured" : ""
+                }`}
             >
               <div className="price-tier">{t.tier}</div>
               <div className="price-name">{t.name}</div>

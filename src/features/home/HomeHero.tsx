@@ -349,10 +349,10 @@ export function HomeHero() {
         </div>
 
         <div className="hero-cta">
-          <a href="https://neocloudz.com" className="btn-launch">
+          <a href="/contact" className="btn-launch">
             Launch AI Instances ▶
           </a>
-          <a href="https://neocloudz.com" className="btn-outline">
+          <a href="/contact" className="btn-outline">
             Request Private Cluster →
           </a>
         </div>

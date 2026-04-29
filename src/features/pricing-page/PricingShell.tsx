@@ -278,6 +278,7 @@ export function PricingShell() {
   usePricingHeroGlow(heroRef);
   usePricingHeroParallax(heroRef, heroGridRef);
   const liveStrip = usePricingLiveStrip();
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   // Pricing cards
 
@@ -397,7 +398,7 @@ export function PricingShell() {
             className="aurora-band"
             style={
               {
-                background: "radial-gradient(ellipse,rgba(77,200,255,1),transparent 70%)",
+                background: "radial-gradient(ellipse,rgba(0,0,0,1),transparent 70%)",
                 top: "60%",
                 "--adur": "20s",
                 "--ad": "5s",
@@ -418,11 +419,11 @@ export function PricingShell() {
         </div>
 
         <div className="hero-content">
-          <div className="hero-eyebrow">GPU Cloud Pricing</div>
+          {/* <div className="hero-eyebrow">GPU Cloud Pricing</div>
           <div className="hero-terminal-line">
             <span ref={typingRef}>&gt; neocloudz pricing --model blackwell</span>
             <span className="cursor" />
-          </div>
+          </div> */}
           <h1 className="hero-h1">
             Simple, Transparent<br />
             <span className="g">GPU Pricing</span> Scale<br />
@@ -432,9 +433,9 @@ export function PricingShell() {
             Competitive pricing for NVIDIA GPUs. Access improved cost savings with a
             commitment of hundreds of units for at least 3 months.
           </p>
-          <div className="hero-cta-row" style={{ display: "flex", gap: 16, marginTop: 28, flexWrap: "wrap" }}>
-            <a href="#" className="btn-launch">Launch AI Instances ▶</a>
-            <a href="#" className="btn-outline-cta">Request Custom Quote →</a>
+          <div className="hero-cta-row" style={{ display: "flex", gap: 16, marginTop: 28, flexWrap: "wrap", justifyContent: "center", marginBottom: 40 }}>
+            <a href="/contact" className="btn-launch">Launch AI Instances ▶</a>
+            <a href="/contact" className="btn-outline-cta">Request Custom Quote →</a>
           </div>
 
           <div className="hero-live-strip">
@@ -465,34 +466,6 @@ export function PricingShell() {
           </div>
         </div>
 
-        <div
-          className="metric-badge"
-          style={{ left: "5%", top: "32%", "--dur": "8s", "--delay": "0s", "--rot": "-2deg" } as React.CSSProperties}
-        >
-          <span className="metric-badge-val">$0</span>
-          <span className="metric-badge-lbl">Egress fees</span>
-        </div>
-        <div
-          className="metric-badge"
-          style={{ right: "5%", top: "35%", "--dur": "9s", "--delay": "1.8s", "--rot": "2deg" } as React.CSSProperties}
-        >
-          <span className="metric-badge-val">1-min</span>
-          <span className="metric-badge-lbl">Billing granularity</span>
-        </div>
-        <div
-          className="metric-badge"
-          style={{ left: "7%", top: "60%", "--dur": "7s", "--delay": "3.5s", "--rot": "1deg" } as React.CSSProperties}
-        >
-          <span className="metric-badge-val">400G</span>
-          <span className="metric-badge-lbl">InfiniBand incl.</span>
-        </div>
-        <div
-          className="metric-badge"
-          style={{ right: "6%", top: "62%", "--dur": "10s", "--delay": "2s", "--rot": "-1.5deg" } as React.CSSProperties}
-        >
-          <span className="metric-badge-val">24/7</span>
-          <span className="metric-badge-lbl">Support included</span>
-        </div>
       </section>
 
       {/* TICKER */}
@@ -551,7 +524,9 @@ export function PricingShell() {
             return (
               <div
                 key={ci}
-                className={`price-card reveal${c.featured ? " featured" : ""}`}
+                className={`price-card reveal${c.featured ? " featured" : ""}${activeCard === ci ? " selected-neon" : ""}`}
+                onClick={() => setActiveCard(ci)}
+                style={{ cursor: "pointer" }}
               >
                 <div className="beam" />
                 <div className={`price-tier-badge ${c.badgeClass}`}>
@@ -577,7 +552,7 @@ export function PricingShell() {
                       c.customSavingsTag.color === "blue"
                         ? {
                           color: "var(--blue)",
-                          background: "rgba(77,200,255,.1)",
+                          background: "#000",
                           borderColor: "rgba(77,200,255,.25)",
                           opacity: 1,
                         }
@@ -626,7 +601,7 @@ export function PricingShell() {
                     </li>
                   ))}
                 </ul>
-                <a href="#" className={`price-btn ${c.ctaClass}`}>
+                <a href="/contact" className={`price-btn ${c.ctaClass}`}>
                   {c.cta}
                 </a>
               </div>
@@ -639,19 +614,22 @@ export function PricingShell() {
 
       {/* CALCULATOR */}
       <section className="calc-section" id="calculator">
+        <div className="calc-header" style={{ marginBottom: 60 }}>
+          <div className="hp-label reveal">Cost Calculator</div>
+          <div className="hp-h2 reveal">
+            Estimate Your<br />
+            <span className="g">Monthly Spend.</span>
+          </div>
+          <p className="hp-sub reveal">
+            Configure your workload and see exactly what you&#39;ll pay. Compare
+            against major cloud providers in real time.
+          </p>
+        </div>
+
         <div className="calc-grid">
           <div>
-            <div className="hp-label reveal">Cost Calculator</div>
-            <div className="hp-h2 reveal">
-              Estimate Your<br />
-              <span className="g">Monthly Spend.</span>
-            </div>
-            <p className="hp-sub reveal">
-              Configure your workload and see exactly what you&#39;ll pay. Compare
-              against major cloud providers in real time.
-            </p>
 
-            <div className="calc-terminal reveal" style={{ marginTop: 36 }}>
+            <div className="calc-terminal reveal">
               <div className="calc-term-bar">
                 <div className="calc-dot" style={{ background: "#ff5f57" }} />
                 <div className="calc-dot" style={{ background: "#febc2e" }} />
@@ -961,10 +939,10 @@ export function PricingShell() {
             Deploy a B200 in 60 seconds. No sales calls. No contracts. Cancel anytime.
           </p>
           <div className="cta-row">
-            <a href="#" className="btn-launch" ref={ctaLaunchRef}>
+            <a href="/contact" className="btn-launch" ref={ctaLaunchRef}>
               Request Private Clusters ▶
             </a>
-            <a href="#" className="btn-outline-cta">
+            <a href="/contact" className="btn-outline-cta">
               Launch AI Instances →
             </a>
           </div>

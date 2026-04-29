@@ -214,13 +214,14 @@
   line-height: 1.05;
   color: var(--white);
   margin-bottom: 20px;
+  padding-top: 60px;
 }
 .pricing-page .hero-h1 .g { color: var(--green); }
 .pricing-page .hero-sub {
   font-size: 18px;
   color: rgba(200, 212, 200, 0.6);
   max-width: 540px;
-  margin: 0 auto 32px;
+  margin: 24px auto 32px;
   line-height: 1.6;
 }
 
@@ -472,7 +473,7 @@
   margin: 0 auto;
 }
 .pricing-page .price-card {
-  background: var(--surface2);
+  background: #000;
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 30px 26px;
@@ -488,22 +489,14 @@
 }
 .pricing-page .price-card.featured {
   border-color: rgba(45, 255, 122, 0.4);
-  background: linear-gradient(160deg, rgba(45, 255, 122, 0.07) 0%, var(--surface2) 55%);
+  background: linear-gradient(160deg, rgba(45, 255, 122, 0.05) 0%, #000 65%);
   animation: pricing-glow-pulse 3s ease-in-out infinite;
 }
-.pricing-page .price-card.featured::before {
-  content: 'MOST POPULAR';
-  position: absolute;
-  top: -1px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--green);
-  color: #060a06;
-  font-size: 9px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  padding: 3px 12px;
-  border-radius: 0 0 6px 6px;
+.pricing-page .price-card.selected-neon {
+  border-color: var(--green) !important;
+  box-shadow: 0 0 25px rgba(45, 255, 122, 0.4), inset 0 0 10px rgba(45, 255, 122, 0.1) !important;
+  transform: translateY(-8px) scale(1.02);
+  z-index: 10;
 }
 .pricing-page .beam {
   position: absolute;
@@ -541,9 +534,9 @@
   border: 1px solid rgba(45, 255, 122, 0.2);
 }
 .pricing-page .price-tier-badge.bare-metal {
-  background: rgba(77, 200, 255, 0.1);
+  background: #000;
   color: var(--blue);
-  border: 1px solid rgba(77, 200, 255, 0.2);
+  border: 1px solid rgba(77, 200, 255, 0.25);
 }
 .pricing-page .price-tier-badge .live-dot {
   width: 5px;
@@ -667,6 +660,7 @@
   flex-shrink: 0;
   margin-top: 1px;
 }
+
 .pricing-page .price-feature.custom-icon::before { content: '→'; color: var(--blue); }
 .pricing-page .price-sparkline {
   display: block;
@@ -697,14 +691,14 @@
 .pricing-page .calc-section { background: var(--surface); padding: 100px 80px; }
 .pricing-page .calc-grid {
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 64px;
   align-items: flex-start;
   max-width: 1200px;
   margin: 0 auto;
 }
 .pricing-page .calc-terminal {
-  background: var(--bg);
+  background: #000;
   border: 1px solid rgba(45, 255, 122, 0.2);
   border-radius: 14px;
   overflow: hidden;
@@ -784,7 +778,7 @@
 .pricing-page input[type=range]::-webkit-slider-runnable-track { height: 4px; border-radius: 2px; }
 
 .pricing-page .calc-result {
-  background: var(--surface);
+  background: #000;
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
@@ -844,7 +838,7 @@
 .pricing-page .calc-notes {
   margin-top: 16px;
   padding: 16px 20px;
-  background: var(--surface2);
+  background: #000;
   border: 1px solid var(--border);
   border-radius: 10px;
   font-size: 12px;
@@ -897,8 +891,8 @@
 }
 .pricing-page .tier-nodes {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
   position: relative;
 }
 .pricing-page .tier-node {
@@ -935,7 +929,7 @@
   border-color: rgba(45, 255, 122, 0.5);
 }
 .pricing-page .tier-card {
-  background: var(--surface2);
+  background: #000;
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 20px;
@@ -1089,7 +1083,7 @@
 }
 
 /* FAQ */
-.pricing-page .faq-section { background: var(--surface); padding: 100px 80px; }
+.pricing-page .faq-section { background: var(--bg); padding: 140px 80px; }
 .pricing-page .faq-grid {
   display: grid;
   grid-template-columns: 300px 1fr;
@@ -1105,14 +1099,24 @@
   color: var(--white);
   margin-top: 12px;
 }
-.pricing-page .faq-list { display: flex; flex-direction: column; gap: 0; }
-.pricing-page .faq-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+.pricing-page .faq-list { display: flex; flex-direction: column; gap: 12px; }
+.pricing-page .faq-item {
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.pricing-page .faq-item:hover {
+  border-color: rgba(45, 255, 122, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
 .pricing-page .faq-q {
   width: 100%;
   text-align: left;
   background: none;
   border: none;
-  padding: 20px 0;
+  padding: 24px 28px;
   font-size: 15px;
   font-weight: 600;
   color: var(--text);
@@ -1139,7 +1143,7 @@
   font-size: 14px;
   color: rgba(200, 212, 200, 0.65);
   line-height: 1.75;
-  padding-bottom: 20px;
+  padding: 0 28px 24px;
 }
 .pricing-page .faq-item.open .faq-a { max-height: 300px; }
 
@@ -1357,3 +1361,81 @@
   .pricing-page .hero-terminal-line { font-size: 14px; }
   .pricing-page .compare-title { font-size: 22px; }
 }
+
+/* ── PRICING IMAGE SYNC ── */
+.price-card {
+  text-align: left !important;
+  display: flex;
+  flex-direction: column;
+}
+
+.price-name {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.price-subtitle {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+.price-amount {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.price-amount small {
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.price-cta {
+  width: 100%;
+  justify-content: center;
+  background: linear-gradient(to right, #2a4858, #3b5f71) !important;
+  color: #fff !important;
+  border: none !important;
+  font-weight: 700 !important;
+  margin-bottom: 32px;
+}
+
+.price-card.featured .price-cta {
+  background: #fff !important;
+  color: #1a2a33 !important;
+}
+
+.price-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.price-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.check-icon {
+  width: 16px;
+  height: 16px;
+  color: #555;
+}
+
+.price-card.featured .check-icon {
+  color: #fff;
+}
+
+

@@ -209,6 +209,7 @@
   align-items: center;
   justify-content: center;
   gap: 6px;
+  padding-top: 60px;
 }
 .enterprise-page .cursor {
   animation: ent-blink 1s step-end infinite;
@@ -232,6 +233,7 @@
   letter-spacing: -1.5px;
   line-height: 1.05;
   margin-bottom: 20px;
+ 
 }
 .enterprise-page .hero-h1 .g {
   color: var(--green);
@@ -661,7 +663,7 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: var(--surface2);
+  background: #000;
   border: 1px solid rgba(45, 255, 122, 0.15);
   border-radius: 10px;
   padding: 14px 20px;
@@ -701,7 +703,7 @@
 
 /* audit terminal */
 .enterprise-page .audit-terminal {
-  background: #040804;
+  background: #000;
   border: 1px solid rgba(45, 255, 122, 0.2);
   border-radius: 14px;
   overflow: hidden;
@@ -711,7 +713,7 @@
   font-family: var(--font-mono);
   font-size: 11px;
   line-height: 1.9;
-  height: 420px;
+  height: 320px;
   overflow-y: auto;
 }
 .enterprise-page .audit-log-body::-webkit-scrollbar {
@@ -1224,6 +1226,9 @@
 }
 
 /* ── FAQ ── */
+.enterprise-page .faq-section {
+  padding: 140px 80px;
+}
 .enterprise-page .faq-grid {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -1245,15 +1250,24 @@
 .enterprise-page .faq-list {
   display: flex;
   flex-direction: column;
+  gap: 12px;
 }
 .enterprise-page .faq-item {
-  border-bottom: 1px solid var(--border);
+  background: #000;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.enterprise-page .faq-item:hover {
+  border-color: rgba(45, 255, 122, 0.2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 .enterprise-page .faq-q {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 22px 0;
+  padding: 24px 28px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 600;
@@ -1284,7 +1298,7 @@
 }
 .enterprise-page .faq-item.open .faq-a {
   max-height: 300px;
-  padding-bottom: 22px;
+  padding: 0 28px 24px;
 }
 
 /* ── CTA BANNER ── */
@@ -1554,4 +1568,56 @@
   .enterprise-page .hero-eyebrow h1 { font-size: clamp(28px, 8vw, 42px); }
   .enterprise-page .ent-card { padding: 24px 20px; }
   .enterprise-page .testi-card { padding: 24px 20px; }
+}
+/* Career Page Specifics */
+.enterprise-page .role-link:hover {
+  border-color: rgba(45, 255, 122, 0.3) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 0 30px rgba(45, 255, 122, 0.08);
+}
+.enterprise-page .role-link:hover .arrow-circle {
+  border-color: var(--green);
+  background: rgba(45, 255, 122, 0.05);
+  transform: rotate(-45deg);
+}
+
+.enterprise-page .role-link-advanced:hover {
+  border-color: rgba(45, 255, 122, 0.3) !important;
+  background: rgba(45, 255, 122, 0.02) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+.enterprise-page .role-link-advanced:hover .role-glow {
+  opacity: 1 !important;
+}
+.enterprise-page .role-link-advanced:hover .role-arrow-container {
+  border-color: var(--green) !important;
+  color: var(--green) !important;
+  background: rgba(45, 255, 122, 0.1) !important;
+  transform: translateX(4px);
+}
+
+.enterprise-page .console-card:hover {
+  border-color: rgba(45, 255, 122, 0.2) !important;
+  transform: translateY(-8px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+  background: linear-gradient(180deg, rgba(45,255,122,0.03) 0%, #000 100%) !important;
+}
+.enterprise-page .console-card:hover .console-cta {
+  background: rgba(45, 255, 122, 0.1) !important;
+  color: #fff !important;
+  box-shadow: 0 0 20px rgba(45, 255, 122, 0.1);
+}
+
+.enterprise-page .spec-card:hover {
+  border-color: rgba(45, 255, 122, 0.2) !important;
+  background: linear-gradient(90deg, #020502 0%, #080c08 100%) !important;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+.enterprise-page .spec-card:hover .spec-beam {
+  opacity: 1 !important;
+}
+.enterprise-page .spec-card:hover .spec-action {
+  color: var(--green) !important;
+  transform: translateX(6px);
 }

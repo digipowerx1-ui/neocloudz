@@ -28,7 +28,7 @@ const FAQS: ReadonlyArray<FaqItem> = [
 
 export default function EnterpriseFaq() {
   return (
-    <section className="hp-section mid" id="faq">
+    <section className="hp-section mid faq-section" id="faq">
       <div className="faq-grid" style={{ maxWidth: "1100px", margin: "0 auto" }}>
         <div className="faq-sidebar">
           <div

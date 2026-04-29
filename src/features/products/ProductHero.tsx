@@ -39,8 +39,7 @@ export default function ProductHero() {
           <span className="g">Delivered as a Service.</span>
         </h1>
         <p className="hero-sub" style={{ fontSize: "clamp(16px, 2.2vw, 20px)", color: "var(--text)", maxWidth: 680, margin: "0 auto 36px", lineHeight: 1.68 }}>
-          A purpose-built suite of GPU-powered products covering every stage of the
-          AI lifecycle — compute, storage, orchestration, and notebooks.
+         From single GPU instances to enterprise clusters — NeoCloudz gives you the performance and control you need to build the future of AI..
         </p>
         <div className="hero-ctas" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
           <Link href="/contact" className="btn btn-green btn-lg">

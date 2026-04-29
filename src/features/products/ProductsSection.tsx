@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ProductsSection() {
   return (
     <section className="products" id="products">
@@ -13,7 +15,6 @@ export default function ProductsSection() {
 
         <div className="products-grid">
           <div className="prod-card reveal reveal-delay-1" id="factory">
-            <div className="prod-icon-wrap">🏭</div>
             <div className="prod-name">AI Factory</div>
             <p className="prod-desc">
               Enterprise-grade LLM training and deployment. Build, fine-tune,
@@ -21,11 +22,10 @@ export default function ProductsSection() {
               infrastructure with full SLA guarantees and managed MLOps tooling
               already integrated.
             </p>
-            <a href="#" className="prod-link">Learn More →</a>
+            <Link href="/contact" className="prod-link">Contact Us →</Link>
           </div>
 
           <div className="prod-card reveal reveal-delay-2" id="gpu">
-            <div className="prod-icon-wrap">🎮</div>
             <div className="prod-name">GPU Service</div>
             <p className="prod-desc">
               On-demand NVIDIA Blackwell B200 GPUs. AI training, inference,
@@ -33,11 +33,10 @@ export default function ProductsSection() {
               256-node cluster — billed per second with no commitments
               or reservations required.
             </p>
-            <a href="#" className="prod-link">Learn More →</a>
+            <Link href="/contact" className="prod-link">Contact Us →</Link>
           </div>
 
           <div className="prod-card reveal reveal-delay-3" id="ml">
-            <div className="prod-icon-wrap">🤖</div>
             <div className="prod-name">ML Service</div>
             <p className="prod-desc">
               End-to-end managed ML services. From data prep to production —
@@ -45,7 +44,7 @@ export default function ProductsSection() {
               so your team can focus entirely on model development
               and business outcomes.
             </p>
-            <a href="#" className="prod-link">Learn More →</a>
+            <Link href="/contact" className="prod-link">Contact Us →</Link>
           </div>
         </div>
       </div>

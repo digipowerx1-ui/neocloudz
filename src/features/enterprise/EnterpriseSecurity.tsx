@@ -45,51 +45,24 @@ export default function EnterpriseSecurity() {
 
   return (
     <section ref={sectionRef} className="hp-section dark" id="security">
+      <div className="security-header" style={{ marginBottom: 60 }}>
+        <div className="hp-label reveal">Security &amp; Compliance</div>
+        <div className="hp-h2 reveal">
+          Enterprise-Grade Security.
+          <br />
+          <span className="g">Not An Afterthought.</span>
+        </div>
+        <p className="hp-sub reveal">
+          Every cluster ships with a comprehensive security posture — hardened OS
+          images, encrypted volumes, immutable audit logs, and continuous compliance
+          monitoring.
+        </p>
+      </div>
+
       <div className="security-grid">
         <div>
-          <div className="hp-label reveal">Security &amp; Compliance</div>
-          <div className="hp-h2 reveal">
-            Enterprise-Grade Security.
-            <br />
-            <span className="g">Not An Afterthought.</span>
-          </div>
-          <p className="hp-sub reveal" style={{ marginTop: "14px", marginBottom: 0 }}>
-            Every cluster ships with a comprehensive security posture — hardened OS
-            images, encrypted volumes, immutable audit logs, and continuous compliance
-            monitoring.
-          </p>
 
-          <div className="shield-wrap reveal">
-            <svg
-              className="shield-svg"
-              viewBox="0 0 100 120"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M50 5 L88 20 L88 63 Q88 93 50 115 Q12 93 12 63 L12 20 Z"
-                fill="rgba(45,255,122,0.06)"
-                stroke="rgba(45,255,122,0.5)"
-                strokeWidth="1.5"
-              />
-              <path
-                d="M34 60 L46 72 L68 46"
-                stroke="#2dff7a"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-              <circle
-                ref={ringRef}
-                className="shield-ring"
-                cx="50"
-                cy="62"
-                r="42"
-                stroke="rgba(45,255,122,0.15)"
-                strokeWidth="1.5"
-              />
-            </svg>
-          </div>
+
 
           <div className="compliance-badges">
             {COMPLIANCE_BADGES.map((badge) => (

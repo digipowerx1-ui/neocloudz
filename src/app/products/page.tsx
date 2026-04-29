@@ -153,7 +153,6 @@ export default function ProductsPage() {
                 >
                   {p.eyebrow}
                 </div>
-                <span className="sol-icon">{p.icon}</span>
                 <h3 className="sol-title">{p.name}</h3>
                 <ul className="sol-features">
                   {p.bullets.map((b, bi) => (
@@ -228,7 +227,6 @@ export default function ProductsPage() {
 
           <div className="sol-card reveal mt-16">
             <div className="sol-info">
-              <span className="sol-icon">🛰️</span>
               <p className="sol-desc">
                 NeoCloudz runs on the latest NVIDIA Blackwell and H200 platforms with
                 full InfiniBand fabric and NVMe storage — engineered end-to-end for

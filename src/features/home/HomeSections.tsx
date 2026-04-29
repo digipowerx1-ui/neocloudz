@@ -76,7 +76,7 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v">InfiniBand 400G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v g">On-Demand · Reserved</span></div>
           </div>
-          <a href="#" className="gpu-cat-cta">Deploy Now →</a>
+          <a href="/contact" className="gpu-cat-cta">Deploy Now →</a>
           <div className="beam" />
         </div>
 
@@ -92,7 +92,7 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v">InfiniBand NDR 400G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v b">Bare Metal · Dedicated</span></div>
           </div>
-          <a href="#" className="gpu-cat-cta">Request Cluster →</a>
+          <a href="/contact" className="gpu-cat-cta">Request Cluster →</a>
           <div className="beam" />
         </div>
 
@@ -111,7 +111,7 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v" style={{ color: "var(--muted)" }}>InfiniBand 800G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v" style={{ color: "var(--amber)" }}>Join Waitlist</span></div>
           </div>
-          <a href="#" className="gpu-cat-cta">Join Waitlist →</a>
+          <a href="/contact" className="gpu-cat-cta">Join Waitlist →</a>
         </div>
       </div>
     </section>
@@ -390,11 +390,12 @@ export function HomeRack() {
 }
 
 interface PriceCard {
+  tier: string;
   name: string;
-  sub: string;
   amount: string;
-  amountSize?: string;
   period: string;
+  quota: string;
+  desc: string;
   features: string[];
   cta: string;
   ctaVariant: "primary" | "outline";
@@ -403,57 +404,71 @@ interface PriceCard {
 
 const PRICE_CARDS: PriceCard[] = [
   {
-    name: "Enterprise",
-    sub: "Custom solutions for large teams",
-    amount: "$2,500",
-    period: "+/month",
+    tier: "STARTER",
+    name: "Pro Plus",
+    amount: "$0.99",
+    period: "/hr",
+    quota: "Up to 160 GPU hours/month",
+    desc: "Dual GPU access. Perfect for individual researchers and small experiments on Blackwell hardware.",
     features: [
-      "Dedicated infrastructure",
-      "Unlimited resources",
-      "24/7 support",
+      "On-demand NVIDIA B200 GPU",
+      "JupyterLab included",
+      "Community support forum",
+      "Pay-as-you-go billing",
     ],
-    cta: "Launch Instance ▶",
-    ctaVariant: "primary",
+    cta: "Get Started",
+    ctaVariant: "outline",
   },
   {
-    name: "Pro Plus",
-    sub: "Enhanced development tier",
-    amount: "$0.99",
-    period: "/hour",
+    tier: "POPULAR",
+    name: "Business",
+    amount: "$99",
+    period: "/mo",
+    quota: "500 GPU hours/month",
+    desc: "Multi-GPU clusters for growing teams. Priority queue access and dedicated storage included.",
     features: [
-      "Up to 160 GPU hours/month",
-      "Dual GPU support",
-      "Priority support",
+      "Priority queue access",
+      "Multi-GPU cluster support",
+      "Email support <4hr SLA",
+      "Dedicated storage volumes",
     ],
-    cta: "Launch Instance ▶",
+    cta: "Get Started",
     ctaVariant: "primary",
     featured: true,
   },
   {
-    name: "Business",
-    sub: "Growing business needs",
-    amount: "$99",
-    period: "/month",
+    tier: "POWER USER",
+    name: "Professional",
+    amount: "$31.92",
+    period: "/hr",
+    quota: "Unlimited GPU hours",
+    desc: "Multi-GPU with custom model hosting. SLA 99.9% and phone support for serious workloads.",
     features: [
-      "500 GPU hours/month",
-      "Multi-GPU clusters",
-      "Premium support",
+      "Custom model hosting",
+      "Multi-GPU configurations",
+      "Phone support",
+      "99.9% uptime SLA",
     ],
-    cta: "Launch Instance ▶",
-    ctaVariant: "primary",
+    cta: "Get Started",
+    ctaVariant: "outline",
   },
   {
-    name: "Professional",
-    sub: "For production environments",
-    amount: "$31.92",
-    period: "/month",
+    tier: "ENTERPRISE",
+    name: "Enterprise",
+    amount: "$2,500",
+    period: "+/mo",
+    quota: "Dedicated infrastructure",
+    desc: "Bare metal dedicated clusters with 24/7 white-glove support, custom SLA, and compliance certifications.",
     features: [
-      "Unlimited bandwidth",
-      "Multi-GPU clusters",
-      "Priority support",
+      "Dedicated bare metal servers",
+      "On-premise deployment options",
+      "24/7 dedicated support line",
+      "Dedicated account manager",
+      "Custom SLA negotiation",
+      "HIPAA / SOC2 compliance",
     ],
-    cta: "Launch Instance ▶",
-    ctaVariant: "primary",
+    cta: "Contact Sales",
+    ctaVariant: "outline",
   },
 ];
 
@@ -474,21 +489,23 @@ export function HomePricing() {
         hour or lock in savings with reserved instances.
       </p>
 
-      <div className="pricing-grid">
+      <div className="pricing-grid technical">
         {PRICE_CARDS.map((card, i) => (
           <div
             key={i}
-            className={`price-card${card.featured ? " featured" : ""}`}
+            className={`price-card technical${card.featured ? " featured" : ""}`}
           >
+            <div className="price-tier">{card.tier}</div>
             <div className="price-gpu-name">{card.name}</div>
-            <div className="price-gpu-sub">{card.sub}</div>
-            <div
-              className="price-amount"
-              style={card.amountSize ? { fontSize: card.amountSize } : undefined}
-            >
+            <div className="price-amount">
               {card.amount}
               <span className="price-amount-suffix">{card.period}</span>
             </div>
+            <div className="price-quota">{card.quota}</div>
+            <p className="price-desc">{card.desc}</p>
+            
+            <div className="price-divider"></div>
+
             <ul className="price-features">
               {card.features.map((f, fi) => (
                 <li className="price-feature" key={fi}>
@@ -496,7 +513,7 @@ export function HomePricing() {
                 </li>
               ))}
             </ul>
-            <a href="#" className={`price-btn ${card.ctaVariant}`}>
+            <a href="/contact" className={`price-btn-tech ${card.ctaVariant}`}>
               {card.cta}
             </a>
           </div>
@@ -802,10 +819,10 @@ export function HomeCta() {
         when you&#39;re ready. No sales calls required.
       </p>
       <div className="cta-row" style={{ position: "relative", zIndex: 2 }}>
-        <a href="https://neocloudz.com" className="btn-launch" ref={launchBtnRef}>
+        <a href="/contact" className="btn-launch" ref={launchBtnRef}>
           Launch AI Instances ▶
         </a>
-        <a href="https://neocloudz.com" className="btn-outline">
+        <a href="/contact" className="btn-outline">
           Talk to Sales →
         </a>
       </div>
@@ -880,7 +897,7 @@ export function HomeWorkloads() {
 
         <div className="workloads-stack">
           {WORKLOADS.map((w, idx) => (
-            <div key={w.id} className="workloads-container reveal">
+            <div key={w.id} id={w.id} className="workloads-container reveal">
               <div className={`workloads-visual ${idx % 2 !== 0 ? "order-2" : ""}`}>
                 {w.id === "training" ? (
                   <div className="tech-stack-diagram">
@@ -984,7 +1001,7 @@ export function HomeWorkloads() {
                   ))}
                 </ul>
 
-                <a href="#" className="btn-launch mt-8">
+                <a href="/contact" className="btn-launch mt-8">
                   {w.cta}
                 </a>
               </div>
@@ -996,46 +1013,46 @@ export function HomeWorkloads() {
   );
 }
 
-const FOOTER_COLS: FooterCol[] = [
+const FOOTER_COLS = [
   {
     title: "Products",
     items: [
-      { label: "B200 On-Demand" },
-      { label: "B300 On-Demand" },
-      { label: "GB200 Bare Metal" },
-      { label: "GB300 Bare Metal" },
-      { label: "WEKA Storage" },
-      { label: "Vera Rubin", badge: "SOON" },
+      { label: "B200 On-Demand", href: "/contact" },
+      { label: "B300 On-Demand", href: "/contact" },
+      { label: "GB200 Bare Metal", href: "/contact" },
+      { label: "GB300 Bare Metal", href: "/contact" },
+      { label: "WEKA Storage", href: "/contact" },
+      { label: "Vera Rubin", badge: "SOON", href: "/contact" },
     ],
   },
   {
     title: "Solutions",
     items: [
-      { label: "LLM Training" },
-      { label: "Inference at Scale" },
-      { label: "Fine-Tuning" },
-      { label: "Research Compute" },
-      { label: "Enterprise" },
+      { label: "LLM Training", href: "/contact" },
+      { label: "Inference at Scale", href: "/contact" },
+      { label: "Fine-Tuning", href: "/contact" },
+      { label: "Research Compute", href: "/contact" },
+      { label: "Enterprise", href: "/enterprise" },
     ],
   },
   {
     title: "Company",
     items: [
-      { label: "About" },
-      { label: "Blog" },
-      { label: "Careers", badge: "HIRING" },
-      { label: "Status" },
-      { label: "Contact" },
+      { label: "About", href: "/contact" },
+      { label: "Blog", href: "/contact" },
+      { label: "Careers", badge: "HIRING", href: "/career" },
+      { label: "Status", href: "/contact" },
+      { label: "Contact", href: "/contact" },
     ],
   },
   {
     title: "Resources",
     items: [
-      { label: "Documentation" },
-      { label: "API Reference" },
-      { label: "Benchmarks" },
-      { label: "Pricing Calculator" },
-      { label: "Support" },
+      { label: "Documentation", href: "/contact" },
+      { label: "API Reference", href: "/contact" },
+      { label: "Benchmarks", href: "#benchmarks" },
+      { label: "Pricing Calculator", href: "#pricing" },
+      { label: "Support", href: "/contact" },
     ],
   },
 ];
@@ -1075,10 +1092,10 @@ export function HomeFooter() {
             <ul>
               {col.items.map((it) => (
                 <li key={it.label}>
-                  <a href="#">
+                  <Link href={it.href || "#"}>
                     {it.label}{" "}
                     {it.badge ? <span className="badge-new">{it.badge}</span> : null}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

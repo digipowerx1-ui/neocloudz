@@ -96,22 +96,20 @@ export default function EnterpriseHero() {
         </div>
 
         <h1 className="hero-h1">
-          GPU Infrastructure.
+          Build, Deploy, and Scale Massive.
           <br />
-          <strong className="g">Enterprise Grade.</strong>
+          <strong className="g">GPU Clusters — On Demand.</strong>
         </h1>
 
         <p className="hero-sub">
-          Dedicated clusters. Private networking. SLA-backed uptime.
-          <br />
-          Built for teams that can&apos;t afford downtime.
+          Build, Deploy, and Scale Massive GPU Clusters — On Demand
         </p>
 
         <div className="hero-cta">
-          <a href="#demo" className="btn-launch">
+          <a href="/contact" className="btn-launch">
             Request a Demo →
           </a>
-          <a href="#" className="btn-outline">
+          <a href="/contact" className="btn-outline">
             Download Security Brief
           </a>
         </div>

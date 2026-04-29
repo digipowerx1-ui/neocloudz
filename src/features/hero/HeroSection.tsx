@@ -26,31 +26,31 @@ export default function HeroSection() {
         </div>
 
         <h1>
-          GPU Solutions. <span className="g">Built for AI.</span>
+          Built for Every Stage of the <span className="g">AI Lifecycle.</span>
         </h1>
 
         <p className="hero-sub">
-          From rapid prototyping to enterprise-scale LLM training &mdash;
-          NeoCloudz delivers NVIDIA Blackwell B200 infrastructure
-          with zero friction.
+          From training frontier models to real-time inference and large-scale
+          rendering — NeoCloudz delivers GPU infrastructure purpose-built for
+          modern AI and HPC workloads.
         </p>
 
-        <div className="hero-terminal">
+        {/* <div className="hero-terminal">
           <span className="term-prompt">neocloudz@b200 ~$&nbsp;</span>
           <span id="typing-text">{typingText}</span>
           <span className="term-cursor"></span>
-        </div>
+        </div> */}
 
         <div className="hero-ctas">
           <a href="#solutions" className="btn btn-green btn-lg">
-            Explore Solutions ↓
+            Request private clusters ↓
           </a>
           <a href="#pricing" className="btn btn-outline btn-lg">
-            View Pricing
+          Launch instances
           </a>
         </div>
 
-        <div className="hero-badges">
+        {/* <div className="hero-badges">
           <span className="badge">
             <span className="badge-icon">🚀</span>&nbsp;B200 Blackwell
           </span>
@@ -63,7 +63,7 @@ export default function HeroSection() {
           <span className="badge">
             <span className="badge-icon">🌿</span>&nbsp;&lt;1.3 PUE
           </span>
-        </div>
+        </div> */}
 
         <div className="hero-metrics">
           <div className="metric-item">

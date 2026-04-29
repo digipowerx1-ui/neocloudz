@@ -65,25 +65,29 @@ export default function SolutionsSection() {
 
         <div className="sol-card reveal mt-16" id="training">
           <div className="sol-info">
-            <span className="sol-icon">🧠</span>
             <h3 className="sol-title">AI Training at Scale</h3>
             <p className="sol-desc">
-              Harness the full power of NVIDIA Blackwell B200 GPUs connected via
-              InfiniBand 400G fabric for distributed training that actually scales.
-              Purpose-built clusters with Supermicro thermal-optimized hardware
-              and WEKA NVMe storage ensure your training runs hit peak throughput —
-              every time, at any node count.
+             Leverage high-performance NVIDIA Blackwell infrastructure with NVLink and InfiniBand networking to train large language models, vision transformers, and multimodal systems at scale.
+             NeoCloudz provides the compute power and I/O bandwidth required to accelerate time-to-results while maintaining cost efficiency. Future-ready for B300 and next-gen architectures.
             </p>
-            <ul className="sol-features">
-              <li>InfiniBand 400G-connected B200 GPU clusters for maximum
-                  all-reduce performance across 128+ nodes</li>
-              <li>Supermicro high-density server design with precision thermal
-                  management and liquid cooling</li>
-              <li>NVMe-backed WEKA storage enabling sub-second checkpoint
-                  saving and instant resumption</li>
-              <li>Auto-scaling multi-node clusters — from 1 to 128 nodes
-                  via a single API call with zero reconfiguration</li>
-            </ul>
+            <div className="sol-feature-boxes-minimal">
+              <div className="sol-f-group">
+                <h4>Ideal For:</h4>
+                <ul className="sol-f-list">
+                  <li>Foundation & frontier-scale model training</li>
+                  <li>Fine-tuning large pretrained models</li>
+                  <li>Distributed training using PyTorch DDP, DeepSpeed, or JAX</li>
+                </ul>
+              </div>
+              <div className="sol-f-group">
+                <h4>Highlights:</h4>
+                <ul className="sol-f-list">
+                  <li>Multi-node GPU clusters with high-speed interconnect</li>
+                  <li>Elastic scaling for multi-GPU experiments</li>
+                  <li>Built-in checkpointing and storage integration</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div className="sol-visual">
             <div className="term-window">
@@ -106,25 +110,29 @@ export default function SolutionsSection() {
 
         <div className="sol-card reverse reveal" id="inference">
           <div className="sol-info">
-            <span className="sol-icon">⚡</span>
             <h3 className="sol-title">Real-Time Inference</h3>
             <p className="sol-desc">
-              Sub-5ms p99 latency for production inference workloads.
-              Deploy your models on dedicated B200 GPU instances behind
-              NeoCloudz&rsquo;s Kubernetes-native serving layer —
-              complete with autoscaling, health checks, and real-time
-              monitoring dashboards built in from day one.
+              Deploy high-throughput inference endpoints powered by NVIDIA H200 GPUs.
+              Deliver real-time predictions for LLMs, vision, and multimodal applications — all while reducing latency and optimizing GPU utilization.
             </p>
-            <ul className="sol-features">
-              <li>&lt;5ms p99 end-to-end inference latency measured on live
-                  B200 hardware under production load</li>
-              <li>Kubernetes-ready deployment with pre-built Helm charts,
-                  device plugins, and HPA configs included</li>
-              <li>Real-time monitoring and alerting via integrated
-                  Prometheus + Grafana observability stack</li>
-              <li>Auto-scaling inference endpoints — scale to zero when idle,
-                  burst capacity available in under 60 seconds</li>
-            </ul>
+            <div className="sol-feature-boxes-minimal">
+              <div className="sol-f-group">
+                <h4>Ideal For:</h4>
+                <ul className="sol-f-list">
+                  <li>Chatbots, copilots, and generative assistants</li>
+                  <li>Model inference for NLP, CV, and speech</li>
+                  <li>Edge and production inference pipelines</li>
+                </ul>
+              </div>
+              <div className="sol-f-group">
+                <h4>Highlights:</h4>
+                <ul className="sol-f-list">
+                  <li>Optimized for TensorRT, Triton, and ONNX Runtime</li>
+                  <li>Auto-scaling infrastructure for dynamic workloads</li>
+                  <li>Optional managed Kubernetes for MLOps integration</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div className="sol-visual">
             <div className="latency-wrap">
@@ -133,27 +141,78 @@ export default function SolutionsSection() {
           </div>
         </div>
 
-        <div className="sol-card reveal" id="research">
+        <div className="sol-card reveal" id="rendering">
           <div className="sol-info">
-            <span className="sol-icon">🔬</span>
-            <h3 className="sol-title">Rapid Prototyping</h3>
+            <h3 className="sol-title">Rendering & Simulation</h3>
             <p className="sol-desc">
-              Go from idea to running experiment in under 60 seconds.
-              NeoCloudz JupyterLab environments come pre-configured with
-              PyTorch, TensorFlow, CUDA, and all major AI libraries —
-              no setup, no waiting, no DevOps overhead.
-              One-click clone to replicate environments across your team instantly.
+              Harness the same high-performance GPUs that power AI research to deliver ultra-fast rendering, 3D visualization, and simulation at scale. Perfect for studios, design firms, and research labs requiring compute-intensive graphics workflows.
             </p>
-            <ul className="sol-features">
-              <li>Instant JupyterLab environments on B200 GPUs with
-                  zero cold-start delay — login and start training immediately</li>
-              <li>Pre-configured PyTorch, TensorFlow, JAX, and
-                  HuggingFace Transformers environments included</li>
-              <li>Secure dataset ingestion via S3-compatible API with
-                  AES-256 encryption at rest and TLS 1.3 in transit</li>
-              <li>One-click environment cloning — share exact GPU
-                  compute environments with teammates in seconds</li>
-            </ul>
+            <div className="sol-feature-boxes-minimal">
+              <div className="sol-f-group">
+                <h4>Ideal For:</h4>
+                <ul className="sol-f-list">
+                  <li>3D rendering, VFX, and animation pipelines</li>
+                  <li>Scientific simulations and digital twins</li>
+                  <li>Industrial visualization and CAD workloads</li>
+                </ul>
+              </div>
+              <div className="sol-f-group">
+                <h4>Highlights:</h4>
+                <ul className="sol-f-list">
+                  <li>GPU-accelerated rendering engines (Blender, Unreal, Omniverse)</li>
+                  <li>Low-latency data transfer and storage caching</li>
+                  <li>Pay-as-you-go compute without infrastructure overhead</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div className="sol-visual">
+            <div className="term-window code-window">
+              <div className="term-bar">
+                <span className="term-dot term-dot-r"></span>
+                <span className="term-dot term-dot-y"></span>
+                <span className="term-dot term-dot-g"></span>
+                <span className="term-title">prototype.ipynb — JupyterLab / NeoCloudz B200</span>
+              </div>
+              <div className="term-body">
+                {CODE_LINES.map((cl, i) => (
+                  <span key={i} className="block">
+                    {cl.cls ? (
+                      <span className={cl.cls}>{cl.content}</span>
+                    ) : (
+                      <span>&nbsp;</span>
+                    )}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="sol-card reverse reveal" id="research">
+          <div className="sol-info">
+            <h3 className="sol-title">Research & Experimentation</h3>
+            <p className="sol-desc">
+              Empower Innovation with On-Demand GPU Labs. NeoCloudz makes it easy for researchers and educators to explore AI and data science projects without complex setup or infrastructure management. Launch isolated JupyterLab® environments with instant GPU access and pre-installed frameworks.
+            </p>
+            <div className="sol-feature-boxes-minimal">
+              <div className="sol-f-group">
+                <h4>Ideal For:</h4>
+                <ul className="sol-f-list">
+                  <li>Foundation & frontier-scale model training</li>
+                  <li>Fine-tuning large pretrained models</li>
+                  <li>Distributed training using PyTorch DDP, DeepSpeed, or JAX</li>
+                </ul>
+              </div>
+              <div className="sol-f-group">
+                <h4>Highlights:</h4>
+                <ul className="sol-f-list">
+                  <li>Multi-node GPU clusters with high-speed interconnect</li>
+                  <li>Elastic scaling for multi-GPU experiments</li>
+                  <li>Built-in checkpointing and storage integration</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div className="sol-visual">
             <div className="term-window code-window">

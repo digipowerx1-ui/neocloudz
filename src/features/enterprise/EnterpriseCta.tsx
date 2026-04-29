@@ -31,10 +31,10 @@ export default function EnterpriseCta() {
         infrastructure.
       </p>
       <div className="cta-row">
-        <a href="#demo" className="btn-launch">
+        <a href="/contact" className="btn-launch">
           Request Demo ▶
         </a>
-        <a href="#" className="btn-outline">
+        <a href="/contact" className="btn-outline">
           Talk to Sales →
         </a>
       </div>
