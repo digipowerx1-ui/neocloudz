@@ -147,7 +147,7 @@ export default function CareerPage() {
                     background: `rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.08)`, 
                     borderColor: `rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.2)` 
                   }}>
-                    {React.cloneElement(dept.icon as React.ReactElement, { color: dept.color })}
+                    {React.cloneElement(dept.icon as React.ReactElement<any>, { color: dept.color })}
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                     <span style={{ fontSize: "9px", fontFamily: "var(--font-mono)", color: "var(--muted)", letterSpacing: "0.2em", marginBottom: "4px" }}>SYSTEM STATUS</span>
