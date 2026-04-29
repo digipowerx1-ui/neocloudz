@@ -208,10 +208,10 @@
   50% { opacity: 0; }
 }
 .pricing-page .hero-h1 {
-  font-size: clamp(48px, 7vw, 100px);
+  font-size: clamp(32px, 4vw, 58px);
   font-weight: 800;
-  letter-spacing: -3px;
-  line-height: 0.95;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
   color: var(--white);
   margin-bottom: 20px;
 }

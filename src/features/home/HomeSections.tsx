@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   useDataflowCanvas,
   useHomeWaveCanvas,
@@ -158,6 +158,67 @@ export function HomeLogos() {
         ))}
       </div>
     </div>
+  );
+}
+
+export function HomePartners() {
+  return (
+    <section className="partners-section reveal">
+      <div className="section-inner">
+        <p className="partners-intro">
+          Engineered with the world&#39;s most advanced AI infrastructure partners.
+        </p>
+        <div className="partners-grid">
+          <div className="partner-card">
+            <div className="partner-logo-area">
+              <div className="partner-name nvidia">NVIDIA</div>
+            </div>
+            <p className="partner-desc">
+              Provides the state-of-the-art GPU architecture that is optimized for high-performance AI training and inference workloads.
+            </p>
+          </div>
+
+          <div className="partner-card">
+            <div className="partner-logo-area">
+              <div className="partner-name supermicro">SUPERMICRO</div>
+            </div>
+            <p className="partner-desc">
+              Delivers the high-density, server hardware platforms designed to support massive scale and compute-intensive applications.
+            </p>
+          </div>
+
+          <div className="partner-card">
+            <div className="partner-logo-area">
+              <div className="partner-name certac">
+                <div className="cert-badge">
+                  <span>FACILITY</span>
+                  <span style={{ fontSize: '9px' }}>RATED 3</span>
+                  <span>CERTAC</span>
+                </div>
+                <span>RATED 3 CERTAC</span>
+              </div>
+            </div>
+            <p className="partner-desc">
+              Certifies the data center facilities as Tier III, ensuring enterprise-grade reliability through redundant power and cooling systems.
+            </p>
+          </div>
+
+          <div className="partner-card">
+            <div className="partner-logo-area">
+              <div className="partner-name digipower">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--green)' }}>
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                </svg>
+                <span>DIGIPOWER X</span>
+              </div>
+            </div>
+            <p className="partner-desc">
+              Supplies energy-optimized power solutions to lower the carbon impact of the infrastructure, promoting sustainable operations.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 }
 
@@ -342,67 +403,57 @@ interface PriceCard {
 
 const PRICE_CARDS: PriceCard[] = [
   {
-    name: "NVIDIA B200",
-    sub: "192 GB HBM3e · On-Demand",
-    amount: "$28",
-    period: "per GPU · billed by the minute",
+    name: "Enterprise",
+    sub: "Custom solutions for large teams",
+    amount: "$2,500",
+    period: "+/month",
     features: [
-      "Full GPU isolation",
-      "InfiniBand 400G fabric",
-      "NVMe local scratch storage",
-      "SSH + Jupyter access",
-      "No minimum commitment",
+      "Dedicated infrastructure",
+      "Unlimited resources",
+      "24/7 support",
     ],
-    cta: "Deploy B200 →",
-    ctaVariant: "outline",
+    cta: "Launch Instance ▶",
+    ctaVariant: "primary",
   },
   {
-    name: "NVIDIA B300",
-    sub: "192 GB HBM3e · On-Demand",
-    amount: "$36",
-    period: "per GPU · billed by the minute",
+    name: "Pro Plus",
+    sub: "Enhanced development tier",
+    amount: "$0.99",
+    period: "/hour",
     features: [
-      "1.8 TB/s NVLink bandwidth",
-      "InfiniBand 400G fabric",
-      "WEKA storage integration",
-      "Full root bare-metal access",
-      "Priority support SLA",
+      "Up to 160 GPU hours/month",
+      "Dual GPU support",
+      "Priority support",
     ],
-    cta: "Deploy B300 →",
+    cta: "Launch Instance ▶",
     ctaVariant: "primary",
     featured: true,
   },
   {
-    name: "Grace Blackwell GB200",
-    sub: "NVL72 Rack · Bare Metal",
-    amount: "Custom",
-    amountSize: "28px",
-    period: "72-GPU rack · reserved",
+    name: "Business",
+    sub: "Growing business needs",
+    amount: "$99",
+    period: "/month",
     features: [
-      "Dedicated NVL72 rack",
-      "900 GB/s NVLink-C2C",
-      "13.8 TB unified memory",
-      "WEKA distributed storage",
-      "24/7 dedicated support",
+      "500 GPU hours/month",
+      "Multi-GPU clusters",
+      "Premium support",
     ],
-    cta: "Contact Sales →",
-    ctaVariant: "outline",
+    cta: "Launch Instance ▶",
+    ctaVariant: "primary",
   },
   {
-    name: "Grace Blackwell GB300",
-    sub: "NVL72 Rack · Bare Metal",
-    amount: "Custom",
-    amountSize: "28px",
-    period: "72-GPU rack · reserved",
+    name: "Professional",
+    sub: "For production environments",
+    amount: "$31.92",
+    period: "/month",
     features: [
-      "Next-gen NVL72 rack",
-      "Enhanced NVLink-C2C BW",
-      "HBM3e Pro memory",
-      "WEKA distributed storage",
-      "Dedicated infra engineer",
+      "Unlimited bandwidth",
+      "Multi-GPU clusters",
+      "Priority support",
     ],
-    cta: "Contact Sales →",
-    ctaVariant: "outline",
+    cta: "Launch Instance ▶",
+    ctaVariant: "primary",
   },
 ];
 
@@ -436,11 +487,8 @@ export function HomePricing() {
               style={card.amountSize ? { fontSize: card.amountSize } : undefined}
             >
               {card.amount}
-              {card.amount.startsWith("$") ? (
-                <span className="price-amount-suffix">/hr</span>
-              ) : null}
+              <span className="price-amount-suffix">{card.period}</span>
             </div>
-            <div className="price-period">{card.period}</div>
             <ul className="price-features">
               {card.features.map((f, fi) => (
                 <li className="price-feature" key={fi}>
@@ -461,28 +509,28 @@ export function HomePricing() {
 const WHY_ITEMS = [
   {
     icon: "⚡",
-    title: "Instant Provisioning",
-    desc: "Spin up a B200 or Grace Blackwell cluster in under 60 seconds. No ticketing, no wait lists, no procurement cycles — just compute, immediately.",
+    title: "Peak Performance",
+    desc: "NVIDIA GPU architectures optimized for AI training and inference.",
   },
   {
     icon: "🔒",
-    title: "True Bare Metal. No Hypervisor.",
-    desc: "Grace Blackwell clusters ship with full bare-metal access. No virtualization overhead, no noisy neighbors — your workloads get 100% of the hardware.",
+    title: "Enterprise Reliability",
+    desc: "Tier III U.S. data centers with redundant power and cooling.",
   },
   {
     icon: "📡",
-    title: "Ultra-Low Latency Fabric",
-    desc: "Every cluster connects via InfiniBand 400G with sub-microsecond MPI latency. NCCL all-reduce at line rate — critical for large-model distributed training.",
+    title: "Seamless Scaling",
+    desc: "Expand from a single instance to multi-rack clusters in seconds.",
   },
   {
     icon: "💾",
-    title: "WEKA Storage — Built In",
-    desc: "WEKA parallel filesystem delivers <10μs latency at full GPU bandwidth. No storage bottlenecks during training — checkpoints, datasets, and model weights move at wire speed.",
+    title: "Sustainable Power",
+    desc: "Energy-optimized systems from DigiPowerX for lower carbon impact.",
   },
   {
     icon: "📈",
-    title: "Scale From 1 GPU to 1,000",
-    desc: "Start with a single on-demand B200, grow to a full Grace Blackwell cluster without re-architecting your stack. Same API, same credentials, same team.",
+    title: "Transparent Access",
+    desc: "Simple pricing, clear usage insights, no hidden layers.",
   },
 ];
 
@@ -536,8 +584,8 @@ export function HomeWhy() {
     <section className="hp-section dark" id="why" ref={ref}>
       <div className="hp-label">Why NeoCloudz</div>
       <div className="hp-h2">
-        Built for Teams That<br />
-        <span className="g">Can&#39;t Afford to Wait.</span>
+        Purpose-Built for Performance<br />
+        <span className="g">Our GPU-as-a-Service platform delivers:</span>
       </div>
 
       <div className="why-grid">
@@ -768,6 +816,184 @@ export function HomeCta() {
 interface FooterCol {
   title: string;
   items: Array<{ label: string; badge?: string }>;
+}
+
+interface WorkloadTab {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  bullets: string[];
+  cta: string;
+}
+
+const WORKLOADS: WorkloadTab[] = [
+  {
+    id: "training",
+    title: "AI Training at Scale",
+    subtitle: "Infrastructure for massive foundation models.",
+    description: "Train foundation models or fine-tune LLMs on InfiniBand-connected Blackwell B200 GPUs — with Supermicro-optimized thermal design for sustained performance.",
+    bullets: [
+      "High-bandwidth InfiniBand networking",
+      "NVMe storage for checkpointing",
+      "Auto-scaling multi-node clusters",
+    ],
+    cta: "Launch Training Instance ▶",
+  },
+  {
+    id: "inference",
+    title: "Real-Time Inference",
+    subtitle: "Deploy models for production-grade serving.",
+    description: "Deploy low-latency, high-throughput AI services with enterprise SLAs, auto-scaling, and MLOps integration.",
+    bullets: [
+      "<5ms latency for production workloads",
+      "Kubernetes-ready GPU instances",
+      "Monitoring & alerting dashboards",
+    ],
+    cta: "Deploy Now ▶",
+  },
+  {
+    id: "prototyping",
+    title: "Rapid Prototyping",
+    subtitle: "R&D environment for AI engineering teams.",
+    description: "Launch isolated JupyterLab® environments with pre-installed AI frameworks, GPU access, and secure data connectors.",
+    bullets: [
+      "Pre-configured PyTorch/TensorFlow",
+      "Secure dataset ingestion",
+      "One-click environment cloning",
+    ],
+    cta: "Open Notebook ▶",
+  },
+];
+
+export function HomeWorkloads() {
+  return (
+    <section className="hp-section mid" id="workloads">
+      <div className="section-inner">
+        <div style={{ textAlign: "center", marginBottom: "80px" }}>
+          <h2 className="section-title">Optimized for Every AI and HPC Workload</h2>
+          <p className="section-sub" style={{ margin: "0 auto" }}>
+            From research labs to production AI, NeoCloudz delivers the right
+            infrastructure for your use case, out of the box.
+          </p>
+        </div>
+
+        <div className="workloads-stack">
+          {WORKLOADS.map((w, idx) => (
+            <div key={w.id} className="workloads-container reveal">
+              <div className={`workloads-visual ${idx % 2 !== 0 ? "order-2" : ""}`}>
+                {w.id === "training" ? (
+                  <div className="tech-stack-diagram">
+                    <div className="stack-row">
+                      <span className="stack-label">Inference</span>
+                      <div className="stack-items">
+                        <span className="s-item highlight">NeoCloudz</span>
+                        <span className="s-item">Llama</span>
+                        <span className="s-item">S.</span>
+                        <span className="s-item dark">NVIDIA NIM</span>
+                      </div>
+                    </div>
+                    <div className="stack-row">
+                      <span className="stack-label">Orchestration</span>
+                      <div className="stack-items">
+                        <span className="s-item dark">SkyPilot</span>
+                        <span className="s-item dark">MLflow</span>
+                      </div>
+                    </div>
+                    <div className="stack-row">
+                      <span className="stack-label">IaaS</span>
+                      <div className="stack-items">
+                        <span className="s-item">VMs</span>
+                        <span className="s-item">Containers</span>
+                        <span className="s-item">Managed K8s</span>
+                        <span className="s-item">Shared FS</span>
+                        <span className="s-item highlight">WEKA</span>
+                      </div>
+                    </div>
+                    <div className="stack-row">
+                      <span className="stack-label">Hardware</span>
+                      <div className="stack-items">
+                        <span className="s-item dark">B300 NVL72</span>
+                        <span className="s-item dark">GB200 NVL72</span>
+                        <span className="s-item dark">HGX H200</span>
+                      </div>
+                    </div>
+                    <div className="stack-sidebar">
+                      <span className="side-item">API</span>
+                      <span className="side-item">IAM</span>
+                      <span className="side-item">Auto-healing</span>
+                    </div>
+                  </div>
+                ) : w.id === "inference" ? (
+                  <div className="inference-visual">
+                    <div className="inf-box">
+                      <div className="inf-title">MANAGED ML INFRASTRUCTURE</div>
+                      <div className="inf-nodes">
+                        <div className="inf-node">GPU</div>
+                        <div className="inf-node">GPU</div>
+                        <div className="inf-node">GPU</div>
+                      </div>
+                    </div>
+                    <div className="inf-pipe">
+                      <div className="inf-pipe-label">OPEN RUNTIME FOUNDATION</div>
+                    </div>
+                    <div className="inf-rel">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                      </svg>
+                      <div style={{ fontSize: '10px', marginTop: '5px' }}>PRODUCTION RELIABILITY</div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="prototype-visual">
+                    <div className="proto-dashboard">
+                      <div className="proto-header">
+                        <div className="proto-dot" />
+                        <span style={{ fontSize: '10px', color: 'var(--muted)' }}>jupyter-lab-01</span>
+                      </div>
+                      <div className="proto-grid">
+                        {[1, 2, 3, 4].map(n => (
+                          <div key={n} className="proto-gauge">
+                            <div className="gauge-arc" />
+                            <div className="gauge-val">{20 + n * 15}%</div>
+                          </div>
+                        ))}
+                      </div>
+                      <div className="proto-spark">
+                        <svg width="100%" height="40" viewBox="0 0 100 40" preserveAspectRatio="none">
+                          <path d="M0,30 Q10,10 20,25 T40,15 T60,35 T80,10 T100,20" fill="none" stroke="var(--green)" strokeWidth="1" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <div className={`workloads-content ${idx % 2 !== 0 ? "order-1" : ""}`}>
+                <h3 className="workload-title">{w.title}</h3>
+                <p className="workload-desc">{w.description}</p>
+
+                <ul className="workload-bullets">
+                  {w.bullets.map((b, i) => (
+                    <li key={i}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: "10px", flexShrink: 0 }}>
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+
+                <a href="#" className="btn-launch mt-8">
+                  {w.cta}
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
 
 const FOOTER_COLS: FooterCol[] = [

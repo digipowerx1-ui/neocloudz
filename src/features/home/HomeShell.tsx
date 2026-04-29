@@ -10,11 +10,13 @@ import {
   HomeGpuCatalog,
   HomeLogos,
   HomeNvlink,
+  HomePartners,
   HomePricing,
   HomeRack,
   HomeStorage,
   HomeTicker,
   HomeWhy,
+  HomeWorkloads,
 } from "./HomeSections";
 
 export function HomeShell() {
@@ -29,7 +31,11 @@ export function HomeShell() {
     <div className="home-page" ref={rootRef}>
       <div className="home-scroll-bar" ref={scrollBarRef} />
       <HomeHero />
+      <HomePartners />
       <HomeTicker />
+      <HomeWhy />
+       <HomePricing />
+      <HomeWorkloads />
       <HomeGpuCatalog />
       <div className="section-divider" />
       <HomeNvlink />
@@ -38,8 +44,7 @@ export function HomeShell() {
       <HomeBenchmark />
       <HomeRack />
       <div className="anim-divider" />
-      <HomePricing />
-      <HomeWhy />
+    
       <HomeStorage />
       <HomeFaq />
       <HomeCta />

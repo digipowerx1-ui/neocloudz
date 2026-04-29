@@ -91,7 +91,7 @@ export function useScrollReveal(rootRef: RefObject<HTMLElement | null>) {
     const root = rootRef.current;
     if (!root) return;
     const sel =
-      ".gpu-cat-card,.price-card,.why-item,.sf-item,.stat-card,.faq-item,.hp-label,.nvlink-section,.logos-section,.storage-grid,.why-grid";
+      ".gpu-cat-card,.price-card,.why-item,.sf-item,.stat-card,.faq-item,.hp-label,.nvlink-section,.logos-section,.partners-section,.workloads-container,.storage-grid,.why-grid";
     const targets = Array.from(root.querySelectorAll<HTMLElement>(sel));
     targets.forEach((el) => el.classList.add("reveal"));
     const obs = new IntersectionObserver(

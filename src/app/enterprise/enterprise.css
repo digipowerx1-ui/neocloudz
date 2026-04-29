@@ -226,11 +226,11 @@
 }
 
 .enterprise-page .hero-h1 {
-  font-size: clamp(38px, 5.5vw, 76px);
+  font-size: clamp(32px, 4vw, 58px);
   font-weight: 800;
   color: var(--white);
-  letter-spacing: -2px;
-  line-height: 1.03;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
   margin-bottom: 20px;
 }
 .enterprise-page .hero-h1 .g {

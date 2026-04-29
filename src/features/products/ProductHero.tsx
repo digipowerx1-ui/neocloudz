@@ -34,7 +34,7 @@ export default function ProductHero() {
           <span className="hero-tag-dot"></span>
           Products
         </div>
-        <h1 style={{ fontSize: "clamp(46px, 7.5vw, 84px)", lineHeight: 1.04, letterSpacing: "-2.5px", marginBottom: 24 }}>
+        <h1 style={{ fontSize: "clamp(32px, 4vw, 58px)", lineHeight: 1.05, letterSpacing: "-1.5px", marginBottom: 24 }}>
           Next-Generation AI Infrastructure,{" "}
           <span className="g">Delivered as a Service.</span>
         </h1>

@@ -144,8 +144,7 @@ export function HomeHero() {
             <span>Compute Starts Here.</span>
           </h1>
           <p>
-            Private GPU clusters. Instant access. Zero friction. Monitor your entire
-            cluster in real time.
+            Powerful cloud infrastructure designed for AI teams. Scale your models, reduce costs, and accelerate innovation.
           </p>
         </div>
 
