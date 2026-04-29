@@ -1505,3 +1505,26 @@
     font-size: clamp(24px, 7vw, 36px);
   }
 }
+/* ============================================================
+   MOBILE RESPONSIVENESS OVERRIDES
+   ============================================================ */
+@media (max-width: 1024px) {
+  .contact-page .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .contact-page .hero-glow {
+    max-width: 100vw;
+  }
+  .contact-page .global-map {
+    max-width: 100vw;
+    width: 100%;
+    overflow: hidden;
+  }
+  .contact-page [style*="width: 800px"] {
+    max-width: 100%;
+    width: 100% !important;
+  }
+}

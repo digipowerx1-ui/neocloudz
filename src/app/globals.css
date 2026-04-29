@@ -1780,3 +1780,26 @@ footer {
   box-shadow: 0 0 10px #2dff7a;
   display: block !important;
 }
+/* ============================================================
+   MOBILE RESPONSIVENESS OVERRIDES
+   ============================================================ */
+@media (max-width: 1024px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+}
+@media (max-width: 768px) {
+  html, body {
+    overflow-x: hidden !important;
+    width: 100%;
+  }
+  .page-container {
+    padding: 0 16px !important;
+    overflow-x: hidden;
+  }
+  img, canvas, video, svg {
+    max-width: 100%;
+    height: auto;
+  }
+}

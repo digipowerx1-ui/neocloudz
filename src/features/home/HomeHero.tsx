@@ -42,7 +42,7 @@ function GpuGridNode({ g }: { g: GpuNode }) {
       <div className="gpu-tooltip">
         <div className="tt-row">
           <span className="tt-key">GPU</span>
-          <span className="tt-val">H100 SXM5 #{g.id}</span>
+          <span className="tt-val">Blackwell B200 #{g.id}</span>
         </div>
         <div className="tt-row">
           <span className="tt-key">Util</span>
@@ -52,7 +52,7 @@ function GpuGridNode({ g }: { g: GpuNode }) {
         </div>
         <div className="tt-row">
           <span className="tt-key">VRAM</span>
-          <span className="tt-val">{g.vram} GB / 80 GB</span>
+          <span className="tt-val">{g.vram} GB / 180 GB</span>
         </div>
         <div className="tt-row">
           <span className="tt-key">Power</span>
@@ -167,7 +167,7 @@ export function HomeHero() {
           <div className="terminal-body">
             <div className="cluster-panel">
               <div className="panel-header">
-                <div className="panel-label">▸ GPU CLUSTER · 64 NODES · H100 SXM5</div>
+                <div className="panel-label">▸ GPU CLUSTER · 64 NODES · BLACKWELL B200</div>
                 <div className="cluster-stats">
                   <span className="cstat">
                     <span className="cstat-val">{metrics.active}</span>
@@ -199,7 +199,7 @@ export function HomeHero() {
                 <div className="metric-box">
                   <div className="metric-key">VRAM Used</div>
                   <div className="metric-val amber">{metrics.avgVram}%</div>
-                  <div className="metric-sub">61.5 / 80 GB avg</div>
+                  <div className="metric-sub">132 / 180 GB avg</div>
                 </div>
                 <div className="metric-box">
                   <div className="metric-key">Power Draw</div>
@@ -343,7 +343,7 @@ export function HomeHero() {
                 color: "var(--muted)",
               }}
             >
-              64× H100 SXM5 · NVLink 4.0 · InfiniBand 400G · NeoCloudz
+              64× BLACKWELL B200 · NVLink 4.0 · InfiniBand 400G · NeoCloudz
             </div>
           </div>
         </div>

@@ -322,3 +322,26 @@
 @media (max-width: 480px) {
   .site-footer .site-footer-top { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   MOBILE RESPONSIVENESS OVERRIDES
+   ============================================================ */
+@media (max-width: 1024px) {
+  .site-header {
+    padding: 0 20px;
+  }
+}
+@media (max-width: 768px) {
+  .site-nav-links {
+    display: none !important;
+  }
+  .site-nav-cta {
+    display: none !important;
+  }
+  .site-nav-toggle {
+    display: flex !important;
+  }
+  .site-header {
+    padding: 0 16px;
+  }
+}

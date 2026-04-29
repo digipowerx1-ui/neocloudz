@@ -1,75 +1,6 @@
-const TIERS = [
-  {
-    tier: "Starter",
-    name: "Pro Plus",
-    amount: "$0.99",
-    period: "/hr",
-    quota: "Up to 160 GPU hours/month",
-    desc: "Dual GPU access. Perfect for individual researchers and small experiments on Blackwell hardware.",
-    features: [
-      "On-demand NVIDIA B200 GPU",
-      "JupyterLab included",
-      "Community support forum",
-      "Pay-as-you-go billing",
-    ],
-    cta: "Get Started",
-    ctaVariant: "outline" as const,
-    featured: false,
-  },
-  {
-    tier: "Popular",
-    name: "Business",
-    amount: "$99",
-    period: "/mo",
-    quota: "500 GPU hours/month",
-    desc: "Multi-GPU clusters for growing teams. Priority queue access and dedicated storage included.",
-    features: [
-      "Priority queue access",
-      "Multi-GPU cluster support",
-      "Email support <4hr SLA",
-      "Dedicated storage volumes",
-    ],
-    cta: "Get Started",
-    ctaVariant: "green" as const,
-    featured: true,
-  },
-  {
-    tier: "Power User",
-    name: "Professional",
-    amount: "$31.92",
-    period: "/hr",
-    quota: "Unlimited GPU hours",
-    desc: "Multi-GPU with custom model hosting. SLA 99.9% and phone support for serious workloads.",
-    features: [
-      "Custom model hosting",
-      "Multi-GPU configurations",
-      "Phone support",
-      "99.9% uptime SLA",
-    ],
-    cta: "Get Started",
-    ctaVariant: "outline" as const,
-    featured: false,
-  },
-  {
-    tier: "Enterprise",
-    name: "Enterprise",
-    amount: "$2,500",
-    period: "+/mo",
-    quota: "Dedicated infrastructure",
-    desc: "Bare metal dedicated clusters with 24/7 white-glove support, custom SLA, and compliance certifications.",
-    features: [
-      "Dedicated bare metal servers",
-      "On-premise deployment options",
-      "24/7 dedicated support line",
-      "Dedicated account manager",
-      "Custom SLA negotiation",
-      "HIPAA / SOC2 compliance",
-    ],
-    cta: "Contact Sales",
-    ctaVariant: "outline" as const,
-    featured: false,
-  },
-];
+import { HOME_PRICING_TIERS } from "@/lib/pricing-data";
+
+const TIERS = HOME_PRICING_TIERS;
 
 export default function PricingSection() {
   return (
@@ -106,7 +37,7 @@ export default function PricingSection() {
                 ))}
               </ul>
               <a
-                href="#"
+                href="/contact"
                 className={`btn price-cta btn-${t.ctaVariant}`}
               >
                 {t.cta}

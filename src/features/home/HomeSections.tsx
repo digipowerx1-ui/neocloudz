@@ -19,18 +19,9 @@ import {
 } from "./effects";
 import { useRackSlots } from "./useRackSlots";
 
-const TICKER_ITEMS: Array<[string, string]> = [
-  ["NVIDIA B200", "On-Demand"],
-  ["Grace Blackwell GB200", "Bare Metal"],
-  ["WEKA Storage", "<10μs Latency"],
-  ["InfiniBand 400G", "Fabric"],
-  ["NVLink 4.0", "900 GB/s"],
-  ["99.99%", "Uptime SLA"],
-  ["Vera Rubin", "Coming 2025"],
-  ["B300", "On-Demand"],
-  ["Grace Blackwell GB300", "Bare Metal"],
-  ["Instant Provisioning", "<60s"],
-];
+import { HOME_PRICING_TIERS, PRICING_TICKER_ITEMS } from "@/lib/pricing-data";
+
+const TICKER_ITEMS = PRICING_TICKER_ITEMS;
 
 export function HomeTicker() {
   const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
@@ -69,7 +60,7 @@ export function HomeGpuCatalog() {
           <div className="gpu-cat-name">Blackwell</div>
           <div className="gpu-cat-series">NVIDIA B200 &amp; B300 · On-Demand &amp; Reserved</div>
           <div className="gpu-cat-specs">
-            <div className="spec-line"><span className="spec-k">GPU Memory</span><span className="spec-v g">192 GB HBM3e</span></div>
+            <div className="spec-line"><span className="spec-k">GPU Memory</span><span className="spec-v">180 GB SXM</span></div>
             <div className="spec-line"><span className="spec-k">FP8 Tensor</span><span className="spec-v">9 PetaFLOPs / GPU</span></div>
             <div className="spec-line"><span className="spec-k">NVLink BW</span><span className="spec-v">1.8 TB/s (B300)</span></div>
             <div className="spec-line"><span className="spec-k">Max Cluster</span><span className="spec-v">512 GPUs</span></div>
@@ -389,88 +380,9 @@ export function HomeRack() {
   );
 }
 
-interface PriceCard {
-  tier: string;
-  name: string;
-  amount: string;
-  period: string;
-  quota: string;
-  desc: string;
-  features: string[];
-  cta: string;
-  ctaVariant: "primary" | "outline";
-  featured?: boolean;
-}
+import { HOME_PRICING_TIERS } from "@/lib/pricing-data";
 
-const PRICE_CARDS: PriceCard[] = [
-  {
-    tier: "STARTER",
-    name: "Pro Plus",
-    amount: "$0.99",
-    period: "/hr",
-    quota: "Up to 160 GPU hours/month",
-    desc: "Dual GPU access. Perfect for individual researchers and small experiments on Blackwell hardware.",
-    features: [
-      "On-demand NVIDIA B200 GPU",
-      "JupyterLab included",
-      "Community support forum",
-      "Pay-as-you-go billing",
-    ],
-    cta: "Get Started",
-    ctaVariant: "outline",
-  },
-  {
-    tier: "POPULAR",
-    name: "Business",
-    amount: "$99",
-    period: "/mo",
-    quota: "500 GPU hours/month",
-    desc: "Multi-GPU clusters for growing teams. Priority queue access and dedicated storage included.",
-    features: [
-      "Priority queue access",
-      "Multi-GPU cluster support",
-      "Email support <4hr SLA",
-      "Dedicated storage volumes",
-    ],
-    cta: "Get Started",
-    ctaVariant: "primary",
-    featured: true,
-  },
-  {
-    tier: "POWER USER",
-    name: "Professional",
-    amount: "$31.92",
-    period: "/hr",
-    quota: "Unlimited GPU hours",
-    desc: "Multi-GPU with custom model hosting. SLA 99.9% and phone support for serious workloads.",
-    features: [
-      "Custom model hosting",
-      "Multi-GPU configurations",
-      "Phone support",
-      "99.9% uptime SLA",
-    ],
-    cta: "Get Started",
-    ctaVariant: "outline",
-  },
-  {
-    tier: "ENTERPRISE",
-    name: "Enterprise",
-    amount: "$2,500",
-    period: "+/mo",
-    quota: "Dedicated infrastructure",
-    desc: "Bare metal dedicated clusters with 24/7 white-glove support, custom SLA, and compliance certifications.",
-    features: [
-      "Dedicated bare metal servers",
-      "On-premise deployment options",
-      "24/7 dedicated support line",
-      "Dedicated account manager",
-      "Custom SLA negotiation",
-      "HIPAA / SOC2 compliance",
-    ],
-    cta: "Contact Sales",
-    ctaVariant: "outline",
-  },
-];
+const PRICE_CARDS = HOME_PRICING_TIERS;
 
 export function HomePricing() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -759,7 +671,7 @@ const FAQS = [
   },
   {
     q: "Is there a free trial?",
-    a: "New accounts receive $500 in free credits upon verification — enough to run a B200 instance for approximately 18 hours. No credit card required to sign up. Credits expire 30 days after account creation.",
+    a: "New accounts receive $500 in free credits upon verification — enough to run a B200 instance for approximately 125 hours. No credit card required to sign up. Credits expire 30 days after account creation.",
   },
 ];
 

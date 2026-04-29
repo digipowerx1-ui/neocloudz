@@ -1439,3 +1439,26 @@
 }
 
 
+
+/* ============================================================
+   MOBILE RESPONSIVENESS OVERRIDES
+   ============================================================ */
+@media (max-width: 1024px) {
+  .pricing-page .pricing-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 768px) {
+  .pricing-page .pricing-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pricing-page .tier-nodes {
+    grid-template-columns: 1fr !important;
+  }
+  .pricing-page .calc-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .pricing-page .faq-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

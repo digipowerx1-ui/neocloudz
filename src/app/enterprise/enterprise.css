@@ -1621,3 +1621,49 @@
   color: var(--green) !important;
   transform: translateX(6px);
 }
+
+/* ============================================================
+   MOBILE RESPONSIVENESS OVERRIDES
+   ============================================================ */
+@media (max-width: 1024px) {
+  .enterprise-page .hero-aurora,
+  .enterprise-page .hero-glow {
+    max-width: 100vw;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .enterprise-page .stat-badge {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    margin: 10px auto;
+    width: fit-content;
+    transform: none !important;
+  }
+  .enterprise-page .hero-cta {
+    flex-direction: column;
+    padding: 0 20px;
+    width: 100%;
+  }
+  .enterprise-page .btn-launch, 
+  .enterprise-page .btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+  .enterprise-page .feature-grid,
+  .enterprise-page .security-grid,
+  .enterprise-page .trust-metrics {
+    grid-template-columns: 1fr !important;
+  }
+  .enterprise-page .trust-badge {
+    max-width: 100%;
+  }
+  .enterprise-page .faq-item {
+    padding: 16px;
+  }
+}

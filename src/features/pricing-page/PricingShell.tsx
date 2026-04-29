@@ -19,6 +19,13 @@ import {
   usePricingTyping,
   usePricingWaveCanvas,
 } from "./hooks";
+import {
+  PRICING_CARDS,
+  PRICING_TICKER_ITEMS,
+  GPU_RATES,
+  GPU_LABELS,
+  COMPETITOR_MULT,
+} from "@/lib/pricing-data";
 
 /* ── Plan Toggle + Cards ── */
 type Plan = "ondemand" | "reserved";
@@ -44,127 +51,29 @@ interface CardData {
   featured?: boolean;
 }
 
-const CARDS: CardData[] = [
-  {
-    badge: "AVAILABLE NOW",
-    badgeClass: "on-demand",
-    name: "Blackwell B200 – Single Node",
-    sub: "For developers, startups, fine-tuning",
-    onPrice: 28,
-    resPrice: 22,
-    resSavingsPct: 21,
-    demandPct: 72,
-    demandLabel: "HIGH",
-    demandClass: "high",
-    features: [
-      { text: "GPU: 1× NVIDIA Blackwell B200 (180GB SXM)" },
-      { text: "CPU: Intel Emerald Rapids · vCPU: 16" },
-      { text: "RAM: 224 GB DDR5" },
-      { text: "Network: 3.2 Tbit/s InfiniBand" },
-      { text: "Storage: NVMe (optional add-on)" },
-    ],
-    cta: "Launch Instance →",
-    ctaClass: "outline",
-  },
-  {
-    badge: "AVAILABLE NOW",
-    badgeClass: "on-demand",
-    name: "Blackwell B200 – 8-GPU Cluster",
-    sub: "8× B200 · Full fabric · Managed orchestration",
-    onPrice: 224,
-    resPrice: 175,
-    resSavingsPct: 22,
-    demandPct: 85,
-    demandLabel: "VERY HIGH",
-    demandLabelColor: "var(--red)",
-    demandClass: "high",
-    features: [
-      { text: "GPU: 8× NVIDIA Blackwell B200 (1.4 TB total)" },
-      { text: "CPU: Intel Emerald Rapids · vCPU: 128" },
-      { text: "RAM: 1.7 TB DDR5" },
-      { text: "Network: 3.2 Tbit/s InfiniBand (full fabric)" },
-      { text: "Storage: Managed Kubernetes or Slurm" },
-    ],
-    cta: "Deploy Cluster →",
-    ctaClass: "primary",
-    featured: true,
-  },
-  {
-    badge: "VOLUME PRICING",
-    badgeClass: "bare-metal",
-    name: "B200 Reserved Volume",
-    sub: "1–100+ GPUs · 3–12 month terms · Dedicated capacity",
-    onPrice: null,
-    resPrice: null,
-    customSavingsTag: { text: "→ Up to 40% off on-demand", color: "blue" },
-    demandPct: 58,
-    demandLabel: "MEDIUM",
-    demandClass: "medium",
-    features: [
-      { text: "GPU: 1–100+ NVIDIA Blackwell B200", custom: true },
-      { text: "Term: 3–12 months", custom: true },
-      { text: "Savings: Up to 40% off on-demand rate", custom: true },
-      { text: "Includes: Dedicated capacity, SLA, priority support", custom: true },
-      { text: "Ideal for ongoing training and deployment", custom: true },
-    ],
-    cta: "Talk to Sales →",
-    ctaClass: "blue-outline",
-  },
-  {
-    badge: "AVAILABLE NOW",
-    badgeClass: "on-demand",
-    name: "Fractional B200 GPU",
-    sub: "1/4 or 1/2 GPU · Shared node · Isolated container",
-    onPrice: 7,
-    resPrice: 5,
-    resSavingsPct: 29,
-    demandPct: 44,
-    demandLabel: "MEDIUM",
-    demandClass: "medium",
-    features: [
-      { text: "1/4 or 1/2 of NVIDIA Blackwell B200 GPU" },
-      { text: "Shared node with isolated container environment" },
-      { text: "NVMe storage included (optional add-on)" },
-      { text: "Ideal for prototyping and experimentation" },
-      { text: "No minimum commitment" },
-    ],
-    cta: "Launch Instance →",
-    ctaClass: "outline",
-  },
-  {
-    badge: "PRE-REGISTER",
-    badgeClass: "bare-metal",
-    name: "Blackwell B300 – Coming Q1 2026",
-    sub: "Next-gen AI workloads · Ultra-high bandwidth",
-    onPrice: null,
-    resPrice: null,
-    customSavingsTag: { text: "✦ Pre-register for early access", color: "amber" },
-    demandPct: 91,
-    demandLabel: "VERY HIGH",
-    demandLabelColor: "var(--red)",
-    demandClass: "high",
-    features: [
-      { text: "GPU: Next-gen NVIDIA Blackwell B300 (TBD)", custom: true },
-      { text: "Memory: Ultra-high bandwidth", custom: true },
-      { text: "Network: 6.4 Tbit/s InfiniBand (expected)", custom: true },
-      { text: "Enhanced NVLink-C2C bandwidth", custom: true },
-      { text: "HBM3e Pro memory technology", custom: true },
-    ],
-    cta: "Get Early Access →",
-    ctaClass: "blue-outline",
-  },
-];
+const CARDS: CardData[] = PRICING_CARDS.map((pc) => ({
+  badge: pc.badge,
+  badgeClass: pc.badgeClass === "pre-register" ? "bare-metal" as const : pc.badgeClass,
+  name: pc.name,
+  sub: pc.sub,
+  onPrice: pc.onDemandRate,
+  resPrice: pc.reservedRate,
+  resSavingsPct: pc.reservedSavingsPct,
+  demandPct: pc.demandPct,
+  demandLabel: pc.demandLabel,
+  demandLabelColor: pc.demandLabelColor,
+  demandClass: pc.demandClass,
+  features: pc.specs.map((s) => ({
+    text: `${s.label}: ${s.value}`,
+    custom: pc.onDemandRate === null ? true : undefined,
+  })),
+  cta: `${pc.cta} →`,
+  ctaClass: pc.ctaClass,
+  featured: pc.featured,
+  customSavingsTag: pc.customSavingsTag,
+}));
 
-const TICKER_ITEMS: Array<[string, string]> = [
-  ["Blackwell B200", "$28/hr Single Node"],
-  ["Blackwell B200 Cluster", "$224/hr 8× GPU"],
-  ["Fractional GPU", "$7/hr 1/4 or 1/2"],
-  ["Volume Pricing", "Up to 40% off"],
-  ["No Egress Fees", "$0 always"],
-  ["InfiniBand 3.2 Tbit/s", "Every Node"],
-  ["B300", "Pre-register Q1 2026"],
-  ["Tier III", "U.S.-owned data centers"],
-];
+const TICKER_ITEMS = PRICING_TICKER_ITEMS;
 
 const LOGO_NAMES = [
   "Mistral AI",
@@ -235,9 +144,7 @@ function fmtCurrency(n: number): string {
   return "$" + Math.round(n).toLocaleString();
 }
 
-const COMPETITOR_MULT = { aws: 1.5, gcp: 1.35, az: 1.4 };
-const GPU_RATES: Record<string, number> = { b200: 28, b200cluster: 224, fractional: 7 };
-const GPU_LABELS: Record<string, string> = { b200: "B200", b200cluster: "B200 8× Cluster", fractional: "Fractional B200" };
+// GPU_RATES, GPU_LABELS, and COMPETITOR_MULT are imported from @/lib/pricing-data
 
 export function PricingShell() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -539,7 +446,7 @@ export function PricingShell() {
                   <div className={`price-amount${isCustom ? " custom" : ""}`}>
                     {displayPrice}
                   </div>
-                  {!isCustom ? <span className="price-unit">/hr</span> : null}
+                  {!isCustom ? <span className="price-unit">/hour</span> : null}
                 </div>
                 <div className="price-period">
                   {isCustom ? "72-GPU rack · reserved pricing" : "per GPU · billed by the minute"}
