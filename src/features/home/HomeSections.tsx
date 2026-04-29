@@ -380,7 +380,6 @@ export function HomeRack() {
   );
 }
 
-import { HOME_PRICING_TIERS } from "@/lib/pricing-data";
 
 const PRICE_CARDS = HOME_PRICING_TIERS;
 
