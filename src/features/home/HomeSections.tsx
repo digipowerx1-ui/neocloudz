@@ -503,7 +503,7 @@ export function HomePricing() {
             </div>
             <div className="price-quota">{card.quota}</div>
             <p className="price-desc">{card.desc}</p>
-            
+
             <div className="price-divider"></div>
 
             <ul className="price-features">

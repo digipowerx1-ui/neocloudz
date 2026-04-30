@@ -1638,6 +1638,10 @@
   text-align: center;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .home-page .cta-banner::before {
@@ -2666,6 +2670,22 @@
 
   .home-page .cta-banner {
     padding: 60px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-page .cta-banner h2 {
+    font-size: clamp(28px, 6vw, 42px);
+    letter-spacing: -1px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .cta-banner p {
+    font-size: 16px;
+    margin-bottom: 32px;
+    max-width: 480px;
   }
 
   .home-page footer {
@@ -2706,10 +2726,40 @@
     grid-template-columns: 1fr;
   }
 
+  .home-page .cta-banner {
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-page .cta-banner h2 {
+    font-size: clamp(22px, 9vw, 30px);
+    line-height: 1.1;
+    margin-bottom: 12px;
+  }
+
+  .home-page .cta-banner p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  .home-page .cta-row {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
   .home-page .btn-launch,
   .home-page .btn-outline {
-    padding: 11px 20px;
-    font-size: 13px;
+    padding: 14px 20px;
+    font-size: 14px;
+    width: 100%;
+    justify-content: center;
   }
 
   .home-page .terminal-input-wrap {
@@ -3176,26 +3226,27 @@
   .home-page .workloads-content.order-1 {
     order: 1;
   }
-  
+
   .home-page .workload-title {
     text-align: center;
     font-size: 28px;
   }
-  
+
   .home-page .workload-desc {
     text-align: center;
   }
-  
+
   .home-page .workload-bullets {
     align-items: center;
   }
-  
+
   .home-page .btn-launch.mt-8 {
     display: flex;
     margin: 0 auto;
     width: fit-content;
   }
 }
+
 .home-page .faq-status-card {
   background: rgba(45, 255, 122, 0.05);
   border: 1px solid rgba(45, 255, 122, 0.1);
@@ -3283,7 +3334,7 @@
   left: -60px;
   width: 240px;
   height: 240px;
-  background: radial-gradient(circle, rgba(45,255,122,0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(45, 255, 122, 0.12) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -3291,7 +3342,7 @@
   font-size: 40px;
   margin-bottom: 20px;
   display: block;
-  filter: drop-shadow(0 0 16px rgba(45,255,122,0.5));
+  filter: drop-shadow(0 0 16px rgba(45, 255, 122, 0.5));
 }
 
 .home-page .faq-info-title {
@@ -3312,8 +3363,8 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  background: rgba(0,0,0,0.2);
-  border: 1px solid rgba(45,255,122,0.1);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(45, 255, 122, 0.1);
   border-radius: 12px;
   padding: 14px 18px;
   margin-bottom: 28px;
@@ -3360,7 +3411,7 @@
   background: rgba(45, 255, 122, 0.15);
   border-color: var(--green);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(45,255,122,0.15);
+  box-shadow: 0 8px 24px rgba(45, 255, 122, 0.15);
 }
 
 /* -- right accordion -- */
@@ -3387,7 +3438,7 @@
 .home-page .faq-item.open {
   border-color: rgba(45, 255, 122, 0.35);
   background: rgba(45, 255, 122, 0.03);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.35), 0 0 0 1px rgba(45,255,122,0.08) inset;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(45, 255, 122, 0.08) inset;
 }
 
 .home-page .faq-q {
@@ -3418,14 +3469,14 @@
   height: 22px;
   position: relative;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,0.12);
-  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
   transition: border-color 0.3s, background 0.3s;
 }
 
 .home-page .faq-item.open .faq-toggle {
-  border-color: rgba(45,255,122,0.4);
-  background: rgba(45,255,122,0.08);
+  border-color: rgba(45, 255, 122, 0.4);
+  background: rgba(45, 255, 122, 0.08);
 }
 
 .home-page .faq-toggle-bar {
@@ -3445,7 +3496,10 @@
   transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), background 0.25s;
 }
 
-.home-page .faq-item.open .faq-toggle-bar { background: var(--green); }
+.home-page .faq-item.open .faq-toggle-bar {
+  background: var(--green);
+}
+
 .home-page .faq-item.open .faq-toggle-bar.v {
   transform: translate(-50%, -50%) rotate(0deg);
   background: var(--green);
@@ -3470,9 +3524,17 @@
 
 /* pulse keyframes (shared) */
 @keyframes faq-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(45,255,122,0.5); }
-  70%  { box-shadow: 0 0 0 10px rgba(45,255,122,0); }
-  100% { box-shadow: 0 0 0 0 rgba(45,255,122,0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(45, 255, 122, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(45, 255, 122, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(45, 255, 122, 0);
+  }
 }
 
 /* responsive */
@@ -3481,6 +3543,7 @@
     grid-template-columns: 1fr;
     gap: 50px;
   }
+
   .home-page .faq-info-panel {
     position: static;
   }
@@ -3530,6 +3593,7 @@
     gap: 20px;
   }
 }
+
 /* â”€â”€ NEON DOT BULLETS â”€â”€ */
 .sol-f-list li::before {
   content: '';
@@ -3542,6 +3606,7 @@
   border-radius: 50%;
   box-shadow: 0 0 8px var(--green);
 }
+
 /* â”€â”€ HOME PRICING TICK SIZE â”€â”€ */
 .check-tick {
   width: 14px;
@@ -3563,6 +3628,7 @@
   margin-bottom: 12px;
   color: var(--text);
 }
+
 /* â”€â”€ TECHNICAL MATRIX PRICING â”€â”€ */
 .pricing-grid.technical {
   display: grid;
