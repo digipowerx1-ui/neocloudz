@@ -3,13 +3,17 @@
 import React from "react";
 import Link from "next/link";
 import { BrainCircuit, Database, Lock, Cpu, Server, Layers, Workflow, Lightbulb, Code, Zap, Rocket, CheckCircle2, ArrowRight } from "lucide-react";
+import { HeroParticles } from "@/components/layout/HeroParticles";
+import PageEffects from "@/features/page-effects/PageEffects";
 import "../enterprise/enterprise.css";
 
 export default function MlServicePage() {
   return (
-    <div className="enterprise-page">
+    <PageEffects>
+      <div className="enterprise-page">
       {/* Hero Section */}
       <section className="hero" id="hero" style={{ minHeight: "85vh" }}>
+        <HeroParticles />
         <div className="hero-grid" />
         <div className="hero-aurora">
           <div className="aurora-band" style={{ background: "rgba(45,255,122,0.3)", top: "15%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />
@@ -306,5 +310,6 @@ export default function MlServicePage() {
         </div>
       </section>
     </div>
+    </PageEffects>
   );
 }

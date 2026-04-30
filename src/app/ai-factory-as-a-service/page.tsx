@@ -3,13 +3,17 @@
 import React from "react";
 import Link from "next/link";
 import { Server, Cpu, Layers, Activity, Lock, Users, Zap, Box, ArrowRight, CheckCircle2, Factory, Settings, ShieldCheck } from "lucide-react";
+import { HeroParticles } from "@/components/layout/HeroParticles";
+import PageEffects from "@/features/page-effects/PageEffects";
 import "../enterprise/enterprise.css";
 
 export default function AiFactoryPage() {
   return (
-    <div className="enterprise-page">
+    <PageEffects>
+      <div className="enterprise-page">
       {/* Hero Section */}
       <section className="hero" id="hero" style={{ minHeight: "85vh" }}>
+        <HeroParticles />
         <div className="hero-grid" />
         <div className="hero-aurora">
           <div className="aurora-band" style={{ background: "rgba(45,255,122,0.3)", top: "20%", "--adur": "15s", "--adel": "0s" } as React.CSSProperties} />
@@ -68,7 +72,7 @@ export default function AiFactoryPage() {
           </p>
 
           <div className="ent-features-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
-            <div className="ent-card">
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)" }}>
               <div className="ent-icon">
                 <Box size={24} color="var(--green)" />
               </div>
@@ -78,7 +82,7 @@ export default function AiFactoryPage() {
               </p>
             </div>
             
-            <div className="ent-card">
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)" }}>
               <div className="ent-icon">
                 <Lock size={24} color="var(--blue)" />
               </div>
@@ -88,7 +92,7 @@ export default function AiFactoryPage() {
               </p>
             </div>
             
-            <div className="ent-card">
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)" }}>
               <div className="ent-icon">
                 <Settings size={24} color="var(--amber)" />
               </div>
@@ -114,22 +118,80 @@ export default function AiFactoryPage() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "20px" }}>
+          <div style={{ 
+            display: "flex", 
+            flexWrap: "wrap", 
+            justifyContent: "center", 
+            gap: "24px" 
+          }}>
             {[
-              { icon: Users, title: "Enterprise AI/ML Teams", desc: "For teams with strict data residency and air-gap needs." },
-              { icon: Lock, title: "Financial Services & Healthcare", desc: "Optimized for highly regulated, sensitive workloads." },
-              { icon: Activity, title: "Media, Gaming & Simulation", desc: "Delivering ultra-low latency for demanding renders." },
-              { icon: Zap, title: "Telecom, Energy & Industrial", desc: "Deploy rugged Edge computing solutions anywhere." },
-              { icon: ShieldCheck, title: "Government & National Labs", desc: "Purpose-built for sovereign AI stacks and defense." }
+              { icon: Users, title: "Enterprise AI/ML Teams", desc: "Optimized for teams requiring strict data residency, sovereign compute, and air-gapped security protocols." },
+              { icon: Lock, title: "Regulated Industries", desc: "Perfect for Financial Services and Healthcare sectors needing absolute boundary enforcement and SOC2/HIPAA ready stacks." },
+              { icon: Activity, title: "Creative & Simulation Labs", desc: "Delivering ultra-low latency and dedicated bandwidth for massive 3D rendering and industrial digital twins." },
+              { icon: Zap, title: "Edge & Industrial AI", desc: "Deploy rugged, managed AI factory pods at energy sites, manufacturing floors, or remote telecom hubs." },
+              { icon: ShieldCheck, title: "Public Sector & Defense", desc: "Purpose-built for government agencies and national labs requiring sovereign AI infrastructure and high-assurance compute." }
             ].map((item, idx) => (
-              <div key={idx} style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "16px", padding: "24px", display: "flex", alignItems: "flex-start", gap: "16px" }}>
-                <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(45, 255, 122, 0.05)", border: "1px solid rgba(45, 255, 122, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <item.icon size={20} color="var(--green)" />
+              <div 
+                key={idx} 
+                className={`ent-card reveal reveal-d${(idx % 3) + 1}`}
+                style={{ 
+                  display: "flex", 
+                  flexDirection: "column",
+                  gap: "24px",
+                  padding: "40px 32px",
+                  background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", 
+                  backdropFilter: "blur(10px)",
+                  flex: "1 1 320px",
+                  maxWidth: "400px"
+                }}
+              >
+                <div style={{ 
+                  width: "56px", 
+                  height: "56px", 
+                  borderRadius: "16px", 
+                  background: "var(--surface2)", 
+                  border: "1px solid var(--border)", 
+                  display: "flex", 
+                  alignItems: "center", 
+                  justifyContent: "center", 
+                  flexShrink: 0,
+                  boxShadow: "0 8px 16px rgba(0,0,0,0.2)"
+                }}>
+                  <item.icon size={24} color="var(--green)" />
                 </div>
+                
                 <div>
-                  <h4 style={{ color: "var(--white)", fontWeight: 600, fontSize: "16px", marginBottom: "8px" }}>{item.title}</h4>
-                  <p style={{ color: "var(--muted)", fontSize: "14px", lineHeight: "1.5" }}>{item.desc}</p>
+                  <h4 style={{ 
+                    color: "var(--white)", 
+                    fontWeight: 700, 
+                    fontSize: "20px", 
+                    marginBottom: "12px",
+                    letterSpacing: "-0.01em"
+                  }}>
+                    {item.title}
+                  </h4>
+                  <p style={{ 
+                    color: "var(--text)", 
+                    fontSize: "15px", 
+                    lineHeight: "1.6",
+                    opacity: 0.7
+                  }}>
+                    {item.desc}
+                  </p>
                 </div>
+
+                {/* Corner Decoration */}
+                <div style={{ 
+                  position: "absolute", 
+                  bottom: "-20px", 
+                  right: "-20px", 
+                  width: "60px", 
+                  height: "60px", 
+                  background: "var(--green)", 
+                  opacity: 0.03, 
+                  borderRadius: "50%",
+                  filter: "blur(20px)"
+                }} />
               </div>
             ))}
           </div>
@@ -225,7 +287,13 @@ export default function AiFactoryPage() {
             Focus on models, not hardware. NeoCloudz handles the entire infrastructure lifecycle.
           </p>
 
-          <div className="ent-features-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", marginTop: 0 }}>
+          <div style={{ 
+            display: "flex", 
+            flexWrap: "wrap", 
+            justifyContent: "center", 
+            gap: "24px", 
+            marginTop: "32px" 
+          }}>
             {[
               "Site readiness (power, cooling, network, compliance)",
               "Pod delivery, installation, and commissioning",
@@ -235,7 +303,17 @@ export default function AiFactoryPage() {
               "Patch orchestration and rolling upgrades",
               "24/7 monitoring and incident response"
             ].map((service, idx) => (
-              <div key={idx} className="ent-card" style={{ padding: "24px" }}>
+              <div 
+                key={idx} 
+                className="ent-card reveal reveal-d1" 
+                style={{ 
+                  padding: "24px",
+                  flex: "1 1 280px",
+                  maxWidth: "320px",
+                  background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)",
+                  backdropFilter: "blur(10px)"
+                }}
+              >
                 <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
                   <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(45, 255, 122, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <Factory size={16} color="var(--green)" />
@@ -267,5 +345,6 @@ export default function AiFactoryPage() {
         </div>
       </section>
     </div>
+    </PageEffects>
   );
 }

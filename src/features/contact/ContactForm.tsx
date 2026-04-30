@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 import { sendContactMessage } from "@/services/api/contact";
 
 const INTEREST_OPTIONS = [
@@ -133,26 +134,27 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="form-success">
-        <div className="success-icon">✅</div>
+      <div className="form-success" style={{ background: "rgba(10,15,10,0.5)", border: "1px solid var(--border)", borderRadius: "24px", padding: "60px 40px" }}>
+        <div className="success-icon-wrap" style={{ marginBottom: "24px" }}>
+          <CheckCircle2 size={64} color="var(--green)" style={{ filter: "drop-shadow(0 0 20px rgba(45, 255, 122, 0.4))" }} />
+        </div>
         <div className="success-title">
-          Message <span>Received.</span>
+          Protocol <span>Executed.</span>
         </div>
-        <div className="success-desc">
-          Our team will reach out to you within 2 hours. Check your inbox — we&apos;ll
-          send a confirmation right away.
+        <div className="success-desc" style={{ fontSize: "16px", marginBottom: "40px", color: "var(--text)", opacity: 0.8 }}>
+          Your transmission has been received. Our engineering team will review your requirements and respond within the 2-hour window.
         </div>
-        <div className="success-terminal">
+        <div className="success-terminal" style={{ background: "#000", border: "1px solid rgba(45, 255, 122, 0.3)", boxShadow: "0 0 30px rgba(45, 255, 122, 0.1)", borderRadius: "16px" }}>
           <div className="st-line">
             <span className="st-prompt">$</span>
-            <span className="st-text">neo message --status</span>
+            <span className="st-text">neo handshake --init</span>
           </div>
           <div className="st-line">
             <span className="st-prompt" style={{ color: "var(--green)" }}>
               ✓
             </span>
             <span className="st-text" style={{ color: "var(--green)" }}>
-              Message delivered successfully
+              Secure uplink established
             </span>
           </div>
           <div className="st-line">
@@ -160,7 +162,7 @@ export default function ContactForm() {
               #
             </span>
             <span className="st-text" style={{ color: "var(--muted)" }}>
-              Ticket ID: NCZ-{ticketId}
+              Ticket: NCZ-{ticketId}
             </span>
           </div>
           <div className="st-line">
@@ -168,7 +170,7 @@ export default function ContactForm() {
               #
             </span>
             <span className="st-text" style={{ color: "var(--muted)" }}>
-              ETA: &lt; 2 hours
+              Priority: High-Performance
             </span>
           </div>
         </div>
@@ -177,18 +179,24 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate>
+    <form className="contact-form" onSubmit={handleSubmit} noValidate style={{ position: "relative", zIndex: 10 }}>
       <div className="field-group">
         <label className="field-label" htmlFor="f-interest">
-          I&apos;m interested in
+          INTEREST CHANNEL
         </label>
-        <div className="interest-pills">
+        <div className="interest-pills" style={{ marginTop: "12px" }}>
           {INTEREST_OPTIONS.map((option) => {
             const isActive = form.interest === option.value;
             return (
               <span
                 key={option.value}
                 className={`interest-pill${isActive ? " active" : ""}`}
+                style={{ 
+                  padding: "10px 20px", 
+                  borderRadius: "30px",
+                  background: isActive ? "rgba(45, 255, 122, 0.1)" : "rgba(255,255,255,0.03)",
+                  border: `1px solid ${isActive ? "var(--green)" : "rgba(255,255,255,0.1)"}`
+                }}
                 onClick={() => update("interest", option.value)}
                 role="button"
                 tabIndex={0}
@@ -210,7 +218,7 @@ export default function ContactForm() {
       <div className="field-row">
         <div className="field-group">
           <label className="field-label" htmlFor="f-name">
-            Full name
+            FULL IDENTITY
           </label>
           <input
             className={`field-input${nameTouched && nameValid
@@ -224,13 +232,14 @@ export default function ContactForm() {
             placeholder="Ada Lovelace"
             autoComplete="name"
             value={form.name}
+            style={{ padding: "14px 18px", borderRadius: "12px" }}
             onChange={(e) => update("name", e.target.value)}
             onBlur={() => setNameTouched(true)}
           />
         </div>
         <div className="field-group">
           <label className="field-label" htmlFor="f-email">
-            Work email
+            SECURE EMAIL
           </label>
           <input
             className={`field-input${emailTouched && emailValid
@@ -244,6 +253,7 @@ export default function ContactForm() {
             placeholder="ada@company.com"
             autoComplete="email"
             value={form.email}
+            style={{ padding: "14px 18px", borderRadius: "12px" }}
             onChange={(e) => update("email", e.target.value)}
             onBlur={() => setEmailTouched(true)}
           />
@@ -253,7 +263,7 @@ export default function ContactForm() {
       <div className="field-row">
         <div className="field-group">
           <label className="field-label" htmlFor="f-company">
-            Company
+            ORGANIZATION
           </label>
           <input
             className="field-input"
@@ -261,17 +271,19 @@ export default function ContactForm() {
             id="f-company"
             placeholder="Acme AI Inc."
             value={form.company}
+            style={{ padding: "14px 18px", borderRadius: "12px" }}
             onChange={(e) => update("company", e.target.value)}
           />
         </div>
         <div className="field-group">
           <label className="field-label" htmlFor="f-gpu">
-            GPU budget / month
+            MONTHLY SCALE
           </label>
           <select
             className="field-select"
             id="f-gpu"
             value={form.budget}
+            style={{ padding: "14px 18px", borderRadius: "12px" }}
             onChange={(e) => update("budget", e.target.value)}
           >
             <option value="">Select range...</option>
@@ -286,14 +298,15 @@ export default function ContactForm() {
 
       <div className="field-group">
         <label className="field-label" htmlFor="f-msg">
-          Message
+          MISSION SPECIFICATIONS
         </label>
         <textarea
           className="field-textarea"
           id="f-msg"
-          placeholder="Tell us about your use case, cluster size, timeline, or anything else..."
+          placeholder="Tell us about your use case, cluster size, and deployment timeline..."
           maxLength={MESSAGE_MAX}
           value={form.message}
+          style={{ padding: "14px 18px", borderRadius: "12px", minHeight: "140px" }}
           onChange={(e) => update("message", e.target.value)}
         />
         <div className={`char-count${charCountClass ? ` ${charCountClass}` : ""}`}>
@@ -307,13 +320,14 @@ export default function ContactForm() {
         className="submit-btn"
         id="submit-btn"
         disabled={status === "loading"}
+        style={{ padding: "18px", borderRadius: "12px", fontSize: "16px" }}
       >
         {status === "loading" ? (
           <span>
-            Sending<span>{dots}</span>
+            Establishing Connection<span>{dots}</span>
           </span>
         ) : (
-          <span>Send Message →</span>
+          <span>INITIATE CONTACT →</span>
         )}
       </button>
     </form>

@@ -1,99 +1,78 @@
 "use client";
 
-import { useRef } from "react";
-import { useInfoLinesCanvas } from "@/hooks/useInfoLinesCanvas";
+import { Mail, Zap, Settings, ShieldCheck, Activity, Database, Globe } from "lucide-react";
 import { useLiveContactMetrics } from "@/hooks/useLiveContactMetrics";
 
 interface ContactCard {
-  icon: string;
+  icon: React.ReactNode;
   label: string;
   title: string;
   detail: string;
   link: string;
   cta: string;
+  color: string;
 }
 
 const CONTACT_CARDS: ReadonlyArray<ContactCard> = [
   {
-    icon: "📧",
-    label: "Email Support",
+    icon: <Mail size={24} />,
+    label: "Direct Email",
     title: "hello@neocloudz.com",
-    detail: "General inquiries, billing, and account questions.",
+    detail: "General inquiries, billing, and global account management.",
     link: "mailto:hello@neocloudz.com",
     cta: "Send email →",
+    color: "var(--white)"
   },
   {
-    icon: "⚡",
-    label: "Enterprise Sales",
-    title: "enterprise@neocloudz.com",
-    detail: "Dedicated clusters, custom contracts, and volume pricing.",
-    link: "mailto:enterprise@neocloudz.com",
-    cta: "Talk to sales →",
+    icon: <Zap size={24} />,
+    label: "Enterprise Solutions",
+    title: "sales@neocloudz.com",
+    detail: "Private clusters, custom contracts, and high-performance I/O.",
+    link: "mailto:sales@neocloudz.com",
+    cta: "Consult with sales →",
+    color: "var(--green)"
   },
   {
-    icon: "🛠️",
-    label: "Technical Support",
+    icon: <Settings size={24} />,
+    label: "SLA Support",
     title: "support@neocloudz.com",
-    detail: "API issues, cluster troubleshooting, and SLA incidents.",
+    detail: "Infrastructure troubleshooting, API assistance, and uptime logs.",
     link: "mailto:support@neocloudz.com",
-    cta: "Open a ticket →",
+    cta: "Contact engineering →",
+    color: "var(--blue)"
   },
 ];
 
 const SYSTEM_STATUS = [
-  "API Gateway",
-  "GPU Provisioning",
-  "WEKA Storage",
-  "Dashboard",
-  "Billing Portal",
+  { name: "Global API", status: "Operational", color: "var(--green)" },
+  { name: "GPU Provisioning", status: "Operational", color: "var(--green)" },
+  { name: "WEKA Mesh", status: "Operational", color: "var(--green)" },
+  { name: "Node Telemetry", status: "Active", color: "var(--green)" },
 ] as const;
 
-interface OfficeLocation {
-  flag: string;
-  city: string;
-  detail: string;
-  badge: string;
-}
-
-const OFFICES: ReadonlyArray<OfficeLocation> = [
-  {
-    flag: "🇺🇸",
-    city: "San Francisco, CA",
-    detail: "HQ · 100 Market St",
-    badge: "HQ",
-  },
-  {
-    flag: "🇬🇧",
-    city: "London, UK",
-    detail: "EMEA · 22 Bishopsgate",
-    badge: "EMEA",
-  },
-  {
-    flag: "🇸🇬",
-    city: "Singapore",
-    detail: "APAC · Marina Bay",
-    badge: "APAC",
-  },
-];
-
 export default function ContactInfoPanel() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  useInfoLinesCanvas(canvasRef);
   const { responseLabel, resolved } = useLiveContactMetrics();
 
   return (
     <div className="info-panel">
-      <canvas ref={canvasRef} id="info-canvas" />
       <div className="info-content">
         <div className="contact-cards reveal">
           {CONTACT_CARDS.map((card) => (
-            <div key={card.label} className="contact-card">
-              <div className="card-icon">{card.icon}</div>
+            <div key={card.label} className="contact-card" style={{ 
+              background: "linear-gradient(180deg, rgba(20,26,20,0.8) 0%, #000 100%)",
+              border: `1px solid rgba(255,255,255,0.06)`,
+              padding: "32px"
+            }}>
+              <div className="card-icon" style={{ 
+                background: `rgba(255,255,255,0.03)`,
+                border: "1px solid rgba(255,255,255,0.08)",
+                fontSize: "24px"
+              }}>{card.icon}</div>
               <div className="card-body">
-                <div className="card-label">{card.label}</div>
-                <div className="card-title">{card.title}</div>
-                <div className="card-detail">{card.detail}</div>
-                <a href={card.link} className="card-link">
+                <div className="card-label" style={{ color: card.color, opacity: 0.8 }}>{card.label}</div>
+                <div className="card-title" style={{ fontSize: "18px", marginBottom: "8px" }}>{card.title}</div>
+                <div className="card-detail" style={{ marginBottom: "20px", opacity: 0.6 }}>{card.detail}</div>
+                <a href={card.link} className="card-link" style={{ color: card.color }}>
                   {card.cta}
                 </a>
               </div>
@@ -101,56 +80,44 @@ export default function ContactInfoPanel() {
           ))}
         </div>
 
-        <div className="live-metrics reveal rd1">
-          <div className="live-metric">
-            <span className="lm-icon">⚡</span>
+        <div className="live-metrics reveal rd1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+          <div className="live-metric" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--border)", padding: "24px", borderRadius: "16px" }}>
+            <span className="lm-icon" style={{ marginBottom: "12px", display: "block" }}>
+              <Activity size={24} color="var(--green)" />
+            </span>
             <div>
-              <div className="lm-label">Avg Response</div>
-              <div className="lm-val" id="resp-live">
+              <div className="lm-label" style={{ fontSize: "10px", textTransform: "uppercase", color: "var(--muted)", letterSpacing: "0.1em" }}>Global Response</div>
+              <div className="lm-val" style={{ fontSize: "20px", fontWeight: 700, color: "var(--green)" }}>
                 {responseLabel}
               </div>
             </div>
           </div>
-          <div className="live-metric">
-            <span className="lm-icon">✅</span>
+          <div className="live-metric" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid var(--border)", padding: "24px", borderRadius: "16px" }}>
+            <span className="lm-icon" style={{ marginBottom: "12px", display: "block" }}>
+              <ShieldCheck size={24} color="var(--white)" />
+            </span>
             <div>
-              <div className="lm-label">Resolved Today</div>
-              <div className="lm-val" id="resolved-live">
+              <div className="lm-label" style={{ fontSize: "10px", textTransform: "uppercase", color: "var(--muted)", letterSpacing: "0.1em" }}>Resolved Today</div>
+              <div className="lm-val" style={{ fontSize: "20px", fontWeight: 700, color: "var(--white)" }}>
                 {resolved}
               </div>
             </div>
           </div>
         </div>
 
-        <div className="status-section reveal rd2">
+        <div className="status-section reveal rd2" style={{ background: "rgba(10,15,10,0.5)", border: "1px solid var(--border)", padding: "32px", borderRadius: "20px" }}>
           <div className="status-header">
-            <div className="status-title">System Status</div>
+            <div className="status-title">System Health</div>
             <div className="status-all-good">
               <span className="status-dot" />
-              All systems operational
+              Operational
             </div>
           </div>
           <div className="status-rows">
-            {SYSTEM_STATUS.map((name) => (
-              <div key={name} className="status-row">
-                <span className="status-row-name">{name}</span>
-                <span className="status-row-val status-green">Operational</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="locations-section reveal rd3">
-          <div className="locations-title">Global Offices</div>
-          <div className="location-items">
-            {OFFICES.map((office) => (
-              <div key={office.city} className="location-item">
-                <span className="loc-flag">{office.flag}</span>
-                <div>
-                  <div className="loc-city">{office.city}</div>
-                  <div className="loc-detail">{office.detail}</div>
-                </div>
-                <span className="loc-badge">{office.badge}</span>
+            {SYSTEM_STATUS.map((item) => (
+              <div key={item.name} className="status-row" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
+                <span className="status-row-name" style={{ fontSize: "14px", color: "var(--text)" }}>{item.name}</span>
+                <span className="status-row-val status-green" style={{ fontSize: "10px" }}>{item.status}</span>
               </div>
             ))}
           </div>

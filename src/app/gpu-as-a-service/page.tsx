@@ -3,13 +3,17 @@
 import React from "react";
 import Link from "next/link";
 import { Server, Cpu, Cloud, Settings, Terminal, Map, Rocket, FlaskConical, Blocks, ArrowRight, ShieldCheck, Activity, Zap } from "lucide-react";
+import { HeroParticles } from "@/components/layout/HeroParticles";
+import PageEffects from "@/features/page-effects/PageEffects";
 import "../enterprise/enterprise.css";
 
 export default function GpuServicePage() {
   return (
-    <div className="enterprise-page">
+    <PageEffects>
+      <div className="enterprise-page">
       {/* Hero Section */}
       <section className="hero" id="hero" style={{ minHeight: "85vh" }}>
+        <HeroParticles />
         <div className="hero-grid" />
         <div className="hero-aurora">
           <div className="aurora-band" style={{ background: "rgba(45,255,122,0.3)", top: "15%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />
@@ -240,27 +244,57 @@ export default function GpuServicePage() {
             Low-latency access to high-performance compute, worldwide.
           </p>
 
-          <div style={{ position: "relative", height: "400px", background: "var(--surface)", borderRadius: "24px", border: "1px solid var(--border)", overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
-            {/* Minimalist World Map Representation */}
-            <Map size={80} color="var(--muted)" style={{ opacity: 0.2, transform: "scale(4)", position: "absolute" }} />
+          <div style={{ 
+            position: "relative", 
+            height: "500px", 
+            background: "var(--surface)", 
+            borderRadius: "24px", 
+            border: "1px solid var(--border)", 
+            overflow: "hidden", 
+            display: "flex", 
+            alignItems: "center", 
+            justifyContent: "center",
+            boxShadow: "0 20px 40px rgba(0,0,0,0.4)"
+          }}>
+            {/* Immersive Network Map Graphic */}
+            <img 
+              src="/images/global-network-map.png" 
+              alt="Global Network Map" 
+              style={{ 
+                position: "absolute", 
+                inset: 0, 
+                width: "100%", 
+                height: "100%", 
+                objectFit: "cover",
+                opacity: 0.8
+              }} 
+              id="global-map-img"
+            />
+            
+            {/* Data Pulse Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-bg via-transparent to-transparent opacity-60" />
+            
+            {/* Animated Data Points */}
+            <div style={{ position: "absolute", top: "35%", left: "30%", width: "8px", height: "8px", background: "var(--green)", borderRadius: "50%", boxShadow: "0 0 15px var(--green)", animation: "pulse-dot 2s infinite" }} />
+            <div style={{ position: "absolute", top: "45%", left: "25%", width: "6px", height: "6px", background: "var(--green)", borderRadius: "50%", boxShadow: "0 0 10px var(--green)", animation: "pulse-dot 2.5s infinite" }} />
+            <div style={{ position: "absolute", top: "30%", right: "35%", width: "8px", height: "8px", background: "var(--green)", borderRadius: "50%", boxShadow: "0 0 15px var(--green)", animation: "pulse-dot 3s infinite" }} />
+            <div style={{ position: "absolute", bottom: "35%", right: "40%", width: "6px", height: "6px", background: "var(--green)", borderRadius: "50%", boxShadow: "0 0 10px var(--green)", animation: "pulse-dot 2.2s infinite" }} />
 
-            {/* Faux Nodes */}
-            <div className="absolute top-[30%] left-[25%] flex items-center justify-center">
-              <div className="w-3 h-3 bg-green rounded-full shadow-[0_0_15px_#2dff7a] animate-pulse" />
-            </div>
-            <div className="absolute top-[45%] left-[20%] flex items-center justify-center">
-              <div className="w-3 h-3 bg-green rounded-full shadow-[0_0_15px_#2dff7a] animate-pulse" style={{ animationDelay: "1s" }} />
-            </div>
-            <div className="absolute top-[35%] right-[30%] flex items-center justify-center">
-              <div className="w-3 h-3 bg-green rounded-full shadow-[0_0_15px_#2dff7a] animate-pulse" style={{ animationDelay: "0.5s" }} />
-            </div>
-            <div className="absolute top-[60%] right-[20%] flex items-center justify-center">
-              <div className="w-3 h-3 bg-green rounded-full shadow-[0_0_15px_#2dff7a] animate-pulse" style={{ animationDelay: "1.5s" }} />
-            </div>
-
-            <p style={{ position: "relative", zIndex: 10, color: "var(--white)", fontWeight: 700, fontSize: "18px", background: "rgba(10,15,10,0.8)", padding: "12px 24px", borderRadius: "30px", border: "1px solid rgba(45,255,122,0.2)", backdropFilter: "blur(4px)" }}>
+            <div style={{ 
+              position: "relative", 
+              zIndex: 10, 
+              color: "var(--white)", 
+              fontWeight: 700, 
+              fontSize: "18px", 
+              background: "rgba(10,15,10,0.85)", 
+              padding: "16px 32px", 
+              borderRadius: "40px", 
+              border: "1px solid rgba(45,255,122,0.25)", 
+              backdropFilter: "blur(8px)",
+              boxShadow: "0 10px 30px rgba(0,0,0,0.5)"
+            }}>
               Deploy closest to your users.
-            </p>
+            </div>
           </div>
         </div>
       </section>
@@ -284,6 +318,7 @@ export default function GpuServicePage() {
         </div>
       </section>
     </div>
+    </PageEffects>
   );
 }
 

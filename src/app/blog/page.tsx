@@ -1,6 +1,6 @@
 import Link from "next/link";
 import "../blog.css";
-import { BlogParticles } from "@/components/blog/BlogParticles";
+import { HeroParticles } from "@/components/layout/HeroParticles";
 import { FinalCTA } from "@/components/layout/FinalCTA";
 
 interface Post {
@@ -84,7 +84,7 @@ export default function BlogPage() {
   return (
     <div className="blog-page">
       <header className="blog-hero">
-        <BlogParticles />
+        <HeroParticles />
         <div className="blog-hero-content">
           <div className="post-tag">Engineering Blog</div>
           <h1>Insights into the <span className="g">Future of AI.</span></h1>

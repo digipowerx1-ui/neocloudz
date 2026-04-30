@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 
-export function BlogParticles() {
+export function HeroParticles() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
