@@ -734,6 +734,48 @@ section {
   flex-shrink: 0;
 }
 
+.sol-feature-boxes-minimal {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.sol-f-group h4 {
+  font-size: 13px;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.sol-f-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sol-f-list li {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.sol-f-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
+}
+
 .sol-visual {
   position: relative;
 }
@@ -1682,15 +1724,56 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
+  .sol-card {
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .sol-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
   .sol-card {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 36px 22px;
+    max-width: 700px;
+    margin: 0 auto 60px;
   }
 
   .sol-card.reverse {
     direction: ltr;
+  }
+
+  .sol-feature-boxes-minimal {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sol-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .sol-card.reverse {
+    direction: ltr;
+  }
+
+  .sol-feature-boxes-minimal {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sol-title {
+    font-size: 24px;
+  }
+
+  .sol-desc {
+    font-size: 15px;
   }
 
   .pillars {
@@ -1732,7 +1815,65 @@ footer {
   }
 
   .hero h1 {
-    letter-spacing: -1.5px;
+    font-size: clamp(28px, 6vw, 42px);
+    letter-spacing: -1px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sol-card {
+    padding: 24px 16px;
+    margin-bottom: 40px;
+    gap: 24px;
+  }
+
+  .sol-feature-boxes-minimal {
+    gap: 20px;
+  }
+
+  .sol-title {
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .sol-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .sol-visual {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .term-body {
+    padding: 12px 14px;
+    font-size: 11px;
+    min-height: auto;
+  }
+
+  .term-title {
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+  }
+
+  .sol-f-group h4 {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .sol-f-list li {
+    font-size: 12px;
+    padding-left: 18px;
   }
 }
 
@@ -1751,6 +1892,11 @@ footer {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .infra-canvas-wrap {
+    height: 240px;
+    margin-top: 32px;
   }
 }
 

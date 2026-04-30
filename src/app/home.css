@@ -3549,63 +3549,7 @@
   }
 }
 
-/* â”€â”€ MINIMAL FEATURE BOXES â”€â”€ */
-.sol-feature-boxes-minimal {
-  display: flex;
-  gap: 32px;
-  margin-top: 24px;
-}
-
-.sol-f-group h4 {
-  font-size: 14px;
-  color: var(--green);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
-}
-
-.sol-f-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sol-f-list li {
-  font-size: 13px;
-  color: var(--text);
-  margin-bottom: 8px;
-  position: relative;
-  padding-left: 18px;
-  line-height: 1.4;
-}
-
-.sol-f-list li::before {
-  content: 'â€¢';
-  position: absolute;
-  left: 0;
-  color: var(--green);
-  font-weight: 900;
-}
-
-@media (max-width: 600px) {
-  .sol-feature-boxes-minimal {
-    flex-direction: column;
-    gap: 20px;
-  }
-}
-
-/* â”€â”€ NEON DOT BULLETS â”€â”€ */
-.sol-f-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 7px;
-  width: 5px;
-  height: 5px;
-  background: var(--green);
-  border-radius: 50%;
-  box-shadow: 0 0 8px var(--green);
-}
+/* Moved to globals.css for shared use */
 
 /* â”€â”€ HOME PRICING TICK SIZE â”€â”€ */
 .check-tick {
