@@ -278,7 +278,6 @@ export function PricingShell() {
   usePricingHeroGlow(heroRef);
   usePricingHeroParallax(heroRef, heroGridRef);
   const liveStrip = usePricingLiveStrip();
-  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   // Pricing cards
 
@@ -524,9 +523,7 @@ export function PricingShell() {
             return (
               <div
                 key={ci}
-                className={`price-card reveal${c.featured ? " featured" : ""}${activeCard === ci ? " selected-neon" : ""}`}
-                onClick={() => setActiveCard(ci)}
-                style={{ cursor: "pointer" }}
+                className={`price-card reveal${c.featured ? " featured" : ""}`}
               >
                 <div className="beam" />
                 <div className={`price-tier-badge ${c.badgeClass}`}>

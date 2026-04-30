@@ -46,6 +46,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
     title: "Resources",
     items: [
       { label: "Pricing Calculator", href: "/pricing" },
+      { label: "Blog", href: "/blog" },
       { label: "Documentation", href: "/contact" },
       { label: "API Reference", href: "/contact" },
       { label: "Support", href: "/contact" },

@@ -481,6 +481,8 @@
   overflow: hidden;
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   cursor: default;
+  display: flex;
+  flex-direction: column;
 }
 .pricing-page .price-card:hover {
   border-color: rgba(45, 255, 122, 0.3);
@@ -679,6 +681,7 @@
   text-decoration: none;
   transition: opacity 0.2s, box-shadow 0.2s;
   font-family: 'Inter', sans-serif;
+  margin-top: auto;
 }
 .pricing-page .price-btn.primary { background: var(--green); color: #060a06; }
 .pricing-page .price-btn.primary:hover { box-shadow: 0 0 20px rgba(45, 255, 122, 0.35); }

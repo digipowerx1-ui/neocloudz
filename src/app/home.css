@@ -3579,6 +3579,8 @@
   position: relative;
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .price-card.technical:hover {
@@ -3681,7 +3683,7 @@
   border-radius: 8px;
   font-weight: 800;
   text-decoration: none;
-  margin-top: 32px;
+  margin-top: auto;
   transition: all 0.2s ease;
 }
 
