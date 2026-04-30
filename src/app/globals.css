@@ -599,20 +599,25 @@ section {
 }
 
 .section-title {
-  font-size: clamp(32px, 4.5vw, 54px);
+  font-size: clamp(26px, 5vw, 54px);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -1.5px;
-  line-height: 1.08;
+  line-height: 1.1;
   margin-bottom: 24px;
-  padding: 0 20px;
+  padding: 0 16px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .section-sub {
-  font-size: 18px;
+  font-size: clamp(14px, 2.5vw, 18px);
   color: var(--text);
   max-width: 580px;
   line-height: 1.72;
+  margin: 0 auto;
+  padding: 0 16px;
+  word-wrap: break-word;
 }
 
 /* ============================================================

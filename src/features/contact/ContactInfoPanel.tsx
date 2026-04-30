@@ -51,7 +51,7 @@ const SYSTEM_STATUS = [
 ] as const;
 
 export default function ContactInfoPanel() {
-  const { responseLabel, resolved } = useLiveContactMetrics();
+  const { responseLabel, resolved, uptimeLabel } = useLiveContactMetrics();
 
   return (
     <div className="info-panel">

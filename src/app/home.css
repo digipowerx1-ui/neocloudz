@@ -1955,8 +1955,12 @@
   grid-template-columns: 1fr 1.6fr;
   gap: 64px;
   align-items: center;
-  max-width: 1200px;
+}
+
+.home-page .section-inner {
+  max-width: 1440px;
   margin: 0 auto;
+  width: 100%;
 }
 
 .home-page .bench-bars {
@@ -2728,8 +2732,10 @@
   }
 
   .home-page .workloads-container {
-    padding: 40px 24px;
+    padding: 30px 16px;
     border-radius: 16px;
+    width: auto;
+    margin: 0 4px;
   }
 
   .home-page .workload-title {

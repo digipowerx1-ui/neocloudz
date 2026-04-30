@@ -4,6 +4,7 @@ export interface ContactMetrics {
   responseLabel: string;
   responseLabelWithTilde: string;
   resolved: number;
+  uptimeLabel: string;
 }
 
 const TICK_MS = 3000;
@@ -26,10 +27,13 @@ function formatMinutes(min: number): string {
 
 function buildMetrics(mins: number, resolved: number): ContactMetrics {
   const label = formatMinutes(mins);
+  // Simulate 99.98% or 99.99% uptime
+  const uptime = Math.random() > 0.5 ? "99.99%" : "99.98%";
   return {
     responseLabel: label,
     responseLabelWithTilde: `~${label}`,
     resolved,
+    uptimeLabel: uptime,
   };
 }
 
