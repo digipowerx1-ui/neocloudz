@@ -2738,10 +2738,26 @@
 
 .home-page .partners-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  max-width: 1100px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  max-width: 1400px;
   margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1440px) {
+  .home-page .partners-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1100px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page .partners-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 .home-page .partner-card {
@@ -2841,15 +2857,34 @@
 
 .home-page .workloads-container {
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 80px;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid var(--border);
-  border-radius: 24px;
-  padding: 60px;
+  border-radius: 32px;
+  padding: 80px;
   align-items: center;
   position: relative;
   overflow: hidden;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 1500px) {
+  .home-page .workloads-container {
+    padding: 60px;
+    gap: 60px;
+    border-radius: 24px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .home-page .workloads-container {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    padding: 50px 40px;
+  }
 }
 
 .home-page .workloads-visual {
@@ -3117,15 +3152,41 @@
 @media (max-width: 1100px) {
   .home-page .workloads-container {
     grid-template-columns: 1fr;
-    padding: 40px;
+    padding: 60px 40px;
+    gap: 60px;
+  }
+
+  .home-page .workloads-visual {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .home-page .workloads-visual.order-2 {
-    order: 0;
+    order: 2;
   }
 
   .home-page .workloads-content.order-1 {
-    order: 0;
+    order: 1;
+  }
+  
+  .home-page .workload-title {
+    text-align: center;
+    font-size: 28px;
+  }
+  
+  .home-page .workload-desc {
+    text-align: center;
+  }
+  
+  .home-page .workload-bullets {
+    align-items: center;
+  }
+  
+  .home-page .btn-launch.mt-8 {
+    display: flex;
+    margin: 0 auto;
+    width: fit-content;
   }
 }
 .home-page .faq-status-card {
