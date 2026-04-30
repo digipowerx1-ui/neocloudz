@@ -64,13 +64,17 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
     }
 
     function setSize() {
-      if (!c) return;
-      W = c.width = c.offsetWidth;
-      H = c.height = c.offsetHeight;
+      if (!c || !ctx) return;
+      W = c.width = c.offsetWidth * window.devicePixelRatio;
+      H = c.height = c.offsetHeight * window.devicePixelRatio;
+      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+      W = c.offsetWidth;
+      H = c.offsetHeight;
     }
 
     function getNodePos(i: number) {
-      const pad = 80;
+      const isMobile = W < 600;
+      const pad = isMobile ? 40 : 80;
       const segW = (W - pad * 2) / (NODES.length - 1);
       return { x: pad + i * segW, y: H / 2 };
     }
@@ -83,14 +87,20 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
       ctx.clearRect(0, 0, W, H);
       animT += 0.016;
 
+      const isMobile = W < 600;
+      const nodeScale = isMobile ? Math.max(0.65, W / 600) : 1;
+      const nW = 104 * nodeScale;
+      const nH = 72 * nodeScale;
+      const gap = nW / 2 + 2;
+
       ctx.setLineDash([6, 6]);
       ctx.lineDashOffset = -(animT * 18);
       for (let i = 0; i < NODES.length - 1; i++) {
         const a = getNodePos(i);
         const b = getNodePos(i + 1);
         ctx.beginPath();
-        ctx.moveTo(a.x + 54, a.y);
-        ctx.lineTo(b.x - 54, b.y);
+        ctx.moveTo(a.x + gap, a.y);
+        ctx.lineTo(b.x - gap, b.y);
         ctx.strokeStyle = "rgba(45,255,122,0.18)";
         ctx.lineWidth = 1.5;
         ctx.stroke();
@@ -100,10 +110,8 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
 
       NODES.forEach((n, i) => {
         const pos = getNodePos(i);
-        const nW = 104;
-        const nH = 72;
 
-        const pr = 58 + Math.sin(animT * 1.8 + i * 1.2) * 6;
+        const pr = (58 + Math.sin(animT * 1.8 + i * 1.2) * 6) * nodeScale;
         ctx.beginPath();
         ctx.arc(pos.x, pos.y, pr, 0, Math.PI * 2);
         ctx.strokeStyle = "rgba(45,255,122,0.07)";
@@ -111,25 +119,25 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
         ctx.stroke();
 
         ctx.beginPath();
-        roundRect(ctx, pos.x - nW / 2, pos.y - nH / 2, nW, nH, 10);
+        roundRect(ctx, pos.x - nW / 2, pos.y - nH / 2, nW, nH, 10 * nodeScale);
         ctx.fillStyle = "rgba(15,20,16,0.96)";
         ctx.fill();
         ctx.strokeStyle = i === 3 ? "rgba(45,255,122,0.55)" : "rgba(45,255,122,0.22)";
         ctx.lineWidth = i === 3 ? 1.5 : 1;
         ctx.stroke();
 
-        ctx.font = "20px serif";
+        ctx.font = `${20 * nodeScale}px serif`;
         ctx.textAlign = "center";
-        ctx.fillText(n.icon, pos.x, pos.y - 10);
+        ctx.fillText(n.icon, pos.x, pos.y - (10 * nodeScale));
 
-        ctx.font = "600 10px Inter, sans-serif";
+        ctx.font = `600 ${10 * nodeScale}px Inter, sans-serif`;
         ctx.fillStyle = "#f0f5f0";
-        ctx.fillText(n.label, pos.x, pos.y + 7);
+        ctx.fillText(n.label, pos.x, pos.y + (7 * nodeScale));
 
-        ctx.font = "9px Inter, sans-serif";
+        ctx.font = `${9 * nodeScale}px Inter, sans-serif`;
         ctx.fillStyle = "#4a5a4a";
         n.sub.split("\n").forEach((line, li) => {
-          ctx.fillText(line, pos.x, pos.y + 18 + li * 11);
+          ctx.fillText(line, pos.x, pos.y + (18 * nodeScale) + li * (11 * nodeScale));
         });
       });
 
@@ -141,16 +149,16 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
         }
         const a = getNodePos(p.seg);
         const b = getNodePos(p.seg + 1);
-        const sx = a.x + 54;
-        const ex = b.x - 54;
+        const sx = a.x + gap;
+        const ex = b.x - gap;
         const px = sx + (ex - sx) * p.t;
         const py = a.y;
         ctx.beginPath();
-        ctx.arc(px, py, 9, 0, Math.PI * 2);
+        ctx.arc(px, py, 9 * nodeScale, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${p.col},0.12)`;
         ctx.fill();
         ctx.beginPath();
-        ctx.arc(px, py, 4, 0, Math.PI * 2);
+        ctx.arc(px, py, 4 * nodeScale, 0, Math.PI * 2);
         ctx.fillStyle = `rgba(${p.col},0.92)`;
         ctx.fill();
       });

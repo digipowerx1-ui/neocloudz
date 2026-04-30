@@ -1,8 +1,7 @@
 "use client";
 
-import { useRef } from "react";
-import { useContactHeroCanvas } from "@/hooks/useContactHeroCanvas";
 import { useLiveContactMetrics } from "@/hooks/useLiveContactMetrics";
+import { HeroParticles } from "@/components/layout/HeroParticles";
 
 interface AuroraBand {
   background: string;
@@ -67,13 +66,11 @@ interface CssVars extends React.CSSProperties {
 }
 
 export default function ContactHero() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  useContactHeroCanvas(canvasRef);
   const { responseLabelWithTilde } = useLiveContactMetrics();
 
   return (
     <section className="hero" id="hero">
-      <canvas ref={canvasRef} id="hero-canvas" />
+      <HeroParticles />
       <div className="hero-grid" />
       <div className="hero-aurora">
         {AURORA_BANDS.map((band, idx) => {
@@ -123,21 +120,19 @@ export default function ContactHero() {
       })}
 
       <div className="hero-content">
-        <div className="hero-eyebrow">GET IN TOUCH</div>
+        <div className="hero-eyebrow">NEOCLOUDZ COMMS HUB</div>
         <h1 className="hero-h1">
-          We&apos;d Love To
+          Accelerate Your
           <br />
-          <span className="g">Hear From You.</span>
+          <span className="g">AI Connection.</span>
         </h1>
-        <p className="hero-sub">
-          Whether you&apos;re ready to deploy, have a question, or just want to talk
-          GPUs — our team responds fast.
+        <p className="hero-sub" style={{ maxWidth: "600px", margin: "0 auto 48px" }}>
+          Direct access to the engineers and experts building the future of GPU infrastructure. Fast responses, zero friction.
         </p>
         <div className="response-badge">
           <span className="resp-dot" />
           <span>
-            Team online now · Typical response:{" "}
-            <strong style={{ color: "var(--green)" }}>under 2 hours</strong>
+            System Status: <strong style={{ color: "var(--green)" }}>ONLINE</strong> · Avg response time: <strong style={{ color: "var(--white)" }}>&lt; 2 hours</strong>
           </span>
         </div>
       </div>

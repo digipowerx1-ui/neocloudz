@@ -19,7 +19,7 @@ import {
 } from "./effects";
 import { useRackSlots } from "./useRackSlots";
 
-import { HOME_PRICING_TIERS, PRICING_TICKER_ITEMS } from "@/lib/pricing-data";
+import { PRICING_CARDS, PRICING_TICKER_ITEMS } from "@/lib/pricing-data";
 
 const TICKER_ITEMS = PRICING_TICKER_ITEMS;
 
@@ -381,7 +381,18 @@ export function HomeRack() {
 }
 
 
-const PRICE_CARDS = HOME_PRICING_TIERS;
+const PRICE_CARDS = PRICING_CARDS.map(pc => ({
+  tier: pc.badge,
+  name: pc.name,
+  amount: pc.price || pc.pricePrefix || "Custom",
+  period: pc.priceSuffix,
+  quota: pc.sub,
+  desc: pc.tagline,
+  features: pc.specs.map(s => s.label === 'GPU' ? s.value : `${s.label}: ${s.value}`),
+  cta: pc.cta,
+  ctaVariant: pc.ctaClass === 'primary' ? 'primary' as const : 'outline' as const,
+  featured: pc.featured
+}));
 
 export function HomePricing() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -414,7 +425,7 @@ export function HomePricing() {
             </div>
             <div className="price-quota">{card.quota}</div>
             <p className="price-desc">{card.desc}</p>
-            
+
             <div className="price-divider"></div>
 
             <ul className="price-features">
@@ -436,27 +447,27 @@ export function HomePricing() {
 
 const WHY_ITEMS = [
   {
-    icon: "⚡",
+    iconImg: "/assets/icons/contact/zap.png",
     title: "Peak Performance",
     desc: "NVIDIA GPU architectures optimized for AI training and inference.",
   },
   {
-    icon: "🔒",
+    iconImg: "/assets/icons/contact/settings.png",
     title: "Enterprise Reliability",
     desc: "Tier III U.S. data centers with redundant power and cooling.",
   },
   {
-    icon: "📡",
+    iconImg: "/assets/icons/contact/zap.png",
     title: "Seamless Scaling",
     desc: "Expand from a single instance to multi-rack clusters in seconds.",
   },
   {
-    icon: "💾",
+    iconImg: "/assets/icons/contact/settings.png",
     title: "Sustainable Power",
     desc: "Energy-optimized systems from DigiPowerX for lower carbon impact.",
   },
   {
-    icon: "📈",
+    iconImg: "/assets/icons/channels/chat.png",
     title: "Transparent Access",
     desc: "Simple pricing, clear usage insights, no hidden layers.",
   },
@@ -518,9 +529,15 @@ export function HomeWhy() {
 
       <div className="why-grid">
         <div className="why-features">
-          {WHY_ITEMS.map((it, i) => (
+          {WHY_ITEMS.map((it: any, i) => (
             <div className="why-item" key={i}>
-              <div className="why-icon">{it.icon}</div>
+              <div className="why-icon">
+                {it.iconImg ? (
+                  <img src={it.iconImg} alt={it.title} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
+                ) : (
+                  it.icon
+                )}
+              </div>
               <div>
                 <div className="why-title">{it.title}</div>
                 <div className="why-desc">{it.desc}</div>
@@ -563,12 +580,12 @@ export function HomeWhy() {
 
 const STORAGE_FEATURES = [
   {
-    icon: "⚡",
+    iconImg: "/assets/icons/contact/zap.png",
     title: "Sub-10μs Latency at Scale",
     desc: "WEKA delivers <10μs p99 latency across all cluster clients simultaneously — no degradation at scale. Your training throughput is never storage-bound.",
   },
   {
-    icon: "📦",
+    iconImg: "/assets/icons/contact/settings.png",
     title: "1.4 TB/s Aggregate Throughput",
     desc: "Parallel access across all storage nodes means B200 and Grace Blackwell clusters can load multi-terabyte datasets and write checkpoints without slowing down.",
   },
@@ -578,7 +595,7 @@ const STORAGE_FEATURES = [
     desc: "Mount WEKA like a local filesystem, access via NFS from any node, or use the S3-compatible API for object storage workflows. No code changes required.",
   },
   {
-    icon: "🛡️",
+    iconImg: "/assets/icons/contact/settings.png",
     title: "Persistent Across Sessions",
     desc: "Unlike ephemeral NVMe scratch, WEKA volumes persist between cluster launches. Your checkpoints survive node restarts, reconfigurations, and cluster terminations.",
   },
@@ -632,9 +649,15 @@ export function HomeStorage() {
         </div>
 
         <div className="storage-features">
-          {STORAGE_FEATURES.map((f, i) => (
+          {STORAGE_FEATURES.map((f: any, i) => (
             <div className="sf-item" key={i}>
-              <div className="sf-icon">{f.icon}</div>
+              <div className="sf-icon">
+                {f.iconImg ? (
+                  <img src={f.iconImg} alt={f.title} style={{ width: "24px", height: "24px", objectFit: "contain" }} />
+                ) : (
+                  f.icon
+                )}
+              </div>
               <div>
                 <div className="sf-title">{f.title}</div>
                 <div className="sf-desc">{f.desc}</div>
@@ -902,11 +925,11 @@ export function HomeWorkloads() {
                 <p className="workload-desc">{w.description}</p>
 
                 <ul className="workload-bullets">
-                  {w.bullets.map((b, i) => (
+                  {w.bullets.map((b: string, i: number) => (
                     <li key={i}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: "10px", flexShrink: 0 }}>
-                        <polyline points="20 6 9 17 4 12" />
-                      </svg>
+                      <span className="bullet-icon">
+                        <img src="/assets/icons/contact/zap.png" alt="check" style={{ width: "14px", height: "14px", objectFit: "contain" }} />
+                      </span>
                       {b}
                     </li>
                   ))}
@@ -991,10 +1014,18 @@ export function HomeFooter() {
             Grace Blackwell bare metal, and WEKA storage — all in one platform.
           </p>
           <div className="footer-social">
-            <a href="#" className="fsoc">𝕏</a>
-            <a href="#" className="fsoc">in</a>
-            <a href="#" className="fsoc">gh</a>
-            <a href="#" className="fsoc">dc</a>
+            <a href="https://discord.com" className="fsoc" target="_blank" rel="noreferrer">
+              <img src="/assets/icons/channels/discord.png" alt="Discord" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+            </a>
+            <a href="https://x.com" className="fsoc" target="_blank" rel="noreferrer">
+              <img src="/assets/icons/channels/twitter.png" alt="Twitter" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+            </a>
+            <a href="https://linkedin.com" className="fsoc" target="_blank" rel="noreferrer">
+              <img src="/assets/icons/channels/linkedin.png" alt="LinkedIn" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+            </a>
+            <a href="/contact" className="fsoc">
+              <img src="/assets/icons/channels/chat.png" alt="Chat" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+            </a>
           </div>
         </div>
         {FOOTER_COLS.map((col) => (

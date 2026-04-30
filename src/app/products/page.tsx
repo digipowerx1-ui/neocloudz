@@ -256,11 +256,9 @@ export default function ProductsPage() {
                   position: "relative",
                 }}
               >
-                <video
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
+                <img
+                  src="/blackwell_gpu_cluster_graphic_1777552187883.png"
+                  alt="NVIDIA Blackwell GPU Cluster"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -268,9 +266,7 @@ export default function ProductsPage() {
                     position: "absolute",
                     inset: 0,
                   }}
-                >
-                  <source src="/Holographic_car_on_202604281637.mp4" type="video/mp4" />
-                </video>
+                />
               </div>
             </div>
           </div>

@@ -585,7 +585,7 @@ section {
 }
 
 .section-inner {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -604,7 +604,8 @@ section {
   color: var(--white);
   letter-spacing: -1.5px;
   line-height: 1.08;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  padding: 0 20px;
 }
 
 .section-sub {
@@ -732,6 +733,48 @@ section {
   font-size: 12px;
   margin-top: 2px;
   flex-shrink: 0;
+}
+
+.sol-feature-boxes-minimal {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+}
+
+.sol-f-group h4 {
+  font-size: 13px;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.sol-f-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sol-f-list li {
+  font-size: 13px;
+  color: var(--text);
+  margin-bottom: 8px;
+  position: relative;
+  padding-left: 20px;
+  line-height: 1.5;
+}
+
+.sol-f-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 6px;
+  height: 6px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
 }
 
 .sol-visual {
@@ -895,6 +938,8 @@ section {
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .prod-card::before {
@@ -960,6 +1005,7 @@ section {
   align-items: center;
   gap: 6px;
   transition: gap .2s;
+  margin-top: auto;
 }
 
 .prod-card:hover .prod-link {
@@ -1132,7 +1178,7 @@ section {
 
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 20px;
   margin-top: 64px;
 }
@@ -1278,16 +1324,21 @@ section {
   gap: 1px;
   background: var(--border);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: 20px;
   overflow: hidden;
   margin-top: 64px;
 }
 
 .dc-stat {
   background: var(--surface);
-  padding: 52px 36px;
+  padding: 64px 24px;
   text-align: center;
-  transition: background .25s;
+  transition: all .3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 260px;
+  justify-content: center;
 }
 
 .dc-stat:hover {
@@ -1295,27 +1346,31 @@ section {
 }
 
 .dc-num {
-  font-size: clamp(40px, 5vw, 66px);
+  font-size: clamp(34px, 4.2vw, 54px);
   font-weight: 800;
   font-family: var(--font-mono);
   color: var(--green);
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: 20px;
   display: block;
+  white-space: nowrap;
 }
 
 .dc-label {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--white);
-  margin-bottom: 6px;
+  margin-bottom: 10px;
+  letter-spacing: -0.2px;
 }
 
 .dc-sub {
-  font-size: 12px;
+  font-size: 13px;
   color: var(--muted);
   line-height: 1.5;
+  max-width: 220px;
+  margin: 0 auto;
 }
 
 /* ============================================================
@@ -1670,15 +1725,56 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1280px) {
+  .sol-card {
+    gap: 40px;
+    padding: 40px;
+  }
+
+  .sol-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 1024px) {
   .sol-card {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 36px 22px;
+    max-width: 700px;
+    margin: 0 auto 60px;
   }
 
   .sol-card.reverse {
     direction: ltr;
+  }
+
+  .sol-feature-boxes-minimal {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sol-card {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 32px 20px;
+    border-radius: 16px;
+  }
+
+  .sol-card.reverse {
+    direction: ltr;
+  }
+
+  .sol-feature-boxes-minimal {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .sol-title {
+    font-size: 24px;
+  }
+
+  .sol-desc {
+    font-size: 15px;
   }
 
   .pillars {
@@ -1720,7 +1816,82 @@ footer {
   }
 
   .hero h1 {
-    letter-spacing: -1.5px;
+    font-size: clamp(28px, 6vw, 42px);
+    letter-spacing: -1px;
+  }
+
+  .hero-sub {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sol-card {
+    padding: 24px 16px;
+    margin-bottom: 40px;
+    gap: 24px;
+  }
+
+  .sol-feature-boxes-minimal {
+    gap: 20px;
+  }
+
+  .sol-title {
+    font-size: 22px;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+  }
+
+  .sol-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+
+  .sol-visual {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .enterprise-page footer {
+    padding: 40px 24px 24px;
+  }
+}
+
+/* Responsive Grids */
+@media (max-width: 1300px) {
+  .multi-silicon-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .multi-silicon-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .term-body {
+    padding: 12px 14px;
+    font-size: 11px;
+    min-height: auto;
+  }
+
+  .term-title {
+    font-size: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 180px;
+  }
+
+  .sol-f-group h4 {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .sol-f-list li {
+    font-size: 12px;
+    padding-left: 18px;
   }
 }
 
@@ -1739,6 +1910,11 @@ footer {
 
   .footer-grid {
     grid-template-columns: 1fr;
+  }
+
+  .infra-canvas-wrap {
+    height: 240px;
+    margin-top: 32px;
   }
 }
 

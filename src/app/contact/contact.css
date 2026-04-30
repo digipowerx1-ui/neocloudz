@@ -220,24 +220,66 @@
 }
 
 .contact-page .hero-h1 {
-  font-size: clamp(32px, 4vw, 58px);
-  font-weight: 800;
+  font-size: clamp(36px, 5vw, 72px);
+  font-weight: 900;
   color: var(--white);
-  letter-spacing: -1.5px;
-  line-height: 1.05;
-  margin-bottom: 20px;
-}
-
-.contact-page .hero-h1 .g {
-  color: var(--green);
+  letter-spacing: -2px;
+  line-height: 0.95;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 0 30px rgba(45, 255, 122, 0.15));
 }
 
 .contact-page .hero-sub {
-  font-size: 18px;
-  color: rgba(200, 212, 200, 0.6);
-  max-width: 520px;
-  margin: 0 auto 40px;
-  line-height: 1.65;
+  font-size: 20px;
+  color: rgba(200, 212, 200, 0.7);
+  max-width: 580px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+.contact-page .contact-card {
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-page .contact-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.contact-page .contact-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(45, 255, 122, 0.3) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(45, 255, 122, 0.1);
+  background: linear-gradient(180deg, rgba(30, 40, 30, 0.9) 0%, #050805 100%) !important;
+}
+
+.contact-page .contact-card:hover::after {
+  opacity: 1;
+}
+
+.contact-page .field-input,
+.contact-page .field-select,
+.contact-page .field-textarea {
+  background: rgba(255, 255, 255, 0.02) !important;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: all 0.3s ease !important;
+}
+
+.contact-page .field-input:focus,
+.contact-page .field-select:focus,
+.contact-page .field-textarea:focus {
+  background: rgba(45, 255, 122, 0.03) !important;
+  border-color: var(--green) !important;
+  box-shadow: 0 0 20px rgba(45, 255, 122, 0.1) !important;
 }
 
 /* Floating contact badges */
@@ -932,9 +974,10 @@
 }
 
 .contact-page .channels-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -943,17 +986,19 @@
   background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: 14px;
-  padding: 28px 24px;
+  padding: 32px 24px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   text-decoration: none;
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  flex: 1 1 280px;
+  max-width: 320px;
 }
 
 .contact-page .channel-card::before {
@@ -1408,12 +1453,14 @@
     min-height: auto;
   }
 
-  .contact-page .contact-left {
-    min-height: 40vh;
-    padding: 80px 40px;
+  .contact-page .form-panel {
+    min-height: auto;
+    padding: 60px 40px;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
   }
 
-  .contact-page .contact-right {
+  .contact-page .info-panel {
     padding: 60px 40px;
   }
 
@@ -1425,31 +1472,35 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .contact-page .live-metrics {
-    grid-template-columns: 1fr;
-  }
-
   .contact-page .dc-section {
     padding: 80px 40px;
-  }
-
-  .contact-page .footer-top {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
-
-  .contact-page footer.contact-footer {
-    padding: 50px 40px 30px;
   }
 }
 
 @media (max-width: 768px) {
-  .contact-page .contact-left {
-    min-height: auto;
+  .contact-page .hero {
+    min-height: 70vh;
+    padding-top: 80px;
+  }
+
+  .contact-page .hero-h1 {
+    font-size: clamp(32px, 8vw, 48px);
+  }
+
+  .contact-page .float-badge {
+    display: none;
+  }
+
+  .contact-page .form-panel {
     padding: 60px 24px;
   }
 
-  .contact-page .contact-right {
+  .contact-page .info-panel {
     padding: 40px 24px;
+  }
+
+  .contact-page .form-title {
+    font-size: 28px;
   }
 
   .contact-page .channels-grid {
@@ -1464,67 +1515,40 @@
     font-size: clamp(22px, 6vw, 32px);
   }
 
-  .contact-page .footer-top {
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-  }
-
-  .contact-page .footer-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .contact-page footer.contact-footer {
-    padding: 40px 24px 24px;
-  }
-
-  .contact-page .contact-title {
-    font-size: clamp(28px, 7vw, 42px);
-  }
-
-  .contact-page .contact-form-card {
-    padding: 32px 24px;
-  }
-
   .contact-page .hero-eyebrow::before,
   .contact-page .hero-eyebrow::after {
     width: 20px;
   }
+
+  .contact-page .contact-card {
+    padding: 24px !important;
+  }
+
+  .contact-page .live-metrics {
+    grid-template-columns: 1fr !important;
+  }
 }
 
 @media (max-width: 480px) {
-  .contact-page .footer-top {
-    grid-template-columns: 1fr;
+  .contact-page .hero-h1 {
+    font-size: 32px;
   }
 
-  .contact-page .contact-form-card {
-    padding: 24px 20px;
+  .contact-page .form-panel {
+    padding: 40px 20px;
   }
 
-  .contact-page .contact-title {
-    font-size: clamp(24px, 7vw, 36px);
+  .contact-page .info-panel {
+    padding: 30px 20px;
   }
-}
-/* ============================================================
-   MOBILE RESPONSIVENESS OVERRIDES
-   ============================================================ */
-@media (max-width: 1024px) {
-  .contact-page .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
+
+  .contact-page .contact-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
-}
-@media (max-width: 768px) {
-  .contact-page .hero-glow {
-    max-width: 100vw;
-  }
-  .contact-page .global-map {
-    max-width: 100vw;
-    width: 100%;
-    overflow: hidden;
-  }
-  .contact-page [style*="width: 800px"] {
-    max-width: 100%;
-    width: 100% !important;
+
+  .contact-page .card-icon {
+    margin-bottom: 12px;
   }
 }

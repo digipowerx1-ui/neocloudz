@@ -14,9 +14,9 @@ interface NavLink {
 
 const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/", matches: ["/"] },
-  { 
-    label: "Products", 
-    href: "/products", 
+  {
+    label: "Products",
+    href: "/products",
     matches: ["/products", "/ai-factory-as-a-service", "/gpu-as-a-service", "/ml-as-a-service"],
     subLinks: [
       { label: "AI Factory as a Service", href: "/ai-factory-as-a-service" },
@@ -24,9 +24,9 @@ const NAV_LINKS: NavLink[] = [
       { label: "ML as a Service", href: "/ml-as-a-service" },
     ]
   },
-  { 
-    label: "Solution", 
-    href: "/solutions", 
+  {
+    label: "Solution",
+    href: "/solutions",
     matches: ["/solutions"],
     subLinks: [
       { label: "AI Model Training", href: "/solutions#training" },
@@ -35,11 +35,12 @@ const NAV_LINKS: NavLink[] = [
       { label: "Research & Experimentation", href: "/solutions#research" },
     ]
   },
+  { label: "Blog", href: "/blog", matches: ["/blog"] },
   { label: "Pricing", href: "/pricing", matches: ["/pricing"] },
   { label: "Enterprise", href: "/enterprise", matches: ["/enterprise"] },
-  { 
-    label: "Company", 
-    href: "/contact", 
+  {
+    label: "Company",
+    href: "/contact",
     matches: ["/contact", "/about", "/career"],
     subLinks: [
       { label: "About", href: "/about" },
@@ -73,7 +74,7 @@ export function Header() {
                   <Link href={link.href} className={`nav-link-with-arrow${active ? " active" : ""}`}>
                     {link.label}
                     <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </Link>
                   <div className="dropdown-menu">
@@ -117,20 +118,20 @@ export function Header() {
                     {link.label}
                   </Link>
                   {link.subLinks && (
-                    <ul style={{ 
-                      listStyle: "none", 
-                      padding: "4px 0 12px 12px", 
-                      display: "flex", 
-                      flexDirection: "column", 
+                    <ul style={{
+                      listStyle: "none",
+                      padding: "4px 0 12px 12px",
+                      display: "flex",
+                      flexDirection: "column",
                       gap: 2,
                       borderLeft: "1px solid rgba(45, 255, 122, 0.15)",
                       margin: "0 0 8px 16px"
                     }}>
                       {link.subLinks.map((sub) => (
                         <li key={sub.label}>
-                          <Link href={sub.href} style={{ 
-                            fontSize: 13, 
-                            opacity: 0.6, 
+                          <Link href={sub.href} style={{
+                            fontSize: 13,
+                            opacity: 0.6,
                             padding: "8px 12px",
                             fontWeight: 500,
                             display: "block"
