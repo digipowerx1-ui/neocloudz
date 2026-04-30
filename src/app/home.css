@@ -814,6 +814,10 @@
 /* â”€â”€ HOMEPAGE SECTIONS shared â”€â”€ */
 .home-page .hp-section {
   padding: 100px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .home-page .hp-section.dark {
@@ -2720,10 +2724,13 @@
 
 /* â”€â”€ INFRASTRUCTURE PARTNERS â”€â”€ */
 .home-page .partners-section {
-  padding: 80px 40px;
+  padding: 100px 40px;
   background: var(--bg);
   position: relative;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
 .home-page .partners-intro {
