@@ -64,7 +64,7 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
     }
 
     function setSize() {
-      if (!c) return;
+      if (!c || !ctx) return;
       W = c.width = c.offsetWidth * window.devicePixelRatio;
       H = c.height = c.offsetHeight * window.devicePixelRatio;
       ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
