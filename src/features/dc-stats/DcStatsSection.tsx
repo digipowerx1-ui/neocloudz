@@ -37,13 +37,13 @@ export default function DcStatsSection() {
   return (
     <section className="dc-stats" id="datacenter">
       <div className="section-inner">
-        <div className="section-label reveal text-center">
+        <div className="section-label reveal">
           // Data Centers
         </div>
-        <h2 className="section-title reveal text-center">
+        <h2 className="section-title reveal">
           Built to <span className="g">Last. Built to Scale.</span>
         </h2>
-        <p className="section-sub reveal text-center mx-auto">
+        <p className="section-sub reveal">
           Every NeoCloudz facility meets the highest standards for
           availability, security, and power efficiency.
         </p>

@@ -69,6 +69,15 @@ ul {
   color: var(--amber);
 }
 
+.text-center {
+  text-align: center !important;
+}
+
+.mx-auto {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
 /* ============================================================
    SCROLL PROGRESS BAR
    ============================================================ */
@@ -536,7 +545,8 @@ nav {
 .ticker-track {
   display: flex;
   white-space: nowrap;
-  animation: ticker-scroll 44s linear infinite;
+  animation: ticker-scroll 8s linear infinite;
+  will-change: transform;
 }
 
 .ticker-track:hover {
@@ -605,7 +615,6 @@ section {
   letter-spacing: -1.5px;
   line-height: 1.1;
   margin-bottom: 24px;
-  padding: 0 16px;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
@@ -615,8 +624,7 @@ section {
   color: var(--text);
   max-width: 580px;
   line-height: 1.72;
-  margin: 0 auto;
-  padding: 0 16px;
+  margin: 20px 0 40px;
   word-wrap: break-word;
 }
 
@@ -1048,8 +1056,22 @@ section {
 .pillar-icon {
   font-size: 38px;
   margin-bottom: 16px;
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   filter: drop-shadow(0 0 14px rgba(45, 255, 122, 0.22));
+}
+
+.sol-icon-wrap,
+.prod-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.sol-card.reverse .sol-icon-wrap {
+  justify-content: flex-end;
 }
 
 .pillar-name {
@@ -1111,7 +1133,8 @@ section {
 .logo-track {
   display: flex;
   white-space: nowrap;
-  animation: logo-scroll 30s linear infinite;
+  animation: logo-scroll 8s linear infinite;
+  will-change: transform;
 }
 
 @keyframes logo-scroll {
@@ -1874,7 +1897,7 @@ footer {
   .multi-silicon-grid {
     grid-template-columns: 1fr !important;
   }
-  
+
   .term-body {
     padding: 12px 14px;
     font-size: 11px;
@@ -1961,25 +1984,36 @@ footer {
   box-shadow: 0 0 10px #2dff7a;
   display: block !important;
 }
+
 /* ============================================================
    MOBILE RESPONSIVENESS OVERRIDES
    ============================================================ */
 @media (max-width: 1024px) {
-  html, body {
+
+  html,
+  body {
     overflow-x: hidden !important;
     width: 100%;
   }
 }
+
 @media (max-width: 768px) {
-  html, body {
+
+  html,
+  body {
     overflow-x: hidden !important;
     width: 100%;
   }
+
   .page-container {
     padding: 0 16px !important;
     overflow-x: hidden;
   }
-  img, canvas, video, svg {
+
+  img,
+  canvas,
+  video,
+  svg {
     max-width: 100%;
     height: auto;
   }

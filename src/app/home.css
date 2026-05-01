@@ -2656,7 +2656,8 @@
     min-height: 260px;
     max-height: 260px;
     padding: 24px;
-    overflow: visible; /* Allow content to be seen if slightly over */
+    overflow: visible;
+    /* Allow content to be seen if slightly over */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2665,7 +2666,8 @@
   .home-page .tech-stack-diagram,
   .home-page .inference-visual,
   .home-page .prototype-visual {
-    transform: scale(0.85); /* Scale down to fit */
+    transform: scale(0.85);
+    /* Scale down to fit */
     transform-origin: center;
   }
 
@@ -2808,7 +2810,8 @@
   .home-page .prototype-visual {
     transform: scale(0.8);
     transform-origin: center;
-    width: 110%; /* Compensate for scale */
+    width: 110%;
+    /* Compensate for scale */
   }
 
   .home-page .workload-title {
