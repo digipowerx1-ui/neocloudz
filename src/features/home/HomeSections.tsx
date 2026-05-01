@@ -878,7 +878,7 @@ export function HomeWorkloads() {
     <section className="hp-section mid" id="workloads">
       <div className="section-inner">
         <div className="hp-section-header">
-          <h2 className="section-title">Optimized for Every AI and HPC Workload</h2>
+          <h2 className="section-title">Optimized for <span className="g">Every AI and HPC Workload</span></h2>
           <p className="section-sub">
             From research labs to production AI, NeoCloudz delivers the right
             infrastructure for your use case, out of the box.
