@@ -347,7 +347,7 @@ export function HomeRack() {
         <div className="rack-glow" />
         <div className="rack-badge">H100 SXM5 × 8</div>
       </div>
-      <div style={{ maxWidth: "400px" }}>
+      <div className="rack-content">
         <div className="hp-label">AI-Ready Infrastructure</div>
         <div className="hp-h2" style={{ fontSize: "clamp(24px,2.5vw,38px)" }}>
           NVL72 Rack.<br />

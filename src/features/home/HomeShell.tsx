@@ -34,7 +34,7 @@ export function HomeShell() {
       <HomePartners />
       <HomeTicker />
       <HomeWhy />
-       <HomePricing />
+      <HomePricing />
       <HomeWorkloads />
       <HomeGpuCatalog />
       <div className="section-divider" />
@@ -44,7 +44,7 @@ export function HomeShell() {
       <HomeBenchmark />
       <HomeRack />
       <div className="anim-divider" />
-    
+
       <HomeStorage />
       <HomeFaq />
       <HomeCta />
