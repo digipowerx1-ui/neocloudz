@@ -916,7 +916,7 @@
 .home-page .ticker-track {
   display: flex;
   gap: 0;
-  animation: home-ticker 28s linear infinite;
+  animation: home-ticker 8s linear infinite;
   white-space: nowrap;
 }
 
