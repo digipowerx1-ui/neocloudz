@@ -399,7 +399,8 @@
   display: flex;
   gap: 0;
   white-space: nowrap;
-  animation: pricing-ticker 32s linear infinite;
+  animation: pricing-ticker 8s linear infinite;
+  will-change: transform;
 }
 
 .pricing-page .ticker-track:hover {
@@ -1478,10 +1479,10 @@
 
 .pricing-page .logos-scroll {
   display: flex;
-  gap: 64px;
-  align-items: center;
-  animation: pricing-logos-scroll 28s linear infinite;
+  gap: 60px;
   width: max-content;
+  animation: pricing-logos-scroll 8s linear infinite;
+  will-change: transform;
 }
 
 .pricing-page .logos-scroll:hover {
