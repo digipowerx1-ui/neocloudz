@@ -2631,12 +2631,30 @@
   .home-page .workloads-container {
     grid-template-columns: 1fr;
     gap: 40px;
-    padding: 40px 24px;
+    padding: 32px 20px;
     border-radius: 24px;
   }
 
+  .home-page .workloads-visual {
+    order: -1 !important;
+    min-height: 260px;
+    max-height: 260px;
+    padding: 24px;
+    overflow: visible; /* Allow content to be seen if slightly over */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-page .tech-stack-diagram,
+  .home-page .inference-visual,
+  .home-page .prototype-visual {
+    transform: scale(0.85); /* Scale down to fit */
+    transform-origin: center;
+  }
+
   .home-page .workloads-visual.order-2 {
-    order: 2;
+    order: -1 !important;
   }
 
   .home-page .workloads-content.order-1 {
@@ -2754,17 +2772,33 @@
   }
 
   .home-page .workloads-container {
-    padding: 32px 20px;
+    padding: 24px 16px;
     border-radius: 20px;
     width: auto;
     margin: 0;
-    gap: 32px;
+    gap: 24px;
+  }
+
+  .home-page .workloads-visual {
+    order: -1 !important;
+    min-height: 240px;
+    max-height: 240px;
+    padding: 16px;
+    overflow: visible;
+  }
+
+  .home-page .tech-stack-diagram,
+  .home-page .inference-visual,
+  .home-page .prototype-visual {
+    transform: scale(0.8);
+    transform-origin: center;
+    width: 110%; /* Compensate for scale */
   }
 
   .home-page .workload-title {
-    font-size: 26px;
+    font-size: 24px;
     text-align: left;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
   }
 
   .home-page .workload-desc {
@@ -3428,26 +3462,62 @@
     margin: 0 auto;
   }
 
-  /* Keep content first on mobile for alternate cards */
-  .home-page .workloads-visual.order-2 {
-    order: 2;
-  }
-
-  .home-page .workloads-content.order-1 {
-    order: 1;
+  /* Keep visual first on mobile */
+  .home-page .workloads-visual {
+    order: -1 !important;
+    min-height: 260px;
+    max-height: 260px;
+    padding: 20px;
+    overflow: visible;
   }
 
   .home-page .workload-title {
     text-align: left;
-    font-size: 30px;
+    font-size: 26px;
+    margin-top: 10px;
   }
 
   .home-page .workload-desc {
     text-align: left;
+    font-size: 14px;
+    line-height: 1.5;
   }
 
   .home-page .workload-bullets {
     align-items: flex-start;
+    gap: 10px;
+  }
+
+  .home-page .stack-row {
+    gap: 8px;
+  }
+
+  .home-page .stack-label {
+    width: 60px;
+    font-size: 8px;
+  }
+
+  .home-page .s-item {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+
+  .home-page .inf-box {
+    padding: 10px;
+  }
+
+  .home-page .inf-node {
+    width: 28px;
+    height: 36px;
+    font-size: 8px;
+  }
+
+  .home-page .proto-grid {
+    gap: 10px;
+  }
+
+  .home-page .proto-gauge {
+    padding: 8px;
   }
 
   .home-page .btn-launch.mt-8 {
