@@ -1894,6 +1894,43 @@
 }
 
 @media (max-width: 768px) {
+  .pricing-page .hero {
+    padding: 120px 20px 80px;
+    min-height: auto;
+  }
+
+  .pricing-page .hero-content {
+    padding: 0 10px;
+    width: 100%;
+  }
+
+  .pricing-page .hero-h1 {
+    font-size: 36px;
+    padding-top: 0;
+  }
+
+  .pricing-page .hero-sub {
+    font-size: 16px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+  }
+
+  .pricing-page .hero-cta-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
+    width: 100%;
+    max-width: 320px;
+    margin: 28px auto 40px !important;
+  }
+
+  .pricing-page .hero-cta-row .btn-launch,
+  .pricing-page .hero-cta-row .btn-outline-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+  }
+
   .pricing-page .pricing-grid {
     grid-template-columns: 1fr;
   }
