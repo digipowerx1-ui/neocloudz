@@ -2009,4 +2009,13 @@
   .enterprise-page .ent-features-grid {
     grid-template-columns: 1fr !important;
   }
+
+  .enterprise-page .btn-launch,
+  .enterprise-page .btn-outline {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 20px !important; /* Reduced padding */
+    font-size: 14px !important; /* Reduced font size */
+    white-space: nowrap !important; /* Force single line */
+  }
 }

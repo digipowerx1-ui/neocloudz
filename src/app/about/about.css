@@ -1,0 +1,220 @@
+/* About Page Specific Responsiveness */
+
+.about-page-container {
+  overflow-x: hidden;
+}
+
+/* Desktop Grid Defaults */
+.sustainability-header-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.stats-grid-mini {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.eco-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.cta-grid-advanced {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 100px;
+}
+
+@media (max-width: 768px) {
+  /* Hero Section Fixes */
+  .enterprise-page.about-page-container .hero-content {
+    padding: 0 20px !important;
+  }
+
+  .enterprise-page.about-page-container .hero-h1 {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+  }
+
+  .enterprise-page.about-page-container .hero-sub {
+    font-size: 14px !important;
+    text-align: center !important;
+  }
+
+  /* Mission Section Grid */
+  .mission-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .hp-h2 {
+    text-align: center !important;
+  }
+
+  .vision-brief {
+    padding: 20px !important;
+  }
+
+  .vision-specs {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .mission-console {
+    padding: 24px !important;
+  }
+
+  /* Architecture Grid */
+  .architecture-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .arch-card {
+    padding: 32px !important;
+  }
+
+  .arch-card h3 {
+    font-size: 24px !important;
+  }
+
+  /* Sustainability Section */
+  .sustainability-header-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .sustainability-header-grid > div:first-child {
+    text-align: center !important;
+  }
+
+  .sustainability-header-grid .hp-h2 {
+    text-align: center !important;
+  }
+
+  .sustainability-header-grid .hp-sub {
+    text-align: center !important;
+  }
+
+  .stats-grid-mini {
+    grid-template-columns: 1fr !important; /* Single column for horizontal cards */
+    gap: 12px !important;
+    padding: 20px !important;
+    border-radius: 16px !important;
+  }
+
+  .impact-stat {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    text-align: left !important;
+    background: rgba(0,0,0,0.2) !important;
+    padding: 16px 24px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255,255,255,0.05) !important;
+  }
+
+  .impact-stat > div:first-child {
+    font-size: 24px !important;
+    margin: 0 !important;
+  }
+  
+  .impact-stat > div:last-child {
+    text-align: right !important;
+    max-width: 50% !important;
+  }
+
+  .eco-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .eco-card {
+    padding: 24px !important; /* Reduced from 40px */
+    border-radius: 16px !important;
+  }
+
+  /* CTA Section */
+  .cta-grid-advanced {
+    grid-template-columns: 1fr !important;
+    gap: 60px !important;
+    padding: 0 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .cta-grid-advanced > div:first-child {
+    text-align: center !important;
+  }
+
+  .cta-grid-advanced .hp-h2 {
+    text-align: center !important;
+  }
+
+  .cta-grid-advanced .hp-sub {
+    text-align: center !important;
+    margin: 0 auto 40px !important;
+  }
+
+  .cta-grid-advanced .hero-cta {
+    justify-content: center !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .deployment-terminal {
+    height: auto !important;
+    min-height: 300px !important;
+  }
+
+  /* Button Consistency Overrides */
+  .enterprise-page .btn-launch,
+  .enterprise-page .btn-outline {
+    width: 100% !important;
+    justify-content: center !important;
+    padding: 12px 20px !important; /* Reduced padding so it fits on one line */
+    font-size: 14px !important; /* Reduced font size to fit */
+    white-space: nowrap !important;
+  }
+
+  .btn-custom-cta {
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    width: 100% !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-h1 {
+    font-size: 28px !important;
+  }
+
+  .stats-grid-mini {
+    grid-template-columns: 1fr !important;
+  }
+  
+  /* Even smaller buttons for very small screens if needed */
+  .enterprise-page .btn-launch,
+  .enterprise-page .btn-outline {
+    font-size: 13px !important;
+    padding: 10px 16px !important;
+  }
+}

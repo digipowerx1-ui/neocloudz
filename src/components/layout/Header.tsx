@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { Rocket } from "lucide-react";
 
 interface NavLink {
   label: string;
@@ -94,8 +95,8 @@ export function Header() {
           );
         })}
       </ul>
-      <Link href="/contact" className="site-nav-cta">
-        Launch AI Instances ▶
+      <Link href="/contact" className="site-nav-cta" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        Launch AI Instances <Rocket size={16} />
       </Link>
       <button
         className="site-nav-toggle"
