@@ -916,7 +916,7 @@
 .home-page .ticker-track {
   display: flex;
   gap: 0;
-  animation: home-ticker 8s linear infinite;
+  animation: home-ticker 5s linear infinite;
   white-space: nowrap;
 }
 
@@ -2853,6 +2853,10 @@
     top: 50%;
     transform: translateY(-50%);
     text-align: left;
+  }
+
+  .home-page .ticker-track {
+    animation-duration: 3s;
   }
 
   .home-page .btn-launch.mt-8 {
