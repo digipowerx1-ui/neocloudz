@@ -792,6 +792,14 @@
   transform: translateY(-1px);
 }
 
+.home-page .btn-launch svg {
+  transition: transform 0.2s ease;
+}
+
+.home-page .btn-launch:hover svg {
+  transform: translateX(4px);
+}
+
 .home-page .btn-outline {
   background: transparent;
   color: var(--text);
@@ -1303,6 +1311,14 @@
   background: rgba(45, 255, 122, 0.14);
   box-shadow: 0 0 16px rgba(45, 255, 122, 0.2);
   transform: scale(1.08);
+}
+
+.home-page .why-icon svg {
+  transition: filter 0.3s ease;
+}
+
+.home-page .why-item:hover .why-icon svg {
+  filter: drop-shadow(0 0 5px currentColor);
 }
 
 .home-page .why-title {

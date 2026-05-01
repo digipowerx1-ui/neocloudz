@@ -447,27 +447,56 @@ export function HomePricing() {
 
 const WHY_ITEMS = [
   {
-    iconImg: "/assets/icons/contact/zap.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" opacity="0.3" strokeWidth="3" filter="blur(2px)" />
+      </svg>
+    ),
     title: "Peak Performance",
     desc: "NVIDIA GPU architectures optimized for AI training and inference.",
   },
   {
-    iconImg: "/assets/icons/contact/settings.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="M12 8v8M8 12h8" opacity="0.5" />
+        <circle cx="12" cy="12" r="9" opacity="0.1" fill="var(--blue)" />
+      </svg>
+    ),
     title: "Enterprise Reliability",
     desc: "Tier III U.S. data centers with redundant power and cooling.",
   },
   {
-    iconImg: "/assets/icons/contact/zap.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 3l-6.5 6.5M21 3h-6M21 3v6M3 21l6.5-6.5M3 21h6M3 21v-6M21 21l-6.5-6.5M21 21v-6M21 21h-6M3 3l6.5 6.5M3 3v6M3 3h6" />
+        <circle cx="12" cy="12" r="3" fill="var(--green)" opacity="0.2" />
+      </svg>
+    ),
     title: "Seamless Scaling",
     desc: "Expand from a single instance to multi-rack clusters in seconds.",
   },
   {
-    iconImg: "/assets/icons/contact/settings.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="7" width="16" height="10" rx="2" ry="2" />
+        <path d="M22 11v2" />
+        <path d="M6 10l2 2-2 2" stroke="var(--amber)" opacity="0.8" />
+        <path d="M10 10l2 2-2 2" stroke="var(--amber)" opacity="0.5" />
+      </svg>
+    ),
     title: "Sustainable Power",
     desc: "Energy-optimized systems from DigiPowerX for lower carbon impact.",
   },
   {
-    iconImg: "/assets/icons/channels/chat.png",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 5v2M12 17v2M5 12H7M17 12h2" opacity="0.4" />
+      </svg>
+    ),
     title: "Transparent Access",
     desc: "Simple pricing, clear usage insights, no hidden layers.",
   },
@@ -580,22 +609,45 @@ export function HomeWhy() {
 
 const STORAGE_FEATURES = [
   {
-    iconImg: "/assets/icons/contact/zap.png",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <polyline points="12 6 12 12 16 14" />
+        <path d="M12 2v4M12 18v4M2 12h4M18 12h4" opacity="0.3" />
+      </svg>
+    ),
     title: "Sub-10μs Latency at Scale",
     desc: "WEKA delivers <10μs p99 latency across all cluster clients simultaneously — no degradation at scale. Your training throughput is never storage-bound.",
   },
   {
-    iconImg: "/assets/icons/contact/settings.png",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <circle cx="12" cy="16" r="1" />
+      </svg>
+    ),
     title: "1.4 TB/s Aggregate Throughput",
     desc: "Parallel access across all storage nodes means B200 and Grace Blackwell clusters can load multi-terabyte datasets and write checkpoints without slowing down.",
   },
   {
-    icon: "🔗",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+      </svg>
+    ),
     title: "POSIX, NFS & S3 Compatible",
     desc: "Mount WEKA like a local filesystem, access via NFS from any node, or use the S3-compatible API for object storage workflows. No code changes required.",
   },
   {
-    iconImg: "/assets/icons/contact/settings.png",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+        <path d="M12 6v6l4 2" />
+        <path d="M12 16h.01" />
+      </svg>
+    ),
     title: "Persistent Across Sessions",
     desc: "Unlike ephemeral NVMe scratch, WEKA volumes persist between cluster launches. Your checkpoints survive node restarts, reconfigurations, and cluster terminations.",
   },
@@ -754,7 +806,11 @@ export function HomeCta() {
       </p>
       <div className="cta-row" style={{ position: "relative", zIndex: 2 }}>
         <a href="/contact" className="btn-launch" ref={launchBtnRef}>
-          Launch AI Instances ▶
+          Launch AI Instances
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </a>
         <a href="/contact" className="btn-outline">
           Talk to Sales →
@@ -789,7 +845,7 @@ const WORKLOADS: WorkloadTab[] = [
       "NVMe storage for checkpointing",
       "Auto-scaling multi-node clusters",
     ],
-    cta: "Launch Training Instance ▶",
+    cta: "Launch Training Instance",
   },
   {
     id: "inference",
@@ -801,7 +857,7 @@ const WORKLOADS: WorkloadTab[] = [
       "Kubernetes-ready GPU instances",
       "Monitoring & alerting dashboards",
     ],
-    cta: "Deploy Now ▶",
+    cta: "Deploy Now",
   },
   {
     id: "prototyping",
@@ -813,7 +869,7 @@ const WORKLOADS: WorkloadTab[] = [
       "Secure dataset ingestion",
       "One-click environment cloning",
     ],
-    cta: "Open Notebook ▶",
+    cta: "Open Notebook",
   },
 ];
 
@@ -937,6 +993,10 @@ export function HomeWorkloads() {
 
                 <a href="/contact" className="btn-launch mt-8">
                   {w.cta}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                  </svg>
                 </a>
               </div>
             </div>
