@@ -351,13 +351,15 @@ export function HomeHero() {
         <div className="hero-cta">
           <a href="/contact" className="btn-launch">
             Launch AI Instances
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
           <a href="/contact" className="btn-outline">
-            Request Private Cluster →
+            Request Private Cluster
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
           </a>
         </div>
 

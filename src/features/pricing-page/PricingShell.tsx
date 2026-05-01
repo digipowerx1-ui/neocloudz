@@ -67,7 +67,7 @@ const CARDS: CardData[] = PRICING_CARDS.map((pc) => ({
     text: `${s.label}: ${s.value}`,
     custom: pc.onDemandRate === null ? true : undefined,
   })),
-  cta: `${pc.cta} →`,
+  cta: pc.cta,
   ctaClass: pc.ctaClass,
   featured: pc.featured,
   customSavingsTag: pc.customSavingsTag,
@@ -340,8 +340,18 @@ export function PricingShell() {
             commitment of hundreds of units for at least 3 months.
           </p>
           <div className="hero-cta-row" style={{ display: "flex", gap: 16, marginTop: 28, flexWrap: "wrap", justifyContent: "center", marginBottom: 40 }}>
-            <a href="/contact" className="btn-launch">Launch AI Instances ▶</a>
-            <a href="/contact" className="btn-outline-cta">Request Custom Quote →</a>
+            <a href="/contact" className="btn-launch">
+              Launch AI Instances
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+            <a href="/contact" className="btn-outline-cta">
+              Request Custom Quote
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
 
           <div className="hero-live-strip">
@@ -507,6 +517,9 @@ export function PricingShell() {
                 </ul>
                 <a href="/contact" className={`price-btn ${c.ctaClass}`}>
                   {c.cta}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
                 </a>
               </div>
             );
@@ -664,7 +677,10 @@ export function PricingShell() {
                   </div>
                 </div>
                 <div className="calc-savings-callout">
-                  → You save <span>{fmtCurrency(calcSavings)}</span> per month vs AWS ·{" "}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mr-2 inline-block align-middle" style={{ marginTop: '-2px' }}>
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                  You save <span>{fmtCurrency(calcSavings)}</span> per month vs AWS ·{" "}
                   <span>{calcSavePct}%</span> cheaper
                 </div>
               </div>
@@ -768,10 +784,10 @@ export function PricingShell() {
               </tr>,
               ...g.rows.map((r, ri) => (
                 <tr className="matrix-row" key={`r-${gi}-${ri}`}>
-                  <td>{r.label}</td>
-                  <td className="featured-col">{r.values[0]}</td>
-                  <td>{r.values[1]}</td>
-                  <td>{r.values[2]}</td>
+                  <td data-label="Feature">{r.label}</td>
+                  <td className="featured-col" data-label="NeoCloudz">{r.values[0]}</td>
+                  <td data-label="Cloud Vendor">{r.values[1]}</td>
+                  <td data-label="Other Provider">{r.values[2]}</td>
                 </tr>
               )),
             ])}
@@ -844,10 +860,16 @@ export function PricingShell() {
           </p>
           <div className="cta-row">
             <a href="/contact" className="btn-launch" ref={ctaLaunchRef}>
-              Request Private Clusters ▶
+              Request Private Clusters
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
             <a href="/contact" className="btn-outline-cta">
-              Launch AI Instances →
+              Launch AI Instances
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </a>
           </div>
         </div>

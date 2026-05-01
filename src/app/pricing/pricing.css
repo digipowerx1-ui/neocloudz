@@ -1635,11 +1635,11 @@
 }
 
 .pricing-page .cta-banner h2 {
-  font-size: clamp(32px, 4.5vw, 64px);
+  font-size: clamp(28px, 4.5vw, 64px);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -2px;
-  line-height: 1;
+  line-height: 1.1;
   margin-bottom: 16px;
 }
 
@@ -1903,8 +1903,18 @@
   }
 
   .pricing-page .hero-live-strip {
-    flex-direction: column;
-    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 0 16px;
+    width: auto;
+  }
+
+  .pricing-page .hlm {
+    min-width: 110px;
+    flex: 1 0 auto;
   }
 
   .pricing-page .hlm-div {
@@ -1968,15 +1978,102 @@
 
   .pricing-page .matrix-table {
     display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+    border: none;
+    margin-top: 32px;
   }
 
-  .pricing-page .matrix-table thead,
+  .pricing-page .matrix-table thead {
+    display: none;
+  }
+
   .pricing-page .matrix-table tbody {
-    display: table;
-    width: 100%;
-    min-width: 600px;
+    display: block;
+    width: 100% !important;
+    min-width: unset !important;
+  }
+
+  .pricing-page .matrix-table tr.matrix-row {
+    display: block;
+    margin-bottom: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .pricing-page .matrix-table tr.matrix-section-header {
+    display: block;
+    margin: 30px 0 10px;
+    padding: 0;
+  }
+
+  .pricing-page .matrix-table tr.matrix-section-header td {
+    display: block;
+    font-size: 14px;
+    color: var(--green);
+    text-align: left;
+    padding: 0;
+    border: none;
+    background: transparent;
+  }
+
+  .pricing-page .matrix-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: right !important;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    min-width: unset !important;
+    background: transparent !important;
+  }
+
+  .pricing-page .matrix-table td:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-page .matrix-table td::before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: var(--muted);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-align: left;
+    flex: 0 0 40%;
+    margin-top: 2px;
+  }
+
+  .pricing-page .matrix-table td:first-child {
+    display: block;
+    font-size: 16px;
+    color: var(--white);
+    font-weight: 800;
+    margin-bottom: 12px;
+    border-bottom: 2px solid var(--green);
+    padding-bottom: 12px;
+    text-align: left !important;
+  }
+
+  .pricing-page .matrix-table td:first-child::before {
+    content: "Feature";
+    display: block;
+    margin-bottom: 4px;
+    flex: none;
+  }
+
+  .pricing-page .matrix-table td.featured-col {
+    background: rgba(45, 255, 122, 0.05) !important;
+    margin: 4px -10px;
+    padding: 12px 10px;
+    border-radius: 8px;
+    color: var(--green);
+    font-weight: 700;
+    border-bottom: none;
   }
 }
 
@@ -1999,6 +2096,28 @@
 
   .pricing-page .compare-title {
     font-size: 22px;
+  }
+
+  .pricing-page .cta-banner {
+    padding: 60px 20px;
+  }
+
+  .pricing-page .cta-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .pricing-page .btn-launch, 
+  .pricing-page .btn-outline-cta {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+
+  .pricing-page .cta-banner h2 {
+    font-size: 32px;
   }
 }
 

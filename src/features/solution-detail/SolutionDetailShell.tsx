@@ -50,11 +50,17 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
 
           <div className="hero-ctas">
             <Link href={data.primaryCta.href} className="btn btn-green btn-lg">
-              {data.primaryCta.label} ▶
+              {data.primaryCta.label}
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </Link>
             {data.secondaryCta ? (
               <Link href={data.secondaryCta.href} className="btn btn-outline btn-lg">
-                {data.secondaryCta.label} →
+                {data.secondaryCta.label}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </Link>
             ) : null}
           </div>
@@ -118,7 +124,10 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
 
               <div style={{ marginTop: 32 }}>
                 <Link href={data.primaryCta.href} className="btn btn-green">
-                  {data.primaryCta.label} →
+                  {data.primaryCta.label}
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
                 </Link>
               </div>
             </div>
@@ -166,7 +175,10 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
                 className="btn btn-outline"
                 style={{ justifyContent: "space-between", textAlign: "left" }}
               >
-                {r.label} →
+                {r.label}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
               </Link>
             ))}
           </div>
@@ -184,10 +196,16 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
           </p>
           <div className="cta-btns">
             <Link href="/contact" className="btn btn-green btn-lg">
-              Request Private Clusters ▶
+              Request Private Clusters
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </Link>
             <Link href="/contact" className="btn btn-outline btn-lg">
-              Launch AI Instances →
+              Launch AI Instances
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
             </Link>
           </div>
         </div>

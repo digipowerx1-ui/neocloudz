@@ -29,7 +29,12 @@ export default function ProductsSection() {
               infrastructure with full SLA guarantees and managed MLOps tooling
               already integrated.
             </p>
-            <Link href="/contact" className="prod-link">Contact Us →</Link>
+            <Link href="/contact" className="prod-link">
+              Contact Us
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
 
           <div className="prod-card reveal reveal-delay-2" id="gpu">
@@ -48,7 +53,12 @@ export default function ProductsSection() {
               256-node cluster — billed per second with no commitments
               or reservations required.
             </p>
-            <Link href="/contact" className="prod-link">Contact Us →</Link>
+            <Link href="/contact" className="prod-link">
+              Contact Us
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
 
           <div className="prod-card reveal reveal-delay-3" id="ml">
@@ -67,7 +77,12 @@ export default function ProductsSection() {
               so your team can focus entirely on model development
               and business outcomes.
             </p>
-            <Link href="/contact" className="prod-link">Contact Us →</Link>
+            <Link href="/contact" className="prod-link">
+              Contact Us
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         </div>
       </div>
