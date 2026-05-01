@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Link from "next/link";
-import { Code2, Shield, Settings, Briefcase, ArrowRight, MapPin, Clock } from "lucide-react";
+import { Code2, Shield, Settings, Briefcase, ArrowRight } from "lucide-react";
 import { useParticleCanvas } from "@/hooks/useParticleCanvas";
 import "../enterprise/enterprise.css";
 
@@ -38,7 +38,7 @@ export default function CareerPage() {
   useParticleCanvas(canvasRef);
 
   return (
-    <div className="enterprise-page">
+    <div className="enterprise-page career-page">
       {/* Hero Section */}
       <section className="hero" id="hero" style={{ minHeight: "80vh" }}>
         <canvas ref={canvasRef} id="particle-canvas" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} />
@@ -48,7 +48,7 @@ export default function CareerPage() {
           <div className="aurora-band" style={{ background: "rgba(77,200,255,0.3)", top: "50%", "--adur": "22s", "--adel": "3s" } as React.CSSProperties} />
         </div>
 
-        <div className="hero-content" style={{ marginTop: "-2vh", zIndex: 10, position: "relative" }}>
+        <div className="hero-content career-hero-content" style={{ marginTop: "-2vh", zIndex: 10, position: "relative" }}>
           <div className="hero-terminal-line" style={{ paddingTop: 60 }}>
             <span style={{ color: "var(--green-dim)" }}>&gt;</span>
             <span id="hero-typed">careers --view open-roles</span>
@@ -77,7 +77,7 @@ export default function CareerPage() {
         {/* Subtle background matrix lines */}
         <div style={{ position: "absolute", inset: 0, opacity: 0.03, backgroundImage: "linear-gradient(rgba(45, 255, 122, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 255, 122, 0.5) 1px, transparent 1px)", backgroundSize: "100px 100px", pointerEvents: "none" }} />
         
-        <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 2 }}>
+        <div className="career-section-inner" style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 2 }}>
           <div className="hp-label" style={{ justifyContent: "center" }}>RECRUITMENT PIPELINE</div>
           <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "12px" }}>
             Career <strong className="g">Pathways</strong>
@@ -86,7 +86,7 @@ export default function CareerPage() {
             Select a specialized track to begin your integration into the NeoCloudz global infrastructure team.
           </p>
 
-          <div className="ent-features-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", gap: "32px" }}>
+          <div className="ent-features-grid career-pathways-grid" style={{ gap: "32px" }}>
             {[
               { 
                 idx: "01", 
@@ -147,7 +147,10 @@ export default function CareerPage() {
                     background: `rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.08)`, 
                     borderColor: `rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.2)` 
                   }}>
-                    {React.cloneElement(dept.icon as React.ReactElement<any>, { color: dept.color })}
+                  {React.cloneElement(
+                    dept.icon as React.ReactElement<{ color?: string }>,
+                    { color: dept.color },
+                  )}
                   </div>
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                     <span style={{ fontSize: "9px", fontFamily: "var(--font-mono)", color: "var(--muted)", letterSpacing: "0.2em", marginBottom: "4px" }}>SYSTEM STATUS</span>
@@ -196,7 +199,7 @@ export default function CareerPage() {
 
       {/* Open Roles Section */}
       <section className="hp-section dark" id="open-roles" style={{ position: "relative", padding: "140px 80px" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+        <div className="career-section-inner" style={{ maxWidth: "1100px", margin: "0 auto" }}>
           <div className="hp-label" style={{ justifyContent: "center" }}>RECRUITMENT SPECIFICATIONS</div>
           <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "16px" }}>
             Open <strong className="g">Integrations</strong>
@@ -205,14 +208,13 @@ export default function CareerPage() {
             Current operational slots within the NeoCloudz ecosystem. Each track requires specific technical compatibility.
           </p>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+          <div className="career-roles-list" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             {OPEN_ROLES.map((role, idx) => (
               <Link 
                 key={idx} 
                 href="/contact"
                 style={{ 
                   display: "grid", 
-                  gridTemplateColumns: "1.2fr 1fr",
                   background: "linear-gradient(90deg, #000 0%, #050805 100%)", 
                   border: "1px solid rgba(255,255,255,0.06)", 
                   borderRadius: "12px",
@@ -288,7 +290,6 @@ export default function CareerPage() {
     </div>
   );
 }
-
 
 
 

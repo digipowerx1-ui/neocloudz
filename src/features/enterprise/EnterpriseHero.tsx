@@ -82,7 +82,7 @@ export default function EnterpriseHero() {
         if (badge.left) style.left = badge.left;
         if (badge.right) style.right = badge.right;
         return (
-          <div key={idx} className="stat-badge" style={style}>
+          <div key={idx} className={`stat-badge stat-badge-${idx + 1}`} style={style}>
             {badge.text}
           </div>
         );

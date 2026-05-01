@@ -332,14 +332,14 @@ export default function AiFactoryPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="hp-section dark text-center" style={{ borderTop: "1px solid var(--border)" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <section className="cta-banner" style={{ borderTop: "1px solid var(--border)" }}>
+        <div className="cta-content">
           <h2 className="hp-h2 mb-4">Ready to Build the Next Generation of AI?</h2>
           <p className="hp-sub" style={{ margin: "0 auto 40px", color: "var(--text)" }}>
             Instant access to NVIDIA Blackwell B200 GPUs, U.S.-hosted, Supermicro-optimized, and built for scale.
           </p>
           
-          <div className="hero-cta" style={{ marginBottom: 0 }}>
+          <div className="cta-row">
             <Link href="/contact" className="btn-launch">
               Request Private Clusters
             </Link>

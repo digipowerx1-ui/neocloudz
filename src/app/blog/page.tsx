@@ -1,7 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import "../blog.css";
-import { HeroParticles } from "@/components/layout/HeroParticles";
-import { FinalCTA } from "@/components/layout/FinalCTA";
 
 interface Post {
   id: string;
@@ -9,156 +10,181 @@ interface Post {
   excerpt: string;
   tag: string;
   author: string;
+  role: string;
   date: string;
   readTime: string;
-  image?: string;
+  visual: "recap" | "guide" | "network" | "security" | "storage";
 }
+
+const CATEGORIES = ["All", "Guides", "Product", "Engineering", "Security", "Infrastructure"];
 
 const POSTS: Post[] = [
   {
     id: "1",
-    title: "Scaling AI Infrastructure with NVIDIA Blackwell",
-    excerpt: "How the next generation of GPUs is changing the landscape of large language model training and inference.",
-    tag: "Hardware",
+    title: "Product Updates: Blackwell Clusters, Private Fabrics, and Faster Launches",
+    excerpt:
+      "Last quarter, we expanded dedicated GPU capacity, shortened private-cluster deployment windows, and shipped new observability controls for enterprise AI teams.",
+    tag: "Product",
     author: "Alex Rivera",
+    role: "Platform Engineering",
     date: "May 12, 2025",
     readTime: "8 min read",
-    image: "/images/blog/featured.png",
+    visual: "recap",
   },
   {
     id: "2",
-    title: "The Future of Serverless GPU Clusters",
-    excerpt: "Exploring how NeoCloudz is simplifying on-demand compute for growing research teams.",
-    tag: "Cloud",
+    title: "How to run an effective GPU capacity planning exercise",
+    excerpt:
+      "When training schedules and inference demand change quickly, capacity planning has to model utilization, network pressure, storage throughput, and failure domains together.",
+    tag: "Guides",
     author: "Sarah Chen",
+    role: "Solutions Architect",
     date: "May 10, 2025",
     readTime: "5 min read",
-    image: "/images/blog/post1.png",
+    visual: "guide",
   },
   {
     id: "3",
-    title: "Optimizing WEKA Storage for <10μs Latency",
-    excerpt: "Deep dive into our data architecture and how we achieve record-breaking throughput for AI workloads.",
-    tag: "Storage",
+    title: "Designing 400G InfiniBand fabrics for multi-node training",
+    excerpt:
+      "A practical look at topology choices, congestion controls, and private interconnect patterns for large distributed model training workloads.",
+    tag: "Engineering",
     author: "James Wilson",
+    role: "Network Systems",
     date: "May 08, 2025",
     readTime: "12 min read",
-    image: "/images/blog/post2.png",
+    visual: "network",
   },
   {
     id: "4",
-    title: "Enterprise Security in AI Infrastructure",
-    excerpt: "Maintaining SOC2 and HIPAA compliance while providing high-performance compute access.",
+    title: "Enterprise security controls for dedicated AI infrastructure",
+    excerpt:
+      "How hardened base images, private routing, audit telemetry, and compliance workflows fit into the lifecycle of production AI clusters.",
     tag: "Security",
     author: "Maria Gomez",
+    role: "Security Lead",
     date: "May 05, 2025",
     readTime: "6 min read",
-    image: "/images/blog/post1.png",
+    visual: "security",
   },
   {
     id: "5",
-    title: "Bare Metal vs Virtualized GPUs: What's best?",
-    excerpt: "Comparing performance overhead and flexibility for different types of machine learning workflows.",
-    tag: "Benchmark",
-    author: "Alex Rivera",
+    title: "Why storage latency becomes a training bottleneck",
+    excerpt:
+      "Model teams often optimize GPUs first, but dataset access patterns and checkpoint movement can decide whether expensive accelerators stay busy.",
+    tag: "Infrastructure",
+    author: "Elena Petrova",
+    role: "Storage Systems",
     date: "May 02, 2025",
     readTime: "10 min read",
-    image: "/images/blog/post2.png",
-  },
-  {
-    id: "6",
-    title: "Announcing NeoCloudz API v2.0",
-    excerpt: "New endpoints for automated cluster orchestration and real-time monitoring integration.",
-    tag: "Product",
-    author: "Elena Petrova",
-    date: "Apr 28, 2025",
-    readTime: "4 min read",
-    image: "/images/blog/featured.png",
+    visual: "storage",
   },
 ];
 
+function AuthorMark({ name }: { name: string }) {
+  return <span className="blog-author-mark">{name.split(" ").map((part) => part[0]).join("")}</span>;
+}
+
+function ArticleVisual({ type, label }: { type: Post["visual"]; label: string }) {
+  return (
+    <div className={`blog-visual blog-visual-${type}`} aria-hidden="true">
+      <div className="blog-visual-grid" />
+      <div className="blog-visual-card">
+        <span>{label}</span>
+        <strong>
+          {type === "recap" ? "Q2" : type === "guide" ? "GPU" : type === "network" ? "400G" : type === "security" ? "SOC2" : "WEKA"}
+        </strong>
+        <em>→</em>
+      </div>
+    </div>
+  );
+}
+
 export default function BlogPage() {
-  const featured = POSTS[0];
-  const gridPosts = POSTS.slice(1);
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const filteredPosts = selectedCategory === "All" ? POSTS : POSTS.filter((post) => post.tag === selectedCategory);
+  const [featured, ...articles] = filteredPosts;
 
   return (
-    <div className="blog-page">
-      <header className="blog-hero">
-        <HeroParticles />
-        <div className="blog-hero-content">
-          <div className="post-tag">Engineering Blog</div>
-          <h1>Insights into the <span className="g">Future of AI.</span></h1>
-          <p>
-            Updates, technical guides, and deep dives into the infrastructure
-            powering the next generation of artificial intelligence.
-          </p>
+    <main className="blog-page">
+      <section className="blog-shell">
+        <div className="blog-kicker">NeoCloudz Journal</div>
+        <div className="blog-heading-row">
+          <div>
+            <h1>The NeoCloudz Blog</h1>
+            <p>Product updates, technical guides, and infrastructure notes from the teams building AI compute.</p>
+          </div>
+          <div className="blog-category-nav" aria-label="Blog categories">
+            {CATEGORIES.map((category) => (
+              <button
+                key={category}
+                type="button"
+                className={category === selectedCategory ? "active" : undefined}
+                aria-pressed={category === selectedCategory}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
-      </header>
 
-      <main className="blog-container">
-        {/* Featured Post */}
-        <section className="featured-post">
-          <div className="featured-image">
-            <img src={featured.image} alt={featured.title} />
-            <div className="matrix-bg" style={{ opacity: 0.1, position: "absolute", inset: 0 }}></div>
-          </div>
-          <div className="featured-content">
-            <div className="post-tag">{featured.tag}</div>
-            <h2>{featured.title}</h2>
-            <p>{featured.excerpt}</p>
-            <div className="post-footer">
-              <div className="post-author">
-                <div className="author-avatar"></div>
-                <span>{featured.author}</span>
-              </div>
-              <span>{featured.date} • {featured.readTime}</span>
-            </div>
-          </div>
-        </section>
-
-        {/* Blog Grid */}
-        <div className="blog-grid">
-          {gridPosts.map((post) => (
-            <article key={post.id} className="post-card">
-              <div className="post-image">
-                <img src={post.image} alt={post.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div className="post-card-content">
-                <div className="post-tag">{post.tag}</div>
-                <h3>{post.title}</h3>
-                <p>{post.excerpt}</p>
-                <div className="post-read-more">
-                  Read Article <span>→</span>
+        {featured ? (
+          <>
+            <article className="blog-featured">
+              <div className="blog-featured-copy">
+                <div className="blog-meta-line">
+                  <span>{featured.tag}</span>
+                  <time>{featured.date}</time>
                 </div>
-                <div className="post-footer">
-                  <div className="post-author">
-                    <div className="author-avatar"></div>
-                    <span>{post.author}</span>
+                <h2>{featured.title}</h2>
+                <p>{featured.excerpt}</p>
+                <div className="blog-featured-footer">
+                  <div className="blog-author">
+                    <AuthorMark name={featured.author} />
+                    <span>
+                      <strong>{featured.author}</strong>
+                      <small>{featured.role}</small>
+                    </span>
                   </div>
-                  <span>{post.readTime}</span>
+                  <Link href="/blog" className="blog-read-link">
+                    Read article
+                  </Link>
                 </div>
               </div>
+              <ArticleVisual type={featured.visual} label={featured.tag === "Product" ? "Quarterly Recap" : featured.tag} />
             </article>
-          ))}
-        </div>
-      </main>
 
-      {/* Newsletter Section */}
-      <section className="blog-newsletter">
-        <div className="newsletter-content">
-          <div className="post-tag">Newsletter</div>
-          <h2>Stay Ahead of <span className="g">the Curve.</span></h2>
-          <p>
-            Join 10,000+ AI researchers and engineers receiving our bi-weekly
-            technical insights. No spam, just pure signal.
-          </p>
-          <div className="newsletter-form">
-            <input type="email" placeholder="Enter your email" />
-            <button className="btn-subscribe">Subscribe</button>
-          </div>
-        </div>
+            {articles.length > 0 ? (
+              <div className="blog-article-list">
+                {articles.map((post) => (
+                  <article key={post.id} className="blog-article-row">
+                    <ArticleVisual type={post.visual} label={post.tag} />
+                    <div className="blog-row-copy">
+                      <div className="blog-meta-line">
+                        <span>{post.tag}</span>
+                        <time>{post.date}</time>
+                      </div>
+                      <h2>{post.title}</h2>
+                      <p>{post.excerpt}</p>
+                      <Link href="/blog" className="blog-read-link">
+                        Read article
+                      </Link>
+                      <div className="blog-row-author">
+                        <AuthorMark name={post.author} />
+                        <span>
+                          {post.author}
+                          <small>{post.readTime}</small>
+                        </span>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : null}
+          </>
+        ) : null}
       </section>
-      <FinalCTA />
-    </div>
+    </main>
   );
 }

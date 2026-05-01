@@ -198,6 +198,9 @@
   position: relative;
   z-index: 20;
   padding: 0 40px;
+  width: 100%;
+  max-width: 760px;
+  min-width: 0;
 }
 
 .contact-page .hero-eyebrow {
@@ -227,6 +230,9 @@
   line-height: 0.95;
   margin-bottom: 24px;
   filter: drop-shadow(0 0 30px rgba(45, 255, 122, 0.15));
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .contact-page .hero-sub {
@@ -235,6 +241,7 @@
   max-width: 580px;
   margin: 0 auto 48px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
 }
 
 .contact-page .contact-card {
@@ -339,6 +346,7 @@
   color: var(--text);
   font-family: var(--font-mono);
   margin-bottom: 40px;
+  max-width: 100%;
 }
 
 .contact-page .resp-dot {
@@ -380,6 +388,7 @@
   border-right: 1px solid var(--border);
   position: relative;
   overflow: hidden;
+  min-width: 0;
 }
 
 .contact-page .form-panel::before {
@@ -664,6 +673,7 @@
   gap: 0;
   position: relative;
   overflow: hidden;
+  min-width: 0;
 }
 
 .contact-page #info-canvas {
@@ -729,6 +739,7 @@
 
 .contact-page .card-body {
   flex: 1;
+  min-width: 0;
 }
 
 .contact-page .card-label {
@@ -746,6 +757,7 @@
   font-weight: 700;
   color: var(--white);
   margin-bottom: 4px;
+  overflow-wrap: anywhere;
 }
 
 .contact-page .card-detail {
@@ -1170,6 +1182,8 @@
 .contact-page .dc-inner {
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .contact-page .dc-label {
@@ -1475,16 +1489,58 @@
   .contact-page .dc-section {
     padding: 80px 40px;
   }
+
+  .contact-page .channels-section {
+    padding: 80px 40px;
+  }
 }
 
 @media (max-width: 768px) {
   .contact-page .hero {
-    min-height: 70vh;
-    padding-top: 80px;
+    min-height: auto;
+    padding: 132px 0 72px;
+  }
+
+  .contact-page .hero-content {
+    padding: 0 20px;
+    max-width: 100%;
   }
 
   .contact-page .hero-h1 {
-    font-size: clamp(32px, 8vw, 48px);
+    font-size: clamp(32px, 9vw, 44px);
+    letter-spacing: -1px;
+    line-height: 1.02;
+    max-width: 10.5em;
+    margin-left: auto;
+    margin-right: auto;
+    text-wrap: balance;
+  }
+
+  .contact-page .hero-h1 .g {
+    display: block;
+  }
+
+  .contact-page .hero-sub {
+    max-width: min(36rem, calc(100vw - 40px)) !important;
+    margin-bottom: 30px !important;
+    font-size: 16px;
+  }
+
+  .contact-page .hero-eyebrow {
+    font-size: 11px;
+    max-width: calc(100vw - 40px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .contact-page .response-badge {
+    border-radius: 16px;
+    padding: 10px 14px;
+    max-width: calc(100vw - 40px);
+    font-size: 11px;
+    line-height: 1.5;
+    text-align: left;
+    align-items: flex-start;
   }
 
   .contact-page .float-badge {
@@ -1505,6 +1561,17 @@
 
   .contact-page .channels-grid {
     grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .contact-page .channels-section {
+    padding: 60px 24px;
+  }
+
+  .contact-page .channel-card {
+    flex-basis: 100%;
+    max-width: 100%;
+    padding: 28px 20px;
   }
 
   .contact-page .dc-section {
@@ -1513,6 +1580,21 @@
 
   .contact-page .dc-title {
     font-size: clamp(22px, 6vw, 32px);
+  }
+
+  .contact-page .dc-sub {
+    line-height: 1.65;
+  }
+
+  .contact-page .dc-canvas-wrap {
+    height: 260px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .contact-page .dc-section::before {
+    width: 100%;
+    height: 280px;
   }
 
   .contact-page .hero-eyebrow::before,
@@ -1527,11 +1609,27 @@
   .contact-page .live-metrics {
     grid-template-columns: 1fr !important;
   }
+
+  .contact-page .status-section {
+    padding: 24px 18px !important;
+  }
+
+  .contact-page .status-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-page .status-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 
 @media (max-width: 480px) {
   .contact-page .hero-h1 {
-    font-size: 32px;
+    font-size: clamp(30px, 9vw, 36px);
   }
 
   .contact-page .form-panel {
@@ -1550,5 +1648,33 @@
 
   .contact-page .card-icon {
     margin-bottom: 12px;
+  }
+
+  .contact-page .hero-eyebrow {
+    white-space: normal;
+    line-height: 1.4;
+  }
+
+  .contact-page .hero-eyebrow::before,
+  .contact-page .hero-eyebrow::after {
+    width: 14px;
+  }
+
+  .contact-page .interest-pill {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .contact-page .success-terminal .st-line {
+    min-width: 0;
+  }
+
+  .contact-page .st-text {
+    overflow-wrap: anywhere;
+  }
+
+  .contact-page .dc-section::before {
+    height: 240px;
   }
 }

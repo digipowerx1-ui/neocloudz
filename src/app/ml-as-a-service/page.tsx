@@ -292,14 +292,14 @@ export default function MlServicePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="hp-section mid text-center" style={{ borderTop: "1px solid var(--border)" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+      <section className="cta-banner" style={{ borderTop: "1px solid var(--border)" }}>
+        <div className="cta-content">
           <h2 className="hp-h2 mb-4">Start Building Without the Black Box</h2>
           <p className="hp-sub" style={{ margin: "0 auto 40px", color: "var(--text)" }}>
             Unlock flexible, high-performance ML infrastructure today.
           </p>
           
-          <div className="hero-cta" style={{ marginBottom: 0 }}>
+          <div className="cta-row">
             <Link href="/pricing" className="btn-launch">
               View Pricing
             </Link>

@@ -796,11 +796,11 @@ export function HomeCta() {
       >
         Get Started Today
       </div>
-      <h2 style={{ position: "relative", zIndex: 2 }}>
+      <h2 className="cta-banner-h2">
         The Fastest Path to<br />
         <span>Blackwell Compute.</span>
       </h2>
-      <p style={{ position: "relative", zIndex: 2 }}>
+      <p className="cta-banner-p">
         Deploy a B200 in 60 seconds. Scale to a Grace Blackwell bare-metal cluster
         when you&#39;re ready. No sales calls required.
       </p>
@@ -877,9 +877,9 @@ export function HomeWorkloads() {
   return (
     <section className="hp-section mid" id="workloads">
       <div className="section-inner">
-        <div style={{ textAlign: "center", marginBottom: "80px" }}>
+        <div className="hp-section-header">
           <h2 className="section-title">Optimized for Every AI and HPC Workload</h2>
-          <p className="section-sub" style={{ margin: "0 auto" }}>
+          <p className="section-sub">
             From research labs to production AI, NeoCloudz delivers the right
             infrastructure for your use case, out of the box.
           </p>

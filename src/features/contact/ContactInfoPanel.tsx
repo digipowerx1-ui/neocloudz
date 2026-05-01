@@ -1,6 +1,5 @@
 "use client";
 
-import { Mail, Zap, Settings, ShieldCheck, Activity, Database, Globe } from "lucide-react";
 import { useLiveContactMetrics } from "@/hooks/useLiveContactMetrics";
 
 interface ContactCard {
@@ -51,7 +50,7 @@ const SYSTEM_STATUS = [
 ] as const;
 
 export default function ContactInfoPanel() {
-  const { responseLabel, resolved, uptimeLabel } = useLiveContactMetrics();
+  const { responseLabel, uptimeLabel } = useLiveContactMetrics();
 
   return (
     <div className="info-panel">

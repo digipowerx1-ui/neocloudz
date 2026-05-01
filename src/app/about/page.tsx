@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Link from "next/link";
-import { Server, Zap, ShieldCheck, Droplet, Globe, Leaf, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Droplet, Globe, Leaf, ArrowRight } from "lucide-react";
 import "../enterprise/enterprise.css";
 import "./about.css";
 import { useHomeParticleCanvas } from "@/features/home/canvases";
@@ -11,7 +11,7 @@ export default function AboutPage() {
   const particleCanvasRef = useRef<HTMLCanvasElement>(null);
   useHomeParticleCanvas(particleCanvasRef);
   return (
-    <div className="enterprise-page about-page-container">
+    <div className="enterprise-page">
       {/* Hero Section */}
       <section className="hero" id="hero">
         <canvas id="particle-canvas" ref={particleCanvasRef} />
@@ -23,10 +23,10 @@ export default function AboutPage() {
         </div>
 
         {/* Abstract Floating Stats */}
-        <div className="stat-badge" style={{ left: "5%", top: "34%", "--dur": "8s", "--del": "0s", "--rot": "-2deg" } as React.CSSProperties}>
+        <div className="stat-badge about-stat-badge-1" style={{ left: "5%", top: "34%", "--dur": "8s", "--del": "0s", "--rot": "-2deg" } as React.CSSProperties}>
           🌍 U.S.-Owned
         </div>
-        <div className="stat-badge" style={{ right: "5%", top: "32%", "--dur": "9s", "--del": "1.8s", "--rot": "1.5deg" } as React.CSSProperties}>
+        <div className="stat-badge about-stat-badge-2" style={{ right: "5%", top: "32%", "--dur": "9s", "--del": "1.8s", "--rot": "1.5deg" } as React.CSSProperties}>
           ⚡ 24/7 Clean Energy
         </div>
 
@@ -82,8 +82,8 @@ export default function AboutPage() {
 
       {/* Our Mission Section - Redesigned as Technical Vision Console */}
       <section className="hp-section dark" style={{ padding: "140px 0" }}>
-        <div className="section-inner" style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div className="mission-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "start" }}>
+        <div className="section-inner about-section-inner" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className="mission-grid about-mission-grid" style={{ display: "grid", gap: "80px", alignItems: "start" }}>
 
             <div className="mission-vision">
               <div className="hp-label">OUR MISSION</div>
@@ -103,7 +103,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="vision-specs" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+              <div className="vision-specs about-vision-specs" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
                 <div className="vision-spec-item">
                   <div style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "10px", marginBottom: "8px" }}>OBJECTIVE_01</div>
                   <div style={{ color: "var(--white)", fontWeight: 600 }}>Zero-Barrier Scaling</div>
@@ -173,7 +173,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="architecture-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+          <div className="architecture-grid" style={{ display: "grid", gap: "32px" }}>
 
             {/* Power Infrastructure Module */}
             <div className="arch-card" style={{
@@ -289,9 +289,9 @@ export default function AboutPage() {
 
       {/* Sustainability Section - Redesigned as Bio-Digital Monitoring Hub */}
       <section className="hp-section dark" style={{ padding: "140px 0", position: "relative" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        <div className="about-section-inner" style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
-          <div className="sustainability-header-grid" style={{ alignItems: "center", marginBottom: "80px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center", marginBottom: "80px" }}>
             <div>
               <div className="hp-label">SUSTAINABILITY</div>
               <h2 className="hp-h2" style={{ textAlign: "left", marginBottom: "24px" }}>
@@ -303,7 +303,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="stats-grid-mini" style={{ background: "rgba(45,255,122,0.02)", border: "1px solid rgba(45,255,122,0.1)", borderRadius: "24px", padding: "40px" }}>
+            <div style={{ background: "rgba(45,255,122,0.02)", border: "1px solid rgba(45,255,122,0.1)", borderRadius: "24px", padding: "40px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
               <div className="impact-stat">
                 <div style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>&lt;1.3</div>
                 <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Target PUE</div>
@@ -323,7 +323,7 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="eco-cards-grid">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
 
             {/* Card 01 */}
             <div className="eco-card" style={{
@@ -390,8 +390,8 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section - Advanced Deployment Hub */}
-      <section className="hp-section" style={{
-        padding: "160px 0",
+      <section className="hp-section" style={{ 
+        padding: "160px 0", 
         background: "#050805",
         position: "relative",
         overflow: "hidden"
@@ -401,26 +401,26 @@ export default function AboutPage() {
         <div style={{ position: "absolute", top: 0, left: "80%", width: "1px", height: "100%", background: "linear-gradient(to bottom, transparent, var(--blue), transparent)", opacity: 0.1, animation: "beamMove 12s infinite linear reverse" }}></div>
 
         <div className="section-inner" style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 10 }}>
-          <div className="cta-grid-advanced" style={{ alignItems: "center" }}>
-
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: "100px", alignItems: "center" }}>
+            
             {/* Left: Action Center */}
-            <div style={{ textAlign: "left" }}>
+            <div className="about-cta-copy" style={{ textAlign: "left" }}>
               <div style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: "rgba(45,255,122,0.1)", border: "1px solid rgba(45,255,122,0.2)", borderRadius: "4px", padding: "6px 14px", marginBottom: "32px" }}>
                 <div style={{ width: "6px", height: "6px", background: "#2dff7a", borderRadius: "50%", animation: "pulse 2s infinite" }}></div>
                 <span style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em" }}>HUB_STATUS: STANDBY</span>
               </div>
 
-              <h2 className="hp-h2" style={{ textAlign: "left", fontSize: "clamp(40px, 5vw, 64px)", lineHeight: 1, marginBottom: "40px" }}>
+              <h2 className="hp-h2" style={{ textAlign: "left", fontSize: "clamp(32px, 5vw, 64px)", lineHeight: 1.1, marginBottom: "32px" }}>
                 Deploy at the <br />
                 <span className="g">Speed of Thought.</span>
               </h2>
 
-              <p style={{ color: "rgba(200,212,200,0.6)", fontSize: "18px", lineHeight: "1.6", marginBottom: "48px", maxWidth: "500px" }}>
+              <p style={{ color: "rgba(200,212,200,0.6)", fontSize: "18px", lineHeight: "1.6", marginBottom: "40px", maxWidth: "500px" }}>
                 Join the elite teams building foundation models on the world's most efficient AI infrastructure. Zero waitlists, infinite scale.
               </p>
 
               <div className="hero-cta" style={{ justifyContent: "flex-start", marginBottom: "0" }}>
-                <Link href="/contact" className="btn-launch btn-custom-cta" style={{ borderRadius: "8px", boxShadow: "0 10px 30px rgba(45, 255, 122, 0.2)" }}>
+                <Link href="/contact" className="btn-launch" style={{ padding: "20px 48px", fontSize: "18px", borderRadius: "8px", boxShadow: "0 10px 30px rgba(45, 255, 122, 0.2)" }}>
                   Initialize Infrastructure
                   <ArrowRight size={20} />
                 </Link>
@@ -428,9 +428,9 @@ export default function AboutPage() {
             </div>
 
             {/* Right: Deployment Log Terminal */}
-            <div style={{
-              background: "rgba(0,0,0,0.4)",
-              border: "1px solid rgba(255,255,255,0.08)",
+            <div style={{ 
+              background: "rgba(0,0,0,0.4)", 
+              border: "1px solid rgba(255,255,255,0.08)", 
               borderRadius: "16px",
               padding: "32px",
               fontFamily: "var(--font-mono)",

@@ -2578,6 +2578,22 @@
   justify-content: center;
 }
 
+.home-page .hp-section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  padding: 0 40px;
+}
+
+.home-page .cta-banner-h2 {
+  position: relative;
+  z-index: 2;
+}
+
+.home-page .cta-banner-p {
+  position: relative;
+  z-index: 2;
+}
+
 /* ============================================================
    RESPONSIVE
    ============================================================ */
@@ -2723,6 +2739,11 @@
   .home-page footer {
     padding: 50px 40px 30px;
   }
+
+  .home-page .hp-section-header {
+    margin-bottom: 60px;
+    padding: 0 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -2769,16 +2790,36 @@
   .home-page .hero-cta {
     flex-direction: column;
     align-items: center;
+    gap: 16px;
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  .home-page .hero-eyebrow {
+    text-align: center;
+    padding: 0 20px;
+    margin-bottom: 40px;
+  }
+
+  .home-page .hero-eyebrow h1 {
+    font-size: clamp(32px, 8vw, 48px);
+    line-height: 1.1;
+  }
+
+  .home-page .hero-eyebrow p {
+    margin: 16px auto 0;
+    max-width: 500px;
   }
 
   .home-page .hero-live-strip {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    padding: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 16px;
     width: calc(100% - 32px);
-    margin-left: 16px;
-    margin-right: 16px;
+    margin: 20px 16px 0;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .home-page .hlm:last-child {
@@ -2790,28 +2831,26 @@
   }
 
   .home-page .workloads-container {
-    padding: 24px 16px;
+    padding: 32px 20px;
     border-radius: 20px;
     width: auto;
-    margin: 0;
-    gap: 24px;
+    margin: 0 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
   }
 
-  .home-page .workloads-visual {
-    order: -1 !important;
-    min-height: 240px;
-    max-height: 240px;
-    padding: 16px;
-    overflow: visible;
+  .home-page .workloads-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .home-page .tech-stack-diagram,
-  .home-page .inference-visual,
-  .home-page .prototype-visual {
-    transform: scale(0.8);
-    transform-origin: center;
-    width: 110%;
-    /* Compensate for scale */
+  .home-page .workload-bullets {
+    text-align: left;
+    width: 100%;
+    max-width: 400px;
   }
 
   .home-page .workload-title {
@@ -2895,11 +2934,14 @@
   }
 
   .home-page .cta-banner {
-    padding: 60px 24px;
+    padding: 80px 24px;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    margin: 0 16px;
+    border-radius: 24px;
+    width: auto;
   }
 
   .home-page .cta-banner h2 {
@@ -2969,6 +3011,23 @@
     margin-bottom: 30px;
     padding-top: 40px;
   }
+
+  .home-page .hp-section-header {
+    margin-bottom: 40px;
+    padding: 0 16px;
+  }
+
+  .home-page .section-title {
+    font-size: clamp(24px, 7vw, 36px);
+    line-height: 1.2;
+    margin-bottom: 16px;
+    padding: 0 10px;
+  }
+
+  .home-page .section-sub {
+    font-size: 15px;
+    line-height: 1.5;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3009,7 +3068,7 @@
   .home-page .cta-banner p {
     font-size: 14px;
     line-height: 1.5;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
   }
 
   .home-page .cta-row {

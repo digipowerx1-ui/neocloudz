@@ -1,6 +1,8 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { useWaveformCanvas } from "@/hooks/useWaveformCanvas";
 
 export default function EnterpriseCta() {
@@ -10,33 +12,35 @@ export default function EnterpriseCta() {
   return (
     <div className="cta-banner">
       <canvas ref={canvasRef} id="wave-canvas" />
-      <div
-        className="hp-label"
-        style={{
-          justifyContent: "center",
-          marginBottom: "20px",
-          position: "relative",
-          zIndex: 2,
-        }}
-      >
-        Get Started Today
-      </div>
-      <h2>
-        Ready to Go
-        <br />
-        <span>Enterprise?</span>
-      </h2>
-      <p>
-        Join the teams running mission-critical AI on NeoCloudz dedicated
-        infrastructure.
-      </p>
-      <div className="cta-row">
-        <a href="/contact" className="btn-launch">
-          Request Demo ▶
-        </a>
-        <a href="/contact" className="btn-outline">
-          Talk to Sales →
-        </a>
+      <div className="cta-content">
+        <div
+          className="hp-label"
+          style={{
+            justifyContent: "center",
+            marginBottom: "20px",
+          }}
+        >
+          Get Started Today
+        </div>
+
+        <h2>
+          Ready to Go <br />
+          <strong className="g">Enterprise?</strong>
+        </h2>
+
+        <p>
+          Join the teams running mission-critical AI on NeoCloudz dedicated
+          infrastructure.
+        </p>
+
+        <div className="cta-row">
+          <Link href="/contact" className="btn-launch">
+            Request Demo <ArrowRight size={18} />
+          </Link>
+          <Link href="/contact" className="btn-outline">
+            Talk to Sales
+          </Link>
+        </div>
       </div>
     </div>
   );
