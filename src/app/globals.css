@@ -757,6 +757,14 @@ section {
   line-height: 1.55;
 }
 
+#hardware.solutions {
+  padding-bottom: 0;
+}
+
+#hardware .sol-card.product-lottie-row {
+  margin-bottom: 0;
+}
+
 .sol-icon {
   font-size: 52px;
   margin-bottom: 20px;
@@ -1962,6 +1970,15 @@ footer {
 
   .product-lottie-visual {
     inset: -4% -10%;
+  }
+
+  #hardware.solutions {
+    padding-bottom: 0 !important;
+  }
+
+  #hardware .sol-card.product-lottie-row {
+    margin-bottom: 0;
+    padding-bottom: 0;
   }
 
   .sol-card.reverse {
