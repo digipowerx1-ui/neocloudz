@@ -1,6 +1,7 @@
 import Link from "next/link";
 import PageEffects from "@/features/page-effects/PageEffects";
 import ProductHero from "@/features/products/ProductHero";
+import ProductLottieVisual from "@/features/products/ProductLottieVisual";
 
 export const metadata = {
   title: "Products — NeoCloudz",
@@ -14,8 +15,9 @@ interface Product {
   name: string;
   bullets: string[];
   cta: { label: string; href: string };
-  image: string;
+  image?: string;
   video?: string;
+  lottie?: "bigDataCenter" | "dataCenter" | "gpu" | "node" | "serverRack" | "storage" | "vps";
   id?: string;
 }
 
@@ -31,8 +33,7 @@ const PRODUCTS: Product[] = [
       "Available in both shared and dedicated configurations",
     ],
     cta: { label: "Deploy Compute Nodes", href: "/products/gpu-as-a-service" },
-    image: "/Rectangle-4-4.png",
-    video: "/Holographic_car_on_202604281637.mp4",
+    lottie: "vps",
     id: "gpu"
   },
   {
@@ -46,8 +47,7 @@ const PRODUCTS: Product[] = [
       "Pre-built environments for HuggingFace, vLLM, and TensorRT",
     ],
     cta: { label: "Deploy AI Cloud", href: "/contact" },
-    image: "/Rectangle-4-6.png",
-    video: "/Data_center_server_202604281656.mp4",
+    lottie: "dataCenter",
     id: "ml"
   },
   {
@@ -61,8 +61,7 @@ const PRODUCTS: Product[] = [
       "Customizable node templates and auto-teardown options",
     ],
     cta: { label: "Create a Cluster", href: "/contact" },
-    image: "/Rectangle-4-7.png",
-    video: "/AI_server_infrastructure_202604281657.mp4",
+    lottie: "node",
     id: "factory"
   },
   {
@@ -76,8 +75,7 @@ const PRODUCTS: Product[] = [
       "Enterprise SLAs and private networking",
     ],
     cta: { label: "About Managed Kubernetes", href: "/contact" },
-    image: "/Rectangle-4-8.png",
-    video: "/Futuristic_server_room_202604281656.mp4",
+    lottie: "serverRack",
   },
   {
     eyebrow: "AI Storage",
@@ -90,8 +88,7 @@ const PRODUCTS: Product[] = [
       "Integrated with AI Cloud and Clusters",
     ],
     cta: { label: "View Storage Options", href: "/contact" },
-    image: "/Rectangle-4-9.png",
-    video: "/Data_center_corridor_202604281703.mp4",
+    lottie: "storage",
   },
   {
     eyebrow: "JupyterLab® Applications",
@@ -104,8 +101,7 @@ const PRODUCTS: Product[] = [
       "Support for TensorFlow, PyTorch, Hugging Face, and RAPIDS",
     ],
     cta: { label: "Start with JupyterLab", href: "/contact" },
-    image: "/Rectangle-4-11.png",
-    video: "/Futuristic_data_center_202604281751.mp4",
+    lottie: "bigDataCenter",
   },
 ];
 
@@ -138,7 +134,7 @@ export default function ProductsPage() {
             <div
               key={p.eyebrow}
               id={p.id}
-              className={`sol-card reveal mt-16${i % 2 === 0 ? " reverse" : ""}`}
+              className={`sol-card reveal mt-16${i % 2 === 0 ? " reverse" : ""}${p.lottie ? " product-lottie-row" : ""}`}
             >
               <div className="sol-info">
                 <div
@@ -167,20 +163,22 @@ export default function ProductsPage() {
               </div>
               <div className="sol-visual">
                 <div
-                  className="prod-card"
+                  className={`prod-card${p.lottie ? " product-lottie-card" : ""}`}
                   style={{
-                    minHeight: 340,
+                    minHeight: p.lottie ? undefined : 340,
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
                     alignItems: "center",
                     padding: 0,
                     textAlign: "center",
-                    overflow: "hidden",
+                    overflow: p.lottie ? "visible" : "hidden",
                     position: "relative",
                   }}
                 >
-                  {p.video ? (
+                  {p.lottie ? (
+                    <ProductLottieVisual label={`${p.name} animation`} type={p.lottie} />
+                  ) : p.video ? (
                     <video
                       autoPlay
                       muted
@@ -196,7 +194,7 @@ export default function ProductsPage() {
                     >
                       <source src={p.video} type="video/mp4" />
                     </video>
-                  ) : (
+                  ) : p.image ? (
                     <img
                       src={p.image}
                       alt={p.name}
@@ -208,7 +206,7 @@ export default function ProductsPage() {
                         inset: 0,
                       }}
                     />
-                  )}
+                  ) : null}
                 </div>
               </div>
             </div>
@@ -225,7 +223,7 @@ export default function ProductsPage() {
             <span className="g">Most Advanced GPUs.</span>
           </h2>
 
-          <div className="sol-card reveal mt-16">
+          <div className="sol-card product-lottie-row reveal mt-16">
             <div className="sol-info">
               <p className="sol-desc">
                 NeoCloudz runs on the latest NVIDIA Blackwell and H200 platforms with
@@ -245,28 +243,18 @@ export default function ProductsPage() {
             </div>
             <div className="sol-visual">
               <div
-                className="prod-card"
+                className="prod-card product-lottie-card"
                 style={{
-                  minHeight: 340,
                   display: "flex",
                   flexDirection: "column",
-                  gap: 16,
+                  justifyContent: "center",
+                  alignItems: "center",
                   padding: 0,
-                  overflow: "hidden",
+                  overflow: "visible",
                   position: "relative",
                 }}
               >
-                <img
-                  src="/blackwell_gpu_cluster_graphic_1777552187883.png"
-                  alt="NVIDIA Blackwell GPU Cluster"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    position: "absolute",
-                    inset: 0,
-                  }}
-                />
+                <ProductLottieVisual label="NVIDIA Blackwell GPU animation" type="gpu" />
               </div>
             </div>
           </div>
