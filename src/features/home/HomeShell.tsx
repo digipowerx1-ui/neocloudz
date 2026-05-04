@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { useFaqAccordion, useScrollProgressBar, useScrollReveal } from "./effects";
 import { HomeHero } from "./HomeHero";
 import {
-  HomeBenchmark,
   HomeCta,
   HomeFaq,
   HomeGpuCatalog,
@@ -14,7 +13,6 @@ import {
   HomePricing,
   HomeRack,
   HomeStorage,
-  HomeTicker,
   HomeWhy,
   HomeWorkloads,
 } from "./HomeSections";
@@ -32,7 +30,6 @@ export function HomeShell() {
       <div className="home-scroll-bar" ref={scrollBarRef} />
       <HomeHero />
       <HomePartners />
-      <HomeTicker />
       <HomeWhy />
       <HomePricing />
       <HomeWorkloads />
@@ -41,7 +38,6 @@ export function HomeShell() {
       <HomeNvlink />
       <div className="section-divider" />
       <HomeLogos />
-      <HomeBenchmark />
       <HomeRack />
       <div className="anim-divider" />
 

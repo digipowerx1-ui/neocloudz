@@ -162,7 +162,7 @@ export function HomePartners() {
         <div className="partners-grid">
           <div className="partner-card">
             <div className="partner-logo-area">
-              <div className="partner-name nvidia">NVIDIA</div>
+              <img src="/1.png" alt="NVIDIA" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Provides the state-of-the-art GPU architecture that is optimized for high-performance AI training and inference workloads.
@@ -171,7 +171,7 @@ export function HomePartners() {
 
           <div className="partner-card">
             <div className="partner-logo-area">
-              <div className="partner-name supermicro">SUPERMICRO</div>
+              <img src="/2.png" alt="SUPERMICRO" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Delivers the high-density, server hardware platforms designed to support massive scale and compute-intensive applications.
@@ -184,9 +184,8 @@ export function HomePartners() {
                 <div className="cert-badge">
                   <span>FACILITY</span>
                   <span style={{ fontSize: '9px' }}>RATED 3</span>
-                  <span>CERTAC</span>
                 </div>
-                <span>RATED 3 CERTAC</span>
+                <span>RATED 3</span>
               </div>
             </div>
             <p className="partner-desc">
@@ -196,17 +195,14 @@ export function HomePartners() {
 
           <div className="partner-card">
             <div className="partner-logo-area">
-              <div className="partner-name digipower">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--green)' }}>
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                </svg>
-                <span>DIGIPOWER X</span>
-              </div>
+              <img src="/3.png" alt="DIGIPOWER X" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Supplies energy-optimized power solutions to lower the carbon impact of the infrastructure, promoting sustainable operations.
             </p>
           </div>
+
+
         </div>
       </div>
     </section>
@@ -533,7 +529,7 @@ const STAT_CARDS: StatCardData[] = [
     ringStroke: "var(--amber)",
     ringPctText: "85%",
     ringPctColor: "var(--amber)",
-    label: "InfiniBand fabric across every cluster node",
+    label: "InfiniBand or Spectrum-X fabric across every cluster node",
   },
   {
     initial: "<10μs",

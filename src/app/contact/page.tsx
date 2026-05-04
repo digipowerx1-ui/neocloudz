@@ -1,6 +1,5 @@
 import "./contact.css";
 import ContactPageEffects from "@/features/contact/ContactPageEffects";
-import ContactHero from "@/features/contact/ContactHero";
 import ContactFormSection from "@/features/contact/ContactFormSection";
 import ContactInfoPanel from "@/features/contact/ContactInfoPanel";
 import ContactChannelsSection from "@/features/contact/ContactChannelsSection";
@@ -15,8 +14,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <ContactPageEffects>
-      <ContactHero />
-      <div className="contact-layout">
+      <div className="contact-layout" style={{ paddingTop: "64px" }}>
         <ContactFormSection />
         <ContactInfoPanel />
       </div>

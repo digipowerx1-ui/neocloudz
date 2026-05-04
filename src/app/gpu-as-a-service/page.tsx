@@ -89,6 +89,21 @@ export default function GpuServicePage() {
                 <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--green)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Reserved capacity</span>
               </div>
             </div>
+
+            <div className="ent-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: "20px" }}>
+                <div className="ent-icon" style={{ margin: 0, background: "rgba(255,184,77,0.1)", border: "1px solid rgba(255,184,77,0.2)" }}>
+                  <Blocks size={24} color="var(--amber)" />
+                </div>
+                <h3 className="ent-card-title" style={{ margin: 0, fontSize: "22px" }}>GPU-as-a-Service</h3>
+              </div>
+              <p className="ent-card-desc" style={{ flexGrow: 1 }}>
+                Fully managed GPU environments with pre-configured software stacks. Instantly deploy your AI workloads without managing the underlying hardware or OS layer.
+              </p>
+              <div style={{ marginTop: "24px", paddingTop: "24px", borderTop: "1px solid var(--border)", width: "100%" }}>
+                <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--amber)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Managed Platform</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>

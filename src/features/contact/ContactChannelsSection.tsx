@@ -1,3 +1,5 @@
+import { MessageSquare, AtSign, Network, MessageCircle } from "lucide-react";
+
 interface Channel {
   variant: "g" | "b" | "a" | "r";
   cardClass: "green-ch" | "blue-ch" | "amber-ch" | "red-ch";
@@ -11,7 +13,7 @@ const CHANNELS: ReadonlyArray<Channel> = [
   {
     variant: "g",
     cardClass: "green-ch",
-    icon: <img src="/assets/icons/channels/chat.png" alt="Chat" style={{ width: "100%", height: "100%", objectFit: "contain" }} />,
+    icon: <MessageSquare size={28} color="var(--green)" />,
     name: "Live Systems Chat",
     desc: "Direct uplink to our engineering team. No bots, real humans, zero latency.",
     meta: "~5 min response",
@@ -19,7 +21,7 @@ const CHANNELS: ReadonlyArray<Channel> = [
   {
     variant: "b",
     cardClass: "blue-ch",
-    icon: <img src="/assets/icons/channels/twitter.png" alt="Twitter" style={{ width: "100%", height: "100%", objectFit: "contain" }} />,
+    icon: <AtSign size={28} color="var(--blue)" />,
     name: "Twitter / X",
     desc: "Follow @NeoCloudz for real-time uptime logs and GPU cluster drops.",
     meta: "@NeoCloudz",
@@ -27,7 +29,7 @@ const CHANNELS: ReadonlyArray<Channel> = [
   {
     variant: "a",
     cardClass: "amber-ch",
-    icon: <img src="/assets/icons/channels/linkedin.png" alt="LinkedIn" style={{ width: "100%", height: "100%", objectFit: "contain" }} />,
+    icon: <Network size={28} color="var(--amber)" />,
     name: "LinkedIn Core",
     desc: "Strategic company news, architectural launches, and career opportunities.",
     meta: "NeoCloudz Inc.",
@@ -35,7 +37,7 @@ const CHANNELS: ReadonlyArray<Channel> = [
   {
     variant: "r",
     cardClass: "red-ch",
-    icon: <img src="/assets/icons/channels/discord.png" alt="Discord" style={{ width: "100%", height: "100%", objectFit: "contain" }} />,
+    icon: <MessageCircle size={28} color="var(--red)" />,
     name: "Discord Node",
     desc: "Join the developer community. Share benchmarks and get early access.",
     meta: "5,400+ members",
@@ -59,16 +61,32 @@ export default function ContactChannelsSection() {
               key={channel.name}
               className={`channel-card ${channel.cardClass} reveal${delay ? ` ${delay}` : ""}`}
               style={{
-                background: "linear-gradient(180deg, rgba(20,26,20,0.8) 0%, #000 100%)",
-                border: "1px solid rgba(255,255,255,0.06)"
+                background: "rgba(255, 255, 255, 0.03)",
+                backdropFilter: "blur(12px)",
+                border: "1px solid rgba(255,255,255,0.08)",
+                borderRadius: "20px",
+                padding: "32px",
+                boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease"
               }}
             >
-              <div className={`ch-icon-wrap ${channel.variant}`} style={{ background: "transparent", border: "none", width: "56px", height: "56px", padding: "0", marginBottom: "16px" }}>
+              <div className={`ch-icon-wrap ${channel.variant}`} style={{ 
+                background: "rgba(255,255,255,0.05)", 
+                border: "1px solid rgba(255,255,255,0.1)", 
+                width: "56px", 
+                height: "56px", 
+                borderRadius: "14px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                marginBottom: "24px",
+                boxShadow: "0 0 16px rgba(255,255,255,0.05)"
+              }}>
                 {channel.icon}
               </div>
-              <div className="ch-name">{channel.name}</div>
-              <div className="ch-desc" style={{ opacity: 0.6 }}>{channel.desc}</div>
-              <div className={`ch-time ${channel.variant}`} style={{ fontFamily: "var(--font-mono)", fontSize: "11px" }}>
+              <div className="ch-name" style={{ fontSize: "18px", fontWeight: 700, color: "var(--white)", marginBottom: "12px" }}>{channel.name}</div>
+              <div className="ch-desc" style={{ opacity: 0.7, color: "var(--text)", lineHeight: 1.6, marginBottom: "20px" }}>{channel.desc}</div>
+              <div className={`ch-time ${channel.variant}`} style={{ fontFamily: "var(--font-mono)", fontSize: "12px", fontWeight: 600, letterSpacing: "0.05em", textTransform: "uppercase" }}>
                 {channel.meta}
               </div>
             </div>

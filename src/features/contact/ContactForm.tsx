@@ -7,7 +7,6 @@ import { sendContactMessage } from "@/services/api/contact";
 const INTEREST_OPTIONS = [
   { value: "on-demand", label: "On-Demand GPUs" },
   { value: "enterprise", label: "Enterprise / Bare Metal" },
-  { value: "storage", label: "WEKA Storage" },
   { value: "support", label: "Technical Support" },
   { value: "partnership", label: "Partnership" },
   { value: "other", label: "Other" },
