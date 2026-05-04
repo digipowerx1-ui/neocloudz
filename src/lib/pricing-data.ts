@@ -66,9 +66,9 @@ export const PRICING_CARDS: PricingCard[] = [
     badgeClass: "on-demand",
     name: "Blackwell B200 – Fractional",
     sub: "Ideal for prototyping and small-scale AI",
-    price: "$0.99",
-    priceSuffix: "/ hour",
-    pricePrefix: "Starting at",
+    price: "Pricing on request",
+    priceSuffix: "",
+    pricePrefix: "",
     cta: "Launch Instance",
     ctaClass: "outline",
     specs: [
@@ -91,8 +91,8 @@ export const PRICING_CARDS: PricingCard[] = [
     badgeClass: "on-demand",
     name: "Blackwell B200 – Single Node",
     sub: "For developers, startups, fine-tuning",
-    price: "$3.99",
-    priceSuffix: "/ hour",
+    price: "Pricing on request",
+    priceSuffix: "",
     cta: "Launch Instance",
     ctaClass: "outline",
     specs: [
@@ -117,8 +117,8 @@ export const PRICING_CARDS: PricingCard[] = [
     badgeClass: "on-demand",
     name: "Blackwell B200 – Multi-Node Cluster",
     sub: "For training LLMs, enterprise AI teams",
-    price: "$31.92",
-    priceSuffix: "/ hour",
+    price: "Pricing on request",
+    priceSuffix: "",
     cta: "Deploy Cluster",
     ctaClass: "primary",
     featured: true,
@@ -145,8 +145,8 @@ export const PRICING_CARDS: PricingCard[] = [
     badgeClass: "bare-metal",
     name: "Reserved Instance – Monthly Commitment",
     sub: "For cost predictability, large-scale workloads",
-    price: "$2,500",
-    priceSuffix: "/hour",
+    price: "Pricing on request",
+    priceSuffix: "",
     cta: "Talk to Sales",
     ctaClass: "blue-outline",
     specs: [
@@ -165,19 +165,19 @@ export const PRICING_CARDS: PricingCard[] = [
   },
   {
     id: "b300-preregister",
-    badge: "PRE-REGISTER",
-    badgeClass: "pre-register",
+    badge: "AVAILABLE NOW",
+    badgeClass: "on-demand",
     name: "Blackwell B300 Server",
     sub: "Next-gen architecture for future AI workloads",
-    price: null,
+    price: "Pricing on request",
     priceSuffix: "",
-    pricePrefix: "Coming Soon – Q1 2026",
+    pricePrefix: "",
     cta: "Get Early Access",
     ctaClass: "blue-outline",
     specs: [
-      { label: "GPU", value: "Next-gen NVIDIA Blackwell B300 (TBD)" },
+      { label: "GPU", value: "Next-gen NVIDIA Blackwell B300" },
       { label: "Memory", value: "Ultra-high bandwidth" },
-      { label: "Network", value: "6.4 Tbit/s InfiniBand (expected)" },
+      { label: "Network", value: "6.4 Tbit/s InfiniBand" },
     ],
     tagline: "Built for the next generation of intelligence",
     onDemandRate: null,
@@ -209,8 +209,8 @@ export const HOME_PRICING_TIERS: SimplePricingTier[] = [
   {
     tier: "STARTER",
     name: "Fractional B200",
-    amount: "$0.99",
-    period: "/hour",
+    amount: "Pricing on request",
+    period: "",
     quota: "1/4 or 1/2 GPU · Shared node",
     desc: "Ideal for prototyping, small-scale training, and experimentation on Blackwell hardware.",
     features: [
@@ -225,8 +225,8 @@ export const HOME_PRICING_TIERS: SimplePricingTier[] = [
   {
     tier: "SINGLE NODE",
     name: "B200 Single Node",
-    amount: "$3.99",
-    period: "/hour",
+    amount: "Pricing on request",
+    period: "",
     quota: "1× B200 · 180GB SXM · 16 vCPU",
     desc: "Full single-GPU node for developers, startups, and fine-tuning workloads.",
     features: [
@@ -241,8 +241,8 @@ export const HOME_PRICING_TIERS: SimplePricingTier[] = [
   {
     tier: "MULTI-NODE",
     name: "B200 Cluster",
-    amount: "$31.92",
-    period: "/hour",
+    amount: "Pricing on request",
+    period: "",
     quota: "8× B200 · 1.4 TB total · 128 vCPU",
     desc: "Multi-node cluster for training LLMs and enterprise-scale AI workloads.",
     features: [
@@ -259,8 +259,8 @@ export const HOME_PRICING_TIERS: SimplePricingTier[] = [
   {
     tier: "RESERVED",
     name: "Reserved Instance",
-    amount: "$2,500",
-    period: "/hour",
+    amount: "Pricing on request",
+    period: "",
     quota: "1–100+ GPUs · 3–12 month terms",
     desc: "Monthly commitment for cost predictability. Dedicated capacity, SLA, and priority support included.",
     features: [
@@ -276,9 +276,9 @@ export const HOME_PRICING_TIERS: SimplePricingTier[] = [
   {
     tier: "NEXT-GEN",
     name: "Blackwell B300",
-    amount: "Custom",
+    amount: "Pricing on request",
     period: "",
-    quota: "Pre-register · Q1 2026",
+    quota: "Available Now · U.S. DC",
     desc: "Next-generation Blackwell architecture for future-ready AI infrastructure and massive workloads.",
     features: [
       "Next-gen NVIDIA B300 GPU",
@@ -308,14 +308,14 @@ export const GPU_LABELS: Record<string, string> = {
 /* ── Ticker items (pricing page) ── */
 
 export const PRICING_TICKER_ITEMS: Array<[string, string]> = [
-  ["Blackwell B200 Single", "$3.99/hour"],
-  ["Blackwell B200 Cluster", "$31.92/hour 8× GPU"],
-  ["Fractional GPU", "$0.99/hour"],
-  ["Reserved Instance", "From $2,500/hour"],
+  ["Blackwell B200 Single", "Pricing on request"],
+  ["Blackwell B200 Cluster", "Pricing on request"],
+  ["Fractional GPU", "Pricing on request"],
+  ["Reserved Instance", "Pricing on request"],
   ["Volume Pricing", "Up to 40% off"],
   ["No Egress Fees", "$0 always"],
   ["InfiniBand 3.2 Tbit/s", "Every Node"],
-  ["B300", "Pre-register Q1 2026"],
+  ["B300", "Available Now"],
   ["Tier III", "U.S.-owned data centers"],
 ];
 

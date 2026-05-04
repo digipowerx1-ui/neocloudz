@@ -71,7 +71,7 @@ export default function GpuServicePage() {
                 Cost-effective virtualized compute for development, testing, and rapid experimentation. Perfect for inference workloads or scaling parallel tasks affordably.
               </p>
               <div style={{ marginTop: "24px", paddingTop: "24px", borderTop: "1px solid var(--border)", width: "100%" }}>
-                <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--blue)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Pay by the hour</span>
+                <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--blue)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Pricing on request</span>
               </div>
             </div>
 
@@ -83,10 +83,10 @@ export default function GpuServicePage() {
                 <h3 className="ent-card-title" style={{ margin: 0, fontSize: "22px" }}>Dedicated Bare-Metal</h3>
               </div>
               <p className="ent-card-desc" style={{ flexGrow: 1 }}>
-                Full hardware isolation with absolutely no virtualization overhead for your heaviest production workloads. Ideal for massive model training and secure deployments.
+                Full hardware isolation with absolutely no virtualization overhead for your heaviest production workloads. Ideal for massive model training and secure deployments. H100, H200, and B300 clusters available.
               </p>
               <div style={{ marginTop: "24px", paddingTop: "24px", borderTop: "1px solid var(--border)", width: "100%" }}>
-                <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--green)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Reserved capacity</span>
+                <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--green)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Pricing on request</span>
               </div>
             </div>
 
@@ -101,7 +101,7 @@ export default function GpuServicePage() {
                 Fully managed GPU environments with pre-configured software stacks. Instantly deploy your AI workloads without managing the underlying hardware or OS layer.
               </p>
               <div style={{ marginTop: "24px", paddingTop: "24px", borderTop: "1px solid var(--border)", width: "100%" }}>
-                <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--amber)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Managed Platform</span>
+                <span style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--amber)", textTransform: "uppercase", letterSpacing: "0.05em" }}>Pricing on request</span>
               </div>
             </div>
           </div>
