@@ -46,6 +46,7 @@ interface CardData {
   demandLabelColor?: string;
   demandClass: "high" | "medium";
   features: { text: string; custom?: boolean }[];
+  price: string | null;
   cta: string;
   ctaClass: "primary" | "outline" | "blue-outline";
   featured?: boolean;
@@ -67,6 +68,7 @@ const CARDS: CardData[] = PRICING_CARDS.map((pc) => ({
     text: `${s.label}: ${s.value}`,
     custom: pc.onDemandRate === null ? true : undefined,
   })),
+  price: pc.price,
   cta: pc.cta,
   ctaClass: pc.ctaClass,
   featured: pc.featured,
@@ -450,13 +452,12 @@ export function PricingShell() {
                 <div className="price-gpu-name">{c.name}</div>
                 <div className="price-gpu-sub">{c.sub}</div>
                 <div className="price-amount-wrap">
-                  <div className={`price-amount${isCustom ? " custom" : ""}`}>
-                    {displayPrice}
+                  <div className="price-amount" style={{ fontSize: "28px" }}>
+                    Pricing on request
                   </div>
-                  {!isCustom ? <span className="price-unit">/hour</span> : null}
                 </div>
                 <div className="price-period">
-                  {isCustom ? "72-GPU rack · reserved pricing" : "per GPU · billed by the minute"}
+                  Available for short-term and long-term reservation
                 </div>
 
                 {c.customSavingsTag ? (
