@@ -4,6 +4,20 @@
   overflow-x: hidden;
 }
 
+/* Base HP Section Padding Override for About Page */
+.about-page-container .hp-section {
+  padding: 80px 20px !important;
+}
+
+.about-page-container .hp-section.dark {
+  padding: 80px 20px !important;
+}
+
+.about-page-container .hp-section.mid {
+  padding: 80px 20px !important;
+}
+
+
 /* Desktop Grid Defaults */
 .sustainability-header-grid {
   display: grid;
@@ -20,7 +34,7 @@
 .eco-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 32px;
 }
 
 .cta-grid-advanced {
@@ -35,6 +49,12 @@
     padding: 0 20px !important;
   }
 
+  .enterprise-page.about-page-container .hero {
+    padding-top: 100px !important;
+    min-height: auto !important;
+    padding-bottom: 60px !important;
+  }
+
   .enterprise-page.about-page-container .hero-h1 {
     font-size: 32px !important;
     line-height: 1.2 !important;
@@ -43,28 +63,49 @@
   .enterprise-page.about-page-container .hero-sub {
     font-size: 14px !important;
     text-align: center !important;
+    margin-bottom: 30px !important;
+  }
+
+  /* Hide floating badges on mobile to prevent overlap */
+  .about-stat-badge-1,
+  .about-stat-badge-2 {
+    display: none !important;
+  }
+
+  .hero-live-strip {
+    gap: 16px !important;
+    padding: 12px !important;
+  }
+
+  .hlm-val {
+    font-size: 14px !important;
+  }
+
+  .hlm-lbl {
+    font-size: 8px !important;
   }
 
   /* Mission Section Grid */
-  .mission-grid {
+  .about-mission-grid {
+    display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 40px !important;
-    padding: 0 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
+    gap: 48px !important;
+    padding: 0 !important;
   }
 
-  .hp-h2 {
+  .mission-vision .hp-h2 {
     text-align: center !important;
+    font-size: 28px !important;
   }
 
   .vision-brief {
     padding: 20px !important;
+    text-align: center !important;
   }
 
-  .vision-specs {
+  .about-vision-specs {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
+    gap: 24px !important;
   }
 
   .mission-console {
@@ -73,26 +114,25 @@
 
   /* Architecture Grid */
   .architecture-grid {
+    display: grid !important;
     grid-template-columns: 1fr !important;
-    gap: 20px !important;
-    padding: 0 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
+    gap: 48px !important;
+    padding: 0 !important;
   }
 
   .arch-card {
-    padding: 32px !important;
+    padding: 24px !important;
   }
 
   .arch-card h3 {
-    font-size: 24px !important;
+    font-size: 22px !important;
   }
 
   /* Sustainability Section */
   .sustainability-header-grid {
     grid-template-columns: 1fr !important;
     gap: 40px !important;
-    padding: 0 20px !important;
+    padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
   }
@@ -103,6 +143,7 @@
 
   .sustainability-header-grid .hp-h2 {
     text-align: center !important;
+    font-size: 28px !important;
   }
 
   .sustainability-header-grid .hp-sub {
@@ -110,9 +151,9 @@
   }
 
   .stats-grid-mini {
-    grid-template-columns: 1fr !important; /* Single column for horizontal cards */
-    gap: 12px !important;
-    padding: 20px !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 16px !important;
     border-radius: 16px !important;
   }
 
@@ -121,14 +162,14 @@
     align-items: center !important;
     justify-content: space-between !important;
     text-align: left !important;
-    background: rgba(0,0,0,0.2) !important;
-    padding: 16px 24px !important;
+    background: rgba(45, 255, 122, 0.05) !important;
+    padding: 12px 20px !important;
     border-radius: 12px !important;
-    border: 1px solid rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(45, 255, 122, 0.1) !important;
   }
 
   .impact-stat > div:first-child {
-    font-size: 24px !important;
+    font-size: 22px !important;
     margin: 0 !important;
   }
   
@@ -139,49 +180,50 @@
 
   .eco-cards-grid {
     grid-template-columns: 1fr !important;
-    gap: 16px !important;
-    padding: 0 20px !important;
+    gap: 24px !important;
+    padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
   }
 
   .eco-card {
-    padding: 24px !important; /* Reduced from 40px */
+    padding: 24px !important;
     border-radius: 16px !important;
   }
 
   /* CTA Section */
   .cta-grid-advanced {
     grid-template-columns: 1fr !important;
-    gap: 60px !important;
-    padding: 0 20px !important;
+    gap: 40px !important;
+    padding: 0 !important;
     display: flex !important;
     flex-direction: column !important;
   }
 
-  .cta-grid-advanced > div:first-child {
+  .about-cta-copy {
     text-align: center !important;
   }
 
-  .cta-grid-advanced .hp-h2 {
+  .about-cta-copy .hp-h2 {
     text-align: center !important;
+    font-size: 32px !important;
   }
 
-  .cta-grid-advanced .hp-sub {
+  .about-cta-copy p {
     text-align: center !important;
-    margin: 0 auto 40px !important;
+    margin: 0 auto 30px !important;
   }
 
-  .cta-grid-advanced .hero-cta {
+  .about-cta-copy .hero-cta {
     justify-content: center !important;
-    flex-direction: column !important;
-    align-items: center !important;
   }
 
-  .deployment-terminal {
+  .deployment-log-terminal {
     height: auto !important;
-    min-height: 300px !important;
+    min-height: 280px !important;
+    padding: 20px !important;
   }
+
 
   /* Button Consistency Overrides */
   .enterprise-page .btn-launch,
