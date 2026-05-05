@@ -27,8 +27,8 @@ const NAV_LINKS: NavLink[] = [
   },
   {
     label: "Solution",
-    href: "/solutions",
-    matches: ["/solutions"],
+    href: "/solution",
+    matches: ["/solution"],
     subLinks: [
       { label: "AI Model Training", href: "/solutions#training" },
       { label: "AI Inference & Deployment", href: "/solutions#inference" },
