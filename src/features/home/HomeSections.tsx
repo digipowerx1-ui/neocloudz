@@ -67,7 +67,7 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v">InfiniBand 400G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v g">On-Demand · Reserved</span></div>
           </div>
-          <a href="/contact" className="gpu-cat-cta">Deploy Now →</a>
+          <a href="/contact?source=homepage&cta=deploy_now_blackwell" className="gpu-cat-cta">Deploy Now →</a>
           <div className="beam" />
         </div>
 
@@ -83,7 +83,7 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v">InfiniBand NDR 400G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v b">Bare Metal · Dedicated</span></div>
           </div>
-          <a href="/contact" className="gpu-cat-cta">Request Cluster →</a>
+          <a href="/contact?source=homepage&cta=request_cluster_grace" className="gpu-cat-cta">Request Cluster →</a>
           <div className="beam" />
         </div>
 
@@ -102,7 +102,7 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v" style={{ color: "var(--muted)" }}>InfiniBand 800G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v" style={{ color: "var(--amber)" }}>Join Waitlist</span></div>
           </div>
-          <a href="/contact" className="gpu-cat-cta">Join Waitlist →</a>
+          <a href="/contact?source=homepage&cta=join_waitlist_rubin" className="gpu-cat-cta">Join Waitlist →</a>
         </div>
       </div>
     </section>
@@ -431,7 +431,7 @@ export function HomePricing() {
                 </li>
               ))}
             </ul>
-            <a href="/contact" className={`price-btn-tech ${card.ctaVariant}`}>
+            <a href={`/contact?source=homepage&cta=${card.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn-tech ${card.ctaVariant}`}>
               {card.cta}
             </a>
           </div>
@@ -801,14 +801,14 @@ export function HomeCta() {
         when you&#39;re ready. No sales calls required.
       </p>
       <div className="cta-row" style={{ position: "relative", zIndex: 2 }}>
-        <a href="/contact" className="btn-launch" ref={launchBtnRef}>
+        <a href="/contact?source=homepage&cta=contact_sales_footer" className="btn-launch" ref={launchBtnRef}>
           Contact Sales
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
-        <a href="/contact" className="btn-outline">
+        <a href="/contact?source=homepage&cta=talk_to_sales_footer" className="btn-outline">
           Talk to Sales →
         </a>
       </div>
@@ -987,7 +987,7 @@ export function HomeWorkloads() {
                   ))}
                 </ul>
 
-                <a href="/contact" className="btn-launch mt-8">
+                <a href={`/contact?source=homepage&cta=${w.title.toLowerCase().replace(/ /g, "_")}`} className="btn-launch mt-8">
                   {w.cta}
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -1007,42 +1007,42 @@ const FOOTER_COLS = [
   {
     title: "Products",
     items: [
-      { label: "B200 On-Demand", href: "/contact" },
-      { label: "B300 On-Demand", href: "/contact" },
-      { label: "GB200 Bare Metal", href: "/contact" },
-      { label: "GB300 Bare Metal", href: "/contact" },
-      { label: "WEKA Storage", href: "/contact" },
-      { label: "Vera Rubin", badge: "SOON", href: "/contact" },
+      { label: "B200 On-Demand", href: "/contact?source=homepage&cta=footer_b200_ondemand" },
+      { label: "B300 On-Demand", href: "/contact?source=homepage&cta=footer_b300_ondemand" },
+      { label: "GB200 Bare Metal", href: "/contact?source=homepage&cta=footer_gb200_baremetal" },
+      { label: "GB300 Bare Metal", href: "/contact?source=homepage&cta=footer_gb300_baremetal" },
+      { label: "WEKA Storage", href: "/contact?source=homepage&cta=footer_weka_storage" },
+      { label: "Vera Rubin", badge: "SOON", href: "/contact?source=homepage&cta=footer_vera_rubin" },
     ],
   },
   {
     title: "Solutions",
     items: [
-      { label: "LLM Training", href: "/contact" },
-      { label: "Inference at Scale", href: "/contact" },
-      { label: "Fine-Tuning", href: "/contact" },
-      { label: "Research Compute", href: "/contact" },
+      { label: "LLM Training", href: "/contact?source=homepage&cta=footer_llm_training" },
+      { label: "Inference at Scale", href: "/contact?source=homepage&cta=footer_inference_scale" },
+      { label: "Fine-Tuning", href: "/contact?source=homepage&cta=footer_finetuning" },
+      { label: "Research Compute", href: "/contact?source=homepage&cta=footer_research_compute" },
       { label: "Enterprise", href: "/enterprise" },
     ],
   },
   {
     title: "Company",
     items: [
-      { label: "About", href: "/contact" },
-      { label: "Blog", href: "/contact" },
+      { label: "About", href: "/contact?source=homepage&cta=footer_about" },
+      { label: "Blog", href: "/contact?source=homepage&cta=footer_blog" },
       { label: "Careers", badge: "HIRING", href: "/career" },
-      { label: "Status", href: "/contact" },
-      { label: "Contact", href: "/contact" },
+      { label: "Status", href: "/contact?source=homepage&cta=footer_status" },
+      { label: "Contact", href: "/contact?source=homepage&cta=footer_contact" },
     ],
   },
   {
     title: "Resources",
     items: [
-      { label: "Documentation", href: "/contact" },
-      { label: "API Reference", href: "/contact" },
+      { label: "Documentation", href: "/contact?source=homepage&cta=footer_documentation" },
+      { label: "API Reference", href: "/contact?source=homepage&cta=footer_api_reference" },
       { label: "Benchmarks", href: "#benchmarks" },
       { label: "Pricing Calculator", href: "#pricing" },
-      { label: "Support", href: "/contact" },
+      { label: "Support", href: "/contact?source=homepage&cta=footer_support" },
     ],
   },
 ];
@@ -1079,7 +1079,7 @@ export function HomeFooter() {
             <a href="https://linkedin.com" className="fsoc" target="_blank" rel="noreferrer">
               <img src="/assets/icons/channels/linkedin.png" alt="LinkedIn" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
             </a>
-            <a href="/contact" className="fsoc">
+            <a href="/contact?source=homepage&cta=footer_chat" className="fsoc">
               <img src="/assets/icons/channels/chat.png" alt="Chat" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
             </a>
           </div>

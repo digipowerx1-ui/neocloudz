@@ -156,7 +156,7 @@ export default function ProductsPage() {
                   ))}
                 </ul>
                 <div style={{ marginTop: 32 }}>
-                  <Link href={p.cta.href} className="btn btn-green">
+                  <Link href={p.cta.href.includes("/contact") ? `${p.cta.href}?source=products&cta=${p.cta.label.toLowerCase().replace(/ /g, "_")}` : p.cta.href} className="btn btn-green">
                     {p.cta.label} →
                   </Link>
                 </div>
@@ -236,7 +236,7 @@ export default function ProductsPage() {
                 ))}
               </ul>
               <div style={{ marginTop: 32 }}>
-                <Link href="/contact" className="btn btn-green">
+                <Link href="/contact?source=products&cta=explore_hardware" className="btn btn-green">
                   Explore Hardware →
                 </Link>
               </div>
@@ -272,10 +272,10 @@ export default function ProductsPage() {
             Blackwell B200 in under 60 seconds.
           </p>
           <div className="cta-btns">
-            <Link href="/contact" className="btn btn-green btn-lg">
+            <Link href="/contact?source=products&cta=request_private_clusters_footer" className="btn btn-green btn-lg">
               Request Private Clusters ▶
             </Link>
-            <Link href="/contact" className="btn btn-outline btn-lg">
+            <Link href="/contact?source=products&cta=contact_sales_footer" className="btn btn-outline btn-lg">
               Contact Sales →
             </Link>
           </div>

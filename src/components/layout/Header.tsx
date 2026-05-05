@@ -95,7 +95,11 @@ export function Header() {
           );
         })}
       </ul>
-      <Link href="/contact" className="site-nav-cta" style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+      <Link 
+        href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"}&cta=talk_to_us`} 
+        className="site-nav-cta" 
+        style={{ display: "flex", alignItems: "center", gap: "8px" }}
+      >
         Talk to Us <MessageSquare size={16} />
       </Link>
       <button

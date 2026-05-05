@@ -38,7 +38,7 @@ export default function MlServicePage() {
           </p>
 
           <div className="hero-cta">
-            <Link href="/contact" className="btn-launch">
+            <Link href="/contact?source=ml-as-a-service&cta=talk_to_an_architect" className="btn-launch">
               Talk to an Architect <ArrowRight size={18} />
             </Link>
             <Link href="/pricing" className="btn-outline">
@@ -303,7 +303,7 @@ export default function MlServicePage() {
             <Link href="/pricing" className="btn-launch">
               View Pricing
             </Link>
-            <Link href="/contact" className="btn-outline">
+            <Link href="/contact?source=ml-as-a-service&cta=talk_to_an_architect_footer" className="btn-outline">
               Talk to an Architect
             </Link>
           </div>

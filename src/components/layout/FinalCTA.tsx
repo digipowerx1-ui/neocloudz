@@ -1,9 +1,12 @@
 "use client";
 
-import React from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export function FinalCTA() {
+  const pathname = usePathname() || "/";
+  const source = pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown";
+
   return (
     <section className="final-cta">
       {/* Aurora Waves Background */}
@@ -25,10 +28,10 @@ export function FinalCTA() {
         </p>
 
         <div className="cta-btns">
-          <Link href="/contact" className="btn-launch">
+          <Link href={`/contact?source=${source}&cta=contact_sales`} className="btn-launch">
             Contact Sales ▶
           </Link>
-          <Link href="/contact" className="btn-outline">
+          <Link href={`/contact?source=${source}&cta=talk_to_sales`} className="btn-outline">
             Talk to Sales →
           </Link>
         </div>

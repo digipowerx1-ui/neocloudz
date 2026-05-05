@@ -37,7 +37,7 @@ export default function PricingSection() {
                 ))}
               </ul>
               <a
-                href="/contact"
+                href={`/contact?source=pricing&cta=${t.name.toLowerCase().replace(/ /g, "_")}`}
                 className={`btn price-cta btn-${t.ctaVariant}`}
               >
                 {t.cta}

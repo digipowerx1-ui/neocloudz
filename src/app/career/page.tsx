@@ -212,7 +212,7 @@ export default function CareerPage() {
             {OPEN_ROLES.map((role, idx) => (
               <Link 
                 key={idx} 
-                href="/contact"
+                href={`/contact?source=career&cta=view_spec_${role.title.toLowerCase().replace(/ /g, "_")}`}
                 style={{ 
                   display: "grid", 
                   background: "linear-gradient(90deg, #000 0%, #050805 100%)", 
@@ -281,7 +281,7 @@ export default function CareerPage() {
             <p style={{ color: "var(--muted)", fontSize: "15px", marginBottom: "24px", opacity: 0.7 }}>
               Operational requirements not found? Submit an unsolicited integration packet.
             </p>
-            <Link href="/contact" className="btn-outline" style={{ display: "inline-flex", padding: "14px 36px", borderRadius: "8px" }}>
+            <Link href="/contact?source=career&cta=open_application" className="btn-outline" style={{ display: "inline-flex", padding: "14px 36px", borderRadius: "8px" }}>
               Submit Open Application
             </Link>
           </div>

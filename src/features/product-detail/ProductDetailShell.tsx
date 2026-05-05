@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import { useTrainingTerminal } from "@/hooks/useTrainingTerminal";
 
@@ -51,6 +52,9 @@ export interface ProductDetailData {
 
 export default function ProductDetailShell({ data }: { data: ProductDetailData }) {
   const terminalRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname() || "/";
+  const source = pathname.replace("/", "") || "unknown";
+  
   useTrainingTerminal(terminalRef);
 
   return (
@@ -73,11 +77,11 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
           <p className="hero-sub">{data.lede}</p>
 
           <div className="hero-ctas">
-            <Link href={data.primaryCta.href} className="btn btn-green btn-lg">
+            <Link href={`${data.primaryCta.href}${data.primaryCta.href.includes("/contact") ? `?source=${source}&cta=${data.primaryCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`} className="btn btn-green btn-lg">
               {data.primaryCta.label} ▶
             </Link>
             {data.secondaryCta ? (
-              <Link href={data.secondaryCta.href} className="btn btn-outline btn-lg">
+              <Link href={`${data.secondaryCta.href}${data.secondaryCta.href.includes("/contact") ? `?source=${source}&cta=${data.secondaryCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`} className="btn btn-outline btn-lg">
                 {data.secondaryCta.label} →
               </Link>
             ) : null}
@@ -125,7 +129,7 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
                 ))}
               </ul>
               <div style={{ marginTop: 32 }}>
-                <Link href={data.featureCta.href} className="btn btn-green">
+                <Link href={`${data.featureCta.href}${data.featureCta.href.includes("/contact") ? `?source=${source}&cta=${data.featureCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`} className="btn btn-green">
                   {data.featureCta.label} →
                 </Link>
               </div>
@@ -210,10 +214,10 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
             Blackwell B200 in under 60 seconds.
           </p>
           <div className="cta-btns">
-            <Link href="/contact" className="btn btn-green btn-lg">
+            <Link href={`/contact?source=${source}&cta=request_private_cluster`} className="btn btn-green btn-lg">
               Request Private Clusters ▶
             </Link>
-            <Link href="/contact" className="btn btn-outline btn-lg">
+            <Link href={`/contact?source=${source}&cta=contact_sales`} className="btn btn-outline btn-lg">
               Contact Sales →
             </Link>
           </div>

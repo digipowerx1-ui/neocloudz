@@ -1,23 +1,25 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { CheckCircle2 } from "lucide-react";
 import { sendContactMessage } from "@/services/api/contact";
 
 const INTEREST_OPTIONS = [
-  { value: "on-demand", label: "On-Demand GPUs" },
-  { value: "enterprise", label: "Enterprise / Bare Metal" },
-  { value: "support", label: "Technical Support" },
+  { value: "on_demand_gpus", label: "On-Demand GPUs" },
+  { value: "enterprise_bare_metal", label: "Enterprise / Bare Metal" },
+  { value: "weka_storage", label: "WEKA Storage" },
+  { value: "technical_support", label: "Technical Support" },
   { value: "partnership", label: "Partnership" },
   { value: "other", label: "Other" },
 ] as const;
 
 const BUDGET_OPTIONS = [
-  "Under $5,000",
-  "$5k – $20k",
-  "$20k – $100k",
-  "$100k – $500k",
-  "$500k+",
+  { value: "under_5k", label: "Under $5,000" },
+  { value: "range_5k_20k", label: "$5k – $20k" },
+  { value: "range_20k_100k", label: "$20k – $100k" },
+  { value: "range_100k_500k", label: "$100k – $500k" },
+  { value: "range_500k_plus", label: "$500k+" },
 ] as const;
 
 const MESSAGE_MAX = 800;
@@ -36,11 +38,11 @@ interface FormState {
 }
 
 const INITIAL_FORM: FormState = {
-  interest: "on-demand",
+  interest: "on_demand_gpus",
   name: "",
   email: "",
   company: "",
-  budget: "",
+  budget: "under_5k",
   message: "",
 };
 
@@ -82,12 +84,14 @@ function fireParticles(origin: HTMLElement) {
   }
 }
 
-export default function ContactForm() {
+function ContactFormInner() {
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
+  const searchParams = useSearchParams();
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [nameTouched, setNameTouched] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
   const [ticketId, setTicketId] = useState<string>("00000");
+  const [error, setError] = useState<string | null>(null);
   const [dots, setDots] = useState(".");
   const submitRef = useRef<HTMLButtonElement>(null);
 
@@ -115,20 +119,35 @@ export default function ContactForm() {
     setEmailTouched(true);
     if (!nameValid || !emailValid) return;
 
+    setError(null);
     setStatus("loading");
 
-    try {
-      await Promise.race([
-        sendContactMessage(form),
-        new Promise((resolve) => setTimeout(resolve, SIMULATED_LATENCY_MS)),
-      ]);
-    } catch {
-      await new Promise((resolve) => setTimeout(resolve, SIMULATED_LATENCY_MS));
-    }
+    const source = searchParams.get("source") || "unknown";
+    const cta = searchParams.get("cta") || "unknown";
+    const finalSource = `${source}_${cta}`;
 
-    setTicketId(generateTicketId());
-    if (submitRef.current) fireParticles(submitRef.current);
-    setStatus("success");
+    const payload = {
+      interestType: form.interest,
+      fullName: form.name,
+      workEmail: form.email,
+      company: form.company,
+      budgetRange: form.budget,
+      message: form.message,
+      source: finalSource,
+      progress: "new"
+    };
+
+    try {
+      await sendContactMessage(payload);
+
+      setTicketId(generateTicketId());
+      if (submitRef.current) fireParticles(submitRef.current);
+      setStatus("success");
+    } catch (err) {
+      console.error("Submission error:", err);
+      setError("Transmission failed. Please check your connection and try again.");
+      setStatus("idle");
+    }
   }
 
   if (status === "success") {
@@ -287,8 +306,8 @@ export default function ContactForm() {
           >
             <option value="">Select range...</option>
             {BUDGET_OPTIONS.map((opt) => (
-              <option key={opt} value={opt}>
-                {opt}
+              <option key={opt.value} value={opt.value}>
+                {opt.label}
               </option>
             ))}
           </select>
@@ -313,6 +332,12 @@ export default function ContactForm() {
         </div>
       </div>
 
+      {error && (
+        <div className="form-error" style={{ color: "#ff4d4d", fontSize: "14px", marginBottom: "16px", padding: "12px", background: "rgba(255, 77, 77, 0.1)", border: "1px solid rgba(255, 77, 77, 0.2)", borderRadius: "8px", textAlign: "center" }}>
+          {error}
+        </div>
+      )}
+
       <button
         ref={submitRef}
         type="submit"
@@ -329,6 +354,15 @@ export default function ContactForm() {
           <span>INITIATE CONTACT →</span>
         )}
       </button>
+      <input type="hidden" name="source" value={`${searchParams.get("source") || "unknown"}_${searchParams.get("cta") || "unknown"}`} />
     </form>
+  );
+}
+
+export default function ContactForm() {
+  return (
+    <Suspense fallback={<div>Loading form...</div>}>
+      <ContactFormInner />
+    </Suspense>
   );
 }

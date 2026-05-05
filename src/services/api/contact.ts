@@ -1,21 +1,27 @@
 import { api } from "./index";
 
 export interface ContactPayload {
-  interest: string;
-  name: string;
-  email: string;
+  interestType: string;
+  fullName: string;
+  workEmail: string;
   company: string;
-  budget: string;
+  budgetRange: string;
   message: string;
+  source: string;
+  progress?: string;
 }
 
 export interface ContactResponse {
-  ticketId: string;
-  receivedAt: string;
+  data: {
+    id: number;
+    attributes: any;
+  };
 }
 
-const CONTACT_ENDPOINT = "/contact";
+const CONTACT_ENDPOINT = "https://lovely-power-898b5204db.strapiapp.com/api/contact-requests";
 
 export function sendContactMessage(payload: ContactPayload) {
-  return api.post<ContactResponse>(CONTACT_ENDPOINT, payload);
+  return api.post<ContactResponse>(CONTACT_ENDPOINT, {
+    data: payload
+  });
 }

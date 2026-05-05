@@ -38,7 +38,7 @@ export default function GpuServicePage() {
           </p>
 
           <div className="hero-cta">
-            <Link href="/contact" className="btn-launch">
+            <Link href="/contact?source=gpu-as-a-service&cta=contact_sales" className="btn-launch">
               Contact Sales <ArrowRight size={18} />
             </Link>
             <Link href="/pricing" className="btn-outline">
@@ -315,7 +315,7 @@ export default function GpuServicePage() {
             <Link href="/pricing" className="btn-launch">
               View Pricing
             </Link>
-            <Link href="/contact" className="btn-outline">
+            <Link href="/contact?source=gpu-as-a-service&cta=talk_to_an_architect" className="btn-outline">
               Talk to an Architect
             </Link>
           </div>

@@ -20,19 +20,30 @@ async function request<T>(
     Object.entries(params).forEach(([k, v]) => url.searchParams.set(k, v));
   }
 
-  const response = await fetch(url.toString(), {
-    headers: {
-      "Content-Type": "application/json",
-      ...rest.headers,
-    },
-    ...rest,
-  });
+  try {
+    const response = await fetch(url.toString(), {
+      headers: {
+        "Content-Type": "application/json",
+        ...rest.headers,
+      },
+      ...rest,
+    });
 
-  if (!response.ok) {
-    throw new Error(`API error: ${response.status} ${response.statusText}`);
+    if (!response.ok) {
+      const errorBody = await response.json().catch(() => ({}));
+      console.error(`API Error Response [${response.status}]:`, errorBody);
+      if (errorBody.error) {
+        console.error("Strapi Error Message:", errorBody.error.message);
+        console.error("Strapi Error Details:", errorBody.error.details);
+      }
+      throw new Error(errorBody.error?.message || `API error: ${response.status} ${response.statusText}`);
+    }
+
+    return response.json() as Promise<T>;
+  } catch (error) {
+    console.error(`API Request Failure [${rest.method || "GET"}] ${url.toString()}:`, error);
+    throw error;
   }
-
-  return response.json() as Promise<T>;
 }
 
 export const api = {

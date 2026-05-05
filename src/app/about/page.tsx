@@ -48,10 +48,10 @@ export default function AboutPage() {
           </p>
 
           <div className="hero-cta">
-            <Link href="/contact" className="btn-launch">
+            <Link href="/contact?source=about&cta=contact_sales" className="btn-launch">
               Contact Sales →
             </Link>
-            <Link href="/contact" className="btn-outline">
+            <Link href="/contact?source=about&cta=request_private_clusters" className="btn-outline">
               Request Private Clusters
             </Link>
           </div>
@@ -420,7 +420,7 @@ export default function AboutPage() {
               </p>
 
               <div className="hero-cta" style={{ justifyContent: "flex-start", marginBottom: "0" }}>
-                <Link href="/contact" className="btn-launch" style={{ padding: "20px 48px", fontSize: "18px", borderRadius: "8px", boxShadow: "0 10px 30px rgba(45, 255, 122, 0.2)" }}>
+                <Link href="/contact?source=about&cta=initialize_infrastructure" className="btn-launch" style={{ padding: "20px 48px", fontSize: "18px", borderRadius: "8px", boxShadow: "0 10px 30px rgba(45, 255, 122, 0.2)" }}>
                   Initialize Infrastructure
                   <ArrowRight size={20} />
                 </Link>

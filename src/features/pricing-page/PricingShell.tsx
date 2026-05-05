@@ -342,13 +342,13 @@ export function PricingShell() {
             commitment of hundreds of units for at least 3 months.
           </p>
           <div className="hero-cta-row" style={{ display: "flex", gap: 16, marginTop: 28, flexWrap: "wrap", justifyContent: "center", marginBottom: 40 }}>
-            <a href="/contact" className="btn-launch">
+            <a href="/contact?source=pricing&cta=contact_sales" className="btn-launch">
               Contact Sales
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <a href="/contact" className="btn-outline-cta">
+            <a href="/contact?source=pricing&cta=request_custom_quote" className="btn-outline-cta">
               Request Custom Quote
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
@@ -516,7 +516,7 @@ export function PricingShell() {
                     </li>
                   ))}
                 </ul>
-                <a href="/contact" className={`price-btn ${c.ctaClass}`}>
+                <a href={`/contact?source=pricing&cta=${c.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn ${c.ctaClass}`}>
                   {c.cta}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                     <path d="M5 12h14M12 5l7 7-7 7" />
@@ -860,13 +860,13 @@ export function PricingShell() {
             Deploy a B200 in 60 seconds. No sales calls. No contracts. Cancel anytime.
           </p>
           <div className="cta-row">
-            <a href="/contact" className="btn-launch" ref={ctaLaunchRef}>
+            <a href="/contact?source=pricing&cta=request_private_cluster" className="btn-launch" ref={ctaLaunchRef}>
               Request Private Clusters
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </a>
-            <a href="/contact" className="btn-outline-cta">
+            <a href="/contact?source=pricing&cta=contact_sales" className="btn-outline-cta">
               Contact Sales
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="M5 12h14M12 5l7 7-7 7" />

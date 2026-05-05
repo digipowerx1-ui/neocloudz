@@ -34,10 +34,10 @@ export default function EnterpriseCta() {
         </p>
 
         <div className="cta-row">
-          <Link href="/contact" className="btn-launch">
+          <Link href="/contact?source=enterprise&cta=request_demo" className="btn-launch">
             Request Demo <ArrowRight size={18} />
           </Link>
-          <Link href="/contact" className="btn-outline">
+          <Link href="/contact?source=enterprise&cta=talk_to_sales" className="btn-outline">
             Talk to Sales
           </Link>
         </div>

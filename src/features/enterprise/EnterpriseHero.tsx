@@ -106,10 +106,10 @@ export default function EnterpriseHero() {
         </p>
 
         <div className="hero-cta">
-          <a href="/contact" className="btn-launch">
+          <a href="/contact?source=enterprise&cta=request_a_demo" className="btn-launch">
             Request a Demo →
           </a>
-          <a href="/contact" className="btn-outline">
+          <a href="/contact?source=enterprise&cta=security_brief" className="btn-outline">
             Download Security Brief
           </a>
         </div>

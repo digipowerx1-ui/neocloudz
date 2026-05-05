@@ -42,10 +42,10 @@ export default function ProductHero() {
          From single GPU instances to enterprise clusters — NeoCloudz gives you the performance and control you need to build the future of AI..
         </p>
         <div className="hero-ctas" style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
-          <Link href="/contact" className="btn btn-green btn-lg">
+          <Link href="/contact?source=products&cta=request_private_cluster" className="btn btn-green btn-lg">
             Request Private Clusters ▶
           </Link>
-          <Link href="/contact" className="btn btn-outline btn-lg">
+          <Link href="/contact?source=products&cta=contact_sales" className="btn btn-outline btn-lg">
             Contact Sales →
           </Link>
         </div>

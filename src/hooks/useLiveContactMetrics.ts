@@ -25,10 +25,10 @@ function formatMinutes(min: number): string {
   return h > 0 ? `${h}h ${m}m` : `${m}m`;
 }
 
-function buildMetrics(mins: number, resolved: number): ContactMetrics {
+function buildMetrics(mins: number, resolved: number, stable = false): ContactMetrics {
   const label = formatMinutes(mins);
-  // Simulate 99.98% or 99.99% uptime
-  const uptime = Math.random() > 0.5 ? "99.99%" : "99.98%";
+  // Use a stable value for hydration, then randomize on client
+  const uptime = stable ? "99.99%" : (Math.random() > 0.5 ? "99.99%" : "99.98%");
   return {
     responseLabel: label,
     responseLabelWithTilde: `~${label}`,
@@ -39,7 +39,7 @@ function buildMetrics(mins: number, resolved: number): ContactMetrics {
 
 export function useLiveContactMetrics(): ContactMetrics {
   const [metrics, setMetrics] = useState<ContactMetrics>(() =>
-    buildMetrics(INITIAL_MINS, INITIAL_RESOLVED),
+    buildMetrics(INITIAL_MINS, INITIAL_RESOLVED, true),
   );
 
   useEffect(() => {
