@@ -1766,8 +1766,10 @@ footer {
 }
 
 .footer-social:hover {
-  border-color: rgba(45, 255, 122, 0.32);
+  border-color: var(--green);
   color: var(--green);
+  box-shadow: 0 0 15px rgba(45, 255, 122, 0.2);
+  transform: translateY(-2px);
 }
 
 .footer-col-title {
@@ -1794,6 +1796,7 @@ footer {
 
 .footer-links a:hover {
   color: var(--green);
+  text-shadow: 0 0 8px rgba(45, 255, 122, 0.4);
 }
 
 .footer-bottom {
@@ -2046,7 +2049,8 @@ footer {
     align-items: center !important;
   }
 
-  .hero-cta, .cta-row {
+  .hero-cta,
+  .cta-row {
     flex-direction: column !important;
     width: 100% !important;
     gap: 12px !important;
@@ -2054,9 +2058,9 @@ footer {
     align-items: stretch !important;
   }
 
-  .hero-cta .btn-launch, 
+  .hero-cta .btn-launch,
   .hero-cta .btn-outline,
-  .cta-row .btn-launch, 
+  .cta-row .btn-launch,
   .cta-row .btn-outline {
     width: 100% !important;
     justify-content: center !important;
@@ -2269,3 +2273,30 @@ footer {
     filter: var(--product-lottie-color-filter);
   }
 }
+
+/* Solutions Page Specific Overrides */
+.solutions-context .btn-green,
+.solutions-context .btn-primary,
+.solutions-context .btn-outline,
+.solutions-context .price-cta {
+  border: 1px solid #ffffff !important;
+}
+
+.solutions-context .sol-card:hover,
+.solutions-context .price-card:hover,
+.solutions-context .prod-card:hover {
+  border-color: rgba(45, 255, 122, 0.4) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(45, 255, 122, 0.1) !important;
+}
+
+.solutions-context .sol-card:active,
+.solutions-context .price-card:active,
+.solutions-context .prod-card:active {
+  border-color: var(--green) !important;
+  border-width: 2px !important;
+  box-shadow: 0 0 30px rgba(45, 255, 122, 0.4), inset 0 0 15px rgba(45, 255, 122, 0.1) !important;
+  transform: scale(0.985) !important;
+  transition: all 0.1s ease !important;
+  cursor: pointer;
+}
+

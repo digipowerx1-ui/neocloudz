@@ -49,7 +49,11 @@ export default function AboutPage() {
 
           <div className="hero-cta">
             <Link href="/contact?source=about&cta=contact_sales" className="btn-launch">
-              Contact Sales →
+              Contact Sales
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </Link>
             <Link href="/contact?source=about&cta=request_private_clusters" className="btn-outline">
               Request Private Clusters

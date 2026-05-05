@@ -64,6 +64,15 @@
 /* ── DROPDOWN ── */
 .site-nav-links li {
   position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Plain nav links (no arrow) match the flex height of dropdown triggers */
+.site-nav-links li > a {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 .dropdown-menu {
@@ -118,6 +127,12 @@
 .nav-link-with-arrow svg {
   transition: transform 0.2s;
   opacity: 0.5;
+}
+
+/* Wrapper div for dropdown items — must also center vertically */
+.nav-item-dropdown {
+  display: flex;
+  align-items: center;
 }
 
 .site-nav-links li:hover .nav-link-with-arrow svg {
@@ -189,9 +204,9 @@
 }
 
 .site-footer .site-fsoc {
-  width: 32px;
-  height: 32px;
-  border-radius: 7px;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
   background: var(--surface2);
   border: 1px solid var(--border);
   display: flex;
@@ -200,12 +215,20 @@
   font-size: 13px;
   text-decoration: none;
   color: var(--muted);
-  transition: border-color 0.2s, color 0.2s;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+}
+
+.site-footer .site-fsoc svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .site-footer .site-fsoc:hover {
-  border-color: rgba(45, 255, 122, 0.3);
+  border-color: var(--green);
   color: var(--green);
+  background: rgba(45, 255, 122, 0.1);
+  box-shadow: 0 0 15px rgba(45, 255, 122, 0.25);
+  transform: translateY(-2px);
 }
 
 .site-footer .site-footer-col h4 {
@@ -234,7 +257,8 @@
 }
 
 .site-footer .site-footer-col a:hover {
-  color: var(--white);
+  color: var(--green);
+  text-shadow: 0 0 8px rgba(45, 255, 122, 0.4);
 }
 
 .site-footer .site-badge-new {
@@ -277,7 +301,8 @@
 }
 
 .site-footer .site-footer-bottom-links a:hover {
-  color: var(--text);
+  color: var(--green);
+  text-shadow: 0 0 8px rgba(45, 255, 122, 0.3);
 }
 
 /* Mobile toggle */

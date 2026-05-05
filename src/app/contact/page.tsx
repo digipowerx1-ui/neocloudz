@@ -2,7 +2,6 @@ import "./contact.css";
 import ContactPageEffects from "@/features/contact/ContactPageEffects";
 import ContactFormSection from "@/features/contact/ContactFormSection";
 import ContactInfoPanel from "@/features/contact/ContactInfoPanel";
-import ContactChannelsSection from "@/features/contact/ContactChannelsSection";
 import ContactDcMapSection from "@/features/contact/ContactDcMapSection";
 
 export const metadata = {
@@ -18,7 +17,6 @@ export default function ContactPage() {
         <ContactFormSection />
         <ContactInfoPanel />
       </div>
-      <ContactChannelsSection />
       <ContactDcMapSection />
     </ContactPageEffects>
   );

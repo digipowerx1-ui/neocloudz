@@ -36,15 +36,15 @@ const NAV_LINKS: NavLink[] = [
       { label: "Research & Experimentation", href: "/solutions#research" },
     ]
   },
-  { label: "Blog", href: "/blog", matches: ["/blog"] },
+  
   { label: "Pricing", href: "/pricing", matches: ["/pricing"] },
   { label: "Enterprise", href: "/enterprise", matches: ["/enterprise"] },
   {
     label: "Company",
-    href: "/contact",
+    href: "/about",
     matches: ["/contact", "/about", "/career"],
     subLinks: [
-      { label: "About", href: "/about" },
+      { label: "About Us", href: "/about" },
       { label: "Career", href: "/career" },
       { label: "Contact Us", href: "/contact" },
     ]

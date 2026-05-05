@@ -20,19 +20,21 @@ export const metadata = {
 
 export default function SolutionsPage() {
   return (
-    <PageEffects>
-      <HeroSection />
-      <TickerSection />
-      <SolutionsSection />
-      <ProductsSection />
-      <WhySection />
-      <PartnersSection />
-      <InfraSection />
-      <PricingSection />
-      <DcStatsSection />
-      <TestimonialsSection />
-      <FaqSection />
-      <CtaSection />
-    </PageEffects>
+    <div className="solutions-context">
+      <PageEffects>
+        <HeroSection />
+        <TickerSection />
+        <SolutionsSection />
+        <ProductsSection />
+        <WhySection />
+        <PartnersSection />
+        <InfraSection />
+        <PricingSection />
+        <DcStatsSection />
+        <TestimonialsSection />
+        <FaqSection />
+        <CtaSection />
+      </PageEffects>
+    </div>
   );
 }

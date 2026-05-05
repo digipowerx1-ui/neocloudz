@@ -67,7 +67,13 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v">InfiniBand 400G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v g">On-Demand · Reserved</span></div>
           </div>
-          <a href="/contact?source=homepage&cta=deploy_now_blackwell" className="gpu-cat-cta">Deploy Now →</a>
+          <a href="/contact?source=homepage&cta=deploy_now_blackwell" className="gpu-cat-cta">
+            Deploy Now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
           <div className="beam" />
         </div>
 
@@ -83,13 +89,19 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v">InfiniBand NDR 400G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v b">Bare Metal · Dedicated</span></div>
           </div>
-          <a href="/contact?source=homepage&cta=request_cluster_grace" className="gpu-cat-cta">Request Cluster →</a>
+          <a href="/contact?source=homepage&cta=request_cluster_grace" className="gpu-cat-cta">
+            Request Cluster
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
           <div className="beam" />
         </div>
 
         <div className="gpu-cat-card vera">
           <div className="vera-overlay" />
-          <div className="gpu-cat-badge soon">Coming 2025</div>
+          <div className="gpu-cat-badge soon">Coming Soon</div>
           <div className="gpu-cat-name" style={{ color: "rgba(240,245,240,0.4)" }}>
             Vera Rubin
           </div>
@@ -102,7 +114,14 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v" style={{ color: "var(--muted)" }}>InfiniBand 800G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v" style={{ color: "var(--amber)" }}>Join Waitlist</span></div>
           </div>
-          <a href="/contact?source=homepage&cta=join_waitlist_rubin" className="gpu-cat-cta">Join Waitlist →</a>
+          <a href="/contact?source=homepage&cta=join_waitlist_rubin" className="gpu-cat-cta">
+            Join Waitlist
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <div className="beam" />
         </div>
       </div>
     </section>
@@ -433,6 +452,10 @@ export function HomePricing() {
             </ul>
             <a href={`/contact?source=homepage&cta=${card.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn-tech ${card.ctaVariant}`}>
               {card.cta}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </a>
           </div>
         ))}
@@ -803,13 +826,17 @@ export function HomeCta() {
       <div className="cta-row" style={{ position: "relative", zIndex: 2 }}>
         <a href="/contact?source=homepage&cta=contact_sales_footer" className="btn-launch" ref={launchBtnRef}>
           Contact Sales
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
         <a href="/contact?source=homepage&cta=talk_to_sales_footer" className="btn-outline">
-          Talk to Sales →
+          Talk to Sales
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
         </a>
       </div>
     </div>
@@ -989,7 +1016,7 @@ export function HomeWorkloads() {
 
                 <a href={`/contact?source=homepage&cta=${w.title.toLowerCase().replace(/ /g, "_")}`} className="btn-launch mt-8">
                   {w.cta}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -1028,7 +1055,7 @@ const FOOTER_COLS = [
   {
     title: "Company",
     items: [
-      { label: "About", href: "/contact?source=homepage&cta=footer_about" },
+      { label: "About Us", href: "/about" },
       { label: "Blog", href: "/contact?source=homepage&cta=footer_blog" },
       { label: "Careers", badge: "HIRING", href: "/career" },
       { label: "Status", href: "/contact?source=homepage&cta=footer_status" },
@@ -1101,7 +1128,7 @@ export function HomeFooter() {
         ))}
       </div>
       <div className="footer-bottom">
-        <p>© 2025 NeoCloudz Inc. All rights reserved.</p>
+        <p>© 2026 NeoCloudz Inc. All rights reserved.</p>
         <div className="footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>

@@ -2234,3 +2234,23 @@
 .price-card.featured .check-icon {
   color: #fff;
 }
+
+/* Perfecting arrow alignment in buttons */
+.pricing-page .btn-launch,
+.pricing-page .btn-outline-cta,
+.pricing-page .price-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  line-height: normal !important;
+}
+
+.pricing-page .btn-launch svg,
+.pricing-page .btn-outline-cta svg,
+.pricing-page .price-btn svg {
+  display: block;
+  flex-shrink: 0;
+  position: relative;
+  top: 1px; /* Slight offset for optical centering */
+}

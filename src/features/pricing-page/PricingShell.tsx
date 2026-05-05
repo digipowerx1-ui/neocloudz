@@ -344,14 +344,16 @@ export function PricingShell() {
           <div className="hero-cta-row" style={{ display: "flex", gap: 16, marginTop: 28, flexWrap: "wrap", justifyContent: "center", marginBottom: 40 }}>
             <a href="/contact?source=pricing&cta=contact_sales" className="btn-launch">
               Contact Sales
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
             <a href="/contact?source=pricing&cta=request_custom_quote" className="btn-outline-cta">
               Request Custom Quote
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
           </div>
@@ -518,8 +520,9 @@ export function PricingShell() {
                 </ul>
                 <a href={`/contact?source=pricing&cta=${c.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn ${c.ctaClass}`}>
                   {c.cta}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
                 </a>
               </div>
@@ -679,7 +682,8 @@ export function PricingShell() {
                 </div>
                 <div className="calc-savings-callout">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mr-2 inline-block align-middle" style={{ marginTop: '-2px' }}>
-                    <path d="M5 12h14M12 5l7 7-7 7" />
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
                   You save <span>{fmtCurrency(calcSavings)}</span> per month vs AWS ·{" "}
                   <span>{calcSavePct}%</span> cheaper
@@ -862,14 +866,16 @@ export function PricingShell() {
           <div className="cta-row">
             <a href="/contact?source=pricing&cta=request_private_cluster" className="btn-launch" ref={ctaLaunchRef}>
               Request Private Clusters
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
             <a href="/contact?source=pricing&cta=contact_sales" className="btn-outline-cta">
               Contact Sales
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
           </div>

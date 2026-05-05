@@ -828,6 +828,11 @@
   width: 100%;
 }
 
+.home-page #why.hp-section,
+.home-page #workloads.hp-section {
+  padding-top: 0;
+}
+
 .home-page .hp-section.dark {
   background: var(--bg);
 }
@@ -2436,6 +2441,10 @@
 
 .home-page .gpu-cat-card.grace .beam {
   background: linear-gradient(105deg, transparent 40%, rgba(77, 200, 255, 0.06) 50%, transparent 60%);
+}
+
+.home-page .gpu-cat-card.vera .beam {
+  background: linear-gradient(105deg, transparent 40%, rgba(255, 184, 77, 0.06) 50%, transparent 60%);
 }
 
 /* Floating orbs on hero */
@@ -4197,3 +4206,26 @@
   background: rgba(255, 255, 255, 0.04);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(45, 255, 122, 0.05);
 }
+
+/* Perfecting arrow alignment in buttons */
+.home-page .btn-launch,
+.home-page .btn-outline,
+.home-page .gpu-cat-cta,
+.home-page .price-btn-tech {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  line-height: normal !important;
+}
+
+.home-page .btn-launch svg,
+.home-page .btn-outline svg,
+.home-page .gpu-cat-cta svg,
+.home-page .price-btn-tech svg {
+  display: block;
+  flex-shrink: 0;
+  position: relative;
+  top: 1px; /* Slight offset for optical centering */
+}
+
