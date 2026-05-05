@@ -49,7 +49,12 @@ const COLUMNS: ReadonlyArray<FooterColumn> = [
   },
 ];
 
-const SOCIALS = ["𝕏", "in", "gh", "dc"] as const;
+const SOCIALS = [
+  { label: "𝕏", href: "https://x.com/Neocloudz" },
+  { label: "in", href: "#" },
+  { label: "ig", href: "https://www.instagram.com/neocloudz/" },
+  { label: "dc", href: "#" },
+] as const;
 
 export default function ContactFooter() {
   return (
@@ -65,8 +70,8 @@ export default function ContactFooter() {
           </p>
           <div className="footer-social">
             {SOCIALS.map((s) => (
-              <a key={s} href="#" className="fsoc">
-                {s}
+              <a key={s.label} href={s.href} className="fsoc" target="_blank" rel="noreferrer">
+                {s.label}
               </a>
             ))}
           </div>
