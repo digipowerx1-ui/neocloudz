@@ -116,7 +116,7 @@ export function Footer() {
       <div className="site-footer-top">
         <div className="site-footer-brand">
           <Link href="/" className="site-footer-brand-logo">
-            Neo<span>Cloudz</span>
+            <img src="/images/neocloudz-logo.png" alt="NeoCloudz" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,

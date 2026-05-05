@@ -1076,15 +1076,11 @@ export function HomeFooter() {
           <Link
             href="/"
             style={{
-              fontFamily: "'Inter',sans-serif",
-              fontSize: "20px",
-              fontWeight: 800,
-              color: "var(--white)",
-              textDecoration: "none",
-              letterSpacing: "-0.5px",
+              display: "block",
+              marginBottom: "14px"
             }}
           >
-            Neo<span style={{ color: "var(--green)" }}>Cloudz</span>
+            <img src="/images/neocloudz-logo.png" alt="NeoCloudz" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,

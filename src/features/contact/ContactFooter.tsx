@@ -62,7 +62,7 @@ export default function ContactFooter() {
       <div className="footer-top">
         <div className="footer-brand">
           <Link href="/" className="footer-brand-logo">
-            Neo<span>Cloudz</span>
+            <img src="/images/neocloudz-logo.png" alt="NeoCloudz" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,

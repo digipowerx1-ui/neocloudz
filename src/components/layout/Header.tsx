@@ -63,7 +63,7 @@ export function Header() {
   return (
     <header className="site-header">
       <Link href="/" className="site-logo" onClick={() => setMenuOpen(false)}>
-        Neo<span>Cloudz</span>
+        <img src="/images/neocloudz-logo.png" alt="NeoCloudz" style={{ height: '80px', width: 'auto', display: 'block' }} />
       </Link>
       <ul className="site-nav-links">
         {NAV_LINKS.map((link) => {
