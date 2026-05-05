@@ -69,7 +69,7 @@ export const PRICING_CARDS: PricingCard[] = [
     price: "Pricing on request",
     priceSuffix: "",
     pricePrefix: "",
-    cta: "Launch Instance",
+    cta: "Contact Sales",
     ctaClass: "outline",
     specs: [
       { label: "GPU", value: "1/4 or 1/2 of NVIDIA Blackwell B200 GPU" },
@@ -93,7 +93,7 @@ export const PRICING_CARDS: PricingCard[] = [
     sub: "For developers, startups, fine-tuning",
     price: "Pricing on request",
     priceSuffix: "",
-    cta: "Launch Instance",
+    cta: "Contact Sales",
     ctaClass: "outline",
     specs: [
       { label: "GPU", value: "1× NVIDIA Blackwell B200 (180GB SXM)" },
@@ -119,7 +119,7 @@ export const PRICING_CARDS: PricingCard[] = [
     sub: "For training LLMs, enterprise AI teams",
     price: "Pricing on request",
     priceSuffix: "",
-    cta: "Deploy Cluster",
+    cta: "Contact Sales",
     ctaClass: "primary",
     featured: true,
     specs: [
@@ -219,7 +219,7 @@ export const HOME_PRICING_TIERS: SimplePricingTier[] = [
       "NVMe storage included",
       "Pay-as-you-go billing",
     ],
-    cta: "Launch Instance",
+    cta: "Contact Sales",
     ctaVariant: "outline",
   },
   {
@@ -235,7 +235,7 @@ export const HOME_PRICING_TIERS: SimplePricingTier[] = [
       "224 GB DDR5 RAM",
       "3.2 Tbit/s InfiniBand",
     ],
-    cta: "Launch Instance",
+    cta: "Contact Sales",
     ctaVariant: "outline",
   },
   {
@@ -252,7 +252,7 @@ export const HOME_PRICING_TIERS: SimplePricingTier[] = [
       "3.2 Tbit/s InfiniBand (full fabric)",
       "Managed Kubernetes or Slurm",
     ],
-    cta: "Deploy Cluster",
+    cta: "Contact Sales",
     ctaVariant: "primary",
     featured: true,
   },

@@ -344,7 +344,7 @@ export default function AiFactoryPage() {
               Request Private Clusters
             </Link>
             <Link href="/contact" className="btn-outline">
-              Launch AI Instances
+              Contact Sales
             </Link>
           </div>
         </div>

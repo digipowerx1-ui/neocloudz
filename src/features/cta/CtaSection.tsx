@@ -21,7 +21,7 @@ export default function CtaSection() {
         </p>
         <div className="cta-btns">
           <a href="#" className="btn btn-green btn-lg">
-            Launch AI Instance
+            Contact Sales
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

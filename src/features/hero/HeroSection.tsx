@@ -49,7 +49,7 @@ export default function HeroSection() {
             </svg>
           </a>
           <a href="#pricing" className="btn btn-outline btn-lg">
-            Launch instances
+            Contact Sales
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

@@ -46,7 +46,7 @@ export default function ProductHero() {
             Request Private Clusters ▶
           </Link>
           <Link href="/contact" className="btn btn-outline btn-lg">
-            Launch Instances →
+            Contact Sales →
           </Link>
         </div>
       </div>

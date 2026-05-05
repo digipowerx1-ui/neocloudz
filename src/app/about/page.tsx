@@ -49,7 +49,7 @@ export default function AboutPage() {
 
           <div className="hero-cta">
             <Link href="/contact" className="btn-launch">
-              Launch AI Instances →
+              Contact Sales →
             </Link>
             <Link href="/contact" className="btn-outline">
               Request Private Clusters

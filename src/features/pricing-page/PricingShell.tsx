@@ -343,7 +343,7 @@ export function PricingShell() {
           </p>
           <div className="hero-cta-row" style={{ display: "flex", gap: 16, marginTop: 28, flexWrap: "wrap", justifyContent: "center", marginBottom: 40 }}>
             <a href="/contact" className="btn-launch">
-              Launch AI Instances
+              Contact Sales
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
@@ -854,7 +854,7 @@ export function PricingShell() {
           </div>
           <h2>
             Request Private Clusters<br />
-            <span>or Launch AI Instances.</span>
+            <span>or Contact Sales.</span>
           </h2>
           <p>
             Deploy a B200 in 60 seconds. No sales calls. No contracts. Cancel anytime.
@@ -867,7 +867,7 @@ export function PricingShell() {
               </svg>
             </a>
             <a href="/contact" className="btn-outline-cta">
-              Launch AI Instances
+              Contact Sales
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>

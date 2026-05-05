@@ -26,7 +26,7 @@ export function FinalCTA() {
 
         <div className="cta-btns">
           <Link href="/contact" className="btn-launch">
-            Launch AI Instance ▶
+            Contact Sales ▶
           </Link>
           <Link href="/contact" className="btn-outline">
             Talk to Sales →

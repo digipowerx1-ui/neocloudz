@@ -39,7 +39,7 @@ export default function GpuServicePage() {
 
           <div className="hero-cta">
             <Link href="/contact" className="btn-launch">
-              Launch GPU <ArrowRight size={18} />
+              Contact Sales <ArrowRight size={18} />
             </Link>
             <Link href="/pricing" className="btn-outline">
               View Pricing

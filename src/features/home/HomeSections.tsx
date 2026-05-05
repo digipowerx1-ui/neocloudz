@@ -802,7 +802,7 @@ export function HomeCta() {
       </p>
       <div className="cta-row" style={{ position: "relative", zIndex: 2 }}>
         <a href="/contact" className="btn-launch" ref={launchBtnRef}>
-          Launch AI Instances
+          Contact Sales
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ marginLeft: '8px' }}>
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -841,7 +841,7 @@ const WORKLOADS: WorkloadTab[] = [
       "NVMe storage for checkpointing",
       "Auto-scaling multi-node clusters",
     ],
-    cta: "Launch Training Instance",
+    cta: "Contact Sales",
   },
   {
     id: "inference",
@@ -853,7 +853,7 @@ const WORKLOADS: WorkloadTab[] = [
       "Kubernetes-ready GPU instances",
       "Monitoring & alerting dashboards",
     ],
-    cta: "Deploy Now",
+    cta: "Contact Sales",
   },
   {
     id: "prototyping",

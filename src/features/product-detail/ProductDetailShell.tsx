@@ -214,7 +214,7 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
               Request Private Clusters ▶
             </Link>
             <Link href="/contact" className="btn btn-outline btn-lg">
-              Launch AI Instances →
+              Contact Sales →
             </Link>
           </div>
         </div>
