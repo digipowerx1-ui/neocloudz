@@ -450,10 +450,10 @@ export function useGpuCatalogSparklines(rootRef: RefObject<HTMLElement | null>) 
     cards.forEach((card, ci) => {
       if (card.querySelector("canvas")) return;
       const spark = document.createElement("canvas");
-      spark.width = 160;
-      spark.height = 32;
+      spark.width = 240;
+      spark.height = 40;
       spark.style.cssText =
-        "display:block;margin:12px 0 0;width:160px;height:32px;opacity:0.7;";
+        "display:block;margin:12px 0 0;width:100%;height:40px;opacity:0.8;";
       const lastChild = card.lastElementChild;
       if (lastChild) card.insertBefore(spark, lastChild);
       else card.appendChild(spark);
@@ -468,47 +468,49 @@ export function useGpuCatalogSparklines(rootRef: RefObject<HTMLElement | null>) 
       ];
       const clr = colors[ci % colors.length];
       const aclr = alphaColors[ci % alphaColors.length];
+      const W = 240;
+      const H = 40;
       function draw() {
         if (!ctx) return;
-        ctx.clearRect(0, 0, 160, 32);
+        ctx.clearRect(0, 0, W, H);
         const min = Math.min(...data);
         const max = Math.max(...data);
         const range = max - min || 1;
-        const grad = ctx.createLinearGradient(0, 0, 0, 32);
-        grad.addColorStop(0, aclr + "0.18)");
+        const grad = ctx.createLinearGradient(0, 0, 0, H);
+        grad.addColorStop(0, aclr + "0.22)");
         grad.addColorStop(1, aclr + "0)");
         ctx.beginPath();
         data.forEach((v, i) => {
-          const x = i * (160 / 29);
-          const y = 32 - (((v - min) / range) * 24 + 4);
+          const x = i * (W / 29);
+          const y = H - (((v - min) / range) * (H - 8) + 4);
           if (i === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         });
-        ctx.lineTo(159, 32);
-        ctx.lineTo(0, 32);
+        ctx.lineTo(W - 1, H);
+        ctx.lineTo(0, H);
         ctx.closePath();
         ctx.fillStyle = grad;
         ctx.fill();
         ctx.beginPath();
         data.forEach((v, i) => {
-          const x = i * (160 / 29);
-          const y = 32 - (((v - min) / range) * 24 + 4);
+          const x = i * (W / 29);
+          const y = H - (((v - min) / range) * (H - 8) + 4);
           if (i === 0) ctx.moveTo(x, y);
           else ctx.lineTo(x, y);
         });
         ctx.strokeStyle = clr;
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = 1.8;
         ctx.shadowColor = clr;
-        ctx.shadowBlur = 6;
+        ctx.shadowBlur = 7;
         ctx.stroke();
         ctx.shadowBlur = 0;
-        const lastX = 159;
-        const lastY = 32 - (((data[data.length - 1] - min) / range) * 24 + 4);
+        const lastX = W - 1;
+        const lastY = H - (((data[data.length - 1] - min) / range) * (H - 8) + 4);
         ctx.beginPath();
-        ctx.arc(lastX, lastY, 3, 0, Math.PI * 2);
+        ctx.arc(lastX, lastY, 3.5, 0, Math.PI * 2);
         ctx.fillStyle = clr;
         ctx.shadowColor = clr;
-        ctx.shadowBlur = 8;
+        ctx.shadowBlur = 10;
         ctx.fill();
         ctx.shadowBlur = 0;
       }
