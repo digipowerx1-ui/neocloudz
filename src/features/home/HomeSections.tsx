@@ -198,14 +198,8 @@ export function HomePartners() {
           </div>
 
           <div className="partner-card">
-            <div className="partner-logo-area">
-              <div className="partner-name certac">
-                <div className="cert-badge">
-                  <span>FACILITY</span>
-                  <span style={{ fontSize: '9px' }}>RATED 3</span>
-                </div>
-                <span>RATED 3</span>
-              </div>
+           <div className="partner-logo-area">
+              <img src="/images/image-8-1.svg" alt="SUPERMICRO" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Certifies the data center facilities as Tier III, ensuring enterprise-grade reliability through redundant power and cooling systems.
