@@ -110,8 +110,8 @@ export function Footer() {
             <img src="/images/neocloudz-logo.png" alt="NeoCloudz" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
-            The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,
-            Grace Blackwell bare metal, and WEKA storage — all in one platform.
+            The future of Al compute starts here. Powered by DigiPower • U.S. Tier Ill Data Centers TIA-942
+Rated 3 • SOC 2 Type I Compliant
           </p>
           <div className="site-footer-social">
             {SOCIALS.map((s) => (

@@ -447,66 +447,68 @@ export function PricingShell() {
                 className={`price-card reveal${c.featured ? " featured" : ""}`}
               >
                 <div className="beam" />
-                <div className={`price-tier-badge ${c.badgeClass}`}>
-                  <span className="live-dot" />
-                  {c.badge}
-                </div>
-                <div className="price-gpu-name">{c.name}</div>
-                <div className="price-gpu-sub">{c.sub}</div>
-                <div className="price-amount-wrap">
-                  <div className="price-amount" style={{ fontSize: "28px" }}>
-                    Pricing on request
+                <div className="price-card-header">
+                  <div className={`price-tier-badge ${c.badgeClass}`}>
+                    <span className="live-dot" />
+                    {c.badge}
                   </div>
-                </div>
-                <div className="price-period">
-                  Available for short-term and long-term reservation
-                </div>
+                  <div className="price-gpu-name">{c.name}</div>
+                  <div className="price-gpu-sub">{c.sub}</div>
+                  <div className="price-amount-wrap">
+                    <div className="price-amount" style={{ fontSize: "28px" }}>
+                      Pricing on request
+                    </div>
+                  </div>
+                  <div className="price-period">
+                    Available for short-term and long-term reservation
+                  </div>
 
-                {c.customSavingsTag ? (
-                  <div
-                    className="price-savings-tag"
-                    style={
-                      c.customSavingsTag.color === "blue"
-                        ? {
-                          color: "var(--blue)",
-                          background: "#000",
-                          borderColor: "rgba(77,200,255,.25)",
-                          opacity: 1,
-                        }
-                        : {
-                          color: "var(--amber)",
-                          background: "rgba(255,184,77,.1)",
-                          borderColor: "rgba(255,184,77,.25)",
-                          opacity: 1,
-                        }
-                    }
-                  >
-                    {c.customSavingsTag.text}
-                  </div>
-                ) : (
-                  <div
-                    className={`price-savings-tag${showReserved ? " show" : ""}`}
-                  >
-                    ↓ Save {c.resSavingsPct}% vs on-demand
-                  </div>
-                )}
-
-                <div className="demand-bar-wrap">
-                  <div className="demand-label">
-                    <span>Capacity demand</span>
-                    <span style={c.demandLabelColor ? { color: c.demandLabelColor } : undefined}>
-                      {c.demandLabel}
-                    </span>
-                  </div>
-                  <div className="demand-track">
+                  {c.customSavingsTag ? (
                     <div
-                      className={`demand-fill ${c.demandClass}`}
-                      data-w={`${c.demandPct}%`}
-                    />
-                  </div>
-                </div>
+                      className="price-savings-tag"
+                      style={
+                        c.customSavingsTag.color === "blue"
+                          ? {
+                            color: "var(--blue)",
+                            background: "#000",
+                            borderColor: "rgba(77,200,255,.25)",
+                            opacity: 1,
+                          }
+                          : {
+                            color: "var(--amber)",
+                            background: "rgba(255,184,77,.1)",
+                            borderColor: "rgba(255,184,77,.25)",
+                            opacity: 1,
+                          }
+                      }
+                    >
+                      {c.customSavingsTag.text}
+                    </div>
+                  ) : (
+                    <div
+                      className={`price-savings-tag${showReserved ? " show" : ""}`}
+                    >
+                      ↓ Save {c.resSavingsPct}% vs on-demand
+                    </div>
+                  )}
 
-                <canvas className="price-sparkline" width={200} height={36} />
+                  <div className="demand-bar-wrap">
+                    <div className="demand-label">
+                      <span>Capacity demand</span>
+                      <span style={c.demandLabelColor ? { color: c.demandLabelColor } : undefined}>
+                        {c.demandLabel}
+                      </span>
+                    </div>
+                    <div className="demand-track">
+                      <div
+                        className={`demand-fill ${c.demandClass}`}
+                        data-w={`${c.demandPct}%`}
+                      />
+                    </div>
+                  </div>
+
+                  <canvas className="price-sparkline" width={200} height={36} />
+                </div>
 
                 <ul className="price-features">
                   {c.features.map((f, fi) => (

@@ -30,10 +30,10 @@ const NAV_LINKS: NavLink[] = [
     href: "/solution",
     matches: ["/solution"],
     subLinks: [
-      { label: "AI Model Training", href: "/solutions#training" },
-      { label: "AI Inference & Deployment", href: "/solutions#inference" },
-      { label: "Rendering & Simulation", href: "/solutions#rendering" },
-      { label: "Research & Experimentation", href: "/solutions#research" },
+      { label: "AI Model Training", href: "/solution#training" },
+      { label: "AI Inference & Deployment", href: "/solution#inference" },
+      { label: "Rendering & Simulation", href: "/solution#rendering" },
+      { label: "Research & Experimentation", href: "/solution#research" },
     ]
   },
   
