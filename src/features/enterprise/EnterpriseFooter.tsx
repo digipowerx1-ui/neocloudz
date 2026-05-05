@@ -51,9 +51,9 @@ const COLUMNS: ReadonlyArray<FooterColumn> = [
 
 const SOCIALS = [
   { label: "𝕏", href: "https://x.com/Neocloudz" },
-  { label: "in", href: "#" },
+  { label: "in", href: "https://www.linkedin.com/company/neo-cloudz/?viewAsMember=true" },
   { label: "ig", href: "https://www.instagram.com/neocloudz/" },
-  { label: "dc", href: "#" },
+  { label: "fb", href: "https://www.facebook.com/people/NeoCloudz/61589451923838/" },
 ] as const;
 
 export default function EnterpriseFooter() {
