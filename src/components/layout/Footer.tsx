@@ -26,10 +26,11 @@ const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Solutions",
     items: [
-      { label: "AI Model Training", href: "/solutions#training" },
-      { label: "AI Inference & Deployment", href: "/solutions#inference" },
-      { label: "Rendering & Simulation", href: "/solutions#rendering" },
-      { label: "Research & Experimentation", href: "/solutions#research" },
+      { label: "All Solutions", href: "/solution" },
+      { label: "AI Model Training", href: "/solution#training" },
+      { label: "AI Inference & Deployment", href: "/solution#inference" },
+      { label: "Rendering & Simulation", href: "/solution#rendering" },
+      { label: "Research & Experimentation", href: "/solution#research" },
       { label: "Enterprise", href: "/enterprise" },
     ],
   },

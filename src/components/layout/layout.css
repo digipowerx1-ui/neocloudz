@@ -69,7 +69,7 @@
 }
 
 /* Plain nav links (no arrow) match the flex height of dropdown triggers */
-.site-nav-links li > a {
+.site-nav-links li>a {
   display: inline-flex;
   align-items: center;
   line-height: 1;

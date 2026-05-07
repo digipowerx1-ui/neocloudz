@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { useLatencyGauge } from "@/hooks/useLatencyGauge";
 import { useTrainingTerminal } from "@/hooks/useTrainingTerminal";
 
@@ -94,6 +95,12 @@ export default function SolutionsSection() {
                 </ul>
               </div>
             </div>
+            <Link href="/contact?source=solution&cta=training_at_scale" className="sol-cta mt-8">
+              Explore Training Solutions
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
           <div className="sol-visual">
             <div className="term-window">
@@ -145,6 +152,12 @@ export default function SolutionsSection() {
                 </ul>
               </div>
             </div>
+            <Link href="/solution/ai-inference-deployment" className="sol-cta mt-8">
+              View Inference Details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
           <div className="sol-visual">
             <div className="latency-wrap">
@@ -183,6 +196,12 @@ export default function SolutionsSection() {
                 </ul>
               </div>
             </div>
+            <Link href="/solution/rendering-simulation" className="sol-cta mt-8">
+              View Rendering Details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
           <div className="sol-visual">
             <div className="term-window code-window">
@@ -237,6 +256,12 @@ export default function SolutionsSection() {
                 </ul>
               </div>
             </div>
+            <Link href="/solution/research-experimentation" className="sol-cta mt-8">
+              View Research Details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
           <div className="sol-visual">
             <div className="term-window code-window">

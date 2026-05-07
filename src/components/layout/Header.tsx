@@ -36,7 +36,7 @@ const NAV_LINKS: NavLink[] = [
       { label: "Research & Experimentation", href: "/solution#research" },
     ]
   },
-  
+
   { label: "Pricing", href: "/pricing", matches: ["/pricing"] },
   { label: "Enterprise", href: "/enterprise", matches: ["/enterprise"] },
   {
@@ -95,9 +95,9 @@ export function Header() {
           );
         })}
       </ul>
-      <Link 
-        href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"}&cta=talk_to_us`} 
-        className="site-nav-cta" 
+      <Link
+        href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"}&cta=talk_to_us`}
+        className="site-nav-cta"
         style={{ display: "flex", alignItems: "center", gap: "8px" }}
       >
         Talk to Us <MessageSquare size={16} />
