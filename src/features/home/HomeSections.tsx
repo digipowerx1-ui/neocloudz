@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { useRef, useState } from "react";
+import type { ReactNode } from "react";
+import { useRef } from "react";
 import {
   useDataflowCanvas,
   useHomeWaveCanvas,
@@ -13,8 +14,6 @@ import {
   useCtaParticleBurst,
   useGpuCatalogSparklines,
   usePricingSpotlight,
-  useStatCountUpAndRings,
-  useStatRingPulse,
   useStorageBandwidthBars,
 } from "./effects";
 import { useRackSlots } from "./useRackSlots";
@@ -458,7 +457,14 @@ export function HomePricing() {
   );
 }
 
-const WHY_ITEMS = [
+interface WhyItem {
+  icon: ReactNode;
+  iconImg?: string;
+  title: string;
+  desc: string;
+}
+
+const WHY_ITEMS: WhyItem[] = [
   {
     icon: (
       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -515,52 +521,8 @@ const WHY_ITEMS = [
   },
 ];
 
-interface StatCardData {
-  initial: string;
-  ringPct: number;
-  ringStroke: string;
-  ringPctText: string;
-  ringPctColor?: string;
-  label: string;
-}
-
-const STAT_CARDS: StatCardData[] = [
-  {
-    initial: "<60s",
-    ringPct: 98,
-    ringStroke: "var(--green)",
-    ringPctText: "98%",
-    label: "Average time from signup to first GPU online",
-  },
-  {
-    initial: "99.99%",
-    ringPct: 99.99,
-    ringStroke: "var(--blue)",
-    ringPctText: "100%",
-    ringPctColor: "var(--blue)",
-    label: "Uptime SLA across all GPU clusters",
-  },
-  {
-    initial: "400G",
-    ringPct: 85,
-    ringStroke: "var(--amber)",
-    ringPctText: "85%",
-    ringPctColor: "var(--amber)",
-    label: "InfiniBand or Spectrum-X fabric across every cluster node",
-  },
-  {
-    initial: "<10μs",
-    ringPct: 96,
-    ringStroke: "var(--green)",
-    ringPctText: "96%",
-    label: "WEKA storage latency at full GPU bandwidth",
-  },
-];
-
 export function HomeWhy() {
   const ref = useRef<HTMLElement>(null);
-  useStatCountUpAndRings(ref);
-  useStatRingPulse(ref);
   return (
     <section className="hp-section dark" id="why" ref={ref}>
       <div className="hp-label">Why NeoCloudz</div>
@@ -571,7 +533,7 @@ export function HomeWhy() {
 
       <div className="why-grid">
         <div className="why-features">
-          {WHY_ITEMS.map((it: any, i) => (
+          {WHY_ITEMS.map((it, i) => (
             <div className="why-item" key={i}>
               <div className="why-icon">
                 {it.iconImg ? (
@@ -587,40 +549,19 @@ export function HomeWhy() {
             </div>
           ))}
         </div>
-
-        <div className="why-stats">
-          {STAT_CARDS.map((sc, i) => (
-            <div className="stat-card" key={i}>
-              <div className="ring-wrap">
-                <svg className="ring-svg" viewBox="0 0 52 52">
-                  <circle className="ring-track" cx={26} cy={26} r={22} />
-                  <circle
-                    className="ring-fill"
-                    cx={26}
-                    cy={26}
-                    r={22}
-                    stroke={sc.ringStroke}
-                    data-pct={sc.ringPct}
-                  />
-                </svg>
-                <div
-                  className="ring-pct"
-                  style={sc.ringPctColor ? { color: sc.ringPctColor } : undefined}
-                >
-                  {sc.ringPctText}
-                </div>
-              </div>
-              <div className="stat-num">{sc.initial}</div>
-              <div className="stat-label">{sc.label}</div>
-            </div>
-          ))}
-        </div>
       </div>
     </section>
   );
 }
 
-const STORAGE_FEATURES = [
+interface FeatureItem {
+  icon: ReactNode;
+  iconImg?: string;
+  title: string;
+  desc: string;
+}
+
+const STORAGE_FEATURES: FeatureItem[] = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -714,7 +655,7 @@ export function HomeStorage() {
         </div>
 
         <div className="storage-features">
-          {STORAGE_FEATURES.map((f: any, i) => (
+          {STORAGE_FEATURES.map((f, i) => (
             <div className="sf-item" key={i}>
               <div className="sf-icon">
                 {f.iconImg ? (
