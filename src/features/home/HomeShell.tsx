@@ -30,7 +30,7 @@ export function HomeShell() {
       <div className="home-scroll-bar" ref={scrollBarRef} />
       <HomeHero />
       <HomePartners />
-      {/* <HomeWhy /> */}
+      <HomeWhy />
       <HomePricing />
       <HomeWorkloads />
       <HomeGpuCatalog />
