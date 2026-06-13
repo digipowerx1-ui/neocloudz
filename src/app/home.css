@@ -3489,7 +3489,7 @@
   left: 0;
   top: 0;
   height: 100%;
-  width: 60%;
+  width: var(--fill, 60%);
   background: var(--green);
 }
 

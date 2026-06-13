@@ -919,14 +919,14 @@ export function HomeWorkloads() {
                       <div className="proto-grid">
                         {[1, 2, 3, 4].map(n => (
                           <div key={n} className="proto-gauge">
-                            <div className="gauge-arc" />
+                            <div className="gauge-arc" style={{ ['--fill' as string]: `${20 + n * 15}%` }} />
                             <div className="gauge-val">{20 + n * 15}%</div>
                           </div>
                         ))}
                       </div>
                       <div className="proto-spark">
                         <svg width="100%" height="40" viewBox="0 0 100 40" preserveAspectRatio="none">
-                          <path d="M0,30 Q10,10 20,25 T40,15 T60,35 T80,10 T100,20" fill="none" stroke="var(--green)" strokeWidth="1" />
+                          <path d="M0,20 Q12.5,6 25,20 T50,20 T75,20 T100,20" fill="none" stroke="var(--green)" strokeWidth="1" />
                         </svg>
                       </div>
                     </div>
