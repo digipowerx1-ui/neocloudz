@@ -1,12 +1,13 @@
 /* ============================================================
-   LEGAL / COOKIE POLICY PAGE
+   SHARED LEGAL PAGE STYLES
+   Used by: cookie-policy, privacy-policy, terms-of-service, security
    ============================================================ */
 .legal-page {
   min-height: 100vh;
   background:
     radial-gradient(circle at 50% -10%, rgba(45, 255, 122, 0.06) 0%, transparent 55%),
     var(--bg);
-  padding: 160px 24px 120px;
+  padding: 130px 24px 90px;
 }
 
 .legal-shell {
@@ -15,8 +16,8 @@
 }
 
 .legal-header {
-  margin-bottom: 56px;
-  padding-bottom: 40px;
+  margin-bottom: 32px;
+  padding-bottom: 24px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -28,7 +29,7 @@
   font-size: 11px;
   letter-spacing: 0.2em;
   color: var(--green);
-  margin-bottom: 20px;
+  margin-bottom: 14px;
 }
 
 .legal-dot {
@@ -44,7 +45,7 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   color: var(--white);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .legal-updated {
@@ -54,22 +55,29 @@
 }
 
 .legal-section {
-  margin-bottom: 44px;
+  margin-bottom: 26px;
 }
 
 .legal-section h2 {
   font-size: 20px;
   font-weight: 700;
   color: var(--white);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
   letter-spacing: -0.01em;
+}
+
+.legal-section h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin: 16px 0 8px;
 }
 
 .legal-section p {
   font-size: 16px;
-  line-height: 1.75;
+  line-height: 1.7;
   color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .legal-section p:last-child {
@@ -96,7 +104,7 @@
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 
 .legal-list li {

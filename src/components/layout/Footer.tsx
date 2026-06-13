@@ -158,10 +158,10 @@ Rated 3 • SOC 2 Type I Compliant
       <div className="site-footer-bottom">
         <p>© 2026 NeoCloudz Inc. All rights reserved.</p>
         <div className="site-footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          <Link href="/terms-of-service">Terms of Service</Link>
           <Link href="/cookie-policy">Cookie Policy</Link>
-          <a href="#">Security</a>
+          <Link href="/security">Security</Link>
         </div>
       </div>
     </footer>
