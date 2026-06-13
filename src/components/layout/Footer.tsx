@@ -160,6 +160,7 @@ Rated 3 • SOC 2 Type I Compliant
         <div className="site-footer-bottom-links">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
+          <Link href="/cookie-policy">Cookie Policy</Link>
           <a href="#">Security</a>
         </div>
       </div>
