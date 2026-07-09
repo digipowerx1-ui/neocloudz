@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Code, Cpu, Globe, Lock, ShieldCheck, TrendingUp, Send, Check, Terminal } from "lucide-react";
+
+import TokenFactoryScene from "./TokenFactoryScene";
+
 import {
   useDataflowCanvas,
   useHomeWaveCanvas,
   useNvlinkCanvas,
-
 } from "./canvases";
 import {
   useBenchBars,
@@ -702,6 +705,177 @@ const FAQS = [
     a: "New accounts receive $500 in free credits upon verification — enough to run a B200 instance for approximately 125 hours. No credit card required to sign up. Credits expire 30 days after account creation.",
   },
 ];
+
+export function HomeTokenFactory() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim() || isSubmitting) return;
+
+    setIsSubmitting(true);
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }, 1000);
+  };
+
+  return (
+    <section className="hp-section dark tf-section" id="token-factory">
+      {/* Soft ambient gradient backdrop */}
+      <div className="tf-ambient-glow" />
+      
+      <div className="tf-container">
+        <div className="tf-deck-glass">
+          <div className="tf-grid">
+            
+            {/* Left Column: Product details & waitlist hacker terminal */}
+            <div className="tf-left-col">
+              <div className="tf-badge">COMING SOON</div>
+              
+              <h2 className="tf-title">
+                TOKEN<br />
+                <span className="g">FACTORY</span>
+              </h2>
+              
+              <div className="tf-subtitle">CREATE. LAUNCH. EMPOWER.</div>
+              
+              <p className="tf-description">
+                Token Factory by NeoCloudz lets you create, test, and launch custom tokenomics with a few clicks.
+                A hyper-scalable bare-metal deployment engine built for Web3, AI startups, and builders.
+              </p>
+              
+              {/* Waitlist Premium Glass Box */}
+              <div className="tf-waitlist-card">
+                {!submitted ? (
+                  <form onSubmit={handleSubmit} className="tf-waitlist-form">
+                    <div className="tf-waitlist-header">
+                      <span className="tf-status-dot"></span>
+                      <span className="tf-waitlist-title">WAITLIST ALLOCATION ACCESS</span>
+                    </div>
+                    <p className="tf-waitlist-sub">
+                      Secure your priority deployment slot in the upcoming Token Factory release.
+                    </p>
+                    <div className="tf-input-group">
+                      <input
+                        type="email"
+                        required
+                        placeholder="Enter your email address"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="tf-input"
+                      />
+                      <button type="submit" className="tf-btn" disabled={isSubmitting}>
+                        {isSubmitting ? "Syncing..." : "Notify Me"} <Send size={14} className="tf-btn-icon" />
+                      </button>
+                    </div>
+                  </form>
+                ) : (
+                  <div className="tf-waitlist-success">
+                    <div className="tf-success-badge">
+                      <Check size={16} /> [ REGISTRATION AUTHORIZED ]
+                    </div>
+                    <p className="tf-success-desc">
+                      Waitlist registration complete. early access credentials queued for <span className="g">{email}</span>.
+                    </p>
+                  </div>
+                )}
+              </div>
+              
+              {/* Minimalist social proof */}
+              <div className="tf-social-proof">
+                <span className="tf-indicator-glow"></span>
+               
+              </div>
+            </div>
+            
+            {/* Right Column: Glowing Neon Coin & Key Pillars */}
+            <div className="tf-right-col">
+              <div className="tf-coin-wrapper">
+                <div className="tf-coin-glow"></div>
+                
+
+  
+                <div className="tf-coin-container">
+                <TokenFactoryScene />
+                
+                {/* 4 Feature Pillars Floating Around (Minimalist glass panels) */}
+                  <div className="tf-pillar pillar-tl">
+                    <div className="tf-pillar-icon-wrap">
+                      <Lock size={16} />
+                    </div>
+                    <div className="tf-pillar-content">
+                      <h4>NO CODE</h4>
+                      <p>Launch tokens without coding</p>
+                    </div>
+                  </div>
+                  
+                  <div className="tf-pillar pillar-tr">
+                    <div className="tf-pillar-icon-wrap">
+                      <Cpu size={16} />
+                    </div>
+                    <div className="tf-pillar-content">
+                      <h4>AI POWERED</h4>
+                      <p>Generate whitepapers, tokenomics & more</p>
+                    </div>
+                  </div>
+                  
+                  <div className="tf-pillar pillar-bl">
+                    <div className="tf-pillar-icon-wrap">
+                      <Globe size={16} />
+                    </div>
+                    <div className="tf-pillar-content">
+                      <h4>MULTI-CHAIN</h4>
+                      <p>Deploy on 8+ blockchains</p>
+                    </div>
+                  </div>
+                  
+                  <div className="tf-pillar pillar-br">
+                    <div className="tf-pillar-icon-wrap">
+                      <ShieldCheck size={16} />
+                    </div>
+                    <div className="tf-pillar-content">
+                      <h4>ENTERPRISE SECURITY</h4>
+                      <p>Audited contracts & advanced controls</p>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+        {/* Bottom Banner Row: Grid of 5 features */}
+        <div className="tf-bottom-banner">
+          <div className="tf-bottom-item">
+            <Code size={18} className="tf-bottom-icon" />
+            <span>No Coding Required</span>
+          </div>
+          <div className="tf-bottom-item">
+            <Globe size={18} className="tf-bottom-icon" />
+            <span>Deploy on Multiple Blockchains</span>
+          </div>
+          <div className="tf-bottom-item">
+            <Cpu size={18} className="tf-bottom-icon" />
+            <span>AI-Powered Tools</span>
+          </div>
+          <div className="tf-bottom-item">
+            <ShieldCheck size={18} className="tf-bottom-icon" />
+            <span>Enterprise-Grade Security</span>
+          </div>
+          <div className="tf-bottom-item">
+            <TrendingUp size={18} className="tf-bottom-icon" />
+            <span>Advanced Analytics & Dashboard</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function HomeFaq() {
   return (

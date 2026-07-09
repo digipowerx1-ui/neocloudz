@@ -13,6 +13,7 @@ import {
   HomePricing,
   HomeRack,
   HomeStorage,
+  HomeTokenFactory,
   HomeWhy,
   HomeWorkloads,
 } from "./HomeSections";
@@ -42,6 +43,9 @@ export function HomeShell() {
       <div className="anim-divider" />
 
       <HomeStorage />
+      <div className="section-divider" />
+      <HomeTokenFactory />
+      <div className="section-divider" />
       <HomeFaq />
       <HomeCta />
     </div>

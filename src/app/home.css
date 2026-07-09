@@ -4231,5 +4231,645 @@
   display: block;
   flex-shrink: 0;
   position: relative;
-  top: 1px; /* Slight offset for optical centering */
+  top: 1px;
+  /* Slight offset for optical centering */
+}
+
+/* ───────────────── Token Factory Section ───────────────── */
+.home-page .tf-section {
+  padding: 120px 0;
+  position: relative;
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* Ambient glow backdrop */
+.home-page .tf-ambient-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(45, 255, 122, 0.045) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.home-page .tf-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Ultra-Premium Glass Deck Wrapper */
+.home-page .tf-deck-glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.015) 0%, rgba(255, 255, 255, 0.003) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  padding: 60px;
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 30px 60px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(45, 255, 122, 0.01);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.home-page .tf-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* Left column styling */
+.home-page .tf-left-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.home-page .tf-badge {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green);
+  border: 1px solid rgba(45, 255, 122, 0.2);
+  background: rgba(45, 255, 122, 0.05);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 24px;
+  letter-spacing: 0.1em;
+}
+
+.home-page .tf-title {
+  font-size: 56px;
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--white);
+  letter-spacing: -2px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.home-page .tf-subtitle {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.2em;
+  margin-bottom: 24px;
+}
+
+.home-page .tf-description {
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.6;
+  opacity: 0.8;
+  margin-bottom: 36px;
+  max-width: 500px;
+}
+
+/* Waitlist Premium Glass Box */
+.home-page .tf-waitlist-card {
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 28px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 20px 40px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.home-page .tf-waitlist-card:hover {
+  border-color: rgba(45, 255, 122, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 20px 45px rgba(0, 0, 0, 0.5),
+    0 0 20px rgba(45, 255, 122, 0.04);
+}
+
+.home-page .tf-waitlist-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.home-page .tf-status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--green);
+}
+
+.home-page .tf-waitlist-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--green);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.home-page .tf-waitlist-sub {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.75;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.home-page .tf-input-group {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+}
+
+.home-page .tf-input {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: var(--white);
+  font-family: inherit;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.home-page .tf-input:focus {
+  outline: none;
+  border-color: var(--green);
+  background: rgba(0, 0, 0, 0.65);
+  box-shadow:
+    inset 0 1px 2px rgba(0, 0, 0, 0.3),
+    0 0 12px rgba(45, 255, 122, 0.18);
+}
+
+.home-page .tf-btn {
+  background: var(--green);
+  color: #0a0f0a;
+  border: none;
+  border-radius: 6px;
+  padding: 12px 24px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-page .tf-btn:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(45, 255, 122, 0.3);
+}
+
+.home-page .tf-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.home-page .tf-btn-icon {
+  transition: transform 0.3s ease;
+}
+
+.home-page .tf-btn:hover .tf-btn-icon {
+  transform: translate(2px, -2px);
+}
+
+/* Success state waitlist card */
+.home-page .tf-waitlist-success {
+  text-align: center;
+  padding: 12px 0;
+}
+
+.home-page .tf-success-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+  border: 1px solid rgba(45, 255, 122, 0.3);
+  background: rgba(45, 255, 122, 0.05);
+  padding: 6px 16px;
+  font-size: 11px;
+  font-weight: 700;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  letter-spacing: 0.05em;
+  font-family: var(--font-mono);
+}
+
+.home-page .tf-success-desc {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.85;
+  line-height: 1.6;
+}
+
+/* Minimalist Social Proof styling */
+.home-page .tf-social-proof {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-left: 4px;
+}
+
+.home-page .tf-indicator-glow {
+  width: 8px;
+  height: 8px;
+  background-color: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
+  animation: tfPulse 2s infinite;
+}
+
+@keyframes tfPulse {
+
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(0.9);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.home-page .tf-proof-text {
+  font-size: 13px;
+  color: var(--text);
+  opacity: 0.75;
+}
+
+/* Right Column (Coin + Minimal Feature Grid) */
+.home-page .tf-right-col {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-page .tf-coin-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  aspect-ratio: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 620px;
+}
+
+.home-page .tf-coin-glow {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(45, 255, 122, 0.18) 0%, rgba(45, 255, 122, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(24px);
+}
+
+/* Sleek orbital glowing ring */
+.home-page .tf-orbit-ring {
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  border: 1px solid rgba(45, 255, 122, 0.15);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(45, 255, 122, 0.02);
+}
+
+.home-page .tf-coin-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-page .tf-coin-img {
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  z-index: 2;
+  filter: drop-shadow(0 10px 30px rgba(45, 255, 122, 0.22));
+}
+
+/* Float Animation */
+@keyframes tfFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.home-page .float-anim {
+  animation: tfFloat 6s ease-in-out infinite;
+}
+
+/* Flanking Feature Pillars (Minimalist refractive glass panels) */
+.home-page .tf-pillar {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 18px;
+  width: 220px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 3;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.35);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.home-page .tf-pillar:hover {
+  background: rgba(45, 255, 122, 0.03);
+  border-color: rgba(45, 255, 122, 0.22);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 12px 30px rgba(0, 0, 0, 0.45),
+    0 0 12px rgba(45, 255, 122, 0.08);
+  transform: translateY(-2px);
+}
+
+.home-page .tf-pillar-icon-wrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: rgba(45, 255, 122, 0.06);
+  border: 1px solid rgba(45, 255, 122, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.home-page .tf-pillar h4 {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.home-page .tf-pillar:hover h4 {
+  color: var(--green);
+}
+
+.home-page .tf-pillar p {
+  font-size: 11px;
+  color: var(--text);
+  opacity: 0.75;
+  line-height: 1.35;
+}
+
+/* Pillar Positions (surrounding the coin) */
+.home-page .pillar-tl {
+  top: 10%;
+  left: 0;
+}
+
+.home-page .pillar-tr {
+  top: 15%;
+  right: 0;
+}
+
+.home-page .pillar-bl {
+  bottom: 22%;
+  left: -20px;
+}
+
+.home-page .pillar-br {
+  bottom: 18%;
+  right: -20px;
+}
+
+/* Bottom Banner Row - High-Blur Glass Pill */
+.home-page .tf-bottom-banner {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.005) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 100px;
+  padding: 20px 40px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  gap: 20px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.home-page .tf-bottom-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.home-page .tf-bottom-item:hover {
+  color: var(--green);
+}
+
+.home-page .tf-bottom-icon {
+  color: var(--green);
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 4px rgba(45, 255, 122, 0.2));
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1200px) {
+  .home-page .tf-deck-glass {
+    padding: 40px;
+  }
+
+  .home-page .tf-grid {
+    gap: 40px;
+  }
+
+  .home-page .pillar-tl {
+    left: 10px;
+  }
+
+  .home-page .pillar-tr {
+    right: 10px;
+  }
+
+  .home-page .pillar-bl {
+    left: -10px;
+  }
+
+  .home-page .pillar-br {
+    right: -10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-page .tf-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .home-page .tf-left-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .home-page .tf-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-page .tf-waitlist-card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home-page .tf-social-proof {
+    justify-content: center;
+  }
+
+  .home-page .tf-bottom-banner {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .home-page .tf-bottom-item {
+    width: calc(50% - 12px);
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page .tf-section {
+    padding: 80px 24px;
+  }
+
+  .home-page .tf-container {
+    padding: 0;
+  }
+
+  .home-page .tf-deck-glass {
+    padding: 30px 20px;
+    border-radius: 16px;
+  }
+
+  .home-page .tf-title {
+    font-size: 40px;
+  }
+
+  .home-page .tf-coin-wrapper {
+    aspect-ratio: auto;
+    height: auto;
+  }
+
+  .home-page .tf-coin-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    justify-items: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .home-page .tf-coin-img {
+    grid-column: span 2;
+    order: -1;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+  }
+
+  .home-page .tf-coin-glow {
+    width: 240px;
+    height: 240px;
+  }
+
+  .home-page .tf-orbit-ring {
+    display: none;
+  }
+
+  .home-page .tf-pillar {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    right: auto !important;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .home-page .tf-bottom-item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page .tf-waitlist-card {
+    padding: 20px;
+  }
+
+  .home-page .tf-input-group {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .home-page .tf-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .home-page .tf-coin-container {
+    grid-template-columns: 1fr;
+  }
+
+  .home-page .tf-coin-img {
+    grid-column: span 1;
+  }
 }
