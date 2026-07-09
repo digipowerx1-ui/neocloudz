@@ -441,7 +441,8 @@ function TokenFactoryScene() {
         cube.rotation.x += dt * 0.6;
         cube.rotation.y += dt * 0.4;
         const near = Math.max(0, 1 - cube.position.distanceTo(coinWorld) / 3.2);
-        cube.material.emissiveIntensity = 0.25 + near * 1.8;
+        const mat = cube.material as THREE.MeshStandardMaterial;
+        mat.emissiveIntensity = 0.25 + near * 1.8;
         glowBoost = Math.max(glowBoost, near);
       }
       frontMat.emissiveIntensity = backMat.emissiveIntensity = 0.85 + glowBoost * 0.5;
@@ -461,13 +462,18 @@ function TokenFactoryScene() {
         if (!REDUCED) g.rotation.z += g.userData.speed * dt;
         const fl = 0.6 + 0.4 * Math.sin(t * 1.5 + g.userData.phase);
         g.children.forEach((ch) => {
-          const mat = ch.material as THREE.Material & { userData?: { base: number } };
-          if (mat && mat.userData) mat.opacity = mat.userData.base * (REDUCED ? 1 : fl);
+          if (ch instanceof THREE.Mesh) {
+            const mat = ch.material as THREE.Material & { userData?: { base: number } };
+            if (mat && mat.userData) mat.opacity = mat.userData.base * (REDUCED ? 1 : fl);
+          }
         });
       }
       for (let i = 0; i < coreRings.length; i++) coreRings[i].rotation.z += (i % 2 ? 0.05 : -0.04) * dt;
       const pulse = REDUCED ? 1 : 0.9 + 0.1 * Math.sin(t * 2.2);
-      for (const c of coreMeshes) c.mesh.material.opacity = c.base * pulse;
+      for (const c of coreMeshes) {
+        const mat = c.mesh.material as THREE.Material;
+        if (mat) mat.opacity = c.base * pulse;
+      }
 
       const wp = wGeo.attributes.position.array as Float32Array;
       for (let i = 0; i < WISP; i++) {
