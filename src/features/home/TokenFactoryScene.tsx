@@ -441,7 +441,7 @@ function TokenFactoryScene() {
         cube.rotation.x += dt * 0.6;
         cube.rotation.y += dt * 0.4;
         const near = Math.max(0, 1 - cube.position.distanceTo(coinWorld) / 3.2);
-        cube.material.emissiveIntensity = 0.25 + near * 1.8;
+        (cube.material as THREE.MeshStandardMaterial).emissiveIntensity = 0.25 + near * 1.8;
         glowBoost = Math.max(glowBoost, near);
       }
       frontMat.emissiveIntensity = backMat.emissiveIntensity = 0.85 + glowBoost * 0.5;
@@ -461,7 +461,7 @@ function TokenFactoryScene() {
         if (!REDUCED) g.rotation.z += g.userData.speed * dt;
         const fl = 0.6 + 0.4 * Math.sin(t * 1.5 + g.userData.phase);
         g.children.forEach((ch) => {
-          const mat = ch.material as THREE.Material & { userData?: { base: number } };
+          const mat = (ch as THREE.Mesh).material as THREE.Material & { userData?: { base: number } };
           if (mat && mat.userData) mat.opacity = mat.userData.base * (REDUCED ? 1 : fl);
         });
       }
