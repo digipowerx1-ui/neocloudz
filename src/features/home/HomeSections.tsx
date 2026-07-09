@@ -1249,6 +1249,15 @@ export function HomeFooter() {
           <a href="#">Terms of Service</a>
           <a href="#">Security</a>
         </div>
+
+
+
+
+
+
+
+
+        
       </div>
     </footer>
   );
