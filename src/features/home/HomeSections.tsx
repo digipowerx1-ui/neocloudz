@@ -744,9 +744,8 @@ export function HomeTokenFactory() {
               <div className="tf-subtitle">CREATE. LAUNCH. EMPOWER.</div>
               
               <p className="tf-description">
-                Token Factory by NeoCloudz lets you create, test, and launch custom tokenomics with a few clicks.
-                A hyper-scalable bare-metal deployment engine built for Web3, AI startups, and builders.
-              </p>
+                NeoCloudz Token Factory is an enterprise-grade platform for creating, deploying, and managing digital assets with speed, security, and scalability. Design custom tokenomics, launch secure smart contracts, and power the next generation of Web3, AI, gaming, and enterprise applications—all from a single unified platform
+                 </p>
               
               {/* Waitlist Premium Glass Box */}
               <div className="tf-waitlist-card">
@@ -1257,7 +1256,7 @@ export function HomeFooter() {
 
 
 
-        
+
       </div>
     </footer>
   );
