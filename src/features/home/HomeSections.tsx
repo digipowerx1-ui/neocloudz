@@ -587,6 +587,7 @@ const STORAGE_FEATURES: FeatureItem[] = [
     title: "1.4 TB/s Aggregate Throughput",
     desc: "Parallel access across all storage nodes means B200 and Grace Blackwell clusters can load multi-terabyte datasets and write checkpoints without slowing down.",
   },
+
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
