@@ -22,6 +22,7 @@ import {
 import { useRackSlots } from "./useRackSlots";
 
 import { PRICING_CARDS, PRICING_TICKER_ITEMS } from "@/lib/pricing-data";
+import { sendEarlyAccess } from "@/services/api/early-access";
 
 const TICKER_ITEMS = PRICING_TICKER_ITEMS;
 
@@ -711,16 +712,26 @@ export function HomeTokenFactory() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || isSubmitting) return;
 
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setErrorMessage(null);
+
+    try {
+      await sendEarlyAccess({
+        email: email.trim(),
+      });
       setSubmitted(true);
-    }, 1000);
+    } catch (error) {
+      console.error("Early access submission failed:", error);
+      setErrorMessage("Unable to submit your email right now. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -771,6 +782,11 @@ export function HomeTokenFactory() {
                         {isSubmitting ? "Syncing..." : "Notify Me"} <Send size={14} className="tf-btn-icon" />
                       </button>
                     </div>
+                    {errorMessage ? (
+                      <div className="tf-waitlist-error" role="alert">
+                        {errorMessage}
+                      </div>
+                    ) : null}
                   </form>
                 ) : (
                   <div className="tf-waitlist-success">
