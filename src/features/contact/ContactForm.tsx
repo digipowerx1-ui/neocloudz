@@ -15,7 +15,6 @@ const INTEREST_OPTIONS = [
 ] as const;
 
 const BUDGET_OPTIONS = [
-  { value: "under_5k", label: "Under $5,000" },
   { value: "range_5k_20k", label: "$5k – $20k" },
   { value: "range_20k_100k", label: "$20k – $100k" },
   { value: "range_100k_500k", label: "$100k – $500k" },
@@ -27,6 +26,51 @@ const MESSAGE_NEAR_LIMIT = 720;
 const SIMULATED_LATENCY_MS = 1800;
 const PARTICLE_COUNT = 20;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+const FREE_EMAIL_DOMAINS = new Set([
+  "gmail.com",
+  "yahoo.com",
+  "hotmail.com",
+  "outlook.com",
+  "icloud.com",
+  "aol.com",
+  "mail.com",
+  "proton.me",
+  "protonmail.com",
+  "zoho.com",
+  "yandex.com",
+  "gmx.com",
+  "gmx.net",
+  "live.com",
+  "msn.com",
+  "me.com",
+  "comcast.net",
+  "sbcglobal.net",
+  "verizon.net",
+]);
+
+function normalizeEmail(input: string): string {
+  const trimmed = input.trim();
+  if (!trimmed) return "";
+  if (trimmed.includes("@")) return trimmed;
+  // If typed like 'user.company.com', convert first dot to '@'
+  const parts = trimmed.split(".");
+  if (parts.length >= 3) {
+    const user = parts[0];
+    const domain = parts.slice(1).join(".");
+    return `${user}@${domain}`;
+  }
+  return trimmed;
+}
+
+function isDomainEmail(email: string): boolean {
+  const normalized = normalizeEmail(email);
+  if (!EMAIL_REGEX.test(normalized)) return false;
+  const parts = normalized.toLowerCase().split("@");
+  if (parts.length !== 2) return false;
+  const domain = parts[1];
+  return !FREE_EMAIL_DOMAINS.has(domain);
+}
 
 interface FormState {
   interest: string;
@@ -42,7 +86,7 @@ const INITIAL_FORM: FormState = {
   name: "",
   email: "",
   company: "",
-  budget: "under_5k",
+  budget: "",
   message: "",
 };
 
@@ -104,7 +148,10 @@ function ContactFormInner() {
   }, [status]);
 
   const nameValid = form.name.trim().length > 1;
-  const emailValid = EMAIL_REGEX.test(form.email);
+  const normalizedEmail = normalizeEmail(form.email);
+  const emailFormatValid = EMAIL_REGEX.test(normalizedEmail);
+  const isBusinessEmail = isDomainEmail(form.email);
+  const emailValid = emailFormatValid && isBusinessEmail;
   const charCount = form.message.length;
   const charCountClass =
     charCount >= MESSAGE_MAX ? "max" : charCount > MESSAGE_NEAR_LIMIT ? "near" : "";
@@ -117,7 +164,16 @@ function ContactFormInner() {
     event.preventDefault();
     setNameTouched(true);
     setEmailTouched(true);
-    if (!nameValid || !emailValid) return;
+    if (!nameValid || !emailValid) {
+      if (!emailFormatValid) {
+        setError("Please enter a valid email address.");
+      } else if (!isBusinessEmail) {
+        setError("Please use your official work/company domain email address (personal email providers like Gmail or Yahoo are not accepted).");
+      } else if (!nameValid) {
+        setError("Please enter your full identity.");
+      }
+      return;
+    }
 
     setError(null);
     setStatus("loading");
@@ -129,7 +185,7 @@ function ContactFormInner() {
     const payload = {
       interestType: form.interest,
       fullName: form.name,
-      workEmail: form.email,
+      workEmail: normalizedEmail,
       company: form.company,
       budgetRange: form.budget,
       message: form.message,
@@ -257,7 +313,7 @@ function ContactFormInner() {
         </div>
         <div className="field-group">
           <label className="field-label" htmlFor="f-email">
-            SECURE EMAIL
+            WORK / DOMAIN EMAIL
           </label>
           <input
             className={`field-input${emailTouched && emailValid
@@ -273,8 +329,21 @@ function ContactFormInner() {
             value={form.email}
             style={{ padding: "14px 18px", borderRadius: "12px" }}
             onChange={(e) => update("email", e.target.value)}
-            onBlur={() => setEmailTouched(true)}
+            onBlur={() => {
+              setEmailTouched(true);
+              const normalized = normalizeEmail(form.email);
+              if (normalized !== form.email) {
+                update("email", normalized);
+              }
+            }}
           />
+          {emailTouched && form.email && !emailValid && (
+            <span style={{ color: "#ff4d4d", fontSize: "12px", marginTop: "6px", display: "block" }}>
+              {!emailFormatValid
+                ? "Please enter a valid email address."
+                : "Please use a business/company domain email address."}
+            </span>
+          )}
         </div>
       </div>
 
