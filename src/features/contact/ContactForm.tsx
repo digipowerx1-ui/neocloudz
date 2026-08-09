@@ -72,6 +72,24 @@ function isDomainEmail(email: string): boolean {
   return !FREE_EMAIL_DOMAINS.has(domain);
 }
 
+async function checkDomainDnsExists(domain: string): Promise<boolean> {
+  if (!domain) return false;
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 5000);
+    const res = await fetch(`/api/verify-domain?domain=${encodeURIComponent(domain)}`, {
+      signal: controller.signal,
+    });
+    clearTimeout(timer);
+    if (!res.ok) return false;
+    const data = await res.json();
+    return data.exists === true;
+  } catch {
+    // Network or timeout error — fail closed (reject the domain)
+    return false;
+  }
+}
+
 interface FormState {
   interest: string;
   name: string;
@@ -137,6 +155,8 @@ function ContactFormInner() {
   const [ticketId, setTicketId] = useState<string>("00000");
   const [error, setError] = useState<string | null>(null);
   const [dots, setDots] = useState(".");
+  const [emailChecking, setEmailChecking] = useState(false);
+  const [domainVerified, setDomainVerified] = useState<boolean | null>(null);
   const submitRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -147,11 +167,38 @@ function ContactFormInner() {
     return () => clearInterval(id);
   }, [status]);
 
+  useEffect(() => {
+    const norm = normalizeEmail(form.email);
+    if (!norm || !EMAIL_REGEX.test(norm)) {
+      setDomainVerified(null);
+      setEmailChecking(false);
+      return;
+    }
+
+    const domain = norm.split("@")[1]?.toLowerCase();
+    if (!domain || FREE_EMAIL_DOMAINS.has(domain)) {
+      setDomainVerified(false);
+      setEmailChecking(false);
+      return;
+    }
+
+    setEmailChecking(true);
+    setDomainVerified(null);
+
+    const timer = setTimeout(async () => {
+      const exists = await checkDomainDnsExists(domain);
+      setDomainVerified(exists);
+      setEmailChecking(false);
+    }, 200);
+
+    return () => clearTimeout(timer);
+  }, [form.email]);
+
   const nameValid = form.name.trim().length > 1;
   const normalizedEmail = normalizeEmail(form.email);
   const emailFormatValid = EMAIL_REGEX.test(normalizedEmail);
   const isBusinessEmail = isDomainEmail(form.email);
-  const emailValid = emailFormatValid && isBusinessEmail;
+  const emailValid = emailFormatValid && isBusinessEmail && domainVerified === true;
   const charCount = form.message.length;
   const charCountClass =
     charCount >= MESSAGE_MAX ? "max" : charCount > MESSAGE_NEAR_LIMIT ? "near" : "";
@@ -164,12 +211,18 @@ function ContactFormInner() {
     event.preventDefault();
     setNameTouched(true);
     setEmailTouched(true);
+    if (emailChecking) {
+      setError("Verifying domain, please wait a moment...");
+      return;
+    }
+    if (domainVerified === null && emailFormatValid && isBusinessEmail) {
+      setError("Domain verification pending. Please wait a moment and try again.");
+      return;
+    }
     if (!nameValid || !emailValid) {
-      if (!emailFormatValid) {
-        setError("Please enter a valid email address.");
-      } else if (!isBusinessEmail) {
-        setError("Please use your official work/company domain email address (personal email providers like Gmail or Yahoo are not accepted).");
-      } else if (!nameValid) {
+      if (!emailValid) {
+        setError("Please enter a business or work email.");
+      } else {
         setError("Please enter your full identity.");
       }
       return;
@@ -229,6 +282,14 @@ function ContactFormInner() {
             </span>
             <span className="st-text" style={{ color: "var(--green)" }}>
               Secure uplink established
+            </span>
+          </div>
+          <div className="st-line">
+            <span className="st-prompt" style={{ color: "var(--green)" }}>
+              ✓
+            </span>
+            <span className="st-text" style={{ color: "var(--green)" }}>
+              Domain verified: {normalizedEmail.split("@")[1] || "active"} (MX DNS)
             </span>
           </div>
           <div className="st-line">
@@ -316,12 +377,15 @@ function ContactFormInner() {
             WORK / DOMAIN EMAIL
           </label>
           <input
-            className={`field-input${emailTouched && emailValid
+            className={`field-input${
+              emailTouched && emailValid
                 ? " valid"
+                : emailTouched && form.email && (emailChecking || domainVerified === null)
+                ? ""
                 : emailTouched && form.email && !emailValid
-                  ? " invalid"
-                  : ""
-              }`}
+                ? " invalid"
+                : ""
+            }`}
             type="email"
             id="f-email"
             placeholder="ada@company.com"
@@ -337,11 +401,29 @@ function ContactFormInner() {
               }
             }}
           />
-          {emailTouched && form.email && !emailValid && (
-            <span style={{ color: "#ff4d4d", fontSize: "12px", marginTop: "6px", display: "block" }}>
-              {!emailFormatValid
-                ? "Please enter a valid email address."
-                : "Please use a business/company domain email address."}
+          {emailTouched && form.email && (
+            <span
+              style={{
+                color: emailValid
+                  ? "var(--green)"
+                  : emailChecking || (domainVerified === null && emailFormatValid && isBusinessEmail)
+                  ? "#ffb84d"
+                  : "#ff4d4d",
+                fontSize: "12px",
+                marginTop: "6px",
+                display: "flex",
+                alignItems: "center",
+                gap: "6px",
+                fontWeight: emailValid ? 600 : 400
+              }}
+            >
+              {emailChecking || (domainVerified === null && emailFormatValid && isBusinessEmail) ? (
+                "⚡ Verifying domain in real-time..."
+              ) : emailValid ? (
+                <>✓ Business domain verified & active</>
+              ) : (
+                "✕ Please enter a business or work email."
+              )}
             </span>
           )}
         </div>
