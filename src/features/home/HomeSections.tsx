@@ -655,7 +655,7 @@ export function HomeStorage() {
             <div className="st-line"><span className="g">model-weights</span>    0.8 PB  <span className="g">active</span></div>
             <div className="st-line"><span className="a">scratch</span>          0.7 PB  <span className="a">ephemeral</span></div>
             <div className="st-line">&nbsp;</div>
-            <div className="st-line"><span className="m">$</span> <span className="cursor">█</span></div>
+            <div className="st-line"><span className="m">$</span> <span className="cursor" aria-hidden="true" /></div>
           </div>
         </div>
 

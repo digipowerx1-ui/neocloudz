@@ -24,7 +24,7 @@ export default function MlServicePage() {
           <div className="hero-terminal-line">
             <span style={{ color: "var(--green-dim)" }}>&gt;</span>
             <span id="hero-typed">init --stack mlops --mode production</span>
-            <span className="cursor">|</span>
+            <span className="cursor" aria-hidden="true">|</span>
           </div>
 
           <h1 className="hero-h1">

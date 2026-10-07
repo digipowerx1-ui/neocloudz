@@ -1920,8 +1920,13 @@
 
 /* â”€â”€ ANIMATIONS / SHARED EFFECTS â”€â”€ */
 .home-page .cursor {
+  display: inline-block;
+  width: 8px;
+  height: 14px;
+  background-color: #2dff7a;
+  vertical-align: -2px;
+  margin-left: 2px;
   animation: home-blink 1s step-end infinite;
-  color: var(--green);
 }
 
 @keyframes home-blink {

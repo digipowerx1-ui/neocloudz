@@ -293,7 +293,7 @@ export function HomeHero() {
                 <div className="log-line">
                   <span className="log-time">{cursorTime}</span>
                   <span className="log-msg muted">
-                    monitoring<span className="cursor">█</span>
+                    monitoring<span className="cursor" aria-hidden="true" />
                   </span>
                 </div>
               </div>
