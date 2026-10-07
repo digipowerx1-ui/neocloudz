@@ -66,8 +66,8 @@ export default function CareerPage() {
           </p>
 
           <div className="hero-cta">
-            <a href="#open-roles" className="btn-launch">
-              View Open Roles <ArrowRight size={18} />
+            <a href="#open-roles" className="btn-launch" aria-label="View Open Roles">
+              View Open Roles <ArrowRight size={18} aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -281,7 +281,7 @@ export default function CareerPage() {
             <p style={{ color: "var(--muted)", fontSize: "15px", marginBottom: "24px", opacity: 0.7 }}>
               Operational requirements not found? Submit an unsolicited integration packet.
             </p>
-            <Link href="/contact?source=career&cta=open_application" className="btn-outline" style={{ display: "inline-flex", padding: "14px 36px", borderRadius: "8px" }}>
+            <Link href="/contact?source=career&cta=open_application" className="btn-outline" aria-label="Submit Open Application" style={{ display: "inline-flex", padding: "14px 36px", borderRadius: "8px" }}>
               Submit Open Application
             </Link>
           </div>

@@ -53,16 +53,24 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
           <p className="hero-sub">{data.lede}</p>
 
           <div className="hero-ctas">
-            <Link href={`${data.primaryCta.href}${data.primaryCta.href.includes("/contact") ? `?source=${source}&cta=${data.primaryCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`} className="btn btn-green btn-lg">
+            <Link
+              href={`${data.primaryCta.href}${data.primaryCta.href.includes("/contact") ? `?source=${source}&cta=${data.primaryCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`}
+              className="btn btn-green btn-lg"
+              aria-label={data.primaryCta.label}
+            >
               {data.primaryCta.label}
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
             {data.secondaryCta ? (
-              <Link href={`${data.secondaryCta.href}${data.secondaryCta.href.includes("/contact") ? `?source=${source}&cta=${data.secondaryCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`} className="btn btn-outline btn-lg">
+              <Link
+                href={`${data.secondaryCta.href}${data.secondaryCta.href.includes("/contact") ? `?source=${source}&cta=${data.secondaryCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`}
+                className="btn btn-outline btn-lg"
+                aria-label={data.secondaryCta.label}
+              >
                 {data.secondaryCta.label}
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
@@ -127,9 +135,13 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
               </ul>
 
               <div style={{ marginTop: 32 }}>
-                <Link href={`${data.primaryCta.href}${data.primaryCta.href.includes("/contact") ? `?source=${source}&cta=${data.primaryCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`} className="btn btn-green">
+                <Link
+                  href={`${data.primaryCta.href}${data.primaryCta.href.includes("/contact") ? `?source=${source}&cta=${data.primaryCta.label.toLowerCase().replace(/ /g, "_")}` : ""}`}
+                  className="btn btn-green"
+                  aria-label={data.primaryCta.label}
+                >
                   {data.primaryCta.label}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </Link>
@@ -178,9 +190,10 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
                 href={r.href}
                 className="btn btn-outline"
                 style={{ justifyContent: "space-between", textAlign: "left" }}
+                aria-label={`Explore ${r.label}`}
               >
                 {r.label}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
@@ -199,15 +212,23 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
             Blackwell B200 in under 60 seconds.
           </p>
           <div className="cta-btns">
-            <Link href={`/contact?source=${source}&cta=request_private_cluster`} className="btn btn-green btn-lg">
+            <Link
+              href={`/contact?source=${source}&cta=request_private_cluster`}
+              className="btn btn-green btn-lg"
+              aria-label="Request Private Clusters"
+            >
               Request Private Clusters
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
-            <Link href={`/contact?source=${source}&cta=contact_sales`} className="btn btn-outline btn-lg">
+            <Link
+              href={`/contact?source=${source}&cta=contact_sales`}
+              className="btn btn-outline btn-lg"
+              aria-label="Contact Sales"
+            >
               Contact Sales
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>

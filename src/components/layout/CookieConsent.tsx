@@ -91,6 +91,7 @@ export function CookieConsent() {
           <button
             type="button"
             className="cookie-consent-btn cookie-consent-btn-ghost"
+            aria-label="Accept necessary cookies only"
             onClick={() => record("rejected")}
           >
             Necessary only
@@ -98,6 +99,7 @@ export function CookieConsent() {
           <button
             type="button"
             className="cookie-consent-btn cookie-consent-btn-solid"
+            aria-label="Accept all cookies"
             onClick={() => record("accepted")}
           >
             Accept

@@ -50,10 +50,10 @@ export default function AiFactoryPage() {
           </div>
 
           <div className="hero-cta">
-            <Link href="/contact?source=ai-factory-as-a-service&cta=talk_to_an_architect" className="btn-launch">
-              Talk to an Architect <ArrowRight size={18} />
+            <Link href="/contact?source=ai-factory-as-a-service&cta=talk_to_an_architect" className="btn-launch" aria-label="Talk to an Architect">
+              Talk to an Architect <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link href="/contact?source=ai-factory-as-a-service&cta=request_a_pod_design" className="btn-outline">
+            <Link href="/contact?source=ai-factory-as-a-service&cta=request_a_pod_design" className="btn-outline" aria-label="Request a Pod Design">
               Request a Pod Design
             </Link>
           </div>
@@ -340,10 +340,10 @@ export default function AiFactoryPage() {
           </p>
           
           <div className="cta-row">
-            <Link href="/contact?source=ai-factory-as-a-service&cta=request_private_clusters" className="btn-launch">
+            <Link href="/contact?source=ai-factory-as-a-service&cta=request_private_clusters" className="btn-launch" aria-label="Request Private Clusters">
               Request Private Clusters
             </Link>
-            <Link href="/contact?source=ai-factory-as-a-service&cta=contact_sales" className="btn-outline">
+            <Link href="/contact?source=ai-factory-as-a-service&cta=contact_sales" className="btn-outline" aria-label="Contact Sales">
               Contact Sales
             </Link>
           </div>

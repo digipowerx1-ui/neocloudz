@@ -334,6 +334,7 @@ function ContactFormInner() {
                 }}
                 onClick={() => update("interest", option.value)}
                 role="button"
+                aria-label={`Select interest: ${option.label}`}
                 tabIndex={0}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
@@ -494,6 +495,7 @@ function ContactFormInner() {
         type="submit"
         className="submit-btn"
         id="submit-btn"
+        aria-label="Submit Contact Request"
         disabled={status === "loading"}
         style={{ padding: "18px", borderRadius: "12px", fontSize: "16px" }}
       >

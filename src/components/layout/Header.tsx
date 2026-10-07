@@ -97,13 +97,14 @@ export function Header() {
       <Link
         href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"}&cta=talk_to_us`}
         className="site-nav-cta"
+        aria-label="Talk to Us via Contact Sales"
         style={{ display: "flex", alignItems: "center", gap: "8px" }}
       >
-        Talk to Us <MessageSquare size={16} />
+        Talk to Us <MessageSquare size={16} aria-hidden="true" />
       </Link>
       <button
         className="site-nav-toggle"
-        aria-label="Toggle menu"
+        aria-label="Toggle navigation menu"
         aria-expanded={menuOpen}
         onClick={() => setMenuOpen((v) => !v)}
       >

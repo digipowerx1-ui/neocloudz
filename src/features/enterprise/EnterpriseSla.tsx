@@ -105,7 +105,7 @@ export default function EnterpriseSla() {
             <li>Phone + Slack support</li>
             <li>Quarterly business reviews</li>
           </ul>
-          <a href="#demo" className="sla-btn">
+          <a href="#demo" className="sla-btn" aria-label="Request Enterprise Demo">
             Request Demo →
           </a>
         </div>

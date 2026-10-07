@@ -95,9 +95,9 @@ export default function SolutionsSection() {
                 </ul>
               </div>
             </div>
-            <Link href="/contact?source=solution&cta=training_at_scale" className="sol-cta mt-8">
+            <Link href="/contact?source=solution&cta=training_at_scale" className="sol-cta mt-8" aria-label="Explore Training Solutions">
               Explore Training Solutions
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
@@ -152,9 +152,9 @@ export default function SolutionsSection() {
                 </ul>
               </div>
             </div>
-            <Link href="/solution/ai-inference-deployment" className="sol-cta mt-8">
+            <Link href="/solution/ai-inference-deployment" className="sol-cta mt-8" aria-label="View Inference Details">
               View Inference Details
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
@@ -196,9 +196,9 @@ export default function SolutionsSection() {
                 </ul>
               </div>
             </div>
-            <Link href="/solution/rendering-simulation" className="sol-cta mt-8">
+            <Link href="/solution/rendering-simulation" className="sol-cta mt-8" aria-label="View Rendering Details">
               View Rendering Details
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
@@ -256,9 +256,9 @@ export default function SolutionsSection() {
                 </ul>
               </div>
             </div>
-            <Link href="/solution/research-experimentation" className="sol-cta mt-8">
+            <Link href="/solution/research-experimentation" className="sol-cta mt-8" aria-label="View Research Details">
               View Research Details
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>

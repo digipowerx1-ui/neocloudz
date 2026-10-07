@@ -445,9 +445,9 @@ export function HomePricing() {
                 </li>
               ))}
             </ul>
-            <a href={`/contact?source=homepage&cta=${card.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn-tech ${card.ctaVariant}`}>
+            <a href={`/contact?source=homepage&cta=${card.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn-tech ${card.ctaVariant}`} aria-label={`${card.cta} for ${card.name}`}>
               {card.cta}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -960,16 +960,16 @@ export function HomeCta() {
         when you&#39;re ready. No sales calls required.
       </p>
       <div className="cta-row" style={{ position: "relative", zIndex: 2 }}>
-        <a href="/contact?source=homepage&cta=contact_sales_footer" className="btn-launch" ref={launchBtnRef}>
+        <a href="/contact?source=homepage&cta=contact_sales_footer" className="btn-launch" ref={launchBtnRef} aria-label="Contact Sales to request Blackwell clusters">
           Contact Sales
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
-        <a href="/contact?source=homepage&cta=talk_to_sales_footer" className="btn-outline">
+        <a href="/contact?source=homepage&cta=talk_to_sales_footer" className="btn-outline" aria-label="Talk to Sales regarding private clusters">
           Talk to Sales
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
@@ -1150,9 +1150,9 @@ export function HomeWorkloads() {
                   ))}
                 </ul>
 
-                <a href={`/contact?source=homepage&cta=${w.title.toLowerCase().replace(/ /g, "_")}`} className="btn-launch mt-8">
+                <a href={`/contact?source=homepage&cta=${w.title.toLowerCase().replace(/ /g, "_")}`} className="btn-launch mt-8" aria-label={`${w.cta} for ${w.title}`}>
                   {w.cta}
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>

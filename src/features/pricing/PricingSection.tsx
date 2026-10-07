@@ -39,6 +39,7 @@ export default function PricingSection() {
               <a
                 href={`/contact?source=pricing&cta=${t.name.toLowerCase().replace(/ /g, "_")}`}
                 className={`btn price-cta btn-${t.ctaVariant}`}
+                aria-label={`${t.cta} for ${t.name}`}
               >
                 {t.cta}
               </a>

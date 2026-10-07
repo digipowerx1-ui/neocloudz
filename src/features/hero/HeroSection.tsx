@@ -42,15 +42,15 @@ export default function HeroSection() {
         </div> */}
 
         <div className="hero-ctas">
-          <a href="#solutions" className="btn btn-green btn-lg">
+          <a href="#solutions" className="btn btn-green btn-lg" aria-label="Request private clusters">
             Request private clusters
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
-          <a href="#pricing" className="btn btn-outline btn-lg">
+          <a href="#pricing" className="btn btn-outline btn-lg" aria-label="Contact Sales">
             Contact Sales
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>

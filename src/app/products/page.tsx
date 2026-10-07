@@ -156,7 +156,11 @@ export default function ProductsPage() {
                   ))}
                 </ul>
                 <div style={{ marginTop: 32 }}>
-                  <Link href={p.cta.href.includes("/contact") ? `${p.cta.href}?source=products&cta=${p.cta.label.toLowerCase().replace(/ /g, "_")}` : p.cta.href} className="btn btn-green">
+                  <Link
+                    href={p.cta.href.includes("/contact") ? `${p.cta.href}?source=products&cta=${p.cta.label.toLowerCase().replace(/ /g, "_")}` : p.cta.href}
+                    className="btn btn-green"
+                    aria-label={`${p.cta.label} for ${p.name}`}
+                  >
                     {p.cta.label} →
                   </Link>
                 </div>
@@ -236,7 +240,7 @@ export default function ProductsPage() {
                 ))}
               </ul>
               <div style={{ marginTop: 32 }}>
-                <Link href="/contact?source=products&cta=explore_hardware" className="btn btn-green">
+                <Link href="/contact?source=products&cta=explore_hardware" className="btn btn-green" aria-label="Explore Hardware">
                   Explore Hardware →
                 </Link>
               </div>
@@ -272,10 +276,10 @@ export default function ProductsPage() {
             Blackwell B200 in under 60 seconds.
           </p>
           <div className="cta-btns">
-            <Link href="/contact?source=products&cta=request_private_clusters_footer" className="btn btn-green btn-lg">
+            <Link href="/contact?source=products&cta=request_private_clusters_footer" className="btn btn-green btn-lg" aria-label="Request Private Clusters">
               Request Private Clusters ▶
             </Link>
-            <Link href="/contact?source=products&cta=contact_sales_footer" className="btn btn-outline btn-lg">
+            <Link href="/contact?source=products&cta=contact_sales_footer" className="btn btn-outline btn-lg" aria-label="Contact Sales">
               Contact Sales →
             </Link>
           </div>

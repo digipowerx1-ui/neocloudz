@@ -342,16 +342,16 @@ export function PricingShell() {
             commitment of hundreds of units for at least 3 months.
           </p>
           <div className="hero-cta-row" style={{ display: "flex", gap: 16, marginTop: 28, flexWrap: "wrap", justifyContent: "center", marginBottom: 40 }}>
-            <a href="/contact?source=pricing&cta=contact_sales" className="btn-launch">
+            <a href="/contact?source=pricing&cta=contact_sales" className="btn-launch" aria-label="Contact Sales for pricing">
               Contact Sales
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="/contact?source=pricing&cta=request_custom_quote" className="btn-outline-cta">
+            <a href="/contact?source=pricing&cta=request_custom_quote" className="btn-outline-cta" aria-label="Request Custom Pricing Quote">
               Request Custom Quote
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
@@ -409,6 +409,7 @@ export function PricingShell() {
             type="button"
             className={`plan-pill${plan === "ondemand" ? " active" : ""}`}
             data-plan="ondemand"
+            aria-label="Select On-Demand Billing Plan"
             onClick={() => setPlan("ondemand")}
           >
             On-Demand
@@ -417,6 +418,7 @@ export function PricingShell() {
             type="button"
             className={`plan-pill${plan === "reserved" ? " active" : ""}`}
             data-plan="reserved"
+            aria-label="Select Reserved 12-Month Billing Plan"
             onClick={() => setPlan("reserved")}
           >
             Reserved (12-mo)
@@ -520,9 +522,9 @@ export function PricingShell() {
                     </li>
                   ))}
                 </ul>
-                <a href={`/contact?source=pricing&cta=${c.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn ${c.ctaClass}`}>
+                <a href={`/contact?source=pricing&cta=${c.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn ${c.ctaClass}`} aria-label={`${c.cta} for ${c.name}`}>
                   {c.cta}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
@@ -567,6 +569,7 @@ export function PricingShell() {
                       type="button"
                       key={g}
                       className={`gpu-sel-btn${gpuType === g ? " active" : ""}`}
+                      aria-label={`Select ${GPU_LABELS[g]} GPU for cost estimation`}
                       onClick={() => setGpuType(g)}
                     >
                       {GPU_LABELS[g]} · {GPU_RATES[g] === 0 ? "Custom" : `$${GPU_RATES[g]}/hr`}
@@ -838,6 +841,8 @@ export function PricingShell() {
                 <button
                   type="button"
                   className="faq-q"
+                  aria-expanded={openFaq === i}
+                  aria-label={`Toggle FAQ: ${f.q}`}
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 >
                   {f.q}
@@ -869,16 +874,16 @@ export function PricingShell() {
             Deploy a B200 in 60 seconds. No sales calls. No contracts. Cancel anytime.
           </p>
           <div className="cta-row">
-            <a href="/contact?source=pricing&cta=request_private_cluster" className="btn-launch" ref={ctaLaunchRef}>
+            <a href="/contact?source=pricing&cta=request_private_cluster" className="btn-launch" ref={ctaLaunchRef} aria-label="Request Private Clusters from pricing banner">
               Request Private Clusters
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="/contact?source=pricing&cta=contact_sales" className="btn-outline-cta">
+            <a href="/contact?source=pricing&cta=contact_sales" className="btn-outline-cta" aria-label="Contact Sales from pricing banner">
               Contact Sales
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>

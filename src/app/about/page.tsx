@@ -48,14 +48,14 @@ export default function AboutPage() {
           </p>
 
           <div className="hero-cta">
-            <Link href="/contact?source=about&cta=contact_sales" className="btn-launch">
+            <Link href="/contact?source=about&cta=contact_sales" className="btn-launch" aria-label="Contact Sales">
               Contact Sales
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </Link>
-            <Link href="/contact?source=about&cta=request_private_clusters" className="btn-outline">
+            <Link href="/contact?source=about&cta=request_private_clusters" className="btn-outline" aria-label="Request Private Clusters">
               Request Private Clusters
             </Link>
           </div>
@@ -424,9 +424,14 @@ export default function AboutPage() {
               </p>
 
               <div className="hero-cta" style={{ justifyContent: "flex-start", marginBottom: "0" }}>
-                <Link href="/contact?source=about&cta=initialize_infrastructure" className="btn-launch" style={{ padding: "20px 48px", fontSize: "18px", borderRadius: "8px", boxShadow: "0 10px 30px rgba(45, 255, 122, 0.2)" }}>
+                <Link
+                  href="/contact?source=about&cta=initialize_infrastructure"
+                  className="btn-launch"
+                  aria-label="Initialize Infrastructure"
+                  style={{ padding: "20px 48px", fontSize: "18px", borderRadius: "8px", boxShadow: "0 10px 30px rgba(45, 255, 122, 0.2)" }}
+                >
                   Initialize Infrastructure
-                  <ArrowRight size={20} />
+                  <ArrowRight size={20} aria-hidden="true" />
                 </Link>
               </div>
             </div>

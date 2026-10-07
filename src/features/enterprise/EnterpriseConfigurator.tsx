@@ -232,6 +232,7 @@ export default function EnterpriseConfigurator() {
                         type="button"
                         className={`cfg-btn${isActive ? " active" : ""}`}
                         data-val={option.value}
+                        aria-label={`Select ${group.label}: ${option.label}`}
                         onClick={() => handleSelect(group.key, option.value)}
                       >
                         {option.label}
@@ -245,6 +246,7 @@ export default function EnterpriseConfigurator() {
               type="button"
               className="config-submit"
               id="config-submit"
+              aria-label="Submit Enterprise Infrastructure Configuration"
               onClick={handleSubmit}
             >
               Submit Configuration →
