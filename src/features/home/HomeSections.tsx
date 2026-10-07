@@ -877,6 +877,11 @@ export function HomeTokenFactory() {
             <Code size={18} className="tf-bottom-icon" />
             <span>No Coding Required</span>
           </div>
+
+
+
+
+          
           <div className="tf-bottom-item">
             <Globe size={18} className="tf-bottom-icon" />
             <span>Deploy on Multiple Blockchains</span>
