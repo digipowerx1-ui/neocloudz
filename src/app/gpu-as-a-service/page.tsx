@@ -263,13 +263,13 @@ export default function GpuServicePage() {
             {/* Immersive Network Map Graphic */}
             <img 
               src="/images/global-network-map.png" 
-              alt="Global Network Map" 
+              alt="Global low-latency GPU infrastructure network map" 
               style={{ 
                 position: "absolute", 
                 inset: 0, 
                 width: "100%", 
                 height: "100%", 
-                objectFit: "cover",
+                objectFit: "cover", 
                 opacity: 0.8
               }} 
               id="global-map-img"

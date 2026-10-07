@@ -582,6 +582,7 @@ export function PricingShell() {
                   </div>
                   <input
                     type="range"
+                    aria-label="Number of GPUs"
                     min={1}
                     max={512}
                     step={1}
@@ -598,6 +599,7 @@ export function PricingShell() {
                   </div>
                   <input
                     type="range"
+                    aria-label="Hours per day"
                     min={1}
                     max={24}
                     step={1}
@@ -614,6 +616,7 @@ export function PricingShell() {
                   </div>
                   <input
                     type="range"
+                    aria-label="Days per month"
                     min={1}
                     max={31}
                     step={1}

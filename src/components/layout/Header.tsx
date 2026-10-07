@@ -62,8 +62,8 @@ export function Header() {
 
   return (
     <header className="site-header">
-      <Link href="/" className="site-logo" onClick={() => setMenuOpen(false)}>
-        <img src="/images/neocloudz-logo.png" alt="NeoCloudz" style={{ height: '80px', width: 'auto', display: 'block' }} />
+      <Link href="/" className="site-logo" aria-label="NeoCloudz Home" onClick={() => setMenuOpen(false)}>
+        <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud Logo" style={{ height: '80px', width: 'auto', display: 'block' }} />
       </Link>
       <ul className="site-nav-links">
         {NAV_LINKS.map((link) => {
@@ -74,7 +74,7 @@ export function Header() {
                 <div className="nav-item-dropdown">
                   <Link href={link.href} className={`nav-link-with-arrow${active ? " active" : ""}`}>
                     {link.label}
-                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                       <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </Link>

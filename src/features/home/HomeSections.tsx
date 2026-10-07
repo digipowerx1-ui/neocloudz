@@ -184,7 +184,7 @@ export function HomePartners() {
         <div className="partners-grid">
           <div className="partner-card">
             <div className="partner-logo-area">
-              <img src="/1.png" alt="NVIDIA" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src="/1.png" alt="NVIDIA Partner Logo" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Provides the state-of-the-art GPU architecture that is optimized for high-performance AI training and inference workloads.
@@ -193,7 +193,7 @@ export function HomePartners() {
 
           <div className="partner-card">
             <div className="partner-logo-area">
-              <img src="/2.png" alt="SUPERMICRO" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src="/2.png" alt="Supermicro Partner Logo" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Delivers the high-density, server hardware platforms designed to support massive scale and compute-intensive applications.
@@ -202,7 +202,7 @@ export function HomePartners() {
 
           <div className="partner-card">
            <div className="partner-logo-area">
-              <img src="/images/image-8-1.svg" alt="SUPERMICRO" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src="/images/image-8-1.svg" alt="Tier III Data Center Certified Facility" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Certifies the data center facilities as Tier III, ensuring enterprise-grade reliability through redundant power and cooling systems.
@@ -211,14 +211,12 @@ export function HomePartners() {
 
           <div className="partner-card">
             <div className="partner-logo-area">
-              <img src="/3.png" alt="DIGIPOWER X" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src="/3.png" alt="DigiPowerX Partner Logo" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Supplies energy-optimized power solutions to lower the carbon impact of the infrastructure, promoting sustainable operations.
             </p>
           </div>
-
-
         </div>
       </div>
     </section>
@@ -541,7 +539,7 @@ export function HomeWhy() {
             <div className="why-item" key={i}>
               <div className="why-icon">
                 {it.iconImg ? (
-                  <img src={it.iconImg} alt={it.title} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
+                  <img src={it.iconImg} alt="" aria-hidden="true" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
                 ) : (
                   it.icon
                 )}
@@ -621,15 +619,17 @@ export function HomeStorage() {
   return (
     <section className="hp-section mid" id="storage" ref={sectionRef}>
       <canvas id="dataflow-canvas" ref={dataflowRef} />
-      <div className="hp-label">WEKA Storage</div>
-      <div className="hp-h2">
-        Storage That Keeps Up<br />
-        <span className="g">With Blackwell.</span>
+      <div className="storage-header">
+        <div className="hp-label">WEKA Storage</div>
+        <div className="hp-h2">
+          Storage That Keeps Up<br />
+          <span className="g">With Blackwell.</span>
+        </div>
+        <p className="hp-sub">
+          Checkpoints, datasets, and model weights need to move at GPU speed. WEKA&#39;s
+          parallel filesystem is the only storage that doesn&#39;t become the bottleneck.
+        </p>
       </div>
-      <p className="hp-sub">
-        Checkpoints, datasets, and model weights need to move at GPU speed. WEKA&#39;s
-        parallel filesystem is the only storage that doesn&#39;t become the bottleneck.
-      </p>
 
       <div className="storage-grid">
         <div className="storage-terminal">
@@ -664,7 +664,7 @@ export function HomeStorage() {
             <div className="sf-item" key={i}>
               <div className="sf-icon">
                 {f.iconImg ? (
-                  <img src={f.iconImg} alt={f.title} style={{ width: "24px", height: "24px", objectFit: "contain" }} />
+                  <img src={f.iconImg} alt="" aria-hidden="true" style={{ width: "24px", height: "24px", objectFit: "contain" }} />
                 ) : (
                   f.icon
                 )}
@@ -770,16 +770,22 @@ export function HomeTokenFactory() {
                       Secure your priority deployment slot in the upcoming Token Factory release.
                     </p>
                     <div className="tf-input-group">
+                      <label htmlFor="tf-waitlist-email" className="sr-only">
+                        Enter your email address
+                      </label>
                       <input
+                        id="tf-waitlist-email"
+                        name="email"
                         type="email"
                         required
                         placeholder="Enter your email address"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="tf-input"
+                        aria-label="Enter your email address"
                       />
-                      <button type="submit" className="tf-btn" disabled={isSubmitting}>
-                        {isSubmitting ? "Syncing..." : "Notify Me"} <Send size={14} className="tf-btn-icon" />
+                      <button type="submit" className="tf-btn" disabled={isSubmitting} aria-label="Notify Me for Token Factory Access">
+                        {isSubmitting ? "Syncing..." : "Notify Me"} <Send size={14} className="tf-btn-icon" aria-hidden="true" />
                       </button>
                     </div>
                     {errorMessage ? (
@@ -1132,7 +1138,7 @@ export function HomeWorkloads() {
                   {w.bullets.map((b: string, i: number) => (
                     <li key={i}>
                       <span className="bullet-icon">
-                        <img src="/assets/icons/contact/zap.png" alt="check" style={{ width: "14px", height: "14px", objectFit: "contain" }} />
+                        <img src="/assets/icons/contact/zap.png" alt="" aria-hidden="true" style={{ width: "14px", height: "14px", objectFit: "contain" }} />
                       </span>
                       {b}
                     </li>
@@ -1206,38 +1212,39 @@ export function HomeFooter() {
         <div className="footer-brand">
           <Link
             href="/"
+            aria-label="NeoCloudz Home"
             style={{
               display: "block",
               marginBottom: "14px"
             }}
           >
-            <img src="/images/neocloudz-logo.png" alt="NeoCloudz" style={{ height: '80px', width: 'auto', display: 'block' }} />
+            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud Logo" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,
             Grace Blackwell bare metal, and WEKA storage — all in one platform.
           </p>
           <div className="footer-social">
-            <a href="https://x.com/Neocloudz" className="fsoc" target="_blank" rel="noreferrer">
-              <img src="/assets/icons/channels/twitter.png" alt="Twitter" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+            <a href="https://x.com/Neocloudz" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on X (formerly Twitter)">
+              <img src="/assets/icons/channels/twitter.png" alt="X (formerly Twitter)" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
             </a>
-            <a href="https://www.instagram.com/neocloudz/" className="fsoc" target="_blank" rel="noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--white)' }}>
+            <a href="https://www.instagram.com/neocloudz/" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--white)' }} aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
               </svg>
             </a>
-            <a href="https://www.linkedin.com/company/neo-cloudz/?viewAsMember=true" className="fsoc" target="_blank" rel="noreferrer">
+            <a href="https://www.linkedin.com/company/neo-cloudz/?viewAsMember=true" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on LinkedIn">
               <img src="/assets/icons/channels/linkedin.png" alt="LinkedIn" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
             </a>
-            <a href="https://www.facebook.com/people/NeoCloudz/61589451923838/" className="fsoc" target="_blank" rel="noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--white)' }}>
+            <a href="https://www.facebook.com/people/NeoCloudz/61589451923838/" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on Facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--white)' }} aria-hidden="true">
                 <path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.324v-21.35c0-.732-.593-1.325-1.325-1.325z" />
               </svg>
             </a>
-            <a href="/contact?source=homepage&cta=footer_chat" className="fsoc">
-              <img src="/assets/icons/channels/chat.png" alt="Chat" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+            <a href="/contact?source=homepage&cta=footer_chat" className="fsoc" aria-label="Chat with NeoCloudz support">
+              <img src="/assets/icons/channels/chat.png" alt="Live Chat support" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
             </a>
           </div>
         </div>

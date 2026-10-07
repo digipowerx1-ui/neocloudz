@@ -299,11 +299,16 @@ export function HomeHero() {
               </div>
 
               <div className="terminal-input-wrap">
+                <label htmlFor="cluster-term-input" className="sr-only">
+                  Cluster bash command input
+                </label>
                 <span className="term-prompt">neo@cluster:~$</span>
                 <input
+                  id="cluster-term-input"
                   ref={inputRef}
                   className="term-input"
                   placeholder="type a command…"
+                  aria-label="Cluster bash command input"
                   autoComplete="off"
                   spellCheck={false}
                   value={inputVal}

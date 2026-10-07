@@ -46,7 +46,7 @@
 }
 
 .site-header .site-nav-links a {
-  color: rgba(200, 212, 200, 0.65);
+  color: #c8d4c8;
   text-decoration: none;
   font-size: 14px;
   font-weight: 500;
@@ -236,7 +236,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(200, 212, 200, 0.4);
+  color: #9cb59c;
   margin-bottom: 16px;
 }
 
@@ -250,7 +250,7 @@
 }
 
 .site-footer .site-footer-col a {
-  color: rgba(200, 212, 200, 0.5);
+  color: #c8d4c8;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s;

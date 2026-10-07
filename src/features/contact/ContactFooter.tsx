@@ -50,10 +50,10 @@ const COLUMNS: ReadonlyArray<FooterColumn> = [
 ];
 
 const SOCIALS = [
-  { label: "𝕏", href: "https://x.com/Neocloudz" },
-  { label: "in", href: "https://www.linkedin.com/company/neo-cloudz/?viewAsMember=true" },
-  { label: "ig", href: "https://www.instagram.com/neocloudz/" },
-  { label: "fb", href: "https://www.facebook.com/people/NeoCloudz/61589451923838/" },
+  { label: "𝕏", ariaLabel: "NeoCloudz on X (formerly Twitter)", href: "https://x.com/Neocloudz" },
+  { label: "in", ariaLabel: "NeoCloudz on LinkedIn", href: "https://www.linkedin.com/company/neo-cloudz/?viewAsMember=true" },
+  { label: "ig", ariaLabel: "NeoCloudz on Instagram", href: "https://www.instagram.com/neocloudz/" },
+  { label: "fb", ariaLabel: "NeoCloudz on Facebook", href: "https://www.facebook.com/people/NeoCloudz/61589451923838/" },
 ] as const;
 
 export default function ContactFooter() {
@@ -61,8 +61,8 @@ export default function ContactFooter() {
     <footer className="contact-footer">
       <div className="footer-top">
         <div className="footer-brand">
-          <Link href="/" className="footer-brand-logo">
-            <img src="/images/neocloudz-logo.png" alt="NeoCloudz" style={{ height: '80px', width: 'auto', display: 'block' }} />
+          <Link href="/" className="footer-brand-logo" aria-label="NeoCloudz Home">
+            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud Logo" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,
@@ -70,7 +70,7 @@ export default function ContactFooter() {
           </p>
           <div className="footer-social">
             {SOCIALS.map((s) => (
-              <a key={s.label} href={s.href} className="fsoc" target="_blank" rel="noreferrer">
+              <a key={s.label} href={s.href} className="fsoc" target="_blank" rel="noreferrer" aria-label={s.ariaLabel}>
                 {s.label}
               </a>
             ))}

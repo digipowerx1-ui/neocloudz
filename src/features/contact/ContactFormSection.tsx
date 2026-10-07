@@ -17,7 +17,7 @@ export default function ContactFormSection() {
         <div style={{ marginTop: "48px", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(45, 255, 122, 0.15)", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}>
           <img 
             src="/contact-footer.png" 
-            alt="AI Infrastructure" 
+            alt="NeoCloudz high-density GPU data center infrastructure server cluster" 
             style={{ width: "100%", height: "auto", display: "block", filter: "brightness(0.9)" }} 
           />
         </div>

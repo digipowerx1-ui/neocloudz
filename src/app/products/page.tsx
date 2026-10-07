@@ -197,7 +197,7 @@ export default function ProductsPage() {
                   ) : p.image ? (
                     <img
                       src={p.image}
-                      alt={p.name}
+                      alt={`${p.name} - Accelerated AI Hardware Platform`}
                       style={{
                         width: "100%",
                         height: "100%",
