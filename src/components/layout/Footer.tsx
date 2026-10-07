@@ -16,11 +16,11 @@ const FOOTER_COLUMNS: FooterColumn[] = [
     title: "Products",
     items: [
       { label: "All Products", href: "/products" },
-      { label: "GPU as a Service", href: "/products/gpu-as-a-service" },
-      { label: "AI Cloud", href: "/products" },
-      { label: "Self-Service AI Clusters", href: "/products" },
-      { label: "Managed Kubernetes for AI", href: "/products" },
-      { label: "AI Storage", href: "/products" },
+      { label: "GPU as a Service", href: "/gpu-as-a-service" },
+      { label: "AI Factory as a Service", href: "/ai-factory-as-a-service" },
+      { label: "ML as a Service", href: "/ml-as-a-service" },
+      { label: "Managed Kubernetes", href: "/products#k8s" },
+      { label: "AI Storage", href: "/products#storage" },
     ],
   },
   {
@@ -31,23 +31,22 @@ const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "AI Inference & Deployment", href: "/solution#inference" },
       { label: "Rendering & Simulation", href: "/solution#rendering" },
       { label: "Research & Experimentation", href: "/solution#research" },
-      { label: "Enterprise", href: "/enterprise" },
+      { label: "Enterprise Solutions", href: "/enterprise" },
     ],
   },
   {
     title: "Company",
     items: [
+      { label: "About NeoCloudz", href: "/about" },
       { label: "Pricing", href: "/pricing" },
-      { label: "Enterprise", href: "/enterprise" },
-      { label: "Contact", href: "/contact?source=footer&cta=contact" },
-      { label: "Careers", href: "/contact?source=footer&cta=careers", badge: "HIRING" },
+      { label: "Contact Us", href: "/contact?source=footer&cta=contact" },
+      { label: "Careers", href: "/career", badge: "HIRING" },
     ],
   },
   {
     title: "Resources",
     items: [
-      { label: "Pricing Calculator", href: "/pricing" },
-     
+      { label: "Pricing Calculator", href: "/pricing#calculator" },
       { label: "Documentation", href: "/contact?source=footer&cta=documentation" },
       { label: "API Reference", href: "/contact?source=footer&cta=api_reference" },
       { label: "Support", href: "/contact?source=footer&cta=support" },
@@ -130,7 +129,7 @@ Rated 3 • SOC 2 Type I Compliant
         </div>
         {FOOTER_COLUMNS.map((col) => (
           <div className="site-footer-col" key={col.title}>
-            <h4>{col.title}</h4>
+            <h3>{col.title}</h3>
             <ul>
               {col.items.map((it) => (
                 <li key={it.label}>

@@ -829,7 +829,7 @@ export function HomeTokenFactory() {
                       <Lock size={16} />
                     </div>
                     <div className="tf-pillar-content">
-                      <h4>NO CODE</h4>
+                      <h3>NO CODE</h3>
                       <p>Launch tokens without coding</p>
                     </div>
                   </div>
@@ -839,7 +839,7 @@ export function HomeTokenFactory() {
                       <Cpu size={16} />
                     </div>
                     <div className="tf-pillar-content">
-                      <h4>AI POWERED</h4>
+                      <h3>AI POWERED</h3>
                       <p>Generate whitepapers, tokenomics & more</p>
                     </div>
                   </div>
@@ -849,7 +849,7 @@ export function HomeTokenFactory() {
                       <Globe size={16} />
                     </div>
                     <div className="tf-pillar-content">
-                      <h4>MULTI-CHAIN</h4>
+                      <h3>MULTI-CHAIN</h3>
                       <p>Deploy on 8+ blockchains</p>
                     </div>
                   </div>
@@ -859,7 +859,7 @@ export function HomeTokenFactory() {
                       <ShieldCheck size={16} />
                     </div>
                     <div className="tf-pillar-content">
-                      <h4>ENTERPRISE SECURITY</h4>
+                      <h3>ENTERPRISE SECURITY</h3>
                       <p>Audited contracts & advanced controls</p>
                     </div>
                   </div>
@@ -1102,7 +1102,7 @@ export function HomeWorkloads() {
                       <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                       </svg>
-                      <div style={{ fontSize: '10px', marginTop: '5px' }}>PRODUCTION RELIABILITY</div>
+                      <div style={{ fontSize: '11px', marginTop: '5px' }}>PRODUCTION RELIABILITY</div>
                     </div>
                   </div>
                 ) : (
@@ -1110,7 +1110,7 @@ export function HomeWorkloads() {
                     <div className="proto-dashboard">
                       <div className="proto-header">
                         <div className="proto-dot" />
-                        <span style={{ fontSize: '10px', color: 'var(--muted)' }}>jupyter-lab-01</span>
+                        <span style={{ fontSize: '11px', color: 'var(--muted)' }}>jupyter-lab-01</span>
                       </div>
                       <div className="proto-grid">
                         {[1, 2, 3, 4].map(n => (
@@ -1250,7 +1250,7 @@ export function HomeFooter() {
         </div>
         {FOOTER_COLS.map((col) => (
           <div className="footer-col" key={col.title}>
-            <h4>{col.title}</h4>
+            <h3>{col.title}</h3>
             <ul>
               {col.items.map((it) => (
                 <li key={it.label}>

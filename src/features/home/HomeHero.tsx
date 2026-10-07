@@ -344,7 +344,7 @@ export function HomeHero() {
               style={{
                 marginLeft: "auto",
                 fontFamily: "var(--font-mono)",
-                fontSize: "10px",
+                fontSize: "11px",
                 color: "var(--muted)",
               }}
             >

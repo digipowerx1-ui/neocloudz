@@ -400,7 +400,7 @@
 
 .home-page .gpu-id {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: #9cb59c;
   position: relative;
   z-index: 1;
@@ -408,7 +408,7 @@
 
 .home-page .gpu-util {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   position: relative;
   z-index: 1;
@@ -446,7 +446,7 @@
   border-radius: 8px;
   padding: 10px 12px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   white-space: nowrap;
   z-index: 100;
   line-height: 1.8;
@@ -505,7 +505,7 @@
 
 .home-page .metric-key {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -534,7 +534,7 @@
 
 .home-page .metric-sub {
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   margin-top: 3px;
 }
@@ -550,7 +550,7 @@
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
 }
 
 .home-page .spark-key {
@@ -731,7 +731,7 @@
   align-items: center;
   gap: 5px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: #9cb59c;
 }
 
@@ -947,7 +947,7 @@
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
-  color: rgba(200, 212, 200, 0.45);
+  color: #8fa68f;
   border-right: 1px solid rgba(45, 255, 122, 0.06);
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -1028,7 +1028,7 @@
   align-items: center;
   gap: 6px;
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1201,7 +1201,7 @@
 
 .home-page .price-gpu-sub {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted);
   margin-bottom: 20px;
 }
@@ -1413,7 +1413,7 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 700;
   color: var(--green);
 }
@@ -1637,7 +1637,7 @@
   font-family: var(--font-mono);
   font-size: 13px;
   font-weight: 700;
-  color: rgba(200, 212, 200, 0.4);
+  color: #8fa68f;
   letter-spacing: 0.05em;
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -1832,12 +1832,13 @@
   color: var(--green);
 }
 
-.home-page .footer-col h4 {
+.home-page .footer-col h4,
+.home-page .footer-col h3 {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: rgba(200, 212, 200, 0.4);
+  color: #9cb59c;
   margin-bottom: 16px;
 }
 
@@ -1849,7 +1850,7 @@
 }
 
 .home-page .footer-col a {
-  color: rgba(200, 212, 200, 0.5);
+  color: #c8d4c8;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s;
@@ -1863,7 +1864,7 @@
   display: inline-block;
   background: rgba(45, 255, 122, 0.15);
   color: var(--green);
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 800;
   padding: 1px 6px;
   border-radius: 4px;
@@ -1970,7 +1971,7 @@
 }
 
 .home-page .hlm-lbl {
-  font-size: 10px;
+  font-size: 11px;
   color: #9cb59c;
   text-transform: uppercase;
   letter-spacing: 0.8px;
@@ -2196,7 +2197,7 @@
 
 .home-page .rack-slot-label {
   font-family: var(--font-mono);
-  font-size: 7px;
+  font-size: 11px;
   color: rgba(45, 255, 122, 0.7);
   letter-spacing: 0.3px;
 }
@@ -2241,7 +2242,7 @@
   top: 8px;
   right: 8px;
   font-family: var(--font-mono);
-  font-size: 9px;
+  font-size: 11px;
   color: var(--green);
   background: rgba(45, 255, 122, 0.08);
   border: 1px solid rgba(45, 255, 122, 0.2);
@@ -2294,7 +2295,7 @@
 }
 
 .home-page .metric-badge-lbl {
-  font-size: 9px;
+  font-size: 11px;
   color: #a4bfa4;
   text-transform: uppercase;
   letter-spacing: 0.7px;
@@ -2585,7 +2586,7 @@
 }
 
 .home-page .rack-stat-lbl {
-  font-size: 10px;
+  font-size: 11px;
   color: var(--muted);
   margin-top: 2px;
 }
@@ -3237,7 +3238,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 6px;
+  font-size: 11px;
   font-weight: 900;
   line-height: 1.1;
   text-align: center;
@@ -3378,7 +3379,7 @@
 }
 
 .home-page .side-item {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -3406,7 +3407,7 @@
 }
 
 .home-page .inf-title {
-  font-size: 9px;
+  font-size: 11px;
   color: var(--muted);
   margin-bottom: 15px;
   letter-spacing: 1px;
@@ -3426,7 +3427,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 10px;
+  font-size: 11px;
   color: var(--green);
   font-weight: 800;
   box-shadow: 0 5px 15px rgba(45, 255, 122, 0.1);
@@ -3444,7 +3445,7 @@
   top: -20px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 8px;
+  font-size: 11px;
   color: var(--muted);
   white-space: nowrap;
 }
@@ -3606,12 +3607,12 @@
 
   .home-page .stack-label {
     width: 60px;
-    font-size: 8px;
+    font-size: 11px;
   }
 
   .home-page .s-item {
     padding: 3px 6px;
-    font-size: 9px;
+    font-size: 11px;
   }
 
   .home-page .inf-box {
@@ -3621,7 +3622,7 @@
   .home-page .inf-node {
     width: 28px;
     height: 36px;
-    font-size: 8px;
+    font-size: 11px;
   }
 
   .home-page .proto-grid {
@@ -3949,8 +3950,8 @@
   height: 14px;
   margin-right: 10px;
   flex-shrink: 0;
-  color: #666;
-  opacity: 0.8;
+  color: #8fa68f;
+  opacity: 1;
 }
 
 .price-card.featured .check-tick {
@@ -4005,7 +4006,7 @@
   right: 12px;
   background: #2dff7a;
   color: #000;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 900;
   padding: 4px 10px;
   border-radius: 4px;
@@ -4013,8 +4014,8 @@
 }
 
 .price-tier {
-  font-size: 10px;
-  color: #666;
+  font-size: 11px;
+  color: #9cb59c;
   letter-spacing: 2px;
   font-weight: 700;
   margin-bottom: 16px;
@@ -4039,19 +4040,19 @@
 
 .price-amount-suffix {
   font-size: 16px;
-  color: #666;
+  color: #8fa68f;
   font-weight: 400;
 }
 
 .price-quota {
   font-size: 13px;
-  color: #888;
+  color: #9cb59c;
   margin-bottom: 16px;
 }
 
 .price-desc {
   font-size: 14px;
-  color: #aaa;
+  color: #c8d4c8;
   line-height: 1.5;
   margin-bottom: 24px;
 }
@@ -4403,7 +4404,7 @@
 
 .home-page .tf-waitlist-title {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 11px;
   color: var(--green);
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -4665,7 +4666,8 @@
   flex-shrink: 0;
 }
 
-.home-page .tf-pillar h4 {
+.home-page .tf-pillar h4,
+.home-page .tf-pillar h3 {
   font-size: 11px;
   font-weight: 700;
   color: var(--white);
@@ -4674,7 +4676,8 @@
   transition: color 0.3s ease;
 }
 
-.home-page .tf-pillar:hover h4 {
+.home-page .tf-pillar:hover h4,
+.home-page .tf-pillar:hover h3 {
   color: var(--green);
 }
 

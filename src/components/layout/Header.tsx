@@ -14,7 +14,6 @@ interface NavLink {
 }
 
 const NAV_LINKS: NavLink[] = [
-  { label: "Home", href: "/", matches: ["/"] },
   {
     label: "Products",
     href: "/products",
@@ -44,7 +43,7 @@ const NAV_LINKS: NavLink[] = [
     href: "/about",
     matches: ["/contact", "/about", "/career"],
     subLinks: [
-      { label: "About Us", href: "/about" },
+      { label: "About Us", href: "/about#overview" },
       { label: "Career", href: "/career" },
       { label: "Contact Us", href: "/contact" },
     ]
