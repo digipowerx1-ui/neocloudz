@@ -47,7 +47,7 @@ export function HomeGpuCatalog() {
   useGpuCatalogSparklines(ref);
   return (
     <section className="hp-section dark" id="gpus" ref={ref}>
-      <div className="hp-label reveal">GPU Catalog</div>
+      <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>GPU Catalog</div>
       <div className="hp-h2">
         The World&#39;s Most Powerful<br />
         <span className="g">AI Compute — On Demand.</span>
@@ -136,7 +136,7 @@ export function HomeNvlink() {
   useNvlinkCanvas(ref);
   return (
     <div className="nvlink-section reveal">
-      <div className="hp-label" style={{ justifyContent: "center" }}>
+      <div className="hp-label" style={{ justifyContent: "center", backgroundColor: "#0f1410", color: "#2dff7a" }}>
         NVLink 4.0 · All-to-All Mesh
       </div>
       <div className="hp-h2" style={{ fontSize: "clamp(24px,2.5vw,38px)" }}>
@@ -279,7 +279,7 @@ export function HomeBenchmark() {
     <div className="bench-section" ref={ref}>
       <div className="bench-grid">
         <div className="bench-intro">
-          <div className="hp-label">Performance</div>
+          <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>Performance</div>
           <div className="hp-h2" style={{ fontSize: "clamp(26px,2.8vw,42px)" }}>
             Fastest Bare-Metal<br />
             <span className="g">On the Planet.</span>
@@ -358,7 +358,7 @@ export function HomeRack() {
         <div className="rack-badge">H100 SXM5 × 8</div>
       </div>
       <div className="rack-content">
-        <div className="hp-label">AI-Ready Infrastructure</div>
+        <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>AI-Ready Infrastructure</div>
         <div className="hp-h2" style={{ fontSize: "clamp(24px,2.5vw,38px)" }}>
           NVL72 Rack.<br />
           <span className="g">Fully Dedicated.</span>
@@ -412,7 +412,7 @@ export function HomePricing() {
   return (
     <section className="hp-section mid" id="pricing" ref={sectionRef}>
 
-      <div className="hp-label">Pricing</div>
+      <div className="hp-label" style={{ backgroundColor: "#0f1410", color: "#2dff7a" }}>Pricing</div>
       <div className="hp-h2">
         Simple, <span className="g">Transparent Pricing.</span>
       </div>
@@ -527,7 +527,7 @@ export function HomeWhy() {
   const ref = useRef<HTMLElement>(null);
   return (
     <section className="hp-section dark" id="why" ref={ref}>
-      <div className="hp-label">Why NeoCloudz</div>
+      <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>Why NeoCloudz</div>
       <div className="hp-h2">
         Purpose-Built for Performance<br />
         <span className="g">Our GPU-as-a-Service platform delivers:</span>
@@ -620,7 +620,7 @@ export function HomeStorage() {
     <section className="hp-section mid" id="storage" ref={sectionRef}>
       <canvas id="dataflow-canvas" ref={dataflowRef} aria-hidden="true" />
       <div className="storage-header">
-        <div className="hp-label">WEKA Storage</div>
+        <div className="hp-label" style={{ backgroundColor: "#0f1410", color: "#2dff7a" }}>WEKA Storage</div>
         <div className="hp-h2">
           Storage That Keeps Up<br />
           <span className="g">With Blackwell.</span>
@@ -909,7 +909,7 @@ export function HomeFaq() {
     <section className="hp-section dark" id="faq">
       <div className="faq-grid">
         <div className="faq-sidebar">
-          <div className="hp-label">FAQ</div>
+          <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>FAQ</div>
           <h2>
             Common<br />
             Questions.
@@ -947,6 +947,8 @@ export function HomeCta() {
           marginBottom: "20px",
           position: "relative",
           zIndex: 2,
+          backgroundColor: "#0a1a0a",
+          color: "#2dff7a",
         }}
       >
         Get Started Today

@@ -856,8 +856,22 @@
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--green);
+  color: #2dff7a;
+  background-color: #0a0f0a;
+  opacity: 1 !important;
   margin-bottom: 18px;
+}
+
+.home-page .hp-section.mid .hp-label {
+  background-color: #0f1410;
+}
+
+.home-page .nvlink-section .hp-label {
+  background-color: #0f1410;
+}
+
+.home-page .cta-banner .hp-label {
+  background-color: #0a1a0a;
 }
 
 .home-page .hp-label::before {
