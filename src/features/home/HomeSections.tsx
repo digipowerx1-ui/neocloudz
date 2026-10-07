@@ -1195,7 +1195,7 @@ const FOOTER_COLS = [
     items: [
       { label: "About Us", href: "/about" },
       { label: "Blog", href: "/contact?source=homepage&cta=footer_blog" },
-      { label: "Careers", badge: "HIRING", href: "/career" },
+      { label: "Careers", href: "/career" },
       { label: "Status", href: "/contact?source=homepage&cta=footer_status" },
       { label: "Contact", href: "/contact?source=homepage&cta=footer_contact" },
     ],

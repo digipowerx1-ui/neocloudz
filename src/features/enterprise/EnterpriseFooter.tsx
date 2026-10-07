@@ -32,7 +32,7 @@ const COLUMNS: ReadonlyArray<FooterColumn> = [
     items: [
       { label: "About" },
       { label: "Blog" },
-      { label: "Careers", badge: "HIRING" },
+      { label: "Careers" },
       { label: "Status" },
       { label: "Contact" },
     ],

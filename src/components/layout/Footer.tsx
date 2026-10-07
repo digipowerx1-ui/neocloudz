@@ -40,7 +40,7 @@ const FOOTER_COLUMNS: FooterColumn[] = [
       { label: "About NeoCloudz", href: "/about" },
       { label: "Pricing", href: "/pricing" },
       { label: "Contact Us", href: "/contact?source=footer&cta=contact" },
-      { label: "Careers", href: "/career", badge: "HIRING" },
+      { label: "Careers", href: "/career" },
     ],
   },
   {
