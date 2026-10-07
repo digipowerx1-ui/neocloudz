@@ -9,7 +9,7 @@ export default function CtaSection() {
 
   return (
     <section className="cta-banner" id="cta">
-      <canvas id="wave-canvas" ref={canvasRef}></canvas>
+      <canvas id="wave-canvas" ref={canvasRef} aria-hidden="true"></canvas>
       <div className="cta-content">
         <h2>
           Start Building on <span className="g">Blackwell.</span>

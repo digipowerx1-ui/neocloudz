@@ -62,7 +62,7 @@ export default function EnterpriseFooter() {
       <div className="footer-top">
         <div className="footer-brand">
           <Link href="/" className="footer-brand-logo" aria-label="NeoCloudz Home">
-            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud Logo" style={{ height: '80px', width: 'auto', display: 'block' }} />
+            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,

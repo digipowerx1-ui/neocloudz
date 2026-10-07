@@ -11,7 +11,7 @@ export default function EnterpriseCta() {
 
   return (
     <div className="cta-banner">
-      <canvas ref={canvasRef} id="wave-canvas" />
+      <canvas ref={canvasRef} id="wave-canvas" aria-hidden="true" />
       <div className="cta-content">
         <div
           className="hp-label"

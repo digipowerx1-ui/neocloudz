@@ -13,6 +13,7 @@ export default function ProductHero() {
       <canvas
         id="particle-canvas"
         ref={canvasRef}
+        aria-hidden="true"
         style={{
           position: "absolute",
           inset: 0,

@@ -161,7 +161,7 @@ export default function SolutionsSection() {
           </div>
           <div className="sol-visual">
             <div className="latency-wrap">
-              <canvas id="latency-canvas" ref={latencyRef}></canvas>
+              <canvas id="latency-canvas" ref={latencyRef} aria-hidden="true"></canvas>
             </div>
           </div>
         </div>

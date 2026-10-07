@@ -133,7 +133,7 @@ export function HomeHero() {
 
   return (
     <section className="hero" ref={heroRef}>
-      <canvas id="particle-canvas" ref={particleCanvasRef} />
+      <canvas id="particle-canvas" ref={particleCanvasRef} aria-hidden="true" />
       <div className="hero-grid" ref={gridRef} />
       <div className="hero-glow" ref={glowRef} />
 

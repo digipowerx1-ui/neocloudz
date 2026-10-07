@@ -28,6 +28,7 @@ function TokenFactoryScene() {
     if (!parent) return;
 
     const canvas = document.createElement("canvas");
+    canvas.setAttribute("aria-hidden", "true");
     canvas.style.width = "100%";
     canvas.style.height = "100%";
     canvas.style.display = "block";

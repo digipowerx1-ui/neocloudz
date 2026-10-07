@@ -108,7 +108,7 @@ export function Footer() {
       <div className="site-footer-top">
         <div className="site-footer-brand">
           <Link href="/" className="site-footer-brand-logo" aria-label="NeoCloudz Home">
-            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud Logo" style={{ height: '80px', width: 'auto', display: 'block' }} />
+            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The future of Al compute starts here. Powered by DigiPower • U.S. Tier Ill Data Centers TIA-942

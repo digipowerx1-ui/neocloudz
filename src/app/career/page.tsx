@@ -41,7 +41,7 @@ export default function CareerPage() {
     <div className="enterprise-page career-page">
       {/* Hero Section */}
       <section className="hero" id="hero" style={{ minHeight: "80vh" }}>
-        <canvas ref={canvasRef} id="particle-canvas" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} />
+        <canvas ref={canvasRef} id="particle-canvas" aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} />
         <div className="hero-grid" />
         <div className="hero-aurora">
           <div className="aurora-band" style={{ background: "rgba(45,255,122,0.4)", top: "25%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />

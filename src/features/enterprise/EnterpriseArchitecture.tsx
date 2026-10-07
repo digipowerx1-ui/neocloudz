@@ -20,7 +20,7 @@ export default function EnterpriseArchitecture() {
         </div>
       </div>
       <div className="arch-canvas-wrap">
-        <canvas ref={canvasRef} id="arch-canvas" />
+        <canvas ref={canvasRef} id="arch-canvas" aria-hidden="true" />
       </div>
       <p className="arch-caption">
         All inter-node traffic runs over your private InfiniBand fabric — no public

@@ -21,7 +21,7 @@ export default function InfraSection() {
           no mystery hardware.
         </p>
         <div className="infra-canvas-wrap reveal">
-          <canvas id="infra-canvas" ref={canvasRef}></canvas>
+          <canvas id="infra-canvas" ref={canvasRef} aria-hidden="true"></canvas>
         </div>
       </div>
     </section>

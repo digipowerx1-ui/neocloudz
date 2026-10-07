@@ -19,7 +19,7 @@ export default function ContactDcMapSection() {
           team or your customers.
         </div>
         <div className="dc-canvas-wrap">
-          <canvas ref={canvasRef} id="dc-canvas" />
+          <canvas ref={canvasRef} id="dc-canvas" aria-hidden="true" />
         </div>
       </div>
     </div>

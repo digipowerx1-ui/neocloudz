@@ -63,7 +63,7 @@ export function Header() {
   return (
     <header className="site-header">
       <Link href="/" className="site-logo" aria-label="NeoCloudz Home" onClick={() => setMenuOpen(false)}>
-        <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud Logo" style={{ height: '80px', width: 'auto', display: 'block' }} />
+        <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud" style={{ height: '80px', width: 'auto', display: 'block' }} />
       </Link>
       <ul className="site-nav-links">
         {NAV_LINKS.map((link) => {

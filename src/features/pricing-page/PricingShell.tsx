@@ -288,7 +288,7 @@ export function PricingShell() {
 
       {/* HERO */}
       <section className="hero" id="hero" ref={heroRef}>
-        <canvas id="particle-canvas" ref={particleRef} />
+        <canvas id="particle-canvas" ref={particleRef} aria-hidden="true" />
         <div className="hero-grid-overlay" ref={heroGridRef} />
         <div className="hero-aurora">
           <div
@@ -507,7 +507,7 @@ export function PricingShell() {
                     </div>
                   </div>
 
-                  <canvas className="price-sparkline" width={200} height={36} />
+                  <canvas className="price-sparkline" width={200} height={36} aria-hidden="true" />
                 </div>
 
                 <ul className="price-features">
@@ -853,7 +853,7 @@ export function PricingShell() {
 
       {/* CTA */}
       <div className="cta-banner">
-        <canvas id="wave-canvas" ref={ctaCanvasRef} />
+        <canvas id="wave-canvas" ref={ctaCanvasRef} aria-hidden="true" />
         <div className="cta-inner">
           <div
             className="hp-label"

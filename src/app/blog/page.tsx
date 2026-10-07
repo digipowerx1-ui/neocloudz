@@ -48,7 +48,7 @@ export default async function BlogPage() {
               </div>
               <div className="blog-featured-visual">
                 {featured.image ? (
-                  <img src={featured.image.url} alt={featured.image.alternativeText || featured.title} />
+                  <img src={featured.image.url} alt={featured.image.alternativeText || featured.title || "Featured AI Engineering Article"} />
                 ) : (
                   <div className="blog-visual-placeholder">
                     <span>Q2</span>
@@ -83,7 +83,7 @@ export default async function BlogPage() {
                     </div>
                     <div className="blog-row-visual">
                       {post.image ? (
-                        <img src={post.image.url} alt={post.image.alternativeText || post.title} />
+                        <img src={post.image.url} alt={post.image.alternativeText || post.title || "AI Cloud Architecture Article"} />
                       ) : (
                         <div className="blog-visual-placeholder">
                           <span>GPU</span>

@@ -58,7 +58,7 @@ export default function EnterpriseHero() {
 
   return (
     <section className="hero" id="hero">
-      <canvas ref={canvasRef} id="particle-canvas" />
+      <canvas ref={canvasRef} id="particle-canvas" aria-hidden="true" />
       <div className="hero-grid" />
       <div className="hero-aurora">
         {AURORA_BANDS.map((band, idx) => {

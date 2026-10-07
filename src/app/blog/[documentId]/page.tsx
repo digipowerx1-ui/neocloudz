@@ -25,7 +25,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ doc
 
         {blog.image && (
           <div className="blog-detail-image">
-            <img src={blog.image.url} alt={blog.image.alternativeText || blog.title} />
+            <img src={blog.image.url} alt={blog.image.alternativeText || blog.title || "AI Cloud Engineering Article Header Visual"} />
           </div>
         )}
 

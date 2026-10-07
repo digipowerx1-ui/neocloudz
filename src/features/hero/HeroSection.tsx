@@ -13,7 +13,7 @@ export default function HeroSection() {
 
   return (
     <section className="hero">
-      <canvas id="particle-canvas" ref={canvasRef}></canvas>
+      <canvas id="particle-canvas" ref={canvasRef} aria-hidden="true"></canvas>
       <div className="hero-grid"></div>
       <div className="aurora-1"></div>
       <div className="aurora-2"></div>

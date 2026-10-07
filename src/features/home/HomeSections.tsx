@@ -143,7 +143,7 @@ export function HomeNvlink() {
         Every GPU Talks to Every GPU.<br />
         <span className="g">At 900 GB/s.</span>
       </div>
-      <canvas id="nvlink-canvas" ref={ref} width={960} height={260} />
+      <canvas id="nvlink-canvas" ref={ref} width={960} height={260} aria-hidden="true" />
     </div>
   );
 }
@@ -184,7 +184,7 @@ export function HomePartners() {
         <div className="partners-grid">
           <div className="partner-card">
             <div className="partner-logo-area">
-              <img src="/1.png" alt="NVIDIA Partner Logo" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src="/1.png" alt="NVIDIA Technology Partner" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Provides the state-of-the-art GPU architecture that is optimized for high-performance AI training and inference workloads.
@@ -193,7 +193,7 @@ export function HomePartners() {
 
           <div className="partner-card">
             <div className="partner-logo-area">
-              <img src="/2.png" alt="Supermicro Partner Logo" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src="/2.png" alt="Supermicro Server Infrastructure Partner" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Delivers the high-density, server hardware platforms designed to support massive scale and compute-intensive applications.
@@ -202,7 +202,7 @@ export function HomePartners() {
 
           <div className="partner-card">
            <div className="partner-logo-area">
-              <img src="/images/image-8-1.svg" alt="Tier III Data Center Certified Facility" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src="/images/image-8-1.svg" alt="Tier III Certified Data Center Facility" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Certifies the data center facilities as Tier III, ensuring enterprise-grade reliability through redundant power and cooling systems.
@@ -211,7 +211,7 @@ export function HomePartners() {
 
           <div className="partner-card">
             <div className="partner-logo-area">
-              <img src="/3.png" alt="DigiPowerX Partner Logo" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+              <img src="/3.png" alt="DigiPowerX Sustainable Energy Partner" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
             <p className="partner-desc">
               Supplies energy-optimized power solutions to lower the carbon impact of the infrastructure, promoting sustainable operations.
@@ -539,7 +539,7 @@ export function HomeWhy() {
             <div className="why-item" key={i}>
               <div className="why-icon">
                 {it.iconImg ? (
-                  <img src={it.iconImg} alt="" aria-hidden="true" style={{ width: "32px", height: "32px", objectFit: "contain" }} />
+                  <img src={it.iconImg} alt={it.title} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
                 ) : (
                   it.icon
                 )}
@@ -618,7 +618,7 @@ export function HomeStorage() {
   useStorageBandwidthBars(stBodyRef);
   return (
     <section className="hp-section mid" id="storage" ref={sectionRef}>
-      <canvas id="dataflow-canvas" ref={dataflowRef} />
+      <canvas id="dataflow-canvas" ref={dataflowRef} aria-hidden="true" />
       <div className="storage-header">
         <div className="hp-label">WEKA Storage</div>
         <div className="hp-h2">
@@ -664,7 +664,7 @@ export function HomeStorage() {
             <div className="sf-item" key={i}>
               <div className="sf-icon">
                 {f.iconImg ? (
-                  <img src={f.iconImg} alt="" aria-hidden="true" style={{ width: "24px", height: "24px", objectFit: "contain" }} />
+                  <img src={f.iconImg} alt={f.title} style={{ width: "24px", height: "24px", objectFit: "contain" }} />
                 ) : (
                   f.icon
                 )}
@@ -934,7 +934,7 @@ export function HomeCta() {
   useCtaParticleBurst(launchBtnRef);
   return (
     <div className="cta-banner">
-      <canvas id="wave-canvas" ref={canvasRef} />
+      <canvas id="wave-canvas" ref={canvasRef} aria-hidden="true" />
       <div
         className="hp-label"
         style={{
@@ -1138,7 +1138,7 @@ export function HomeWorkloads() {
                   {w.bullets.map((b: string, i: number) => (
                     <li key={i}>
                       <span className="bullet-icon">
-                        <img src="/assets/icons/contact/zap.png" alt="" aria-hidden="true" style={{ width: "14px", height: "14px", objectFit: "contain" }} />
+                        <img src="/assets/icons/contact/zap.png" alt="Feature capability" style={{ width: "14px", height: "14px", objectFit: "contain" }} />
                       </span>
                       {b}
                     </li>
@@ -1218,15 +1218,15 @@ export function HomeFooter() {
               marginBottom: "14px"
             }}
           >
-            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud Logo" style={{ height: '80px', width: 'auto', display: 'block' }} />
+            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud" style={{ height: '80px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,
             Grace Blackwell bare metal, and WEKA storage — all in one platform.
           </p>
           <div className="footer-social">
-            <a href="https://x.com/Neocloudz" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on X (formerly Twitter)">
-              <img src="/assets/icons/channels/twitter.png" alt="X (formerly Twitter)" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+            <a href="https://x.com/Neocloudz" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on X">
+              <img src="/assets/icons/channels/twitter.png" alt="X Social Platform" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
             </a>
             <a href="https://www.instagram.com/neocloudz/" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on Instagram">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ color: 'var(--white)' }} aria-hidden="true">
@@ -1236,7 +1236,7 @@ export function HomeFooter() {
               </svg>
             </a>
             <a href="https://www.linkedin.com/company/neo-cloudz/?viewAsMember=true" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on LinkedIn">
-              <img src="/assets/icons/channels/linkedin.png" alt="LinkedIn" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+              <img src="/assets/icons/channels/linkedin.png" alt="LinkedIn Platform" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
             </a>
             <a href="https://www.facebook.com/people/NeoCloudz/61589451923838/" className="fsoc" target="_blank" rel="noreferrer" aria-label="NeoCloudz on Facebook">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style={{ color: 'var(--white)' }} aria-hidden="true">
@@ -1244,7 +1244,7 @@ export function HomeFooter() {
               </svg>
             </a>
             <a href="/contact?source=homepage&cta=footer_chat" className="fsoc" aria-label="Chat with NeoCloudz support">
-              <img src="/assets/icons/channels/chat.png" alt="Live Chat support" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
+              <img src="/assets/icons/channels/chat.png" alt="Live Chat Support" style={{ width: "20px", height: "20px", objectFit: "contain" }} />
             </a>
           </div>
         </div>

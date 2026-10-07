@@ -14,7 +14,7 @@ export default function AboutPage() {
     <div className="enterprise-page about-page-container">
       {/* Hero Section */}
       <section className="hero" id="hero">
-        <canvas id="particle-canvas" ref={particleCanvasRef} />
+        <canvas id="particle-canvas" ref={particleCanvasRef} aria-hidden="true" />
         <div className="hero-grid" />
         <div className="hero-aurora">
           <div className="aurora-band" style={{ background: "rgba(45,255,122,0.4)", top: "15%", "--adur": "16s", "--adel": "0s" } as React.CSSProperties} />
