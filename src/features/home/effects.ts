@@ -410,16 +410,16 @@ export function useStorageBandwidthBars(stBodyRef: RefObject<HTMLDivElement | nu
     const wrap = document.createElement("div");
     wrap.style.cssText = "margin-top:14px;display:flex;flex-direction:column;gap:5px;";
     wrap.innerHTML =
-      '<div style="font-size:10px;color:#4a5a4a;margin-bottom:5px;font-family:var(--font-mono);">── live throughput ──</div>' +
+      '<div style="font-size:11px;color:#8fa68f;margin-bottom:5px;font-family:var(--font-mono);">── live throughput ──</div>' +
       labels
         .map(
           (lbl, i) =>
             `<div style="display:flex;gap:8px;align-items:center;">
-        <span style="font-size:9px;color:#4a5a4a;width:96px;font-family:var(--font-mono);flex-shrink:0">${lbl}</span>
+        <span style="font-size:11px;color:#8fa68f;width:96px;font-family:var(--font-mono);flex-shrink:0">${lbl}</span>
         <div style="flex:1;height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden;position:relative;">
           <div class="lb" style="height:100%;border-radius:2px;background:var(--green);box-shadow:0 0 6px var(--green);width:${40 + i * 10}%;transition:width .9s ease;"></div>
         </div>
-        <span class="lbv" style="font-size:9px;font-family:var(--font-mono);color:var(--green);width:34px;text-align:right;">${40 + i * 10}%</span>
+        <span class="lbv" style="font-size:11px;font-family:var(--font-mono);color:var(--green);width:34px;text-align:right;">${40 + i * 10}%</span>
       </div>`,
         )
         .join("");

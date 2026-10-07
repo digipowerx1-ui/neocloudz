@@ -834,10 +834,12 @@
 }
 
 .home-page .hp-section.dark {
+  background-color: #0a0f0a;
   background: var(--bg);
 }
 
 .home-page .hp-section.mid {
+  background-color: #0f1410;
   background: var(--surface);
 }
 

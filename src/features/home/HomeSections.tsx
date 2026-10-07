@@ -70,9 +70,9 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v">InfiniBand 400G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v g">On-Demand · Reserved</span></div>
           </div>
-          <a href="/contact?source=homepage&cta=deploy_now_blackwell" className="gpu-cat-cta">
+          <a href="/contact?source=homepage&cta=deploy_now_blackwell" className="gpu-cat-cta" aria-label="Deploy Now on Blackwell B200 SXM">
             Deploy Now
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -92,9 +92,9 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v">InfiniBand NDR 400G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v b">Bare Metal · Dedicated</span></div>
           </div>
-          <a href="/contact?source=homepage&cta=request_cluster_grace" className="gpu-cat-cta">
+          <a href="/contact?source=homepage&cta=request_cluster_grace" className="gpu-cat-cta" aria-label="Request Grace Blackwell NVL72 Cluster">
             Request Cluster
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -117,9 +117,9 @@ export function HomeGpuCatalog() {
             <div className="spec-line"><span className="spec-k">Networking</span><span className="spec-v" style={{ color: "var(--muted)" }}>InfiniBand 800G</span></div>
             <div className="spec-line"><span className="spec-k">Access</span><span className="spec-v" style={{ color: "var(--amber)" }}>Join Waitlist</span></div>
           </div>
-          <a href="/contact?source=homepage&cta=join_waitlist_rubin" className="gpu-cat-cta">
+          <a href="/contact?source=homepage&cta=join_waitlist_rubin" className="gpu-cat-cta" aria-label="Join Waitlist for Vera Rubin NVL144">
             Join Waitlist
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -469,7 +469,7 @@ interface WhyItem {
 const WHY_ITEMS: WhyItem[] = [
   {
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" opacity="0.3" strokeWidth="3" filter="blur(2px)" />
       </svg>
@@ -479,7 +479,7 @@ const WHY_ITEMS: WhyItem[] = [
   },
   {
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         <path d="M12 8v8M8 12h8" opacity="0.5" />
         <circle cx="12" cy="12" r="9" opacity="0.1" fill="var(--blue)" />
@@ -490,7 +490,7 @@ const WHY_ITEMS: WhyItem[] = [
   },
   {
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M21 3l-6.5 6.5M21 3h-6M21 3v6M3 21l6.5-6.5M3 21h6M3 21v-6M21 21l-6.5-6.5M21 21v-6M21 21h-6M3 3l6.5 6.5M3 3v6M3 3h6" />
         <circle cx="12" cy="12" r="3" fill="var(--green)" opacity="0.2" />
       </svg>
@@ -500,7 +500,7 @@ const WHY_ITEMS: WhyItem[] = [
   },
   {
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="2" y="7" width="16" height="10" rx="2" ry="2" />
         <path d="M22 11v2" />
         <path d="M6 10l2 2-2 2" stroke="var(--amber)" opacity="0.8" />
@@ -512,7 +512,7 @@ const WHY_ITEMS: WhyItem[] = [
   },
   {
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
         <circle cx="12" cy="12" r="3" />
         <path d="M12 5v2M12 17v2M5 12H7M17 12h2" opacity="0.4" />
@@ -537,9 +537,9 @@ export function HomeWhy() {
         <div className="why-features">
           {WHY_ITEMS.map((it, i) => (
             <div className="why-item" key={i}>
-              <div className="why-icon">
+              <div className="why-icon" aria-hidden="true">
                 {it.iconImg ? (
-                  <img src={it.iconImg} alt={it.title} style={{ width: "32px", height: "32px", objectFit: "contain" }} />
+                  <img src={it.iconImg} alt="" style={{ width: "32px", height: "32px", objectFit: "contain" }} aria-hidden="true" />
                 ) : (
                   it.icon
                 )}
@@ -566,7 +566,7 @@ interface FeatureItem {
 const STORAGE_FEATURES: FeatureItem[] = [
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <circle cx="12" cy="12" r="10" />
         <polyline points="12 6 12 12 16 14" />
         <path d="M12 2v4M12 18v4M2 12h4M18 12h4" opacity="0.3" />
@@ -577,7 +577,7 @@ const STORAGE_FEATURES: FeatureItem[] = [
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
         <rect x="3" y="11" width="18" height="11" rx="2" />
         <circle cx="12" cy="16" r="1" />
@@ -589,7 +589,7 @@ const STORAGE_FEATURES: FeatureItem[] = [
 
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
         <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
       </svg>
@@ -599,7 +599,7 @@ const STORAGE_FEATURES: FeatureItem[] = [
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
         <path d="M12 6v6l4 2" />
         <path d="M12 16h.01" />
@@ -662,9 +662,9 @@ export function HomeStorage() {
         <div className="storage-features">
           {STORAGE_FEATURES.map((f, i) => (
             <div className="sf-item" key={i}>
-              <div className="sf-icon">
+              <div className="sf-icon" aria-hidden="true">
                 {f.iconImg ? (
-                  <img src={f.iconImg} alt={f.title} style={{ width: "24px", height: "24px", objectFit: "contain" }} />
+                  <img src={f.iconImg} alt="" style={{ width: "24px", height: "24px", objectFit: "contain" }} aria-hidden="true" />
                 ) : (
                   f.icon
                 )}
@@ -1104,7 +1104,7 @@ export function HomeWorkloads() {
                       <div className="inf-pipe-label">OPEN RUNTIME FOUNDATION</div>
                     </div>
                     <div className="inf-rel">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2">
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" aria-hidden="true">
                         <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                       </svg>
                       <div style={{ fontSize: '11px', marginTop: '5px' }}>PRODUCTION RELIABILITY</div>
@@ -1126,7 +1126,7 @@ export function HomeWorkloads() {
                         ))}
                       </div>
                       <div className="proto-spark">
-                        <svg width="100%" height="40" viewBox="0 0 100 40" preserveAspectRatio="none">
+                        <svg width="100%" height="40" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
                           <path d="M0,20 Q12.5,6 25,20 T50,20 T75,20 T100,20" fill="none" stroke="var(--green)" strokeWidth="1" />
                         </svg>
                       </div>

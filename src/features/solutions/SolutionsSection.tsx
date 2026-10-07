@@ -66,8 +66,8 @@ export default function SolutionsSection() {
 
         <div className="sol-card reveal mt-16" id="training">
           <div className="sol-info">
-            <div className="sol-icon-wrap mb-6">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="sol-icon-wrap mb-6" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 2v8M12 14v8M4 12H2M22 12h-2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2 2 6.48 2 12z" />
                 <path d="M12 2v8M12 14v8M4 12H2M22 12h-2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12c0 5.52 4.48 10 10 10s10-4.48 10-10S17.52 2 12 2 2 6.48 2 12z" opacity="0.3" strokeWidth="3" filter="blur(2px)" />
               </svg>
@@ -123,8 +123,8 @@ export default function SolutionsSection() {
 
         <div className="sol-card reverse reveal" id="inference">
           <div className="sol-info">
-            <div className="sol-icon-wrap mb-6">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="sol-icon-wrap mb-6" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M2 12h5l2 9 4-18 2 9h5" />
                 <path d="M2 12h5l2 9 4-18 2 9h5" opacity="0.3" strokeWidth="3" filter="blur(2px)" />
               </svg>
@@ -168,8 +168,8 @@ export default function SolutionsSection() {
 
         <div className="sol-card reveal" id="rendering">
           <div className="sol-info">
-            <div className="sol-icon-wrap mb-6">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="sol-icon-wrap mb-6" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="m21 16-4 4-4-4M11 8l4-4 4 4M21 4 4 21" />
                 <path d="m21 16-4 4-4-4M11 8l4-4 4 4M21 4 4 21" opacity="0.3" strokeWidth="3" filter="blur(2px)" />
               </svg>
@@ -228,8 +228,8 @@ export default function SolutionsSection() {
 
         <div className="sol-card reverse reveal" id="research">
           <div className="sol-info">
-            <div className="sol-icon-wrap mb-6">
-              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--white)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+            <div className="sol-icon-wrap mb-6" aria-hidden="true">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--white)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M12 2v20M2 12h20M12 2l4.5 4.5M12 2L7.5 6.5M12 22l4.5-4.5M12 22l-4.5-4.5" />
                 <path d="M12 2v20M2 12h20M12 2l4.5 4.5M12 2L7.5 6.5M12 22l4.5-4.5M12 22l-4.5-4.5" opacity="0.3" strokeWidth="3" filter="blur(2px)" />
               </svg>
