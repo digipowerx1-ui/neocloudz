@@ -48,21 +48,46 @@ body {
 }
 
 /* Typographic Widow & Orphan Prevention (Site-wide) */
-h1, h2, h3, h4, h5, h6,
-.hp-h1, .hp-h2, .hp-h3,
-.section-title, .hero-eyebrow h1,
-.why-title, .hero-title, .page-title,
-.card-title, .pricing-name, .feature-title,
-.stat-label, .bench-title,
-.title, [class*="title"], [class*="heading"] {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.hp-h1,
+.hp-h2,
+.hp-h3,
+.section-title,
+.hero-eyebrow h1,
+.why-title,
+.hero-title,
+.page-title,
+.card-title,
+.pricing-name,
+.feature-title,
+.stat-label,
+.bench-title,
+.title,
+[class*="title"],
+[class*="heading"] {
   text-wrap: balance;
 }
 
 p,
-.why-desc, .section-sub, .hero-sub, .page-desc,
-.hp-sub, .feature-desc, .card-desc, .stat-desc,
-.pricing-desc, .footer-desc, .term-desc,
-[class*="desc"], [class*="subtitle"], [class*="sub"] {
+.why-desc,
+.section-sub,
+.hero-sub,
+.page-desc,
+.hp-sub,
+.feature-desc,
+.card-desc,
+.stat-desc,
+.pricing-desc,
+.footer-desc,
+.term-desc,
+[class*="desc"],
+[class*="subtitle"],
+[class*="sub"] {
   text-wrap: pretty;
 }
 
@@ -1738,52 +1763,81 @@ section {
    CTA BANNER (Section 12)
    ============================================================ */
 .cta-banner {
+  padding: 100px 32px;
+  background: linear-gradient(135deg, #0a1a0a 0%, #061206 50%, #0a0f0a 100%);
+  border-top: 1px solid rgba(45, 255, 122, 0.1);
+  text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 280px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: var(--surface);
+  min-height: 280px;
 }
 
-#wave-canvas {
+.cta-banner::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(ellipse, rgba(45, 255, 122, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-banner #wave-canvas,
+.cta-banner canvas {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  z-index: 1;
   pointer-events: none;
+  opacity: 0.55;
 }
 
-.cta-content {
+.cta-banner h2,
+.cta-banner .cta-banner-h2 {
+  font-size: clamp(32px, 4.5vw, 58px);
+  font-weight: 800;
+  color: #f0f5f0;
+  letter-spacing: -1.5px;
+  line-height: 1.05;
+  margin-bottom: 16px;
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 100px 32px;
 }
 
-.cta-content h2 {
-  font-size: clamp(36px, 5.5vw, 64px);
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -1.5px;
-  margin-bottom: 22px;
-  line-height: 1.08;
+.cta-banner h2 span,
+.cta-banner .cta-banner-h2 span,
+.cta-banner .g {
+  color: #2dff7a;
 }
 
-.cta-content p {
-  font-size: 18px;
-  color: var(--text);
+.cta-banner p,
+.cta-banner .cta-banner-p {
+  font-size: 17px;
+  color: rgba(200, 212, 200, 0.65);
   max-width: 580px;
-  margin: 0 auto 38px;
-  line-height: 1.68;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+  position: relative;
+  z-index: 2;
+  text-align: center;
 }
 
-.cta-btns {
+.cta-banner .cta-row,
+.cta-banner .cta-btns {
   display: flex;
   gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
 }
 
 /* ============================================================
@@ -2488,17 +2542,35 @@ footer {
    MOBILE VIEW TYPOGRAPHY & CENTERING (SITE-WIDE)
    ============================================================ */
 @media (max-width: 768px) {
-  h1, h2, h3, h4, h5, h6,
-  .hp-h1, .hp-h2, .hp-h3,
-  .section-title, .hero-eyebrow h1,
-  .why-title, .hero-title, .page-title,
-  .card-title, .pricing-name, .feature-title,
-  .stat-label, .bench-title, .title,
-  .workload-title, [class*="title"], [class*="heading"] {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .hp-h1,
+  .hp-h2,
+  .hp-h3,
+  .section-title,
+  .hero-eyebrow h1,
+  .why-title,
+  .hero-title,
+  .page-title,
+  .card-title,
+  .pricing-name,
+  .feature-title,
+  .stat-label,
+  .bench-title,
+  .title,
+  .workload-title,
+  [class*="title"],
+  [class*="heading"] {
     text-align: center !important;
   }
 
-  .hp-label, .section-label {
+  .hp-label,
+  .section-label {
     display: inline-flex !important;
     justify-content: center !important;
     text-align: center !important;
@@ -2506,8 +2578,13 @@ footer {
     margin-right: auto !important;
   }
 
-  .hp-sub, .section-sub, .hero-sub, .page-desc,
-  .workload-desc, .feature-desc, [class*="subtitle"] {
+  .hp-sub,
+  .section-sub,
+  .hero-sub,
+  .page-desc,
+  .workload-desc,
+  .feature-desc,
+  [class*="subtitle"] {
     text-align: center !important;
     margin-left: auto !important;
     margin-right: auto !important;

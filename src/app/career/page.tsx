@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import CtaSection from "@/features/cta/CtaSection";
 import Link from "next/link";
 import { Code2, Shield, Settings, Briefcase, ArrowRight } from "lucide-react";
 import { useParticleCanvas } from "@/hooks/useParticleCanvas";
@@ -295,6 +296,7 @@ export default function CareerPage() {
           </div>
         </div>
       </section>
+      <CtaSection source="career" />
     </div>
   );
 }

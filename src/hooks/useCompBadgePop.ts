@@ -22,7 +22,7 @@ export function useCompBadgePop(
         });
         observer.disconnect();
       },
-      { threshold: 0.3 },
+      { threshold: 0.1 },
     );
 
     observer.observe(section);

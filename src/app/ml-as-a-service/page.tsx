@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import CtaSection from "@/features/cta/CtaSection";
 import { BrainCircuit, Database, Lock, Cpu, Server, Layers, Workflow, Lightbulb, Code, Zap, Rocket, CheckCircle2, ArrowRight } from "lucide-react";
 import { HeroParticles } from "@/components/layout/HeroParticles";
 import PageEffects from "@/features/page-effects/PageEffects";
@@ -292,23 +293,7 @@ export default function MlServicePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-banner" style={{ borderTop: "1px solid var(--border)" }}>
-        <div className="cta-content">
-          <h2 className="hp-h2 mb-4">Start Building Without the Black Box</h2>
-          <p className="hp-sub" style={{ margin: "0 auto 40px", color: "var(--text)" }}>
-            Unlock flexible, high-performance ML infrastructure today.
-          </p>
-          
-          <div className="cta-row">
-            <Link href="/pricing" className="btn-launch" aria-label="View Pricing">
-              View Pricing
-            </Link>
-            <Link href="/contact?source=ml-as-a-service&cta=talk_to_an_architect_footer" className="btn-outline" aria-label="Talk to an Architect">
-              Talk to an Architect
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection source="ml-as-a-service" />
     </div>
     </PageEffects>
   );

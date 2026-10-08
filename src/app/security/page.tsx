@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CtaSection from "@/features/cta/CtaSection";
 import "../legal.css";
 
 export const metadata: Metadata = {
@@ -129,6 +130,7 @@ export default function SecurityPage() {
           </p>
         </section>
       </div>
+      <CtaSection source="security" />
     </main>
   );
 }

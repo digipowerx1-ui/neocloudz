@@ -44,6 +44,7 @@
 }
 
 @media (max-width: 768px) {
+
   /* Hero Section Fixes */
   .enterprise-page.about-page-container .hero-content {
     padding: 0 20px !important;
@@ -93,6 +94,10 @@
     padding: 0 !important;
   }
 
+  .mission-vision {
+    text-align: center !important;
+  }
+
   .mission-vision .hp-h2 {
     text-align: center !important;
     font-size: 28px !important;
@@ -101,15 +106,47 @@
   .vision-brief {
     padding: 20px !important;
     text-align: center !important;
+    border-left: none !important;
+    border-top: 2px solid var(--green) !important;
+    border-bottom: 2px solid var(--green) !important;
+    margin: 0 auto 32px !important;
   }
 
   .about-vision-specs {
     grid-template-columns: 1fr !important;
-    gap: 24px !important;
+    gap: 20px !important;
+    text-align: center !important;
+    justify-items: center !important;
+  }
+
+  .vision-spec-item {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
   }
 
   .mission-console {
-    padding: 24px !important;
+    padding: 32px 20px 24px !important;
+    text-align: center !important;
+  }
+
+  .mission-console .console-text {
+    text-align: center !important;
+  }
+
+  .mission-console .console-text p {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .mission-console .console-text > div {
+    justify-content: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 
   /* Architecture Grid */
@@ -137,7 +174,7 @@
     flex-direction: column !important;
   }
 
-  .sustainability-header-grid > div:first-child {
+  .sustainability-header-grid>div:first-child {
     text-align: center !important;
   }
 
@@ -168,12 +205,12 @@
     border: 1px solid rgba(45, 255, 122, 0.1) !important;
   }
 
-  .impact-stat > div:first-child {
+  .impact-stat>div:first-child {
     font-size: 22px !important;
     margin: 0 !important;
   }
-  
-  .impact-stat > div:last-child {
+
+  .impact-stat>div:last-child {
     text-align: right !important;
     max-width: 50% !important;
   }
@@ -230,8 +267,10 @@
   .enterprise-page .btn-outline {
     width: 100% !important;
     justify-content: center !important;
-    padding: 12px 20px !important; /* Reduced padding so it fits on one line */
-    font-size: 14px !important; /* Reduced font size to fit */
+    padding: 12px 20px !important;
+    /* Reduced padding so it fits on one line */
+    font-size: 14px !important;
+    /* Reduced font size to fit */
     white-space: nowrap !important;
   }
 
@@ -252,7 +291,7 @@
   .stats-grid-mini {
     grid-template-columns: 1fr !important;
   }
-  
+
   /* Even smaller buttons for very small screens if needed */
   .enterprise-page .btn-launch,
   .enterprise-page .btn-outline {

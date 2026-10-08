@@ -66,7 +66,7 @@ export function useAuditLogStream(
           observer.disconnect();
         }
       },
-      { threshold: 0.3 },
+      { threshold: 0.1 },
     );
 
     observer.observe(trigger);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import CtaSection from "@/features/cta/CtaSection";
 import {
   usePricingCardSparklines,
   usePricingCtaBurst,
@@ -855,40 +856,7 @@ export function PricingShell() {
       </section>
 
       {/* CTA */}
-      <div className="cta-banner">
-        <canvas id="wave-canvas" ref={ctaCanvasRef} aria-hidden="true" />
-        <div className="cta-inner">
-          <div
-            className="hp-label"
-            style={{ justifyContent: "center", marginBottom: 20 }}
-          >
-            Ready to Scale Your AI Infrastructure?
-          </div>
-          <h2>
-            Request Private Clusters<br />
-            <span>or Contact Sales.</span>
-          </h2>
-          <p>
-            Deploy a B200 in 60 seconds. No sales calls. No contracts. Cancel anytime.
-          </p>
-          <div className="cta-row">
-            <a href="/contact?source=pricing&cta=request_private_cluster" className="btn-launch" ref={ctaLaunchRef} aria-label="Request Private Clusters from pricing banner">
-              Request Private Clusters
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            <a href="/contact?source=pricing&cta=contact_sales" className="btn-outline-cta" aria-label="Contact Sales from pricing banner">
-              Contact Sales
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
+      <CtaSection source="pricing" />
 
     </div>
   );

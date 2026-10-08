@@ -61,9 +61,13 @@ export default function EnterpriseSecurity() {
 
       <div className="security-grid">
         <div>
-
-
-
+          <div className="shield-wrap" style={{ display: "flex", justifyContent: "flex-start", marginBottom: "24px" }}>
+            <svg className="shield-svg" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M40 4L8 18V44C8 64.8 21.6 84.1 40 92C58.4 84.1 72 64.8 72 44V18L40 4Z" stroke="#2dff7a" strokeWidth="2" strokeOpacity="0.4" fill="rgba(45, 255, 122, 0.04)" />
+              <circle ref={ringRef} cx="40" cy="48" r="40" stroke="#2dff7a" strokeWidth="1.5" strokeOpacity="0.3" fill="none" />
+              <path d="M30 48L37 55L50 40" stroke="#2dff7a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
           <div className="compliance-badges">
             {COMPLIANCE_BADGES.map((badge) => (
               <div

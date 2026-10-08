@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CtaSection from "@/features/cta/CtaSection";
 import PageEffects from "@/features/page-effects/PageEffects";
 import ProductHero from "@/features/products/ProductHero";
 import ProductLottieVisual from "@/features/products/ProductLottieVisual";
@@ -274,25 +275,7 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA */}
-      <section className="cta-banner" id="cta">
-        <div className="cta-content">
-          <h2>
-            Your AI Infrastructure <span className="g">Starts Here.</span>
-          </h2>
-          <p>
-            Request private clusters or launch on-demand AI instances on NVIDIA
-            Blackwell B200 in under 60 seconds.
-          </p>
-          <div className="cta-btns">
-            <Link href="/contact?source=products&cta=request_private_clusters_footer" className="btn btn-green btn-lg" aria-label="Request Private Clusters">
-              Request Private Clusters ▶
-            </Link>
-            <Link href="/contact?source=products&cta=contact_sales_footer" className="btn btn-outline btn-lg" aria-label="Contact Sales">
-              Contact Sales →
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection source="products" />
     </PageEffects>
   );
 }

@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import CtaSection from "@/features/cta/CtaSection";
 import { Server, Cpu, Layers, Activity, Lock, Users, Zap, Box, ArrowRight, CheckCircle2, Factory, Settings, ShieldCheck } from "lucide-react";
 import { HeroParticles } from "@/components/layout/HeroParticles";
 import PageEffects from "@/features/page-effects/PageEffects";
@@ -63,13 +64,15 @@ export default function AiFactoryPage() {
       {/* What Is Pod as a Service */}
       <section className="hp-section mid">
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div className="hp-label">HYBRID INFRASTRUCTURE</div>
-          <h2 className="hp-h2">
-            What is <strong className="g">Pod-as-a-Service?</strong>
-          </h2>
-          <p className="hp-sub" style={{ maxWidth: "800px", marginBottom: "48px" }}>
-            Pod-as-a-Service is a hybrid AI infrastructure model that lets enterprises deploy self-contained, containerized AI data center pods, while NeoCloudz manages everything required to operate them at production scale.
-          </p>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "48px" }}>
+            <div className="hp-label" style={{ justifyContent: "center" }}>HYBRID INFRASTRUCTURE</div>
+            <h2 className="hp-h2" style={{ textAlign: "center" }}>
+              What is <strong className="g">Pod-as-a-Service?</strong>
+            </h2>
+            <p className="hp-sub" style={{ maxWidth: "800px", margin: "16px auto 0", textAlign: "center" }}>
+              Pod-as-a-Service is a hybrid AI infrastructure model that lets enterprises deploy self-contained, containerized AI data center pods, while NeoCloudz manages everything required to operate them at production scale.
+            </p>
+          </div>
 
           <div className="ent-features-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
             <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)" }}>
@@ -332,23 +335,7 @@ export default function AiFactoryPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-banner" style={{ borderTop: "1px solid var(--border)" }}>
-        <div className="cta-content">
-          <h2 className="hp-h2 mb-4">Ready to Build the Next Generation of AI?</h2>
-          <p className="hp-sub" style={{ margin: "0 auto 40px", color: "var(--text)" }}>
-            Instant access to NVIDIA Blackwell B200 GPUs, U.S.-hosted, Supermicro-optimized, and built for scale.
-          </p>
-          
-          <div className="cta-row">
-            <Link href="/contact?source=ai-factory-as-a-service&cta=request_private_clusters" className="btn-launch" aria-label="Request Private Clusters">
-              Request Private Clusters
-            </Link>
-            <Link href="/contact?source=ai-factory-as-a-service&cta=contact_sales" className="btn-outline" aria-label="Contact Sales">
-              Contact Sales
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection source="ai-factory-as-a-service" />
     </div>
     </PageEffects>
   );

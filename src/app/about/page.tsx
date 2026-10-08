@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef } from "react";
+import CtaSection from "@/features/cta/CtaSection";
 import Link from "next/link";
 import { Droplet, Globe, Leaf, ArrowRight } from "lucide-react";
 import "../enterprise/enterprise.css";
@@ -491,6 +492,7 @@ export default function AboutPage() {
           }
         `}</style>
       </section>
+      <CtaSection source="about" />
     </div>
   );
 }

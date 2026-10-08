@@ -2,6 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
+import CtaSection from "@/features/cta/CtaSection";
 import { Server, Cpu, Cloud, Settings, Terminal, Map, Rocket, FlaskConical, Blocks, ArrowRight, ShieldCheck, Activity, Zap } from "lucide-react";
 import { HeroParticles } from "@/components/layout/HeroParticles";
 import PageEffects from "@/features/page-effects/PageEffects";
@@ -304,23 +305,7 @@ export default function GpuServicePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="cta-banner" style={{ borderTop: "1px solid var(--border)" }}>
-        <div className="cta-content">
-          <h2 className="hp-h2 mb-4">Ready to Build the Next Generation of AI?</h2>
-          <p className="hp-sub" style={{ margin: "0 auto 40px", color: "var(--text)" }}>
-            Instant access to NVIDIA Blackwell B200 GPUs, U.S.-hosted, Supermicro-optimized, and built for scale.
-          </p>
-
-          <div className="cta-row">
-            <Link href="/pricing" className="btn-launch" aria-label="View Pricing">
-              View Pricing
-            </Link>
-            <Link href="/contact?source=gpu-as-a-service&cta=talk_to_an_architect" className="btn-outline" aria-label="Talk to an Architect">
-              Talk to an Architect
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection source="gpu-as-a-service" />
     </div>
     </PageEffects>
   );

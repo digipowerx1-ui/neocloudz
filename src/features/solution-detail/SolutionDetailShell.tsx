@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import CtaSection from "@/features/cta/CtaSection";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
 import { useTrainingTerminal } from "@/hooks/useTrainingTerminal";
@@ -205,39 +206,7 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
         </div>
       </section>
 
-      <section className="cta-banner" id="cta">
-        <div className="cta-content">
-          <h2>
-            Your AI Infrastructure <span className="g">Starts Here.</span>
-          </h2>
-          <p>
-            Request private clusters or launch on-demand AI instances on NVIDIA
-            Blackwell B200 in under 60 seconds.
-          </p>
-          <div className="cta-btns">
-            <Link
-              href={`/contact?source=${source}&cta=request_private_cluster`}
-              className="btn btn-green btn-lg"
-              aria-label="Request Private Clusters"
-            >
-              Request Private Clusters
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-            <Link
-              href={`/contact?source=${source}&cta=contact_sales`}
-              className="btn btn-outline btn-lg"
-              aria-label="Contact Sales"
-            >
-              Contact Sales
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="ml-2" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CtaSection source={source} />
     </>
   );
 }

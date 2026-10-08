@@ -231,7 +231,7 @@
 }
 
 .blog-author strong,
-.blog-row-author > span {
+.blog-row-author>span {
   display: block;
   color: var(--white);
   font-size: 13px;
@@ -350,7 +350,7 @@
   margin: 36px 0 18px;
 }
 
-.blog-detail-content ul, 
+.blog-detail-content ul,
 .blog-detail-content ol {
   margin: 24px 0;
   padding-left: 24px;

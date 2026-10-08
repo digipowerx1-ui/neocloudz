@@ -79,7 +79,7 @@ export function useOnboardingTimeline(
         timers.push(setTimeout(() => loop(0), LOOP_START_DELAY_MS));
         observer.disconnect();
       },
-      { threshold: 0.3 },
+      { threshold: 0.1 },
     );
 
     observer.observe(section);

@@ -2161,7 +2161,7 @@
     gap: 12px;
   }
 
-  .pricing-page .btn-launch, 
+  .pricing-page .btn-launch,
   .pricing-page .btn-outline-cta {
     width: 100%;
     justify-content: center;
@@ -2267,5 +2267,6 @@
   display: block;
   flex-shrink: 0;
   position: relative;
-  top: 1px; /* Slight offset for optical centering */
+  top: 1px;
+  /* Slight offset for optical centering */
 }
