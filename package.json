@@ -11,7 +11,7 @@
   "dependencies": {
     "lottie-react": "^2.4.1",
     "lucide-react": "^1.12.0",
-    "next": "16.2.4",
+    "next": "^16.4.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "three": "^0.185.1"
@@ -25,10 +25,14 @@
     "autoprefixer": "^10.5.0",
     "clsx": "^2.1.1",
     "eslint": "^9",
-    "eslint-config-next": "16.2.4",
+    "eslint-config-next": "^16.4.0",
     "postcss": "^8.5.12",
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.4",
     "typescript": "^5"
+  },
+  "allowScripts": {
+    "sharp@0.35.5": true,
+    "unrs-resolver@1.12.2": true
   }
 }
