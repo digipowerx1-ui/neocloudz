@@ -40,27 +40,31 @@ const FEATURES: ReadonlyArray<FeatureCard> = [
 export default function EnterpriseWhy() {
   return (
     <section className="hp-section dark" id="why-enterprise">
-      <div className="hp-label reveal" style={{ maxWidth: "1200px", margin: "0 auto 16px" }}>
-        Why Enterprise
-      </div>
-      <div className="hp-h2 reveal" style={{ maxWidth: "1200px", margin: "0 auto 16px" }}>
-        Built for Teams That
-        <br />
-        <span className="g">Can&apos;t Afford Downtime.</span>
-      </div>
-      <p className="hp-sub reveal" style={{ maxWidth: "1200px", margin: "0 auto 0" }}>
-        Everything you need to run mission-critical AI with confidence — dedicated
-        hardware, private networking, and white-glove support.
-      </p>
-
-      <div className="ent-features-grid" style={{ maxWidth: "1200px", margin: "56px auto 0" }}>
-        {FEATURES.map((feature, idx) => (
-          <div key={feature.title} className={`ent-card reveal reveal-d${idx + 1}`}>
-            <div className="ent-icon">{feature.icon}</div>
-            <div className="ent-card-title">{feature.title}</div>
-            <div className="ent-card-desc">{feature.desc}</div>
+      <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: 56 }}>
+          <div className="hp-label reveal" style={{ justifyContent: "center" }}>
+            Why Enterprise
           </div>
-        ))}
+          <div className="hp-h2 reveal" style={{ textAlign: "center" }}>
+            Built for Teams That
+            <br />
+            <span className="g">Can&apos;t Afford Downtime.</span>
+          </div>
+          <p className="hp-sub reveal" style={{ margin: "0 auto", textAlign: "center" }}>
+            Everything you need to run mission-critical AI with confidence — dedicated
+            hardware, private networking, and white-glove support.
+          </p>
+        </div>
+
+        <div className="ent-features-grid" style={{ marginTop: 0 }}>
+          {FEATURES.map((feature, idx) => (
+            <div key={feature.title} className={`ent-card reveal reveal-d${idx + 1}`}>
+              <div className="ent-icon">{feature.icon}</div>
+              <div className="ent-card-title">{feature.title}</div>
+              <div className="ent-card-desc">{feature.desc}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

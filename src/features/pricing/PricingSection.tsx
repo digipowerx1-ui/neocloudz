@@ -6,14 +6,18 @@ export default function PricingSection() {
   return (
     <section className="pricing" id="pricing">
       <div className="section-inner">
-        <div className="section-label reveal">// Pricing</div>
-        <h2 className="section-title reveal">
-          Simple, Transparent <span className="g">GPU Pricing</span>
-        </h2>
-        <p className="section-sub reveal">
-          No hidden fees. No surprise egress charges. No minimum commitments
-          on entry plans. Pay for exactly what you use, billed per second.
-        </p>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div className="section-label reveal" style={{ justifyContent: "center" }}>
+            Pricing
+          </div>
+          <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+            Simple, Transparent <span className="g">GPU Pricing</span>
+          </h2>
+          <p className="section-sub reveal" style={{ margin: "16px auto 0", textAlign: "center" }}>
+            No hidden fees. No surprise egress charges. No minimum commitments
+            on entry plans. Pay for exactly what you use, billed per second.
+          </p>
+        </div>
 
         <div className="pricing-grid">
           {TIERS.map((t, i) => (

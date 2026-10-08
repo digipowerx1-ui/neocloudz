@@ -276,6 +276,9 @@
   color: var(--white);
   margin-bottom: 20px;
   padding-top: 60px;
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .pricing-page .hero-h1 .g {
@@ -471,6 +474,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
@@ -485,6 +489,7 @@
   height: 2px;
   background: var(--green);
   border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .pricing-page .hp-h2 {

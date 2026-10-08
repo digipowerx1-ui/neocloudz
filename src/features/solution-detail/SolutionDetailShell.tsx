@@ -43,8 +43,7 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
         <div className="aurora-3"></div>
 
         <div className="hero-content">
-          <div className="hero-tag">
-            <span className="hero-tag-dot"></span>
+          <div className="hp-label" style={{ justifyContent: "center", marginBottom: 28 }}>
             {data.eyebrow}
           </div>
           <h1>
@@ -81,7 +80,7 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
 
       <section className="solutions" id="detail">
         <div className="section-inner">
-          <div className="section-label reveal">// Solution Overview</div>
+          <div className="section-label reveal">Solution Overview</div>
           <h2 className="section-title reveal">
             Built for Every Stage of the <span className="g">AI Lifecycle.</span>
           </h2>
@@ -171,10 +170,14 @@ export default function SolutionDetailShell({ data }: { data: SolutionDetailData
 
       <section className="solutions" id="related" style={{ paddingTop: 0 }}>
         <div className="section-inner">
-          <div className="section-label reveal">// Explore More Solutions</div>
-          <h2 className="section-title reveal">
-            One platform. <span className="g">Every workload.</span>
-          </h2>
+          <div style={{ textAlign: "center", marginBottom: 32 }}>
+            <div className="section-label reveal" style={{ justifyContent: "center" }}>
+              Explore More Solutions
+            </div>
+            <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+              One platform. <span className="g">Every workload.</span>
+            </h2>
+          </div>
           <div
             style={{
               display: "grid",

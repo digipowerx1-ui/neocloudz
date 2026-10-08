@@ -5,7 +5,7 @@ export default function ContactFormSection() {
     <div className="form-panel" style={{ display: "flex", justifyContent: "center" }}>
       <div style={{ width: "100%", maxWidth: "560px", position: "relative", zIndex: 2 }}>
         <div style={{ marginBottom: "40px" }}>
-          <div className="form-section-label" style={{ color: "var(--green)", letterSpacing: "0.15em", fontSize: "11px", fontWeight: 800 }}>COMMUNICATIONS UPLINK</div>
+          <div className="hp-label" style={{ marginBottom: "16px" }}>Communications Uplink</div>
           <div className="form-title" style={{ fontSize: "48px", letterSpacing: "-1.5px", lineHeight: 1.1, marginBottom: "16px", color: "var(--white)", fontWeight: 800 }}>
             Let&apos;s build <br /> something <span style={{ color: "var(--green)" }}>massive.</span>
           </div>

@@ -31,8 +31,7 @@ export default function ProductHero() {
       <div className="aurora-3" style={{ zIndex: 2 }}></div>
 
       <div className="hero-content" style={{ position: "relative", zIndex: 10, textAlign: "center", maxWidth: 940, margin: "0 auto" }}>
-        <div className="hero-tag" style={{ marginBottom: 28 }}>
-          <span className="hero-tag-dot"></span>
+        <div className="hp-label" style={{ justifyContent: "center", marginBottom: 28 }}>
           Products
         </div>
         <h1 style={{ fontSize: "clamp(32px, 4vw, 58px)", lineHeight: 1.05, letterSpacing: "-1.5px", marginBottom: 24 }}>

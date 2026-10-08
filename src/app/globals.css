@@ -47,7 +47,8 @@ body {
   overflow-x: hidden;
 }
 
-.hp-label {
+.hp-label,
+.section-label {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -56,8 +57,26 @@ body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #2dff7a;
-  background-color: #0a0f0a;
+  background-color: transparent;
   opacity: 1 !important;
+  margin-bottom: 18px;
+}
+
+.hp-label::before,
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.hp-label.text-center,
+.section-label.text-center {
+  display: flex;
+  justify-content: center;
 }
 
 a {
@@ -344,18 +363,31 @@ nav {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(45, 255, 122, 0.08);
-  border: 1px solid rgba(45, 255, 122, 0.2);
+  background: transparent;
+  border: none;
   border-radius: 100px;
-  padding: 6px 18px;
+  padding: 0;
   margin-bottom: 28px;
-  font-family: var(--font-mono);
-  font-size: 12px;
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
   color: var(--green);
-  letter-spacing: .5px;
+  letter-spacing: 0.14em;
+}
+
+.hero-tag::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .hero-tag-dot {
+  display: none;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -615,9 +647,9 @@ section {
 }
 
 .section-label {
-  font-family: var(--font-mono);
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
-  letter-spacing: 3px;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--green);
   margin-bottom: 14px;

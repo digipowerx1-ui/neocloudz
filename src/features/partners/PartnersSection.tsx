@@ -16,7 +16,7 @@ export default function PartnersSection() {
     <section className="partners" id="partners">
       <div className="partners-header">
         <div className="section-label reveal text-center">
-          // Technology Partners
+          Technology Partners
         </div>
         <h2 className="section-title reveal text-center">
           Powered by <span className="g">Industry Leaders</span>

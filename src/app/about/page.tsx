@@ -31,10 +31,8 @@ export default function AboutPage() {
         </div>
 
         <div className="hero-content">
-          <div className="hero-terminal-line">
-            <span style={{ color: "var(--green-dim)" }}>&gt;</span>
-            <span id="hero-typed">about --vision "AI Infrastructure"</span>
-            <span className="cursor" aria-hidden="true">|</span>
+          <div className="hp-label" style={{ justifyContent: "center", marginBottom: 20 }}>
+            About Us
           </div>
 
           <h1 className="hero-h1">
@@ -87,14 +85,19 @@ export default function AboutPage() {
       {/* Our Mission Section - Redesigned as Technical Vision Console */}
       <section className="hp-section dark" style={{ padding: "140px 0" }}>
         <div className="section-inner about-section-inner" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", marginBottom: "64px" }}>
+            <div className="hp-label" style={{ justifyContent: "center" }}>OUR MISSION</div>
+            <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "20px" }}>
+              Democratizing <span className="g">High-Performance AI.</span>
+            </h2>
+            <p className="hp-sub" style={{ margin: "16px auto 0", textAlign: "center", maxWidth: "680px" }}>
+              Bridging the gap between foundation model complexity and infrastructure accessibility with raw, sustainable compute.
+            </p>
+          </div>
+
           <div className="mission-grid about-mission-grid" style={{ display: "grid", gap: "80px", alignItems: "start" }}>
 
             <div className="mission-vision">
-              <div className="hp-label">OUR MISSION</div>
-              <h2 className="hp-h2" style={{ textAlign: "left", marginBottom: "32px" }}>
-                Democratizing <br />
-                <span className="g">High-Performance AI.</span>
-              </h2>
 
               <div className="vision-brief" style={{
                 background: "rgba(255,255,255,0.02)",
@@ -295,19 +298,16 @@ export default function AboutPage() {
       <section className="hp-section dark" style={{ padding: "140px 0", position: "relative" }}>
         <div className="about-section-inner" style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
-          <div className="sustainability-header-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "80px", alignItems: "center", marginBottom: "80px" }}>
-            <div>
-              <div className="hp-label">SUSTAINABILITY</div>
-              <h2 className="hp-h2" style={{ textAlign: "left", marginBottom: "24px" }}>
-                Bio-Digital <br />
-                <span className="g">Optimization.</span>
-              </h2>
-              <p className="hp-sub" style={{ margin: 0, textAlign: "left" }}>
-                We engineer our infrastructure to minimize ecological footprint while maximizing computational density. Every watt is accounted for in our zero-waste energy lifecycle.
-              </p>
-            </div>
+          <div style={{ textAlign: "center", marginBottom: "64px" }}>
+            <div className="hp-label" style={{ justifyContent: "center" }}>SUSTAINABILITY</div>
+            <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "20px" }}>
+              Bio-Digital <span className="g">Optimization.</span>
+            </h2>
+            <p className="hp-sub" style={{ margin: "16px auto 40px", textAlign: "center", maxWidth: "680px" }}>
+              We engineer our infrastructure to minimize ecological footprint while maximizing computational density. Every watt is accounted for in our zero-waste energy lifecycle.
+            </p>
 
-            <div className="stats-grid-mini" style={{ background: "rgba(45,255,122,0.02)", border: "1px solid rgba(45,255,122,0.1)", borderRadius: "24px", padding: "40px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "32px" }}>
+            <div className="stats-grid-mini" style={{ background: "rgba(45,255,122,0.02)", border: "1px solid rgba(45,255,122,0.1)", borderRadius: "24px", padding: "32px 40px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", maxWidth: "900px", margin: "0 auto" }}>
               <div className="impact-stat">
                 <div style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>&lt;1.3</div>
                 <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Target PUE</div>
@@ -409,9 +409,8 @@ export default function AboutPage() {
             
             {/* Left: Action Center */}
             <div className="about-cta-copy" style={{ textAlign: "left" }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: "rgba(45,255,122,0.1)", border: "1px solid rgba(45,255,122,0.2)", borderRadius: "4px", padding: "6px 14px", marginBottom: "32px" }}>
-                <div style={{ width: "6px", height: "6px", background: "#2dff7a", borderRadius: "50%", animation: "pulse 2s infinite" }}></div>
-                <span style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "11px", fontWeight: 700, letterSpacing: "0.1em" }}>HUB_STATUS: STANDBY</span>
+              <div className="hp-label" style={{ marginBottom: "24px" }}>
+                Get Started Today
               </div>
 
               <h2 className="hp-h2" style={{ textAlign: "left", fontSize: "clamp(32px, 5vw, 64px)", lineHeight: 1.1, marginBottom: "32px" }}>

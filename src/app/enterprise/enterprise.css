@@ -207,8 +207,10 @@
   z-index: 20;
   padding: 0 40px;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   min-width: 0;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .enterprise-page .hero-terminal-line {
@@ -242,17 +244,29 @@
 }
 
 .enterprise-page .hero-h1 {
-  font-size: clamp(32px, 4vw, 58px);
+  font-size: clamp(30px, 3.8vw, 54px);
   font-weight: 800;
   color: var(--white);
   letter-spacing: -1.5px;
   line-height: 1.05;
   margin-bottom: 20px;
-  max-width: 100%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
   white-space: normal;
   word-break: normal;
-  overflow-wrap: anywhere;
- 
+  text-align: center;
+}
+
+.enterprise-page .hero-h1-line {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .enterprise-page .hero-h1-line {
+    white-space: normal;
+  }
 }
 
 .enterprise-page .hero-h1 .g {
@@ -267,6 +281,7 @@
   line-height: 1.65;
   white-space: normal;
   overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .enterprise-page .hero-cta {
@@ -535,24 +550,26 @@
 }
 
 .enterprise-page .hp-label {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-family: var(--font-mono);
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--green);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
-.enterprise-page .hp-label::before,
-.enterprise-page .hp-label::after {
+.enterprise-page .hp-label::before {
   content: "";
-  flex: 1;
-  height: 1px;
-  background: rgba(45, 255, 122, 0.18);
+
+  width: 18px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 1px;
+  flex-shrink: 0;
 }
 
 .enterprise-page .hp-h2 {
@@ -2317,6 +2334,24 @@
 }
 
 /* ── CAREER PAGE RESPONSIVENESS ── */
+.enterprise-page.career-page .hero-content,
+.enterprise-page.career-page .career-hero-content {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.enterprise-page.career-page .hero-h1,
+.enterprise-page.career-page .hp-h2 {
+  text-align: center;
+}
+
+.enterprise-page.career-page .hero-h1 .g,
+.enterprise-page.career-page .hp-h2 .g {
+  color: var(--green);
+  text-align: center;
+}
+
 .enterprise-page.career-page .career-section-inner {
   width: min(1200px, calc(100% - 48px));
   margin-left: auto !important;

@@ -2,15 +2,7 @@
 
 import { useRef } from "react";
 import { useParticleCanvas } from "@/hooks/useParticleCanvas";
-import { useTypingTerminal } from "@/hooks/useTypingTerminal";
 import { useEnterpriseLiveStrip } from "@/hooks/useEnterpriseLiveStrip";
-
-const HERO_COMMANDS = [
-  "enterprise --dedicated --sla 99.99",
-  "cluster init --gpu b300 --count 64",
-  "vpc link --private --infiniband 400g",
-  "compliance audit --soc2 --hipaa --gdpr",
-];
 
 interface AuroraBand {
   background: string;
@@ -53,7 +45,6 @@ interface CssVars extends React.CSSProperties {
 export default function EnterpriseHero() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   useParticleCanvas(canvasRef);
-  const typed = useTypingTerminal(HERO_COMMANDS);
   const live = useEnterpriseLiveStrip();
 
   return (
@@ -89,20 +80,18 @@ export default function EnterpriseHero() {
       })}
 
       <div className="hero-content">
-        <div className="hero-terminal-line">
-          <span style={{ color: "var(--green-dim)" }}>&gt;</span>
-          <span id="hero-typed">{typed}</span>
-          <span className="cursor" aria-hidden="true">|</span>
+        <div className="hp-label" style={{ justifyContent: "center", marginBottom: 20 }}>
+          Enterprise
         </div>
 
         <h1 className="hero-h1">
-          Build, Deploy, and Scale Massive.
+          <span className="hero-h1-line">Build, Deploy, and Scale Massive.</span>
           <br />
           <strong className="g">GPU Clusters — On Demand.</strong>
         </h1>
 
         <p className="hero-sub">
-          Build, Deploy, and Scale Massive GPU Clusters — On Demand
+          Private bare-metal clusters, dedicated InfiniBand networking, and 99.99% uptime SLA engineered for hyperscale AI.
         </p>
 
         <div className="hero-cta">

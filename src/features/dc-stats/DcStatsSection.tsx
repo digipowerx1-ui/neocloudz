@@ -37,16 +37,18 @@ export default function DcStatsSection() {
   return (
     <section className="dc-stats" id="datacenter">
       <div className="section-inner">
-        <div className="section-label reveal">
-          // Data Centers
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div className="section-label reveal" style={{ justifyContent: "center" }}>
+            Data Centers
+          </div>
+          <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+            Built to <span className="g">Last. Built to Scale.</span>
+          </h2>
+          <p className="section-sub reveal" style={{ margin: "16px auto 0", textAlign: "center" }}>
+            Every NeoCloudz facility meets the highest standards for
+            availability, security, and power efficiency.
+          </p>
         </div>
-        <h2 className="section-title reveal">
-          Built to <span className="g">Last. Built to Scale.</span>
-        </h2>
-        <p className="section-sub reveal">
-          Every NeoCloudz facility meets the highest standards for
-          availability, security, and power efficiency.
-        </p>
         <div className="dc-grid">
           {STATS.map((s, i) => (
             <div key={s.label} className={`dc-stat reveal reveal-delay-${i + 1}`}>

@@ -60,15 +60,19 @@ export default function WhySection() {
   return (
     <section className="why" id="why">
       <div className="section-inner">
-        <div className="section-label reveal">// Why NeoCloudz</div>
-        <h2 className="section-title reveal">
-          Five Reasons <span className="g">Teams Choose Us</span>
-        </h2>
-        <p className="section-sub reveal">
-          We built NeoCloudz because AI teams deserved better than repurposed
-          cloud infrastructure with unpredictable pricing and shared hardware
-          degrading your performance.
-        </p>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div className="section-label reveal" style={{ justifyContent: "center" }}>
+            Why NeoCloudz
+          </div>
+          <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+            Five Reasons <span className="g">Teams Choose Us</span>
+          </h2>
+          <p className="section-sub reveal" style={{ margin: "16px auto 0", textAlign: "center" }}>
+            We built NeoCloudz because AI teams deserved better than repurposed
+            cloud infrastructure with unpredictable pricing and shared hardware
+            degrading your performance.
+          </p>
+        </div>
 
         <div className="pillars">
           {PILLARS.map((pillar, i) => (

@@ -20,9 +20,8 @@ export default function HeroSection() {
       <div className="aurora-3"></div>
 
       <div className="hero-content">
-        <div className="hero-tag">
-          <span className="hero-tag-dot"></span>
-          The Future of AI Compute Starts Here
+        <div className="hp-label" style={{ justifyContent: "center", marginBottom: 28 }}>
+          Solutions
         </div>
 
         <h1>

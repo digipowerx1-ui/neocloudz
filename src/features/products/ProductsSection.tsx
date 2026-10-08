@@ -4,14 +4,18 @@ export default function ProductsSection() {
   return (
     <section className="products" id="products">
       <div className="section-inner">
-        <div className="section-label reveal">// Products</div>
-        <h2 className="section-title reveal">
-          Three Products. <span className="g">One Platform.</span>
-        </h2>
-        <p className="section-sub reveal">
-          Every NeoCloudz product is built on the same NVIDIA Blackwell B200
-          foundation &mdash; differentiated by scale, automation, and control level.
-        </p>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div className="section-label reveal" style={{ justifyContent: "center" }}>
+            Products
+          </div>
+          <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+            Three Products. <span className="g">One Platform.</span>
+          </h2>
+          <p className="section-sub reveal" style={{ margin: "16px auto 0", textAlign: "center" }}>
+            Every NeoCloudz product is built on the same NVIDIA Blackwell B200
+            foundation &mdash; differentiated by scale, automation, and control level.
+          </p>
+        </div>
 
         <div className="products-grid">
           <div className="prod-card reveal reveal-delay-1" id="factory">

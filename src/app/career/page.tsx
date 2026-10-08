@@ -48,24 +48,24 @@ export default function CareerPage() {
           <div className="aurora-band" style={{ background: "rgba(77,200,255,0.3)", top: "50%", "--adur": "22s", "--adel": "3s" } as React.CSSProperties} />
         </div>
 
-        <div className="hero-content career-hero-content" style={{ marginTop: "-2vh", zIndex: 10, position: "relative" }}>
-          <div className="hero-terminal-line" style={{ paddingTop: 60 }}>
-            <span style={{ color: "var(--green-dim)" }}>&gt;</span>
-            <span id="hero-typed">careers --view open-roles</span>
-            <span className="cursor" aria-hidden="true">|</span>
+        <div className="hero-content career-hero-content" style={{ marginTop: "-2vh", zIndex: 10, position: "relative", textAlign: "center", margin: "0 auto" }}>
+          <div style={{ display: "flex", justifyContent: "center", marginBottom: 20 }}>
+            <div className="hp-label" style={{ margin: 0 }}>
+              Careers
+            </div>
           </div>
 
-          <h1 className="hero-h1">
+          <h1 className="hero-h1" style={{ textAlign: "center" }}>
             Build the Future of
             <br />
             <strong className="g">AI Compute.</strong>
           </h1>
 
-          <p className="hero-sub" style={{ maxWidth: "650px" }}>
+          <p className="hero-sub" style={{ maxWidth: "650px", margin: "0 auto 36px", textAlign: "center" }}>
             Join a global mission powering the world's data, AI workloads, and next-generation sustainable infrastructure. Whether you innovate, design, build, or support—your skills will shape the next generation of infrastructure.
           </p>
 
-          <div className="hero-cta">
+          <div className="hero-cta" style={{ display: "flex", justifyContent: "center" }}>
             <a href="#open-roles" className="btn-launch" aria-label="View Open Roles">
               View Open Roles <ArrowRight size={18} aria-hidden="true" />
             </a>
@@ -78,13 +78,17 @@ export default function CareerPage() {
         <div style={{ position: "absolute", inset: 0, opacity: 0.03, backgroundImage: "linear-gradient(rgba(45, 255, 122, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 255, 122, 0.5) 1px, transparent 1px)", backgroundSize: "100px 100px", pointerEvents: "none" }} />
         
         <div className="career-section-inner" style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 2 }}>
-          <div className="hp-label" style={{ justifyContent: "center" }}>RECRUITMENT PIPELINE</div>
-          <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "12px" }}>
-            Career <strong className="g">Pathways</strong>
-          </h2>
-          <p className="hp-sub" style={{ textAlign: "center", margin: "0 auto 72px", maxWidth: "600px", fontSize: "17px" }}>
-            Select a specialized track to begin your integration into the NeoCloudz global infrastructure team.
-          </p>
+          <div style={{ textAlign: "center", marginBottom: "72px" }}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
+              <div className="hp-label" style={{ margin: 0 }}>RECRUITMENT PIPELINE</div>
+            </div>
+            <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "12px" }}>
+              Career <strong className="g">Pathways</strong>
+            </h2>
+            <p className="hp-sub" style={{ textAlign: "center", margin: "0 auto", maxWidth: "600px", fontSize: "17px" }}>
+              Select a specialized track to begin your integration into the NeoCloudz global infrastructure team.
+            </p>
+          </div>
 
           <div className="ent-features-grid career-pathways-grid" style={{ gap: "32px" }}>
             {[
@@ -200,13 +204,17 @@ export default function CareerPage() {
       {/* Open Roles Section */}
       <section className="hp-section dark" id="open-roles" style={{ position: "relative", padding: "140px 80px" }}>
         <div className="career-section-inner" style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div className="hp-label" style={{ justifyContent: "center" }}>RECRUITMENT SPECIFICATIONS</div>
-          <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "16px" }}>
-            Open <strong className="g">Integrations</strong>
-          </h2>
-          <p className="hp-sub" style={{ textAlign: "center", margin: "0 auto 80px", maxWidth: "600px", fontSize: "16px" }}>
-            Current operational slots within the NeoCloudz ecosystem. Each track requires specific technical compatibility.
-          </p>
+          <div style={{ textAlign: "center", marginBottom: "80px" }}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: "16px" }}>
+              <div className="hp-label" style={{ margin: 0 }}>RECRUITMENT SPECIFICATIONS</div>
+            </div>
+            <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "16px" }}>
+              Open <strong className="g">Integrations</strong>
+            </h2>
+            <p className="hp-sub" style={{ textAlign: "center", margin: "0 auto", maxWidth: "600px", fontSize: "16px" }}>
+              Current operational slots within the NeoCloudz ecosystem. Each track requires specific technical compatibility.
+            </p>
+          </div>
 
           <div className="career-roles-list" style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
             {OPEN_ROLES.map((role, idx) => (

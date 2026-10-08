@@ -47,7 +47,7 @@ export function HomeGpuCatalog() {
   useGpuCatalogSparklines(ref);
   return (
     <section className="hp-section dark" id="gpus" ref={ref}>
-      <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>GPU Catalog</div>
+      <div className="hp-label">GPU Catalog</div>
       <div className="hp-h2">
         The World&#39;s Most Powerful<br />
         <span className="g">AI Compute — On Demand.</span>
@@ -136,7 +136,7 @@ export function HomeNvlink() {
   useNvlinkCanvas(ref);
   return (
     <div className="nvlink-section reveal">
-      <div className="hp-label" style={{ justifyContent: "center", backgroundColor: "#0f1410", color: "#2dff7a" }}>
+      <div className="hp-label" style={{ justifyContent: "center" }}>
         NVLink 4.0 · All-to-All Mesh
       </div>
       <div className="hp-h2" style={{ fontSize: "clamp(24px,2.5vw,38px)" }}>
@@ -174,49 +174,56 @@ export function HomeLogos() {
   );
 }
 
+const INFRASTRUCTURE_PARTNERS = [
+  {
+    id: "supermicro",
+    logo: "/1.png",
+    alt: "Supermicro Server Infrastructure Partner",
+    desc: "Provides the state-of-the-art GPU architecture that is optimized for high-performance AI training and inference workloads.",
+  },
+  {
+    id: "nvidia",
+    logo: "/2.png",
+    alt: "NVIDIA Technology Partner",
+    desc: "Delivers the high-density, server hardware platforms designed to support massive scale and compute-intensive applications.",
+  },
+  {
+    id: "certac",
+    logo: "/images/image-8-1.svg",
+    alt: "Tier III Certified Data Center Facility",
+    desc: "Certifies the data center facilities as Tier III, ensuring enterprise-grade reliability through redundant power and cooling systems.",
+  },
+  {
+    id: "digipower",
+    logo: "/3.png",
+    alt: "DigiPowerX Sustainable Energy Partner",
+    desc: "Supplies energy-optimized power solutions to lower the carbon impact of the infrastructure, promoting sustainable operations.",
+  },
+];
+
 export function HomePartners() {
   return (
     <section className="partners-section reveal">
-      <div className="section-inner">
+      <div className="section-inner" style={{ textAlign: "center" }}>
+        <div className="hp-label" style={{ justifyContent: "center", marginBottom: "16px" }}>
+          Infrastructure Ecosystem
+        </div>
         <p className="partners-intro">
           Engineered with the world&#39;s most advanced AI infrastructure partners.
         </p>
         <div className="partners-grid">
-          <div className="partner-card">
-            <div className="partner-logo-area">
-              <img src="/1.png" alt="NVIDIA Technology Partner" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
+          {INFRASTRUCTURE_PARTNERS.map((partner) => (
+            <div key={partner.id} className="partner-card">
+              <div className="partner-logo-area">
+                <img
+                  src={partner.logo}
+                  alt={partner.alt}
+                  className={`partner-logo-img logo-${partner.id}`}
+                />
+              </div>
+              <p className="partner-desc">{partner.desc}</p>
             </div>
-            <p className="partner-desc">
-              Provides the state-of-the-art GPU architecture that is optimized for high-performance AI training and inference workloads.
-            </p>
-          </div>
-
-          <div className="partner-card">
-            <div className="partner-logo-area">
-              <img src="/2.png" alt="Supermicro Server Infrastructure Partner" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
-            </div>
-            <p className="partner-desc">
-              Delivers the high-density, server hardware platforms designed to support massive scale and compute-intensive applications.
-            </p>
-          </div>
-
-          <div className="partner-card">
-           <div className="partner-logo-area">
-              <img src="/images/image-8-1.svg" alt="Tier III Certified Data Center Facility" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
-            </div>
-            <p className="partner-desc">
-              Certifies the data center facilities as Tier III, ensuring enterprise-grade reliability through redundant power and cooling systems.
-            </p>
-          </div>
-
-          <div className="partner-card">
-            <div className="partner-logo-area">
-              <img src="/3.png" alt="DigiPowerX Sustainable Energy Partner" style={{ maxHeight: '100%', maxWidth: '100%', objectFit: 'contain' }} />
-            </div>
-            <p className="partner-desc">
-              Supplies energy-optimized power solutions to lower the carbon impact of the infrastructure, promoting sustainable operations.
-            </p>
-          </div>
+          ))}
         </div>
       </div>
     </section>
@@ -279,7 +286,7 @@ export function HomeBenchmark() {
     <div className="bench-section" ref={ref}>
       <div className="bench-grid">
         <div className="bench-intro">
-          <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>Performance</div>
+          <div className="hp-label">Performance</div>
           <div className="hp-h2" style={{ fontSize: "clamp(26px,2.8vw,42px)" }}>
             Fastest Bare-Metal<br />
             <span className="g">On the Planet.</span>
@@ -358,7 +365,7 @@ export function HomeRack() {
         <div className="rack-badge">H100 SXM5 × 8</div>
       </div>
       <div className="rack-content">
-        <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>AI-Ready Infrastructure</div>
+        <div className="hp-label">AI-Ready Infrastructure</div>
         <div className="hp-h2" style={{ fontSize: "clamp(24px,2.5vw,38px)" }}>
           NVL72 Rack.<br />
           <span className="g">Fully Dedicated.</span>
@@ -412,7 +419,7 @@ export function HomePricing() {
   return (
     <section className="hp-section mid" id="pricing" ref={sectionRef}>
 
-      <div className="hp-label" style={{ backgroundColor: "#0f1410", color: "#2dff7a" }}>Pricing</div>
+      <div className="hp-label">Pricing</div>
       <div className="hp-h2">
         Simple, <span className="g">Transparent Pricing.</span>
       </div>
@@ -466,56 +473,62 @@ interface WhyItem {
   desc: string;
 }
 
-const WHY_ITEMS: WhyItem[] = [
+const WHY_ITEMS: Array<WhyItem & { color: string; colorRgb: string }> = [
   {
+    color: "var(--green)",
+    colorRgb: "45, 255, 122",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" opacity="0.3" strokeWidth="3" filter="blur(2px)" />
       </svg>
     ),
     title: "Peak Performance",
     desc: "NVIDIA GPU architectures optimized for AI training and inference.",
   },
   {
+    color: "var(--blue)",
+    colorRgb: "77, 200, 255",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-        <path d="M12 8v8M8 12h8" opacity="0.5" />
-        <circle cx="12" cy="12" r="9" opacity="0.1" fill="var(--blue)" />
+        <path d="M12 8v8M8 12h8" opacity="0.65" />
       </svg>
     ),
     title: "Enterprise Reliability",
     desc: "Tier III U.S. data centers with redundant power and cooling.",
   },
   {
+    color: "var(--green)",
+    colorRgb: "45, 255, 122",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M21 3l-6.5 6.5M21 3h-6M21 3v6M3 21l6.5-6.5M3 21h6M3 21v-6M21 21l-6.5-6.5M21 21v-6M21 21h-6M3 3l6.5 6.5M3 3v6M3 3h6" />
-        <circle cx="12" cy="12" r="3" fill="var(--green)" opacity="0.2" />
       </svg>
     ),
     title: "Seamless Scaling",
     desc: "Expand from a single instance to multi-rack clusters in seconds.",
   },
   {
+    color: "var(--amber)",
+    colorRgb: "255, 184, 77",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--amber)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="2" y="7" width="16" height="10" rx="2" ry="2" />
         <path d="M22 11v2" />
-        <path d="M6 10l2 2-2 2" stroke="var(--amber)" opacity="0.8" />
-        <path d="M10 10l2 2-2 2" stroke="var(--amber)" opacity="0.5" />
+        <path d="M6 10l2 2-2 2" opacity="0.8" />
+        <path d="M10 10l2 2-2 2" opacity="0.5" />
       </svg>
     ),
     title: "Sustainable Power",
     desc: "Energy-optimized systems from DigiPowerX for lower carbon impact.",
   },
   {
+    color: "var(--blue)",
+    colorRgb: "77, 200, 255",
     icon: (
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--text)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
         <circle cx="12" cy="12" r="3" />
-        <path d="M12 5v2M12 17v2M5 12H7M17 12h2" opacity="0.4" />
       </svg>
     ),
     title: "Transparent Access",
@@ -527,26 +540,40 @@ export function HomeWhy() {
   const ref = useRef<HTMLElement>(null);
   return (
     <section className="hp-section dark" id="why" ref={ref}>
-      <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>Why NeoCloudz</div>
-      <div className="hp-h2">
-        Purpose-Built for Performance<br />
-        <span className="g">Our GPU-as-a-Service platform delivers:</span>
+      <div style={{ textAlign: "center", marginBottom: "52px" }}>
+        <div className="hp-label" style={{ justifyContent: "center", marginBottom: "16px" }}>
+          Why NeoCloudz
+        </div>
+        <h2 className="hp-h2" style={{ textAlign: "center", margin: "0 auto", maxWidth: "900px" }}>
+          Purpose-Built for Performance
+          <br />
+          <span className="g">Our GPU-as-a-Service platform delivers:</span>
+        </h2>
       </div>
 
       <div className="why-grid">
         <div className="why-features">
           {WHY_ITEMS.map((it, i) => (
-            <div className="why-item" key={i}>
-              <div className="why-icon" aria-hidden="true">
-                {it.iconImg ? (
-                  <img src={it.iconImg} alt="" style={{ width: "32px", height: "32px", objectFit: "contain" }} aria-hidden="true" />
-                ) : (
-                  it.icon
-                )}
+            <div
+              className="why-item"
+              key={i}
+              style={{
+                "--item-color": it.color,
+                "--item-rgb": it.colorRgb,
+              } as React.CSSProperties}
+            >
+              <div
+                className="why-icon"
+                aria-hidden="true"
+                style={{
+                  color: it.color,
+                }}
+              >
+                {it.icon}
               </div>
-              <div>
-                <div className="why-title">{it.title}</div>
-                <div className="why-desc">{it.desc}</div>
+              <div className="why-content">
+                <h3 className="why-title">{it.title}</h3>
+                <p className="why-desc">{it.desc}</p>
               </div>
             </div>
           ))}
@@ -620,7 +647,7 @@ export function HomeStorage() {
     <section className="hp-section mid" id="storage" ref={sectionRef}>
       <canvas id="dataflow-canvas" ref={dataflowRef} aria-hidden="true" />
       <div className="storage-header">
-        <div className="hp-label" style={{ backgroundColor: "#0f1410", color: "#2dff7a" }}>WEKA Storage</div>
+        <div className="hp-label">WEKA Storage</div>
         <div className="hp-h2">
           Storage That Keeps Up<br />
           <span className="g">With Blackwell.</span>
@@ -745,6 +772,7 @@ export function HomeTokenFactory() {
             
             {/* Left Column: Product details & waitlist hacker terminal */}
             <div className="tf-left-col">
+              <div className="hp-label" style={{ marginBottom: "16px" }}>Token Factory</div>
               <div className="tf-badge">COMING SOON</div>
               
               <h2 className="tf-title">
@@ -909,7 +937,7 @@ export function HomeFaq() {
     <section className="hp-section dark" id="faq">
       <div className="faq-grid">
         <div className="faq-sidebar">
-          <div className="hp-label" style={{ backgroundColor: "#0a0f0a", color: "#2dff7a" }}>FAQ</div>
+          <div className="hp-label">FAQ</div>
           <h2>
             Common<br />
             Questions.
@@ -947,8 +975,6 @@ export function HomeCta() {
           marginBottom: "20px",
           position: "relative",
           zIndex: 2,
-          backgroundColor: "#0a1a0a",
-          color: "#2dff7a",
         }}
       >
         Get Started Today
@@ -1039,8 +1065,11 @@ export function HomeWorkloads() {
     <section className="hp-section mid" id="workloads">
       <div className="section-inner">
         <div className="hp-section-header">
-          <h2 className="section-title">Optimized for <span className="g">Every AI and HPC Workload</span></h2>
-          <p className="section-sub">
+          <div className="hp-label">AI Workloads</div>
+          <h2 className="hp-h2 section-title">
+            Optimized for <span className="g">Every AI and HPC Workload.</span>
+          </h2>
+          <p className="hp-sub section-sub">
             From research labs to production AI, NeoCloudz delivers the right
             infrastructure for your use case, out of the box.
           </p>

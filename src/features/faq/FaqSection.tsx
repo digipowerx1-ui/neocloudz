@@ -25,7 +25,7 @@ export default function FaqSection() {
   return (
     <section className="faq" id="faq">
       <div className="section-inner">
-        <div className="section-label reveal text-center">// FAQ</div>
+        <div className="section-label reveal text-center">FAQ</div>
         <h2 className="section-title reveal text-center">
           Common <span className="g">Questions</span>
         </h2>

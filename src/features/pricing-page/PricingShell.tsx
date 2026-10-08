@@ -327,15 +327,13 @@ export function PricingShell() {
         </div>
 
         <div className="hero-content">
-          {/* <div className="hero-eyebrow">GPU Cloud Pricing</div>
-          <div className="hero-terminal-line">
-            <span ref={typingRef}>&gt; neocloudz pricing --model blackwell</span>
-            <span className="cursor" />
-          </div> */}
+          <div className="hp-label" style={{ justifyContent: "center", marginBottom: 20 }}>
+            Pricing
+          </div>
           <h1 className="hero-h1">
-            Simple, Transparent<br />
-            <span className="g">GPU Pricing</span> Scale<br />
-            Without Surprises.
+            Simple, Transparent <span className="g">GPU Pricing</span>
+            <br />
+            Scale Without Surprises.
           </h1>
           <p className="hero-sub">
             Competitive pricing for NVIDIA GPUs. Access improved cost savings with a
@@ -402,7 +400,7 @@ export function PricingShell() {
 
       {/* PLAN TOGGLE */}
       <div className="plan-toggle-section">
-        <div className="plan-toggle-label">Billing plan</div>
+        <div className="hp-label" style={{ justifyContent: "center" }}>Billing Plan</div>
         <div className="plan-toggle-pills" ref={pillContainerRef}>
           <div className="pill-slider" ref={pillSliderRef} style={{ width: 140 }} />
           <button
@@ -539,13 +537,13 @@ export function PricingShell() {
 
       {/* CALCULATOR */}
       <section className="calc-section" id="calculator">
-        <div className="calc-header" style={{ marginBottom: 60 }}>
-          <div className="hp-label reveal">Cost Calculator</div>
-          <div className="hp-h2 reveal">
+        <div className="calc-header" style={{ marginBottom: 60, textAlign: "center" }}>
+          <div className="hp-label reveal" style={{ justifyContent: "center" }}>Cost Calculator</div>
+          <div className="hp-h2 reveal" style={{ textAlign: "center" }}>
             Estimate Your<br />
             <span className="g">Monthly Spend.</span>
           </div>
-          <p className="hp-sub reveal">
+          <p className="hp-sub reveal" style={{ margin: "0 auto", textAlign: "center" }}>
             Configure your workload and see exactly what you&#39;ll pay. Compare
             against major cloud providers in real time.
           </p>
@@ -719,13 +717,13 @@ export function PricingShell() {
       <div className="anim-divider" />
 
       {/* COMMITMENT TIERS */}
-      <section className="tiers-section" id="tiers">
-        <div className="hp-label reveal">Commitment Tiers</div>
-        <div className="hp-h2 reveal">
+      <section className="tiers-section" id="tiers" style={{ textAlign: "center" }}>
+        <div className="hp-label reveal" style={{ justifyContent: "center" }}>Commitment Tiers</div>
+        <div className="hp-h2 reveal" style={{ textAlign: "center" }}>
           More Commitment,<br />
           <span className="g">More Savings.</span>
         </div>
-        <p className="hp-sub reveal">
+        <p className="hp-sub reveal" style={{ margin: "0 auto", textAlign: "center" }}>
           Lock in compute at reduced rates. Reserved instances guarantee availability
           during high-demand periods.
         </p>
@@ -771,13 +769,13 @@ export function PricingShell() {
       <div className="anim-divider" />
 
       {/* FEATURE MATRIX */}
-      <section className="matrix-section" id="matrix">
-        <div className="hp-label reveal">Platform Comparison</div>
-        <div className="hp-h2 reveal">
+      <section className="matrix-section" id="matrix" style={{ textAlign: "center" }}>
+        <div className="hp-label reveal" style={{ justifyContent: "center" }}>Platform Comparison</div>
+        <div className="hp-h2 reveal" style={{ textAlign: "center" }}>
           Why Choose<br />
           <span className="g">NeoCloudz.</span>
         </div>
-        <p className="hp-sub reveal">
+        <p className="hp-sub reveal" style={{ margin: "0 auto 40px", textAlign: "center" }}>
           All instances run on Supermicro AI-optimized servers in U.S. Tier III data centers.
         </p>
 

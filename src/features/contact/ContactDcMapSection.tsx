@@ -10,7 +10,7 @@ export default function ContactDcMapSection() {
   return (
     <div className="dc-section">
       <div className="dc-inner">
-        <div className="dc-label">Global Infrastructure</div>
+        <div className="hp-label" style={{ justifyContent: "center", marginBottom: 16 }}>Global Infrastructure</div>
         <div className="dc-title">
           Your Cluster, <span>Anywhere.</span>
         </div>

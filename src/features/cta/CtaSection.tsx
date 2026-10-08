@@ -11,6 +11,9 @@ export default function CtaSection() {
     <section className="cta-banner" id="cta">
       <canvas id="wave-canvas" ref={canvasRef} aria-hidden="true"></canvas>
       <div className="cta-content">
+        <div className="hp-label" style={{ justifyContent: "center", marginBottom: "20px" }}>
+          Get Started Today
+        </div>
         <h2>
           Start Building on <span className="g">Blackwell.</span>
         </h2>

@@ -45,14 +45,14 @@ export default function EnterpriseSecurity() {
 
   return (
     <section ref={sectionRef} className="hp-section dark" id="security">
-      <div className="security-header" style={{ marginBottom: 60 }}>
-        <div className="hp-label reveal">Security &amp; Compliance</div>
-        <div className="hp-h2 reveal">
+      <div className="security-header" style={{ maxWidth: "1200px", margin: "0 auto 60px", textAlign: "center" }}>
+        <div className="hp-label reveal" style={{ justifyContent: "center" }}>Security &amp; Compliance</div>
+        <div className="hp-h2 reveal" style={{ textAlign: "center" }}>
           Enterprise-Grade Security.
           <br />
           <span className="g">Not An Afterthought.</span>
         </div>
-        <p className="hp-sub reveal">
+        <p className="hp-sub reveal" style={{ margin: "0 auto", textAlign: "center" }}>
           Every cluster ships with a comprehensive security posture — hardened OS
           images, encrypted volumes, immutable audit logs, and continuous compliance
           monitoring.

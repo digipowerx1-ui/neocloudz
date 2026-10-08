@@ -67,8 +67,7 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
         <div className="aurora-3"></div>
 
         <div className="hero-content">
-          <div className="hero-tag">
-            <span className="hero-tag-dot"></span>
+          <div className="hp-label" style={{ justifyContent: "center", marginBottom: 28 }}>
             {data.eyebrow}
           </div>
           <h1>
@@ -100,7 +99,7 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
       {/* OFFERINGS */}
       <section className="products" id="offerings">
         <div className="section-inner">
-          <div className="section-label reveal">// {data.offeringsLabel}</div>
+          <div className="section-label reveal">{data.offeringsLabel}</div>
           <h2 className="section-title reveal">
             {data.offeringsTitle} <span className="g">{data.offeringsAccent}</span>
           </h2>
@@ -122,7 +121,7 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
       {/* DEEP DIVE FEATURE BLOCK */}
       <section className="solutions" id="feature">
         <div className="section-inner">
-          <div className="section-label reveal">// {data.featureLabel}</div>
+          <div className="section-label reveal">{data.featureLabel}</div>
           <h2 className="section-title reveal">
             {data.featureTitle} <span className="g">{data.featureAccent}</span>
           </h2>
@@ -170,10 +169,14 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
       {/* PILLARS */}
       <section className="products" id="pillars" style={{ paddingTop: 0 }}>
         <div className="section-inner">
-          <div className="section-label reveal">// Built for Real Workloads</div>
-          <h2 className="section-title reveal">
-            One platform. <span className="g">Every workload.</span>
-          </h2>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div className="section-label reveal" style={{ justifyContent: "center" }}>
+              Built for Real Workloads
+            </div>
+            <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+              One platform. <span className="g">Every workload.</span>
+            </h2>
+          </div>
 
           <div className="products-grid">
             {data.pillars.map((p, i) => (
@@ -190,7 +193,11 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
       {data.related.length > 0 && (
         <section className="solutions" id="related" style={{ paddingTop: 0 }}>
           <div className="section-inner">
-            <div className="section-label reveal">// Explore More Products</div>
+            <div style={{ textAlign: "center", marginBottom: 24 }}>
+              <div className="section-label reveal" style={{ justifyContent: "center" }}>
+                Explore More Products
+              </div>
+            </div>
             <div
               style={{
                 display: "grid",

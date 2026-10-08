@@ -121,14 +121,18 @@ export default function ProductsPage() {
       {/* PRODUCT CATALOG */}
       <section className="solutions" id="catalog">
         <div className="section-inner">
-          <div className="section-label reveal">// Product Catalog</div>
-          <h2 className="section-title reveal">
-            One platform. <span className="g">Every workload.</span>
-          </h2>
-          <p className="section-sub reveal">
-            Pick a product to dive deeper, or combine them to build a complete AI
-            stack on NVIDIA Blackwell infrastructure.
-          </p>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div className="section-label reveal" style={{ justifyContent: "center" }}>
+              Product Catalog
+            </div>
+            <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+              One platform. <span className="g">Every workload.</span>
+            </h2>
+            <p className="section-sub reveal" style={{ margin: "16px auto 0", textAlign: "center" }}>
+              Pick a product to dive deeper, or combine them to build a complete AI
+              stack on NVIDIA Blackwell infrastructure.
+            </p>
+          </div>
 
           {PRODUCTS.map((p, i) => (
             <div
@@ -221,11 +225,15 @@ export default function ProductsPage() {
       {/* HARDWARE PLATFORMS */}
       <section className="solutions" id="hardware" style={{ paddingTop: 0 }}>
         <div className="section-inner">
-          <div className="section-label reveal">// Hardware Platforms</div>
-          <h2 className="section-title reveal">
-            Powered by the World&rsquo;s{" "}
-            <span className="g">Most Advanced GPUs.</span>
-          </h2>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div className="section-label reveal" style={{ justifyContent: "center" }}>
+              Hardware Platforms
+            </div>
+            <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+              Powered by the World&rsquo;s{" "}
+              <span className="g">Most Advanced GPUs.</span>
+            </h2>
+          </div>
 
           <div className="sol-card product-lottie-row reveal mt-16">
             <div className="sol-info">

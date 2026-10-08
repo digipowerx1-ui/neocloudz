@@ -55,14 +55,18 @@ export default function SolutionsSection() {
   return (
     <section className="solutions" id="solutions">
       <div className="section-inner">
-        <div className="section-label reveal">// Solutions</div>
-        <h2 className="section-title reveal">
-          End-to-End AI <span className="g">Compute Pathways</span>
-        </h2>
-        <p className="section-sub reveal">
-          Purpose-built infrastructure for every stage of the AI lifecycle —
-          from first experiment to full production deployment at scale.
-        </p>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div className="section-label reveal" style={{ justifyContent: "center" }}>
+            Solutions
+          </div>
+          <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+            End-to-End AI <span className="g">Compute Pathways</span>
+          </h2>
+          <p className="section-sub reveal" style={{ margin: "16px auto 0", textAlign: "center" }}>
+            Purpose-built infrastructure for every stage of the AI lifecycle —
+            from first experiment to full production deployment at scale.
+          </p>
+        </div>
 
         <div className="sol-card reveal mt-16" id="training">
           <div className="sol-info">

@@ -857,21 +857,21 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #2dff7a;
-  background-color: #0a0f0a;
+  background-color: transparent;
   opacity: 1 !important;
   margin-bottom: 18px;
 }
 
 .home-page .hp-section.mid .hp-label {
-  background-color: #0f1410;
+  background-color: transparent;
 }
 
 .home-page .nvlink-section .hp-label {
-  background-color: #0f1410;
+  background-color: transparent;
 }
 
 .home-page .cta-banner .hp-label {
-  background-color: #0a1a0a;
+  background-color: transparent;
 }
 
 .home-page .hp-label::before {
@@ -1287,72 +1287,140 @@
 
 /* â”€â”€ WHY SECTION â”€â”€ */
 .home-page .why-grid {
-  margin-top: 60px;
+  margin-top: 0;
   width: 100%;
 }
 
 .home-page .why-features {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 18px;
+  gap: 22px;
   width: 100%;
-  max-width: 1440px;
+  max-width: 1420px;
   margin: 0 auto;
 }
 
 .home-page .why-item {
-  display: flex;
-  gap: 16px;
-  min-height: 220px;
-  padding: 22px;
+  position: relative;
+  background: linear-gradient(180deg, rgba(16, 22, 18, 0.75) 0%, rgba(9, 13, 10, 0.92) 100%);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  align-items: flex-start;
-  background: rgba(255, 255, 255, 0.02);
+  border-radius: 20px;
+  padding: 38px 24px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  overflow: hidden;
   cursor: pointer;
-  transition: background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease,
+              box-shadow 0.35s ease;
 }
 
+/* Ambient radial glow at top of card */
+.home-page .why-item::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 160px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(var(--item-rgb, 45, 255, 122), 0.16) 0%, transparent 70%);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Top accent beam */
+.home-page .why-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--item-color, var(--green)) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease, left 0.35s ease, right 0.35s ease;
+}
+
+.home-page .why-item:hover {
+  transform: translateY(-6px);
+  border-color: rgba(var(--item-rgb, 45, 255, 122), 0.4);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 28px rgba(var(--item-rgb, 45, 255, 122), 0.12);
+}
+
+.home-page .why-item:hover::before {
+  opacity: 1;
+  left: 10%;
+  right: 10%;
+}
+
+.home-page .why-item:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.25);
+}
+
+/* Iconic Glowing Well */
 .home-page .why-icon {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  background: rgba(45, 255, 122, 0.08);
-  border: 1px solid rgba(45, 255, 122, 0.15);
-  font-size: 16px;
-  margin-bottom: 8px;
+  width: 58px;
+  height: 58px;
+  border-radius: 18px;
+  margin-bottom: 24px;
   flex-shrink: 0;
-  transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+  position: relative;
+  z-index: 1;
+  background: linear-gradient(135deg, rgba(var(--item-rgb, 45, 255, 122), 0.14) 0%, rgba(var(--item-rgb, 45, 255, 122), 0.04) 100%);
+  border: 1px solid rgba(var(--item-rgb, 45, 255, 122), 0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease;
 }
 
 .home-page .why-item:hover .why-icon {
-  background: rgba(45, 255, 122, 0.14);
-  box-shadow: 0 0 16px rgba(45, 255, 122, 0.2);
-  transform: scale(1.08);
+  transform: translateY(-2px) scale(1.08);
+  border-color: rgba(var(--item-rgb, 45, 255, 122), 0.6);
+  box-shadow: 0 0 24px rgba(var(--item-rgb, 45, 255, 122), 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
-.home-page .why-icon svg {
-  transition: filter 0.3s ease;
-}
-
-.home-page .why-item:hover .why-icon svg {
-  filter: drop-shadow(0 0 5px currentColor);
+.home-page .why-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 
 .home-page .why-title {
-  font-size: 16px;
+  font-size: 17.5px;
   font-weight: 700;
-  color: var(--white);
-  margin-bottom: 5px;
+  color: #ffffff;
+  letter-spacing: -0.3px;
+  margin-bottom: 10px;
+  line-height: 1.35;
+  text-align: center;
 }
 
 .home-page .why-desc {
-  font-size: 14px;
-  color: var(--muted);
+  font-size: 13.5px;
   line-height: 1.6;
+  color: rgba(200, 215, 210, 0.72);
+  margin: 0;
+  text-align: center;
+  max-width: 240px;
+  transition: color 0.3s ease;
+}
+
+.home-page .why-item:hover .why-desc {
+  color: rgba(235, 245, 240, 0.92);
 }
 
 .home-page .stat-card {
@@ -2694,7 +2762,7 @@
   }
 
   .home-page .why-features {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .home-page .storage-grid {
@@ -3172,22 +3240,21 @@
 
 .home-page .partners-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  max-width: 1400px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1320px;
   margin: 0 auto;
   width: 100%;
 }
 
-@media (max-width: 1440px) {
+@media (max-width: 1200px) {
   .home-page .partners-grid {
-    grid-template-columns: repeat(4, 1fr);
-    max-width: 1200px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .home-page .partners-grid {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -3195,85 +3262,110 @@
 }
 
 .home-page .partner-card {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid var(--border);
+  position: relative;
+  background: linear-gradient(180deg, rgba(20, 26, 21, 0.6) 0%, rgba(10, 14, 11, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 16px;
-  padding: 40px;
-  transition: all 0.3s ease;
+  padding: 28px 22px 26px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  min-height: 220px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.home-page .partner-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, var(--green) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
 }
 
 .home-page .partner-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(45, 255, 122, 0.3);
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border-color: rgba(45, 255, 122, 0.35);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 20px rgba(45, 255, 122, 0.06);
 }
 
+.home-page .partner-card:hover::before {
+  opacity: 1;
+}
+
+/* Logo Area: Equal optical visual size for all partner logos */
 .home-page .partner-logo-area {
-  height: 100px;
+  height: 76px;
+  width: 100%;
   display: flex;
-  align-items: center;
-}
-
-.home-page .partner-name {
-  font-family: var(--font-mono);
-  font-size: 24px;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -1px;
-  text-transform: uppercase;
-}
-
-.home-page .partner-name.nvidia {
-  color: #76b900;
-}
-
-.home-page .partner-name.supermicro {
-  color: #f0f5f0;
-}
-
-.home-page .partner-name.certac {
-  color: #f0f5f0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.home-page .partner-name.digipower {
-  color: #f0f5f0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.home-page .cert-badge {
-  width: 48px;
-  height: 48px;
-  border: 1px solid var(--white);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  font-weight: 900;
-  line-height: 1.1;
-  text-align: center;
-  border-style: double;
-  flex-shrink: 0;
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+  margin-bottom: 16px;
+  position: relative;
 }
 
+.home-page .partner-logo-img {
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.3s ease;
+}
+
+.home-page .partner-card:hover .partner-logo-img {
+  transform: scale(1.05);
+}
+
+.home-page .partner-logo-img.logo-supermicro {
+  height: 130px;
+  width: 130px;
+  max-width: none;
+  max-height: none;
+}
+
+.home-page .partner-logo-img.logo-nvidia {
+  height: 250px;
+  width: 250px;
+  max-width: none;
+  max-height: none;
+}
+
+.home-page .partner-logo-img.logo-certac {
+  height: 72px;
+  width: 72px;
+  max-width: none;
+  max-height: none;
+}
+
+.home-page .partner-logo-img.logo-digipower {
+  height: 240px;
+  width: 240px;
+  max-width: none;
+  max-height: none;
+  mix-blend-mode: screen;
+}
+
+/* Description: Clean, compact line-height */
 .home-page .partner-desc {
-  font-size: 15px;
-  color: rgba(200, 212, 200, 0.6);
-  line-height: 1.6;
+  font-size: 14px;
+  line-height: 1.55;
+  color: rgba(200, 212, 200, 0.7);
   margin: 0;
+  max-width: 260px;
+  transition: color 0.3s ease;
+}
+
+.home-page .partner-card:hover .partner-desc {
+  color: rgba(230, 242, 230, 0.9);
 }
 
 @media (max-width: 900px) {
@@ -4167,7 +4259,7 @@
   }
 
   .home-page .why-features {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .home-page .storage-grid {
@@ -4243,7 +4335,6 @@
 /* Premium Enhancements */
 .home-page .gpu-cat-card,
 .home-page .price-card,
-.home-page .partner-card,
 .home-page .stat-card {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -4253,7 +4344,6 @@
 
 .home-page .gpu-cat-card:hover,
 .home-page .price-card:hover,
-.home-page .partner-card:hover,
 .home-page .stat-card:hover {
   background: rgba(255, 255, 255, 0.04);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(45, 255, 122, 0.05);

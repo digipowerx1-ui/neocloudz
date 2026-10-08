@@ -26,14 +26,18 @@ export default function TestimonialsSection() {
   return (
     <section className="testimonials" id="testimonials">
       <div className="section-inner">
-        <div className="section-label reveal">// What Teams Say</div>
-        <h2 className="section-title reveal">
-          Trusted by <span className="g">AI Teams Worldwide</span>
-        </h2>
-        <p className="section-sub reveal">
-          From research labs to Series C startups &mdash; teams that run on
-          NeoCloudz don&rsquo;t go back to shared hyperscaler infrastructure.
-        </p>
+        <div style={{ textAlign: "center", marginBottom: 48 }}>
+          <div className="section-label reveal" style={{ justifyContent: "center" }}>
+            What Teams Say
+          </div>
+          <h2 className="section-title reveal" style={{ textAlign: "center" }}>
+            Trusted by <span className="g">AI Teams Worldwide</span>
+          </h2>
+          <p className="section-sub reveal" style={{ margin: "16px auto 0", textAlign: "center" }}>
+            From research labs to Series C startups &mdash; teams that run on
+            NeoCloudz don&rsquo;t go back to shared hyperscaler infrastructure.
+          </p>
+        </div>
 
         <div className="testi-grid">
           {TESTIMONIALS.map((t, i) => (
