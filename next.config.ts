@@ -5,6 +5,9 @@ const COMING_SOON_HOSTS = ["console.neocloudz.com", "api.neocloudz.com"];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.31.45"],
+  async redirects() {
+    return [{ source: "/coming-soon.html", destination: "/coming-soon", permanent: true }];
+  },
   async rewrites() {
     return {
       beforeFiles: COMING_SOON_HOSTS.map((host) => ({
@@ -12,6 +15,7 @@ const nextConfig: NextConfig = {
         has: [{ type: "host" as const, value: host }],
         destination: "/coming-soon.html",
       })),
+      afterFiles: [{ source: "/coming-soon", destination: "/coming-soon.html" }],
     };
   },
 };
