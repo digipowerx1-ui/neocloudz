@@ -47,6 +47,25 @@ body {
   overflow-x: hidden;
 }
 
+/* Typographic Widow & Orphan Prevention (Site-wide) */
+h1, h2, h3, h4, h5, h6,
+.hp-h1, .hp-h2, .hp-h3,
+.section-title, .hero-eyebrow h1,
+.why-title, .hero-title, .page-title,
+.card-title, .pricing-name, .feature-title,
+.stat-label, .bench-title,
+.title, [class*="title"], [class*="heading"] {
+  text-wrap: balance;
+}
+
+p,
+.why-desc, .section-sub, .hero-sub, .page-desc,
+.hp-sub, .feature-desc, .card-desc, .stat-desc,
+.pricing-desc, .footer-desc, .term-desc,
+[class*="desc"], [class*="subtitle"], [class*="sub"] {
+  text-wrap: pretty;
+}
+
 .hp-label,
 .section-label {
   display: inline-flex;
@@ -2463,3 +2482,34 @@ footer {
 }
 
 
+
+
+/* ============================================================
+   MOBILE VIEW TYPOGRAPHY & CENTERING (SITE-WIDE)
+   ============================================================ */
+@media (max-width: 768px) {
+  h1, h2, h3, h4, h5, h6,
+  .hp-h1, .hp-h2, .hp-h3,
+  .section-title, .hero-eyebrow h1,
+  .why-title, .hero-title, .page-title,
+  .card-title, .pricing-name, .feature-title,
+  .stat-label, .bench-title, .title,
+  .workload-title, [class*="title"], [class*="heading"] {
+    text-align: center !important;
+  }
+
+  .hp-label, .section-label {
+    display: inline-flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  .hp-sub, .section-sub, .hero-sub, .page-desc,
+  .workload-desc, .feature-desc, [class*="subtitle"] {
+    text-align: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

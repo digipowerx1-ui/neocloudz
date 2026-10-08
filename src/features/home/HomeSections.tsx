@@ -1123,22 +1123,33 @@ export function HomeWorkloads() {
                   </div>
                 ) : w.id === "inference" ? (
                   <div className="inference-visual">
-                    <div className="inf-box">
-                      <div className="inf-title">MANAGED ML INFRASTRUCTURE</div>
-                      <div className="inf-nodes">
-                        <div className="inf-node">GPU</div>
-                        <div className="inf-node">GPU</div>
-                        <div className="inf-node">GPU</div>
+                    <div className="inf-header-pill">
+                      <span className="inf-pill-dot" />
+                      OPEN RUNTIME FOUNDATION
+                    </div>
+                    <div className="inf-diagram">
+                      <div className="inf-box">
+                        <div className="inf-title">MANAGED ML INFRASTRUCTURE</div>
+                        <div className="inf-nodes">
+                          <div className="inf-node">GPU</div>
+                          <div className="inf-node">GPU</div>
+                          <div className="inf-node">GPU</div>
+                        </div>
                       </div>
-                    </div>
-                    <div className="inf-pipe">
-                      <div className="inf-pipe-label">OPEN RUNTIME FOUNDATION</div>
-                    </div>
-                    <div className="inf-rel">
-                      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" aria-hidden="true">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                      </svg>
-                      <div style={{ fontSize: '11px', marginTop: '5px' }}>PRODUCTION RELIABILITY</div>
+                      <div className="inf-pipe-flow">
+                        <div className="inf-pipe-line" />
+                        <svg className="inf-pipe-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                          <polyline points="9 18 15 12 9 6" />
+                        </svg>
+                      </div>
+                      <div className="inf-rel">
+                        <div className="inf-rel-icon">
+                          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" aria-hidden="true">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+                          </svg>
+                        </div>
+                        <div className="inf-rel-label">PRODUCTION RELIABILITY</div>
+                      </div>
                     </div>
                   </div>
                 ) : (

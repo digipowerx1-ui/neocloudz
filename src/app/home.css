@@ -152,8 +152,8 @@
 
 .home-page .hero-eyebrow {
   text-align: center;
-  margin-bottom: 60px;
-  padding-top: 60px;
+  margin-bottom: 40px;
+  padding-top: 50px;
 }
 
 .home-page .hero-eyebrow h1 {
@@ -2642,24 +2642,34 @@
 
 /* 3D rack inline stats */
 .home-page .rack-stats {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-top: 26px;
+  width: 100%;
+  max-width: 520px;
 }
 
 .home-page .rack-stat {
   background: var(--surface2);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 18px;
+  border-radius: 10px;
+  padding: 12px 6px;
   text-align: center;
+  min-width: 0;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.home-page .rack-stat:hover {
+  border-color: rgba(45, 255, 122, 0.3);
+  transform: translateY(-2px);
 }
 
 .home-page .rack-stat-val {
   font-family: var(--font-mono);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .home-page .rack-stat-val.g {
@@ -2677,11 +2687,12 @@
 .home-page .rack-stat-lbl {
   font-size: 11px;
   color: var(--muted);
-  margin-top: 2px;
+  margin-top: 3px;
+  white-space: nowrap;
 }
 
 .home-page .rack-content {
-  max-width: 400px;
+  max-width: 540px;
 }
 
 .home-page .rack-section-row {
@@ -2793,11 +2804,10 @@
 
   .home-page .workloads-visual {
     order: -1 !important;
-    min-height: 260px;
-    max-height: 260px;
-    padding: 24px;
+    min-height: auto;
+    max-height: none;
+    padding: 16px 14px;
     overflow: visible;
-    /* Allow content to be seen if slightly over */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2806,9 +2816,7 @@
   .home-page .tech-stack-diagram,
   .home-page .inference-visual,
   .home-page .prototype-visual {
-    transform: scale(0.85);
-    /* Scale down to fit */
-    transform-origin: center;
+    transform: none;
   }
 
   .home-page .workloads-visual.order-2 {
@@ -2917,8 +2925,8 @@
 
   .home-page .hero-eyebrow {
     text-align: center;
-    padding: 0 20px;
-    margin-bottom: 40px;
+    padding: 0 16px;
+    margin-bottom: 18px;
   }
 
   .home-page .hero-eyebrow h1 {
@@ -2967,54 +2975,123 @@
     align-items: center;
   }
 
-  .home-page .workload-bullets {
-    text-align: left;
+  .home-page .workloads-container {
+    padding: 28px 18px;
+    border-radius: 20px;
+    width: auto;
+    margin: 0 10px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .home-page .workloads-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    max-width: 400px;
   }
 
   .home-page .workload-title {
-    font-size: 24px;
-    text-align: left;
-    margin-bottom: 12px;
+    font-size: 23px;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    width: 100%;
+    color: var(--white);
   }
 
   .home-page .workload-desc {
-    font-size: 15px;
-    text-align: left;
-    margin-bottom: 24px;
-    line-height: 1.5;
+    font-size: 14.5px;
+    text-align: center;
+    margin: 0 auto 22px auto;
+    line-height: 1.55;
+    max-width: 440px;
+    color: rgba(200, 212, 200, 0.7);
   }
 
   .home-page .workload-bullets {
+    display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
-    margin-bottom: 32px;
+    gap: 10px;
+    margin: 0 auto 28px auto;
+    max-width: 340px;
+    width: 100%;
   }
 
   .home-page .workload-bullets li {
     font-size: 14px;
     text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    line-height: 1.4;
   }
 
-  /* Inference Visual Mobile Fix */
+  /* Inference Visual Clean Mobile Flow */
   .home-page .inference-visual {
+    display: flex;
     flex-direction: column;
-    gap: 30px;
+    align-items: center;
+    width: 100%;
   }
 
-  .home-page .inf-pipe {
-    width: 2px;
+  .home-page .inf-header-pill {
+    font-size: 9.5px;
+    padding: 4px 10px;
+    margin-bottom: 16px;
+  }
+
+  .home-page .inf-diagram {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  .home-page .inf-box {
+    padding: 12px 10px;
+    border-radius: 10px;
+  }
+
+  .home-page .inf-title {
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .home-page .inf-nodes {
+    gap: 6px;
+  }
+
+  .home-page .inf-node {
+    width: 30px;
     height: 40px;
-    background: linear-gradient(180deg, var(--green), transparent);
-    flex-grow: 0;
+    font-size: 9.5px;
   }
 
-  .home-page .inf-pipe-label {
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: left;
+  .home-page .inf-pipe-flow {
+    min-width: 14px;
+    max-width: 28px;
+  }
+
+  .home-page .inf-rel {
+    padding: 12px 10px;
+    border-radius: 10px;
+    max-width: 110px;
+  }
+
+  .home-page .inf-rel-label {
+    font-size: 8.5px;
+    line-height: 1.25;
+    letter-spacing: 0.4px;
   }
 
   .home-page .ticker-track {
@@ -3128,8 +3205,8 @@
   }
 
   .home-page .hero-eyebrow {
-    margin-bottom: 30px;
-    padding-top: 40px;
+    margin-bottom: 16px;
+    padding-top: 24px;
   }
 
   .home-page .hp-section-header {
@@ -3501,71 +3578,138 @@
   border-radius: 4px;
 }
 
-/* Inference Visual (3D look) */
+/* Inference Visual (Architectural Flow) */
 .home-page .inference-visual {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  width: 100%;
   justify-content: center;
+  width: 100%;
+}
+
+.home-page .inf-header-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--green);
+  background: rgba(45, 255, 122, 0.08);
+  border: 1px solid rgba(45, 255, 122, 0.22);
+  border-radius: 100px;
+  padding: 5px 14px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.home-page .inf-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+}
+
+.home-page .inf-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
 }
 
 .home-page .inf-box {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--border);
-  padding: 20px;
-  border-radius: 12px;
+  padding: 16px 18px;
+  border-radius: 14px;
   text-align: center;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
 }
 
 .home-page .inf-title {
-  font-size: 11px;
+  font-size: 10.5px;
+  font-weight: 700;
   color: var(--muted);
-  margin-bottom: 15px;
-  letter-spacing: 1px;
+  margin-bottom: 12px;
+  letter-spacing: 0.8px;
 }
 
 .home-page .inf-nodes {
   display: flex;
-  gap: 10px;
+  gap: 8px;
+  justify-content: center;
 }
 
 .home-page .inf-node {
-  width: 40px;
-  height: 50px;
+  width: 38px;
+  height: 48px;
   background: #0d130d;
   border: 1px solid rgba(45, 255, 122, 0.3);
-  border-radius: 4px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 11px;
   color: var(--green);
   font-weight: 800;
-  box-shadow: 0 5px 15px rgba(45, 255, 122, 0.1);
+  box-shadow: 0 4px 12px rgba(45, 255, 122, 0.12);
 }
 
-.home-page .inf-pipe {
+.home-page .inf-pipe-flow {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex: 1;
+  max-width: 44px;
+  min-width: 20px;
+}
+
+.home-page .inf-pipe-line {
   height: 2px;
-  background: linear-gradient(90deg, var(--green), transparent);
-  flex-grow: 1;
-  position: relative;
+  flex: 1;
+  background: linear-gradient(90deg, rgba(45, 255, 122, 0.4), var(--green));
+  border-radius: 1px;
 }
 
-.home-page .inf-pipe-label {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 11px;
-  color: var(--muted);
-  white-space: nowrap;
+.home-page .inf-pipe-arrow {
+  flex-shrink: 0;
+  color: var(--green);
 }
 
 .home-page .inf-rel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  flex-shrink: 0;
+}
+
+.home-page .inf-rel-icon {
   color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.home-page .inf-rel-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--green);
+  letter-spacing: 0.6px;
+  text-align: center;
+  line-height: 1.35;
+  max-width: 110px;
 }
 
 /* Prototype Visual (Dashboard) */
@@ -3691,9 +3835,9 @@
   /* Keep visual first on mobile */
   .home-page .workloads-visual {
     order: -1 !important;
-    min-height: 260px;
-    max-height: 260px;
-    padding: 20px;
+    min-height: auto;
+    max-height: none;
+    padding: 16px 12px;
     overflow: visible;
   }
 
@@ -4327,8 +4471,9 @@
   }
 
   .home-page .terminal {
-    transform: scale(0.95);
-    margin: 0 -20px;
+    transform: none;
+    margin: 0 auto;
+    width: 100%;
   }
 }
 
@@ -5008,5 +5153,398 @@
 
   .home-page .tf-coin-img {
     grid-column: span 1;
+  }
+}
+
+/* ============================================================
+   ENHANCED NEAT & CLEAN MOBILE STYLES (max-width: 768px)
+   ============================================================ */
+@media (max-width: 768px) {
+  /* Global section headers & labels centered */
+  .home-page .hp-section-header {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0 16px !important;
+    margin-bottom: 36px !important;
+  }
+
+  .home-page .hp-label,
+  .home-page .section-label {
+    display: inline-flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+    margin: 0 auto 16px auto !important;
+  }
+
+  .home-page .hp-h2,
+  .home-page .section-title {
+    text-align: center !important;
+    margin: 0 auto 12px auto !important;
+  }
+
+  .home-page .hp-sub,
+  .home-page .section-sub {
+    text-align: center !important;
+    margin: 0 auto !important;
+    max-width: 500px !important;
+    font-size: 14.5px !important;
+  }
+
+  /* Benchmark section centered */
+  .home-page .bench-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  .home-page .bench-intro {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .home-page .bench-intro .hp-h2 {
+    text-align: center !important;
+  }
+
+  .home-page .bench-intro .hp-sub {
+    text-align: center !important;
+    max-width: 480px !important;
+    margin: 12px auto 0 auto !important;
+  }
+
+  .home-page .bench-legend {
+    justify-content: center !important;
+    gap: 14px !important;
+    margin-top: 14px !important;
+  }
+
+  /* WEKA Storage section centered */
+  .home-page .storage-header {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 36px !important;
+  }
+
+  .home-page .storage-header .hp-h2 {
+    text-align: center !important;
+  }
+
+  .home-page .storage-header .hp-sub {
+    text-align: center !important;
+    max-width: 500px !important;
+  }
+
+  .home-page .storage-features {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .home-page .sf-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .home-page .sf-icon {
+    margin: 0 auto 12px auto !important;
+  }
+
+  .home-page .sf-title {
+    text-align: center !important;
+    font-size: 16px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .home-page .sf-desc {
+    text-align: center !important;
+    font-size: 13.5px !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+  }
+
+  /* NVL72 Rack section centered & clean */
+  .home-page .rack-section-row {
+    padding: 48px 18px !important;
+    gap: 28px !important;
+    text-align: center !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .home-page .rack-visual {
+    width: 280px !important;
+    height: 300px !important;
+    margin: 0 auto !important;
+    transform: scale(0.85) !important;
+    transform-origin: center !important;
+  }
+
+  .home-page .rack-content {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    max-width: 100% !important;
+  }
+
+  .home-page .rack-content .hp-h2 {
+    text-align: center !important;
+    font-size: clamp(26px, 6.5vw, 36px) !important;
+  }
+
+  .home-page .rack-content .hp-sub {
+    text-align: center !important;
+    max-width: 480px !important;
+    margin: 12px auto 0 auto !important;
+  }
+
+  .home-page .rack-stats {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    margin: 22px auto 0 auto !important;
+    justify-content: center !important;
+  }
+
+  /* FAQ section centered */
+  .home-page .faq-grid {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+
+  .home-page .faq-sidebar {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    margin-bottom: 20px !important;
+  }
+
+  .home-page .faq-sidebar h2 {
+    text-align: center !important;
+    font-size: 32px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .home-page .faq-sidebar p {
+    text-align: center !important;
+    font-size: 14.5px !important;
+    max-width: 440px !important;
+    margin: 0 auto !important;
+  }
+
+  /* Token Factory centered */
+  .home-page .tf-left-col {
+    text-align: center !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .home-page .tf-title {
+    text-align: center !important;
+  }
+
+  .home-page .tf-subtitle {
+    text-align: center !important;
+  }
+
+  .home-page .tf-description {
+    text-align: center !important;
+    max-width: 440px !important;
+    margin: 0 auto 20px auto !important;
+  }
+
+  .home-page .tf-waitlist-card {
+    margin: 0 auto !important;
+    max-width: 400px !important;
+  }
+
+  .home-page .tf-waitlist-header {
+    justify-content: center !important;
+  }
+
+  .home-page .tf-waitlist-sub {
+    text-align: center !important;
+  }
+
+  /* Section paddings neat & balanced */
+  .home-page .hp-section {
+    padding: 56px 18px !important;
+  }
+
+  .home-page .nvlink-section {
+    padding: 52px 18px !important;
+  }
+
+  .home-page .bench-section {
+    padding: 52px 18px !important;
+  }
+
+  .home-page .partners-section {
+    padding: 56px 18px !important;
+  }
+
+  .home-page .cta-banner {
+    padding: 56px 20px !important;
+    margin: 0 10px !important;
+    border-radius: 20px !important;
+  }
+
+  .home-page .cta-banner h2 {
+    text-align: center !important;
+  }
+
+  .home-page .cta-banner p {
+    text-align: center !important;
+    max-width: 440px !important;
+    margin: 0 auto 24px auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page .rack-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    max-width: 320px !important;
+  }
+
+  .home-page .rack-stat {
+    padding: 10px 8px !important;
+  }
+
+  .home-page .rack-stat-val {
+    font-size: 16px !important;
+  }
+
+  .home-page .hp-section {
+    padding: 48px 14px !important;
+  }
+
+  .home-page .workloads-container {
+    padding: 24px 14px !important;
+    margin: 0 6px 20px !important;
+  }
+}
+
+
+/* ============================================================
+   MOBILE PROTOTYPE CARD - REMOVE EXTRA TOP PADDING SPACE
+   ============================================================ */
+@media (max-width: 768px) {
+  .home-page #prototyping.workloads-container,
+  .home-page .workloads-container:has(.prototype-visual) {
+    padding-top: 14px !important;
+  }
+
+  .home-page #prototyping .workloads-visual,
+  .home-page .workloads-container:has(.prototype-visual) .workloads-visual {
+    padding-top: 6px !important;
+    padding-bottom: 12px !important;
+    min-height: auto !important;
+    max-height: none !important;
+  }
+
+  .home-page .prototype-visual {
+    transform: none !important;
+    width: 100% !important;
+    margin-top: 0 !important;
+  }
+
+  .home-page .proto-dashboard {
+    padding: 14px 12px 12px !important;
+    margin-top: 0 !important;
+  }
+
+  .home-page .proto-header {
+    margin-bottom: 12px !important;
+    padding-bottom: 6px !important;
+  }
+
+  .home-page .proto-grid {
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .home-page .proto-spark {
+    padding-top: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page #prototyping.workloads-container,
+  .home-page .workloads-container:has(.prototype-visual) {
+    padding-top: 10px !important;
+  }
+
+  .home-page #prototyping .workloads-visual,
+  .home-page .workloads-container:has(.prototype-visual) .workloads-visual {
+    padding-top: 4px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .home-page .proto-dashboard {
+    padding: 12px 10px 10px !important;
+  }
+}
+
+
+/* ============================================================
+   HERO MOBILE - DECREASE SPACE BETWEEN HEADING & MODEL
+   ============================================================ */
+@media (max-width: 768px) {
+  .home-page .hero-eyebrow {
+    margin-bottom: 18px !important;
+    padding-top: 20px !important;
+  }
+
+  .home-page .hero-eyebrow p {
+    margin: 12px auto 0 !important;
+    max-width: 440px !important;
+    font-size: 14.5px !important;
+    line-height: 1.5 !important;
+  }
+
+  .home-page .terminal-wrap {
+    width: 100% !important;
+    padding: 0 12px !important;
+  }
+
+  .home-page .terminal {
+    transform: none !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-page .hero-eyebrow {
+    margin-bottom: 14px !important;
+    padding-top: 14px !important;
+  }
+
+  .home-page .hero-eyebrow h1 {
+    font-size: clamp(26px, 7vw, 36px) !important;
+    line-height: 1.15 !important;
+  }
+
+  .home-page .hero-eyebrow p {
+    font-size: 13.5px !important;
+    margin-top: 10px !important;
+  }
+
+  .home-page .terminal-wrap {
+    padding: 0 8px !important;
   }
 }
