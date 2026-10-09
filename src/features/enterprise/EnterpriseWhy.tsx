@@ -1,37 +1,40 @@
+import type React from "react";
+import { Server, Lock, TrendingUp, ShieldCheck, Headphones, FileText } from "lucide-react";
+
 interface FeatureCard {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
   desc: string;
 }
 
 const FEATURES: ReadonlyArray<FeatureCard> = [
   {
-    icon: "🖥️",
+    icon: <Server size={24} color="var(--green)" />,
     title: "Dedicated Infrastructure",
     desc: "Your own bare-metal cluster with zero noisy neighbors. Every GPU, every NVLink switch, every InfiniBand port — reserved exclusively for your workloads.",
   },
   {
-    icon: "🔒",
+    icon: <Lock size={24} color="var(--blue)" />,
     title: "Private Networking",
     desc: "VPC isolation, private InfiniBand fabric, no shared routing. Your traffic never crosses a shared network — air-gapped from day one.",
   },
   {
-    icon: "📈",
+    icon: <TrendingUp size={24} color="var(--green)" />,
     title: "SLA-Backed Uptime",
     desc: "99.99% uptime SLA with financial credits for any breach. We put our money where our mouth is — downtime credits automatically applied to your next invoice.",
   },
   {
-    icon: "🛡️",
+    icon: <ShieldCheck size={24} color="var(--amber)" />,
     title: "Compliance Ready",
     desc: "SOC 2 Type II, HIPAA, GDPR, and ISO 27001 support out of the box. Our compliance package includes audit-ready documentation and a dedicated security liaison.",
   },
   {
-    icon: "🎯",
+    icon: <Headphones size={24} color="var(--blue)" />,
     title: "Priority Support",
     desc: "Named account manager, <15min P1 response time, and a dedicated NOC team monitoring your cluster 24/7 — not a ticket queue, a direct line.",
   },
   {
-    icon: "📋",
+    icon: <FileText size={24} color="var(--green)" />,
     title: "Custom Contracts",
     desc: "Reserved pricing, flexible payment terms, multi-year discounts, and purchase order support. We work the way enterprise procurement works.",
   },

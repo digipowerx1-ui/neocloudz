@@ -609,6 +609,10 @@
   overflow: hidden;
   transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
   cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .enterprise-page .ent-card::before {
@@ -642,7 +646,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
+  margin: 0 auto 18px auto;
   font-size: 22px;
   transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
 }
@@ -659,12 +663,15 @@
   color: var(--white);
   margin-bottom: 10px;
   letter-spacing: -0.3px;
+  text-align: center;
+  width: 100%;
 }
 
 .enterprise-page .ent-card-desc {
   font-size: 14px;
   color: var(--muted);
   line-height: 1.65;
+  text-align: center;
 }
 
 /* ── ARCHITECTURE SECTION ── */
@@ -719,39 +726,57 @@
 .enterprise-page .security-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 72px;
-  align-items: start;
+  gap: 32px;
+  align-items: stretch;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+.enterprise-page .compliance-card,
+.enterprise-page .audit-terminal {
+  background: #000;
+  border: 1px solid rgba(45, 255, 122, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .enterprise-page .shield-wrap {
-  margin: 28px 0 24px;
+  margin: 0;
 }
 
 .enterprise-page .shield-svg {
-  width: 80px;
-  height: 96px;
+  width: 18px;
+  height: 20px;
 }
 
 .enterprise-page .compliance-badges {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-top: 8px;
+  gap: 12px;
+  padding: 20px;
+  flex: 1;
+  justify-content: space-between;
 }
 
 .enterprise-page .comp-badge {
   display: flex;
   align-items: center;
   gap: 14px;
-  background: #000;
+  background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(45, 255, 122, 0.15);
   border-radius: 10px;
   padding: 14px 20px;
   transform: translateY(14px);
   opacity: 0;
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s, border-color 0.25s ease;
+}
+
+.enterprise-page .comp-badge:hover {
+  border-color: rgba(45, 255, 122, 0.4);
+  background: rgba(45, 255, 122, 0.04);
 }
 
 .enterprise-page .comp-badge.pop {
@@ -787,14 +812,6 @@
   margin-left: auto;
 }
 
-/* audit terminal */
-.enterprise-page .audit-terminal {
-  background: #000;
-  border: 1px solid rgba(45, 255, 122, 0.2);
-  border-radius: 14px;
-  overflow: hidden;
-}
-
 .enterprise-page .audit-log-body {
   padding: 16px;
   font-family: var(--font-mono);
@@ -821,33 +838,43 @@
   display: flex;
   gap: 12px;
   min-width: 0;
+  margin-bottom: 4px;
 }
 
 .enterprise-page .log-time {
-  color: var(--muted);
+  color: rgba(45, 255, 122, 0.7);
+  font-weight: 600;
   flex-shrink: 0;
 }
 
 .enterprise-page .log-msg {
-  color: var(--text);
+  color: #e4f5ec;
   min-width: 0;
   overflow-wrap: anywhere;
+  font-weight: 500;
 }
 
 .enterprise-page .log-msg.green {
-  color: var(--green);
+  color: #2dff7a;
+  text-shadow: 0 0 10px rgba(45, 255, 122, 0.25);
 }
 
 .enterprise-page .log-msg.blue {
-  color: var(--blue);
+  color: #4dc8ff;
+  text-shadow: 0 0 10px rgba(77, 200, 255, 0.25);
 }
 
 .enterprise-page .log-msg.amber {
-  color: var(--amber);
+  color: #ffb84d;
+  text-shadow: 0 0 10px rgba(255, 184, 77, 0.25);
+}
+
+.enterprise-page .log-msg.info {
+  color: #f0f8f4;
 }
 
 .enterprise-page .log-msg.muted {
-  color: var(--muted);
+  color: rgba(200, 215, 210, 0.7);
 }
 
 /* terminal bar shared */

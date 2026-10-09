@@ -130,56 +130,75 @@ export default function CareerPage() {
                 status: "ACTIVE" 
               }
             ].map((dept, i) => (
-              <div key={i} className="ent-card" style={{ 
+              <div key={i} className="career-card" style={{ 
                 background: "linear-gradient(180deg, rgba(20,26,20,0.8) 0%, #000 100%)", 
-                padding: "40px", 
+                padding: "36px 28px", 
                 borderRadius: "20px",
                 border: `1px solid rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.15)`,
                 display: "flex", 
                 flexDirection: "column", 
+                alignItems: "center",
+                textAlign: "center",
                 position: "relative",
                 overflow: "hidden"
               }}>
 
-
                 {/* Card Top Bar */}
-                <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "32px", alignItems: "center" }}>
-                  <div className="ent-icon" style={{ 
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%", marginBottom: "28px", gap: "12px" }}>
+                  <div style={{ 
                     margin: 0, 
-                    width: "52px", 
-                    height: "52px", 
-                    borderRadius: "12px",
+                    width: "48px", 
+                    height: "48px", 
+                    borderRadius: "14px",
                     background: `rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.08)`, 
-                    borderColor: `rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.2)` 
+                    border: `1px solid rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.2)`,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0
                   }}>
-                  {React.cloneElement(
-                    dept.icon as React.ReactElement<{ color?: string }>,
-                    { color: dept.color },
-                  )}
+                    {React.cloneElement(
+                      dept.icon as React.ReactElement<{ color?: string }>,
+                      { color: dept.color },
+                    )}
                   </div>
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
-                    <span style={{ fontSize: "9px", fontFamily: "var(--font-mono)", color: "var(--muted)", letterSpacing: "0.2em", marginBottom: "4px" }}>SYSTEM STATUS</span>
+                  <div style={{ 
+                    display: "inline-flex", 
+                    alignItems: "center", 
+                    gap: "6px",
+                    padding: "5px 12px",
+                    borderRadius: "100px",
+                    background: `rgba(${dept.status === "ACTIVE" ? "45,255,122" : "255,184,77"}, 0.08)`,
+                    border: `1px solid rgba(${dept.status === "ACTIVE" ? "45,255,122" : "255,184,77"}, 0.2)`,
+                    flexShrink: 0
+                  }}>
+                    <span style={{ 
+                      width: "6px", 
+                      height: "6px", 
+                      borderRadius: "50%", 
+                      background: dept.status === "ACTIVE" ? "var(--green)" : "var(--amber)", 
+                      boxShadow: `0 0 8px ${dept.status === "ACTIVE" ? "var(--green)" : "var(--amber)"}` 
+                    }} />
                     <span style={{ 
                       fontSize: "10px", 
                       fontFamily: "var(--font-mono)", 
-                      color: dept.status === "ACTIVE" ? "var(--green)" : "var(--amber)", 
-                      display: "flex", 
-                      alignItems: "center", 
-                      gap: "6px" 
+                      fontWeight: 700,
+                      letterSpacing: "0.08em",
+                      color: dept.status === "ACTIVE" ? "var(--green)" : "var(--amber)",
+                      whiteSpace: "nowrap"
                     }}>
-                      <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: dept.status === "ACTIVE" ? "var(--green)" : "var(--amber)", boxShadow: `0 0 8px ${dept.status === "ACTIVE" ? "var(--green)" : "var(--amber)"}` }} />
                       {dept.status}
                     </span>
                   </div>
                 </div>
 
-                <h3 className="ent-card-title" style={{ fontSize: "22px", marginBottom: "16px", fontWeight: "800", color: "#fff" }}>{dept.title}</h3>
-                <p className="ent-card-desc" style={{ fontSize: "15px", lineHeight: "1.7", color: "var(--text)", opacity: 0.7, marginBottom: "32px" }}>
+                <h3 style={{ fontSize: "22px", marginBottom: "14px", fontWeight: "800", color: "#fff", textAlign: "center", width: "100%" }}>{dept.title}</h3>
+                <p style={{ fontSize: "14px", lineHeight: "1.65", color: "var(--text)", opacity: 0.75, marginBottom: "28px", textAlign: "center", maxWidth: "260px" }}>
                   {dept.desc}
                 </p>
 
                 {/* Technical Tags */}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", marginTop: "auto" }}>
+                <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "8px", marginTop: "auto" }}>
                   {dept.tags.map((tag, ti) => (
                     <span key={ti} style={{ 
                       fontSize: "10px", 

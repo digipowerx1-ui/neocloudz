@@ -21,15 +21,15 @@ const COMPLIANCE_BADGES: ReadonlyArray<ComplianceBadge> = [
 
 const AUDIT_ENTRIES: ReadonlyArray<AuditEntry> = [
   { c: "green", m: "[SOC2]   Annual audit completed — PASS — zero findings" },
-  { c: "", m: "[AUTH]   MFA enforced on all admin accounts (142 users)" },
+  { c: "info", m: "[AUTH]   MFA enforced on all admin accounts (142 users)" },
   { c: "green", m: "[ENCR]   AES-256 at-rest encryption verified on all volumes" },
   { c: "blue", m: "[NET]    VPC flow logs exported to SIEM — 0 anomalies detected" },
   { c: "green", m: "[HIPAA]  PHI isolation boundary check — PASS" },
-  { c: "", m: "[IAM]    Privilege access review completed — 14 accounts rotated" },
+  { c: "info", m: "[IAM]    Privilege access review completed — 14 accounts rotated" },
   { c: "green", m: "[GDPR]   Data residency constraints applied — EU region isolated" },
   { c: "amber", m: "[WARN]   Certificate expiry in 28 days — auto-renewal queued" },
   { c: "green", m: "[ISO]    ISO 27001 control audit checkpoint — all controls green" },
-  { c: "", m: "[LOG]    Immutable audit trail synced to cold storage (S3 Glacier)" },
+  { c: "info", m: "[LOG]    Immutable audit trail synced to cold storage (S3 Glacier)" },
   { c: "green", m: "[PCI]    Cardholder data scope verified — zero PAN exposure" },
   { c: "blue", m: "[SCAN]   Vulnerability scan complete — 0 critical / 2 low (patching)" },
 ];
@@ -60,13 +60,19 @@ export default function EnterpriseSecurity() {
       </div>
 
       <div className="security-grid">
-        <div>
-          <div className="shield-wrap" style={{ display: "flex", justifyContent: "flex-start", marginBottom: "24px" }}>
-            <svg className="shield-svg" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M40 4L8 18V44C8 64.8 21.6 84.1 40 92C58.4 84.1 72 64.8 72 44V18L40 4Z" stroke="#2dff7a" strokeWidth="2" strokeOpacity="0.4" fill="rgba(45, 255, 122, 0.04)" />
-              <circle ref={ringRef} cx="40" cy="48" r="40" stroke="#2dff7a" strokeWidth="1.5" strokeOpacity="0.3" fill="none" />
-              <path d="M30 48L37 55L50 40" stroke="#2dff7a" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+        <div className="compliance-card">
+          <div className="terminal-bar">
+            <div className="tbar-dots" style={{ display: "flex", alignItems: "center" }}>
+              <svg className="shield-svg" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ width: 18, height: 20 }}>
+                <path d="M40 4L8 18V44C8 64.8 21.6 84.1 40 92C58.4 84.1 72 64.8 72 44V18L40 4Z" stroke="#2dff7a" strokeWidth="4" strokeOpacity="0.8" fill="rgba(45, 255, 122, 0.1)" />
+                <circle ref={ringRef} cx="40" cy="48" r="40" stroke="#2dff7a" strokeWidth="3" strokeOpacity="0.4" fill="none" />
+                <path d="M30 48L37 55L50 40" stroke="#2dff7a" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+            <div className="tbar-title">
+              compliance-frameworks — verified
+            </div>
+            <div className="tbar-status green">VERIFIED</div>
           </div>
           <div className="compliance-badges">
             {COMPLIANCE_BADGES.map((badge) => (
@@ -83,21 +89,19 @@ export default function EnterpriseSecurity() {
           </div>
         </div>
 
-        <div>
-          <div className="audit-terminal">
-            <div className="terminal-bar">
-              <div className="tbar-dots">
-                <div className="tbar-dot red" />
-                <div className="tbar-dot amber" />
-                <div className="tbar-dot green" />
-              </div>
-              <div className="tbar-title">
-                neocloudz — compliance-audit-log — live
-              </div>
-              <div className="tbar-status">MONITORING</div>
+        <div className="audit-terminal">
+          <div className="terminal-bar">
+            <div className="tbar-dots">
+              <div className="tbar-dot red" />
+              <div className="tbar-dot amber" />
+              <div className="tbar-dot green" />
             </div>
-            <div ref={logRef} className="audit-log-body" id="audit-log" />
+            <div className="tbar-title">
+              neocloudz — compliance-audit-log — live
+            </div>
+            <div className="tbar-status">MONITORING</div>
           </div>
+          <div ref={logRef} className="audit-log-body" id="audit-log" />
         </div>
       </div>
     </section>

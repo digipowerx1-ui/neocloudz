@@ -75,32 +75,32 @@ export default function AiFactoryPage() {
           </div>
 
           <div className="ent-features-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
-            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)" }}>
-              <div className="ent-icon">
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <div className="ent-icon" style={{ margin: "0 auto 18px auto" }}>
                 <Box size={24} color="var(--green)" />
               </div>
-              <h3 className="ent-card-title">Modular Unit</h3>
-              <p className="ent-card-desc">
+              <h3 className="ent-card-title" style={{ textAlign: "center" }}>Modular Unit</h3>
+              <p className="ent-card-desc" style={{ textAlign: "center" }}>
                 Each pod is a modular AI factory (power, cooling, networking, compute, and control plane) delivered as a single, deployable unit.
               </p>
             </div>
             
-            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)" }}>
-              <div className="ent-icon">
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <div className="ent-icon" style={{ margin: "0 auto 18px auto" }}>
                 <Lock size={24} color="var(--blue)" />
               </div>
-              <h3 className="ent-card-title">Total Control</h3>
-              <p className="ent-card-desc">
+              <h3 className="ent-card-title" style={{ textAlign: "center" }}>Total Control</h3>
+              <p className="ent-card-desc" style={{ textAlign: "center" }}>
                 You maintain strict physical ownership and data control, meeting rigorous enterprise data residency and sovereignty requirements.
               </p>
             </div>
             
-            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)" }}>
-              <div className="ent-icon">
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+              <div className="ent-icon" style={{ margin: "0 auto 18px auto" }}>
                 <Settings size={24} color="var(--amber)" />
               </div>
-              <h3 className="ent-card-title">Managed Operations</h3>
-              <p className="ent-card-desc">
+              <h3 className="ent-card-title" style={{ textAlign: "center" }}>Managed Operations</h3>
+              <p className="ent-card-desc" style={{ textAlign: "center" }}>
                 NeoCloudz runs all complex operations, telemetry monitoring, patching, hardware upgrades, and enterprise-grade support.
               </p>
             </div>
@@ -140,6 +140,8 @@ export default function AiFactoryPage() {
                 style={{ 
                   display: "flex", 
                   flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
                   gap: "24px",
                   padding: "40px 32px",
                   background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", 
@@ -158,18 +160,20 @@ export default function AiFactoryPage() {
                   alignItems: "center", 
                   justifyContent: "center", 
                   flexShrink: 0,
+                  margin: "0 auto",
                   boxShadow: "0 8px 16px rgba(0,0,0,0.2)"
                 }}>
                   <item.icon size={24} color="var(--green)" />
                 </div>
                 
-                <div>
+                <div style={{ textAlign: "center", width: "100%" }}>
                   <h4 style={{ 
                     color: "var(--white)", 
                     fontWeight: 700, 
                     fontSize: "20px", 
                     marginBottom: "12px",
-                    letterSpacing: "-0.01em"
+                    letterSpacing: "-0.01em",
+                    textAlign: "center"
                   }}>
                     {item.title}
                   </h4>
@@ -177,7 +181,8 @@ export default function AiFactoryPage() {
                     color: "var(--text)", 
                     fontSize: "15px", 
                     lineHeight: "1.6",
-                    opacity: 0.7
+                    opacity: 0.7,
+                    textAlign: "center"
                   }}>
                     {item.desc}
                   </p>

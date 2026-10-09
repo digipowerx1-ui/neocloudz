@@ -871,16 +871,7 @@ export function HomeTokenFactory() {
                       <p>Generate whitepapers, tokenomics & more</p>
                     </div>
                   </div>
-                  
-                  <div className="tf-pillar pillar-bl">
-                    <div className="tf-pillar-icon-wrap">
-                      <Globe size={16} />
-                    </div>
-                    <div className="tf-pillar-content">
-                      <h3>MULTI-CHAIN</h3>
-                      <p>Deploy on 8+ blockchains</p>
-                    </div>
-                  </div>
+
                   
                   <div className="tf-pillar pillar-br">
                     <div className="tf-pillar-icon-wrap">
@@ -995,8 +986,8 @@ export function HomeCta() {
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
-        <a href="/contact?source=homepage&cta=talk_to_sales_footer" className="btn-outline" aria-label="Talk to Sales regarding private clusters">
-          Talk to Sales
+        <a href="/contact?source=homepage&cta=request_private_clusters" className="btn-outline" aria-label="Request Private Clusters">
+          Request Private Clusters
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>

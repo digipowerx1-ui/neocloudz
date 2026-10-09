@@ -47,11 +47,11 @@ export default function CtaSection({ source = "page" }: CtaSectionProps) {
           </svg>
         </Link>
         <Link
-          href={`/contact?source=${source}&cta=talk_to_sales`}
+          href={`/contact?source=${source}&cta=request_private_clusters`}
           className="btn-outline"
-          aria-label="Talk to Sales regarding private clusters"
+          aria-label="Request Private Clusters"
         >
-          Talk to Sales
+          Request Private Clusters
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
