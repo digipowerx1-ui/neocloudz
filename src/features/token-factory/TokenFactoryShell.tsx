@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   Zap,
   Cpu,
@@ -10,16 +11,118 @@ import {
   Server,
   ArrowRight,
   CheckCircle2,
-  Bot,
-  Code2,
-  BookOpen,
-  Sparkles,
   ChevronDown,
   Activity,
+  MapPin,
+  Users,
 } from "lucide-react";
 import { HeroParticles } from "@/components/layout/HeroParticles";
 import PageEffects from "@/features/page-effects/PageEffects";
 import "./token-factory.css";
+
+/* Enterprise High-Tech Custom Icons */
+function NeuralChatIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <path d="M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 0 1-4.255-.95L3 20l1.245-3.735C3.473 14.97 3 13.535 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+      <path d="M8 12h.01" strokeWidth="2.5" />
+      <path d="M12 12h.01" strokeWidth="2.5" />
+      <path d="M16 12h.01" strokeWidth="2.5" />
+      <path d="M9 8.5c1.8-1 4.2-1 6 0" strokeDasharray="1.5 1.5" />
+      <path d="M9 15.5c1.8 1 4.2 1 6 0" strokeDasharray="1.5 1.5" />
+    </svg>
+  );
+}
+
+function VectorRagIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="3" />
+      <circle cx="4" cy="6" r="2" />
+      <circle cx="20" cy="6" r="2" />
+      <circle cx="4" cy="18" r="2" />
+      <circle cx="20" cy="18" r="2" />
+      <path d="M5.6 7.2 9.4 10.3" />
+      <path d="M18.4 7.2 14.6 10.3" />
+      <path d="M5.6 16.8 9.4 13.7" />
+      <path d="M18.4 16.8 14.6 13.7" />
+      <path d="M4 8.5v7" strokeDasharray="2 2" />
+      <path d="M20 8.5v7" strokeDasharray="2 2" />
+    </svg>
+  );
+}
+
+function CodeSynthesisIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <polyline points="7 8 3 12 7 16" />
+      <polyline points="17 8 21 12 17 16" />
+      <line x1="14" y1="4" x2="10" y2="20" />
+      <circle cx="12" cy="12" r="1.75" fill="currentColor" />
+      <circle cx="7" cy="12" r="0.75" fill="currentColor" />
+      <circle cx="17" cy="12" r="0.75" fill="currentColor" />
+    </svg>
+  );
+}
+
+function AgentOrchestrationIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      width="26"
+      height="26"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      aria-hidden="true"
+    >
+      <rect x="9" y="2" width="6" height="5" rx="1.5" />
+      <rect x="2" y="16" width="6" height="5" rx="1.5" />
+      <rect x="16" y="16" width="6" height="5" rx="1.5" />
+      <path d="M12 7v4" />
+      <path d="M12 11h-7v5" />
+      <path d="M12 11h7v5" />
+      <circle cx="12" cy="11" r="1.5" fill="currentColor" />
+      <path d="M8 18.5h8" strokeDasharray="1.5 2" />
+    </svg>
+  );
+}
 
 interface FaqItem {
   q: string;
@@ -50,6 +153,58 @@ const FAQS: FaqItem[] = [
   {
     q: "How does Token Factory differ from AI Factory as a Service?",
     a: "Token Factory provides managed AI inference with turnkey API endpoints, automated vLLM acceleration, and dedicated model serving clusters. In contrast, AI Factory as a Service provides managed infrastructure pods (bare-metal GPU clusters, power, and physical hardware operations) where your team manages the model and serving stack.",
+  },
+];
+
+interface GtcEventItem {
+  id: string;
+  monthDay: string;
+  weekday: string;
+  timeRange: string;
+  title: string;
+  location: string;
+  guestsText: string;
+  posterTitle: string;
+  posterDate: string;
+  linkUrl: string;
+}
+
+const GTC_EVENTS: GtcEventItem[] = [
+  {
+    id: "meet-the-team",
+    monthDay: "Oct 20",
+    weekday: "Tuesday",
+    timeRange: "8:00 AM · 5:00 PM GMT+2",
+    title: "NeoCloudz Happy Hour: Meet the Team",
+    location: "Vox Restaurant & Bar",
+    guestsText: "No guests",
+    posterTitle: "Meet the Team",
+    posterDate: "OCTOBER 20, 2026 | 5-7 PM | BERLIN",
+    linkUrl: "https://luma.com/1cmdbxc6",
+  },
+  {
+    id: "lets-talk-inference",
+    monthDay: "Oct 21",
+    weekday: "Wednesday",
+    timeRange: "8:00 AM · 5:00 PM GMT+2",
+    title: "NeoCloudz Happy Hour: Let's Talk Inference",
+    location: "Vox Restaurant & Bar",
+    guestsText: "No guests",
+    posterTitle: "Let's Talk Inference",
+    posterDate: "OCTOBER 21, 2026 | 5-7 PM | BERLIN",
+    linkUrl: "https://luma.com/o1robneo",
+  },
+  {
+    id: "launch-celebration",
+    monthDay: "Oct 22",
+    weekday: "Thursday",
+    timeRange: "8:00 AM · 5:00 PM GMT+2",
+    title: "NeoCloudz Happy Hour: Token Factory Launch Celebration",
+    location: "Vox Restaurant & Bar",
+    guestsText: "No guests",
+    posterTitle: "Token Factory Launch Celebration",
+    posterDate: "OCTOBER 22, 2026 | 5-7 PM | BERLIN",
+    linkUrl: "https://luma.com/3hbr52g9",
   },
 ];
 
@@ -95,7 +250,7 @@ export function TokenFactoryShell() {
           <div className="hero-content">
             <div className="tf-early-badge">
               <span className="dot" />
-              <span>NeoCloudz Token Factory · Early Access</span>
+              <span>Token Factory · Early Access</span>
             </div>
 
             <h1>
@@ -125,7 +280,15 @@ export function TokenFactoryShell() {
 
             <div className="tf-hero-terminal">
               <span className="prompt">$</span>
-              <span className="cmd">Serving: Llama-3.3-70B · Blackwell B200 · TTFT: 42ms · FP8 Tensor Engine</span>
+              <div className="tf-terminal-cmd">
+                <span className="tf-term-tag">Serving: Llama-3.3-70B</span>
+                <span className="tf-term-sep">·</span>
+                <span className="tf-term-tag">Blackwell B200</span>
+                <span className="tf-term-sep">·</span>
+                <span className="tf-term-tag">TTFT: 42ms</span>
+                <span className="tf-term-sep">·</span>
+                <span className="tf-term-tag">FP8 Tensor Engine</span>
+              </div>
             </div>
           </div>
         </section>
@@ -135,7 +298,7 @@ export function TokenFactoryShell() {
           <div className="tf-gtc-card">
             <div className="tf-gtc-left">
               <div className="tf-gtc-badge">GTC Berlin 2026</div>
-              <div>
+              <div className="tf-gtc-info">
                 <div className="tf-gtc-title">Introducing Token Factory Live in Berlin</div>
                 <div className="tf-gtc-desc">
                   Join our engineering leadership at GTC Berlin for a 1-on-1 private architecture session. Review your inference throughput requirements, test latency benchmarks, and secure your early-access capacity allocation.
@@ -152,6 +315,104 @@ export function TokenFactoryShell() {
             </Link>
           </div>
         </div>
+
+        {/* GTC BERLIN SIDE EVENTS SECTION */}
+        <section className="tf-events-section" id="events">
+          <div className="tf-events-container">
+            {/* Header with Title and Badge */}
+            <div className="tf-events-header">
+              <div className="tf-events-title-wrap">
+                <h2 className="tf-events-title">Events</h2>
+              </div>
+              <span className="tf-events-badge">Upcoming</span>
+            </div>
+
+            {/* Timeline List */}
+            <div className="tf-timeline-wrap">
+              <div className="tf-timeline-line" aria-hidden="true" />
+              <div className="tf-timeline-list">
+                {GTC_EVENTS.map((event) => (
+                  <div key={event.id} className="tf-timeline-row">
+                    {/* Left: Date Column */}
+                    <div className="tf-event-date-col">
+                      <span className="tf-event-date-main">{event.monthDay}</span>
+                      <span className="tf-event-date-sep">·</span>
+                      <span className="tf-event-date-sub">{event.weekday}</span>
+                    </div>
+
+                    {/* Center Node on Timeline Track */}
+                    <div className="tf-timeline-node" aria-hidden="true">
+                      <span className="tf-timeline-dot" />
+                    </div>
+
+                    {/* Right: Event Card */}
+                    <div className="tf-event-card">
+                      <div className="tf-event-details">
+                        <div className="tf-event-time">{event.timeRange}</div>
+                        <h3 className="tf-event-heading">{event.title}</h3>
+
+                        <div className="tf-event-meta-group">
+                          <div className="tf-event-meta-item">
+                            <MapPin size={15} className="tf-meta-icon" aria-hidden="true" />
+                            <span>{event.location}</span>
+                          </div>
+                          <div className="tf-event-meta-item">
+                            <Users size={15} className="tf-meta-icon" aria-hidden="true" />
+                            <span>{event.guestsText}</span>
+                          </div>
+                        </div>
+
+                        <div className="tf-event-actions">
+                          <a
+                            href={event.linkUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="tf-event-manage-btn"
+                            aria-label={`Register on Luma for ${event.title}`}
+                          >
+                            <span>Manage Event</span>
+                            <ArrowRight size={14} aria-hidden="true" />
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* Right: Poster Graphic linking to Luma with NeoCloudz logo */}
+                      <a
+                        href={event.linkUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="tf-event-poster"
+                        aria-label={`Open Luma event for ${event.posterTitle}`}
+                      >
+                        <div className="tf-poster-grid" aria-hidden="true" />
+                        <div className="tf-poster-top">
+                          <Image
+                            src="/DigiPowerX Posts (17) 1.png"
+                            alt="NeoCloudz"
+                            width={120}
+                            height={26}
+                            style={{ height: "26px", width: "auto", display: "block", objectFit: "contain" }}
+                          />
+                        </div>
+
+                        <div className="tf-poster-badge">HAPPY HOUR</div>
+
+                        <div className="tf-poster-content">
+                          <h4 className="tf-poster-title">{event.posterTitle}</h4>
+                          <p className="tf-poster-tagline">Meet. Connect. Explore AI.</p>
+                        </div>
+
+                        <div className="tf-poster-footer">
+                          <span>{event.posterDate}</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* SECTION 1: PRODUCT OVERVIEW */}
         <section className="tf-section-block" id="overview">
@@ -284,18 +545,7 @@ export function TokenFactoryShell() {
             </div>
 
             {/* Scope Distinction: Early Access Scope vs. Planned Capabilities */}
-            <div
-              style={{
-                marginTop: "48px",
-                padding: "28px 32px",
-                background: "rgba(12, 18, 12, 0.75)",
-                border: "1px solid rgba(45, 255, 122, 0.2)",
-                borderRadius: "16px",
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-                gap: "24px",
-              }}
-            >
+            <div className="tf-scope-distinction">
               <div>
                 <div
                   style={{
@@ -460,8 +710,8 @@ export function TokenFactoryShell() {
 
             <div className="tf-grid-4">
               <div className="tf-use-card">
-                <div style={{ color: "var(--green)", marginBottom: "14px" }}>
-                  <Bot size={28} />
+                <div className="tf-use-icon green">
+                  <NeuralChatIcon />
                 </div>
                 <h4>AI Assistants & Chat</h4>
                 <p>
@@ -470,8 +720,8 @@ export function TokenFactoryShell() {
               </div>
 
               <div className="tf-use-card">
-                <div style={{ color: "var(--blue)", marginBottom: "14px" }}>
-                  <BookOpen size={28} />
+                <div className="tf-use-icon blue">
+                  <VectorRagIcon />
                 </div>
                 <h4>Enterprise Knowledge & RAG</h4>
                 <p>
@@ -480,8 +730,8 @@ export function TokenFactoryShell() {
               </div>
 
               <div className="tf-use-card">
-                <div style={{ color: "var(--amber)", marginBottom: "14px" }}>
-                  <Code2 size={28} />
+                <div className="tf-use-icon amber">
+                  <CodeSynthesisIcon />
                 </div>
                 <h4>Coding Copilots & Dev Tools</h4>
                 <p>
@@ -490,8 +740,8 @@ export function TokenFactoryShell() {
               </div>
 
               <div className="tf-use-card">
-                <div style={{ color: "var(--green)", marginBottom: "14px" }}>
-                  <Sparkles size={28} />
+                <div className="tf-use-icon purple">
+                  <AgentOrchestrationIcon />
                 </div>
                 <h4>Autonomous Agent Systems</h4>
                 <p>
