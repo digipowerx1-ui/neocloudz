@@ -84,9 +84,9 @@ export function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <img
-            src="/images/neocloudz-logo.png"
-            alt="NeoCloudz - High-Performance AI Cloud"
-            style={{ height: "80px", width: "auto", display: "block" }}
+            src="/DigiPowerX%20Posts%20(17)%201.png"
+            alt="DigiPowerX - High-Performance AI Cloud"
+            style={{ height: "45px", width: "auto", display: "block" }}
           />
         </Link>
         <ul className="site-nav-links">
