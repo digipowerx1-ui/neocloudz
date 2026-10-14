@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
           destination: "/coming-soon.html",
         })),
         ...Object.entries(STATIC_HOSTS).map(([host, page]) => ({
-          source: "/((?!_next/|images/|favicon\\.ico).*)",
+          source: "/((?!_next/|api/|images/|favicon\\.ico).*)",
           has: [{ type: "host" as const, value: host }],
           destination: page,
         })),
