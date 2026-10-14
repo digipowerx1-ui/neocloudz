@@ -4,16 +4,11 @@ import Link from "next/link";
 import { useRef, type ReactNode } from "react";
 import {
   ArrowRight,
-  Bot,
   Code,
   Cpu,
   Globe,
-  Layers,
   ShieldCheck,
-  Sparkles,
   TrendingUp,
-  Users,
-  Zap,
 } from "lucide-react";
 
 import TokenFactoryScene from "./TokenFactoryScene";
@@ -916,152 +911,140 @@ export function HomeTokenFactoryOverview() {
         {/* 3-Card Grid: What It Is | Who It Serves | Its Benefits */}
         <div className="tf-overview-grid">
           {/* Card 1: What It Is */}
-          <div className="tf-overview-card">
-            <div className="tf-card-tag">
-              <Layers size={13} aria-hidden="true" />
-              <span>What It Is</span>
+          <div className="tf-overview-card tf-card-green">
+            <div className="tf-card-tag tf-tag-green">
+              <span className="tf-tag-dot" />
+              What It Is
             </div>
             <h3 className="tf-card-title">What It Is</h3>
             <p className="tf-card-lead">
-              Managed AI inference that brings model serving and purpose-built GPU infrastructure together to move teams from experimentation to production.
+              Managed AI inference that brings model serving and purpose-built Blackwell GPU infrastructure together to move teams from experimentation to production.
             </p>
-
             <div className="tf-card-list">
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <Zap size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">01</span>
+                  <h4 className="tf-card-item-title">Turnkey Model Serving</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">Turnkey Model Serving</div>
-                  <p className="tf-card-item-desc">
-                    OpenAI-compatible REST endpoints for leading foundation models and custom fine-tunes without cluster management.
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  OpenAI-compatible APIs for foundation models, reasoning architectures, and custom fine-tunes with zero cluster setup.
+                </p>
               </div>
-
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <Cpu size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">02</span>
+                  <h4 className="tf-card-item-title">Purpose-Built GPU Fabric</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">Purpose-Built Silicon</div>
-                  <p className="tf-card-item-desc">
-                    Engineered directly on Blackwell B200 SXM GPUs with high-bandwidth HBM3e memory and 900 GB/s NVLink fabric.
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  Dedicated NVIDIA Blackwell compute with 900 GB/s NVLink interconnects and extreme HBM3e memory bandwidth.
+                </p>
               </div>
-
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <Code size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">03</span>
+                  <h4 className="tf-card-item-title">Zero Infrastructure DevOps</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">Zero Operational DevOps</div>
-                  <p className="tf-card-item-desc">
-                    Eliminates the complexity of Kubernetes operators, CUDA driver crashes, container runtimes, and hardware maintenance.
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  Eliminates Kubernetes operator overhead, CUDA driver maintenance, and cold-start scheduling bottlenecks.
+                </p>
               </div>
+            </div>
+            <div className="tf-card-footer">
+              <span className="tf-card-chip">OpenAI-Compatible</span>
+              <span className="tf-card-chip">Blackwell B200</span>
+              <span className="tf-card-chip">Zero DevOps</span>
             </div>
           </div>
 
           {/* Card 2: Who It Serves */}
-          <div className="tf-overview-card">
-            <div className="tf-card-tag">
-              <Users size={13} aria-hidden="true" />
-              <span>Who It Serves</span>
+          <div className="tf-overview-card tf-card-green">
+            <div className="tf-card-tag tf-tag-green">
+              <span className="tf-tag-dot" />
+              Who It Serves
             </div>
             <h3 className="tf-card-title">Who It Serves</h3>
             <p className="tf-card-lead">
-              Purpose-built for <strong>teams building AI applications, agents, and enterprise assistants</strong> who require predictable performance.
+              Purpose-built for engineering teams and AI builders scaling mission-critical production workloads:
             </p>
-
             <div className="tf-card-list">
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <Bot size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">01</span>
+                  <h4 className="tf-card-item-title">Teams Building AI Applications</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">AI Application Teams</div>
-                  <p className="tf-card-item-desc">
-                    Product and engineering teams deploying consumer and B2B SaaS apps requiring predictable low latency and high token throughput.
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  Consumer and SaaS developers requiring sub-second TTFT, high token throughput, and pay-per-token efficiency.
+                </p>
               </div>
-
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <Zap size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">02</span>
+                  <h4 className="tf-card-item-title">Autonomous Agents</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">AI Agents & Workflows</div>
-                  <p className="tf-card-item-desc">
-                    Autonomous agent architectures and multi-step tool-calling workflows requiring ultra-fast Time-To-First-Token (TTFT).
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  Multi-step reasoning loops and tool-calling agent pipelines requiring ultra-low latency inference cycles.
+                </p>
               </div>
-
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <ShieldCheck size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">03</span>
+                  <h4 className="tf-card-item-title">Enterprise Assistants &amp; RAG</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">Enterprise Assistants & RAG</div>
-                  <p className="tf-card-item-desc">
-                    Internal copilots and enterprise retrieval systems demanding strict zero data retention and dedicated VPC isolation.
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  Internal copilots and enterprise retrieval systems demanding strict VPC isolation and zero data retention.
+                </p>
               </div>
+            </div>
+            <div className="tf-card-footer">
+              <span className="tf-card-chip">High Concurrency</span>
+              <span className="tf-card-chip">Sub-15ms TTFT</span>
+              <span className="tf-card-chip">Zero Data Retention</span>
             </div>
           </div>
 
           {/* Card 3: Its Benefits */}
-          <div className="tf-overview-card">
-            <div className="tf-card-tag">
-              <Sparkles size={13} aria-hidden="true" />
-              <span>Its Benefits</span>
+          <div className="tf-overview-card tf-card-green">
+            <div className="tf-card-tag tf-tag-green">
+              <span className="tf-tag-dot" />
+              Its Benefits
             </div>
             <h3 className="tf-card-title">Its Benefits</h3>
             <p className="tf-card-lead">
-              Silicon-to-API performance optimizations delivering lower costs, higher throughput, and seamless operational scaling.
+              Inference infrastructure engineered for maximum performance, reliability, and cost-efficiency:
             </p>
-
             <div className="tf-card-list">
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <Layers size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">01</span>
+                  <h4 className="tf-card-item-title">Simpler Model Deployment</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">Simpler Model Deployment</div>
-                  <p className="tf-card-item-desc">
-                    Deploy Llama 3.3, DeepSeek, Mistral, and custom fine-tunes instantly with standard OpenAI-compatible endpoints.
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  Deploy Llama 3.3, DeepSeek, Mistral, and custom adapters in minutes without complex cluster configuration.
+                </p>
               </div>
-
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <Cpu size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">02</span>
+                  <h4 className="tf-card-item-title">Workload-Optimized Inference</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">Workload-Optimized Inference</div>
-                  <p className="tf-card-item-desc">
-                    Direct hardware control over GPU compute and memory bandwidth to achieve minimal latency and maximum throughput.
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  Direct hardware acceleration and optimized vLLM kernels delivering up to 3.8× higher token throughput.
+                </p>
               </div>
-
               <div className="tf-card-item">
-                <div className="tf-card-item-icon">
-                  <TrendingUp size={16} aria-hidden="true" />
+                <div className="tf-item-header">
+                  <span className="tf-item-num">03</span>
+                  <h4 className="tf-card-item-title">Support for Growing Demand</h4>
                 </div>
-                <div>
-                  <div className="tf-card-item-title">Support for Growing Demand</div>
-                  <p className="tf-card-item-desc">
-                    Seamlessly scale from early experimentation to high-volume production with dedicated cluster tiers and instant burst capacity.
-                  </p>
-                </div>
+                <p className="tf-card-item-desc">
+                  Seamlessly scale from prototype testing to millions of daily requests with elastic burst capacity.
+                </p>
               </div>
+            </div>
+            <div className="tf-card-footer">
+              <span className="tf-card-chip">Instant Deploy</span>
+              <span className="tf-card-chip">3.8× Throughput</span>
+              <span className="tf-card-chip">Elastic Scaling</span>
             </div>
           </div>
         </div>
@@ -1069,7 +1052,7 @@ export function HomeTokenFactoryOverview() {
         {/* Clear Request Early Access CTA Banner */}
         <div className="tf-cta-banner">
           <div className="tf-cta-content">
-            <div className="hp-label" style={{ marginBottom: "8px" }}>Early Access Open</div>
+            <div className="hp-label">Early Access Open</div>
             <h3>Ready to Scale Your Inference with Token Factory?</h3>
             <p>
               Request early access to test latency benchmarks on dedicated Blackwell clusters and secure priority pilot allocation for your engineering team.
