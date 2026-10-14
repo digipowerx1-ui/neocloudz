@@ -508,9 +508,7 @@ function ContactFormInner() {
             lineHeight: 1.6,
           }}
         >
-          {isEarlyAccess
-            ? "Thank you for your interest in NeoCloudz Token Factory. We’ve received your early-access request, and our team will contact you about next steps."
-            : "Your transmission has been received. Our engineering team will review your requirements and respond within the 2-hour window."}
+          Thank you for your interest in NeoCloudz Token Factory. We&apos;ve received your early-access request, and our team will contact you about next steps.
         </div>
         <div
           className="success-terminal"
