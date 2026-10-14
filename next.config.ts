@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 // ponytail: subdomains serve a static coming-soon page; swap for real apps when they exist
-const COMING_SOON_HOSTS = ["console.neocloudz.com", "api.neocloudz.com"];
+const COMING_SOON_HOSTS = ["console.neocloudz.com", "api.neocloudz.com", "tokenfactory.neocloudz.com"];
 
 const nextConfig: NextConfig = {
   allowedDevOrigins: ["192.168.31.45"],
