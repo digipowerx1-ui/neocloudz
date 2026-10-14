@@ -8,6 +8,8 @@ import { sendContactMessage } from "@/services/api/contact";
 const INTEREST_OPTIONS = [
   { value: "on_demand_gpus", label: "On-Demand GPUs" },
   { value: "enterprise_bare_metal", label: "Enterprise / Bare Metal" },
+  { value: "token_factory", label: "Token Factory (Early Access)" },
+  { value: "gtc_berlin_meeting", label: "Meet Us at GTC Berlin" },
   { value: "weka_storage", label: "WEKA Storage" },
   { value: "technical_support", label: "Technical Support" },
   { value: "partnership", label: "Partnership" },
@@ -23,7 +25,6 @@ const BUDGET_OPTIONS = [
 
 const MESSAGE_MAX = 800;
 const MESSAGE_NEAR_LIMIT = 720;
-const SIMULATED_LATENCY_MS = 1800;
 const PARTICLE_COUNT = 20;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -146,9 +147,45 @@ function fireParticles(origin: HTMLElement) {
   }
 }
 
+function getInitialForm(searchParams: ReturnType<typeof useSearchParams>): FormState {
+  const interestParam = searchParams.get("interest");
+  const gtcMeeting = searchParams.get("gtc_meeting");
+
+  if (interestParam) {
+    if (
+      interestParam === "gtc_berlin_meeting" ||
+      interestParam.includes("gtc") ||
+      gtcMeeting === "true"
+    ) {
+      return {
+        ...INITIAL_FORM,
+        interest: "gtc_berlin_meeting",
+        message:
+          "Hello! We would like to schedule a private meeting with the NeoCloudz architecture team at GTC Berlin to discuss Token Factory and our AI inference workload.",
+      };
+    }
+    if (
+      interestParam === "token_factory" ||
+      interestParam === "token-factory"
+    ) {
+      return {
+        ...INITIAL_FORM,
+        interest: "token_factory",
+        message:
+          "Requesting early access pilot scope for NeoCloudz Token Factory (managed AI inference).",
+      };
+    }
+    const match = INTEREST_OPTIONS.find((opt) => opt.value === interestParam);
+    if (match) {
+      return { ...INITIAL_FORM, interest: match.value };
+    }
+  }
+  return INITIAL_FORM;
+}
+
 function ContactFormInner() {
-  const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const searchParams = useSearchParams();
+  const [form, setForm] = useState<FormState>(() => getInitialForm(searchParams));
   const [status, setStatus] = useState<SubmitStatus>("idle");
   const [nameTouched, setNameTouched] = useState(false);
   const [emailTouched, setEmailTouched] = useState(false);
@@ -168,30 +205,55 @@ function ContactFormInner() {
   }, [status]);
 
   useEffect(() => {
+    let cancelled = false;
     const norm = normalizeEmail(form.email);
     if (!norm || !EMAIL_REGEX.test(norm)) {
-      setDomainVerified(null);
-      setEmailChecking(false);
-      return;
+      const timer = setTimeout(() => {
+        if (!cancelled) {
+          setDomainVerified(null);
+          setEmailChecking(false);
+        }
+      }, 0);
+      return () => {
+        cancelled = true;
+        clearTimeout(timer);
+      };
     }
 
     const domain = norm.split("@")[1]?.toLowerCase();
     if (!domain || FREE_EMAIL_DOMAINS.has(domain)) {
-      setDomainVerified(false);
-      setEmailChecking(false);
-      return;
+      const timer = setTimeout(() => {
+        if (!cancelled) {
+          setDomainVerified(false);
+          setEmailChecking(false);
+        }
+      }, 0);
+      return () => {
+        cancelled = true;
+        clearTimeout(timer);
+      };
     }
 
-    setEmailChecking(true);
-    setDomainVerified(null);
+    const startTimer = setTimeout(() => {
+      if (!cancelled) {
+        setEmailChecking(true);
+        setDomainVerified(null);
+      }
+    }, 0);
 
-    const timer = setTimeout(async () => {
+    const checkTimer = setTimeout(async () => {
       const exists = await checkDomainDnsExists(domain);
-      setDomainVerified(exists);
-      setEmailChecking(false);
+      if (!cancelled) {
+        setDomainVerified(exists);
+        setEmailChecking(false);
+      }
     }, 200);
 
-    return () => clearTimeout(timer);
+    return () => {
+      cancelled = true;
+      clearTimeout(startTimer);
+      clearTimeout(checkTimer);
+    };
   }, [form.email]);
 
   const nameValid = form.name.trim().length > 1;

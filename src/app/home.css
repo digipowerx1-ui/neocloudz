@@ -4591,13 +4591,13 @@
 }
 
 .home-page .tf-title {
-  font-size: 56px;
-  font-weight: 900;
-  line-height: 1.05;
+  font-size: clamp(32px, 3.4vw, 48px);
+  font-weight: 800;
+  line-height: 1.12;
   color: var(--white);
-  letter-spacing: -2px;
-  margin-bottom: 12px;
-  text-transform: uppercase;
+  letter-spacing: -1.2px;
+  margin-bottom: 16px;
+  text-transform: none;
 }
 
 .home-page .tf-subtitle {
@@ -4613,9 +4613,9 @@
   font-size: 16px;
   color: var(--text);
   line-height: 1.6;
-  opacity: 0.8;
-  margin-bottom: 36px;
-  max-width: 500px;
+  opacity: 0.85;
+  margin-bottom: 28px;
+  max-width: 540px;
 }
 
 /* Waitlist Premium Glass Box */
@@ -5083,7 +5083,7 @@
   }
 
   .home-page .tf-title {
-    font-size: 40px;
+    font-size: clamp(26px, 4vw, 36px);
   }
 
   .home-page .tf-coin-wrapper {
@@ -5547,4 +5547,212 @@
   .home-page .terminal-wrap {
     padding: 0 8px !important;
   }
+}
+
+/* ── TOKEN FACTORY OVERVIEW SECTION ── */
+.home-page .tf-overview-section {
+  padding: 80px 24px 100px;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.home-page .tf-overview-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.home-page .tf-overview-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.home-page .tf-overview-header .hp-label {
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.home-page .tf-overview-header .hp-h2 {
+  text-align: center;
+  margin: 0 auto 16px;
+  max-width: 900px;
+}
+
+.home-page .tf-overview-header .hp-sub {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 680px;
+}
+
+.home-page .tf-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+}
+
+@media (max-width: 1024px) {
+  .home-page .tf-overview-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.home-page .tf-overview-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.006) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 30px 24px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-page .tf-overview-card:hover {
+  border-color: rgba(45, 255, 122, 0.28);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.5), 0 0 24px rgba(45, 255, 122, 0.05);
+  transform: translateY(-2px);
+}
+
+.home-page .tf-card-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: rgba(45, 255, 122, 0.08);
+  border: 1px solid rgba(45, 255, 122, 0.2);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 18px;
+}
+
+.home-page .tf-card-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+
+.home-page .tf-card-lead {
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.55;
+  opacity: 0.85;
+  margin-bottom: 20px;
+  min-height: 44px;
+}
+
+.home-page .tf-card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.home-page .tf-card-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.home-page .tf-card-item:hover {
+  background: rgba(45, 255, 122, 0.03);
+  border-color: rgba(45, 255, 122, 0.18);
+}
+
+.home-page .tf-card-item-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(45, 255, 122, 0.08);
+  border: 1px solid rgba(45, 255, 122, 0.2);
+  color: var(--green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.home-page .tf-card-item-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.home-page .tf-card-item-desc {
+  font-size: 13px;
+  color: rgba(200, 212, 200, 0.8);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Clear Request Early Access CTA Banner */
+.home-page .tf-cta-banner {
+  background: linear-gradient(135deg, rgba(45, 255, 122, 0.07) 0%, rgba(77, 200, 255, 0.03) 50%, rgba(255, 255, 255, 0.02) 100%);
+  border: 1px solid rgba(45, 255, 122, 0.25);
+  border-radius: 18px;
+  padding: 36px 44px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(45, 255, 122, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+@media (max-width: 860px) {
+  .home-page .tf-cta-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px 24px;
+    gap: 22px;
+  }
+}
+
+.home-page .tf-cta-content h3 {
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.home-page .tf-cta-content p {
+  font-size: 14.5px;
+  color: rgba(200, 212, 200, 0.85);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 620px;
+}
+
+.home-page .tf-cta-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
 }

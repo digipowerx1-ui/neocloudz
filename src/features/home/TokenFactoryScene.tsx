@@ -432,7 +432,14 @@ function TokenFactoryScene() {
       let glowBoost = 0;
       coinGroup.getWorldPosition(coinWorld);
       for (const cube of featCubes) {
-        const u = cube.userData as any;
+        const u = cube.userData as {
+          ang: number;
+          speed: number;
+          radius: number;
+          yBase: number;
+          ySpeed: number;
+          phase: number;
+        };
         u.ang += u.speed * dt;
         cube.position.set(
           Math.cos(u.ang) * u.radius,

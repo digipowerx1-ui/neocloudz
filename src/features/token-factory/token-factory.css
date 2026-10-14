@@ -1,0 +1,567 @@
+/* ─────────────────────────────────────────────────────────────
+   Token Factory Product Page Styles
+   Strictly utilizes NeoCloudz Design Tokens
+───────────────────────────────────────────────────────────────── */
+
+.token-factory-page {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  padding-top: 104px; /* offset for announcement banner + header */
+}
+
+/* HERO */
+.tf-prod-hero {
+  position: relative;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 90px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.tf-prod-hero .hero-content {
+  position: relative;
+  z-index: 5;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.tf-early-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(45, 255, 122, 0.12);
+  border: 1px solid rgba(45, 255, 122, 0.3);
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 24px;
+}
+
+.tf-early-badge .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+  animation: pulse-dot 2s infinite ease-in-out;
+}
+
+.tf-prod-hero h1 {
+  font-size: clamp(40px, 5.5vw, 68px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.tf-prod-hero h1 .g {
+  color: var(--green);
+  text-shadow: 0 0 35px rgba(45, 255, 122, 0.3);
+}
+
+.tf-prod-hero .hero-sub {
+  font-size: clamp(17px, 1.5vw, 20px);
+  font-weight: 450;
+  line-height: 1.6;
+  color: #c8d8c8;
+  max-width: 800px;
+  margin: 0 auto 36px;
+}
+
+.tf-prod-hero .hero-sub .tf-desc-link,
+.tf-prod-hero .hero-desc .tf-desc-link {
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 255, 122, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.tf-prod-hero .hero-sub .tf-desc-link:hover,
+.tf-prod-hero .hero-desc .tf-desc-link:hover {
+  color: #ffffff;
+  text-decoration-color: var(--green);
+}
+
+.tf-hero-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+/* Terminal Snippet in Hero */
+.tf-hero-terminal {
+  background: rgba(9, 14, 9, 0.9);
+  border: 1px solid rgba(45, 255, 122, 0.25);
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+}
+
+.tf-hero-terminal .prompt {
+  color: var(--green);
+}
+
+.tf-hero-terminal .cmd {
+  color: #f0f5f0;
+}
+
+/* GTC BERLIN CALLOUT CARD */
+.tf-gtc-banner-wrap {
+  max-width: 1200px;
+  margin: -30px auto 60px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.tf-gtc-card {
+  background: linear-gradient(90deg, rgba(12, 28, 16, 0.95) 0%, rgba(18, 38, 22, 0.95) 50%, rgba(10, 24, 14, 0.95) 100%);
+  border: 1px solid rgba(45, 255, 122, 0.35);
+  border-radius: 18px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(45, 255, 122, 0.12);
+}
+
+.tf-gtc-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tf-gtc-badge {
+  background: rgba(45, 255, 122, 0.15);
+  color: var(--green);
+  border: 1px solid rgba(45, 255, 122, 0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.tf-gtc-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.tf-gtc-desc {
+  font-size: 14px;
+  color: #c0d0c0;
+  max-width: 600px;
+}
+
+.tf-gtc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green);
+  color: #0a0f0a;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.tf-gtc-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(45, 255, 122, 0.4);
+}
+
+/* SECTION STRUCTURE */
+.tf-section-block {
+  padding: 90px 24px;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tf-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tf-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.tf-section-header h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-top: 14px;
+  margin-bottom: 16px;
+}
+
+.tf-section-header h2 .g {
+  color: var(--green);
+}
+
+.tf-section-header p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* 3-GRID CARDS */
+.tf-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tf-card {
+  background: linear-gradient(145deg, rgba(18, 24, 18, 0.8) 0%, rgba(10, 15, 10, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 32px 28px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tf-card:hover {
+  border-color: rgba(45, 255, 122, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(45, 255, 122, 0.08);
+}
+
+.tf-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(45, 255, 122, 0.1);
+  border: 1px solid rgba(45, 255, 122, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+
+.tf-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.tf-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* ACCESS OPTIONS CARDS */
+.tf-access-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.tf-access-card {
+  background: linear-gradient(135deg, rgba(20, 28, 20, 0.85) 0%, rgba(10, 16, 10, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tf-access-card.featured {
+  border-color: rgba(45, 255, 122, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(45, 255, 122, 0.08);
+}
+
+.tf-scope-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.tf-scope-badge.active {
+  background: rgba(45, 255, 122, 0.15);
+  color: var(--green);
+  border: 1px solid rgba(45, 255, 122, 0.35);
+}
+
+.tf-scope-badge.pilot {
+  background: rgba(77, 200, 255, 0.15);
+  color: var(--blue);
+  border: 1px solid rgba(77, 200, 255, 0.35);
+}
+
+.tf-access-card h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.tf-access-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+
+.tf-access-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tf-access-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #dbe7db;
+}
+
+.tf-access-card .btn-cta {
+  margin-top: auto;
+}
+
+/* 4-GRID USE CASES */
+.tf-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.tf-use-card {
+  background: rgba(14, 20, 14, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 0.25s ease;
+}
+
+.tf-use-card:hover {
+  border-color: rgba(45, 255, 122, 0.3);
+  transform: translateY(-3px);
+  background: rgba(16, 24, 16, 0.85);
+}
+
+.tf-use-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.tf-use-card p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* EARLY ACCESS PROCESS ROADMAP */
+.tf-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.tf-step-card {
+  background: rgba(14, 20, 14, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px 24px;
+  position: relative;
+}
+
+.tf-step-num {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--green);
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+
+.tf-step-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.tf-step-card p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* FAQ ACCORDION */
+.tf-faq-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tf-faq-item {
+  background: rgba(12, 17, 12, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 24px 28px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tf-faq-item:hover {
+  border-color: rgba(45, 255, 122, 0.25);
+}
+
+.tf-faq-q {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tf-faq-a {
+  margin-top: 14px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* FINAL CTA BANNER */
+.tf-final-cta-section {
+  padding: 100px 24px 120px;
+  text-align: center;
+  position: relative;
+  background: radial-gradient(ellipse at center, rgba(45, 255, 122, 0.08) 0%, transparent 70%);
+}
+
+.tf-final-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, rgba(16, 24, 16, 0.9) 0%, rgba(9, 14, 9, 0.98) 100%);
+  border: 1px solid rgba(45, 255, 122, 0.3);
+  border-radius: 24px;
+  padding: 60px 40px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(45, 255, 122, 0.1);
+}
+
+.tf-final-card h2 {
+  font-size: clamp(34px, 4.5vw, 50px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.tf-final-card p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #c8d4c8;
+  max-width: 650px;
+  margin: 0 auto 36px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tf-grid-3,
+  .tf-grid-4,
+  .tf-roadmap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tf-access-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-gtc-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tf-gtc-cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .token-factory-page {
+    padding-top: 114px;
+  }
+
+  .tf-grid-3,
+  .tf-grid-4,
+  .tf-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-gtc-card {
+    padding: 24px;
+  }
+
+  .tf-access-card {
+    padding: 28px 24px;
+  }
+
+  .tf-final-card {
+    padding: 40px 24px;
+  }
+}

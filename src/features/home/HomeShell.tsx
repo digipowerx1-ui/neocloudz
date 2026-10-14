@@ -14,6 +14,7 @@ import {
   HomeRack,
   HomeStorage,
   HomeTokenFactory,
+  HomeTokenFactoryOverview,
   HomeWhy,
   HomeWorkloads,
 } from "./HomeSections";
@@ -30,6 +31,9 @@ export function HomeShell() {
     <div className="home-page" ref={rootRef}>
       <div className="home-scroll-bar" ref={scrollBarRef} />
       <HomeHero />
+      <HomeTokenFactory />
+      <HomeTokenFactoryOverview />
+      <div className="section-divider" />
       <HomePartners />
       <HomeWhy />
       <HomePricing />
@@ -43,8 +47,6 @@ export function HomeShell() {
       <div className="anim-divider" />
 
       <HomeStorage />
-      <div className="section-divider" />
-      <HomeTokenFactory />
       <div className="section-divider" />
       <HomeFaq />
       <HomeCta />

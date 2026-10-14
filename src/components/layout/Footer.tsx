@@ -15,9 +15,10 @@ const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Products",
     items: [
+      { label: "Token Factory", href: "/token-factory", badge: "Early Access" },
       { label: "All Products", href: "/products" },
-      { label: "GPU as a Service", href: "/gpu-as-a-service" },
       { label: "AI Factory as a Service", href: "/ai-factory-as-a-service" },
+      { label: "GPU as a Service", href: "/gpu-as-a-service" },
       { label: "ML as a Service", href: "/ml-as-a-service" },
       { label: "Managed Kubernetes", href: "/products#k8s" },
       { label: "AI Storage", href: "/products#storage" },

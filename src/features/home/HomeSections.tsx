@@ -1,9 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import type { ReactNode } from "react";
-import { useEffect, useRef, useState } from "react";
-import { Code, Cpu, Globe, Lock, ShieldCheck, TrendingUp, Send, Check, Terminal } from "lucide-react";
+import { useRef } from "react";
+import {
+  ArrowRight,
+  Bot,
+  Code,
+  Cpu,
+  Globe,
+  Layers,
+  ShieldCheck,
+  Sparkles,
+  TrendingUp,
+  Users,
+  Zap,
+} from "lucide-react";
 
 import TokenFactoryScene from "./TokenFactoryScene";
 
@@ -22,7 +33,6 @@ import {
 import { useRackSlots } from "./useRackSlots";
 
 import { PRICING_CARDS, PRICING_TICKER_ITEMS } from "@/lib/pricing-data";
-import { sendEarlyAccess } from "@/services/api/early-access";
 
 const TICKER_ITEMS = PRICING_TICKER_ITEMS;
 
@@ -736,186 +746,351 @@ const FAQS = [
 ];
 
 export function HomeTokenFactory() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<string | null>(null);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!email.trim() || isSubmitting) return;
-
-    setIsSubmitting(true);
-    setErrorMessage(null);
-
-    try {
-      await sendEarlyAccess({
-        email: email.trim(),
-      });
-      setSubmitted(true);
-    } catch (error) {
-      console.error("Early access submission failed:", error);
-      setErrorMessage("Unable to submit your email right now. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section className="hp-section dark tf-section" id="token-factory">
       {/* Soft ambient gradient backdrop */}
       <div className="tf-ambient-glow" />
-      
+
       <div className="tf-container">
         <div className="tf-deck-glass">
           <div className="tf-grid">
-            
-            {/* Left Column: Product details & waitlist hacker terminal */}
+            {/* Left Column: Product details & waitlist early-access allocation */}
             <div className="tf-left-col">
-              <div className="hp-label" style={{ marginBottom: "16px" }}>Token Factory</div>
-              <div className="tf-badge">COMING SOON</div>
-              
-              <h2 className="tf-title">
-                TOKEN<br />
-                <span className="g">FACTORY</span>
-              </h2>
-              
-              <div className="tf-subtitle">CREATE. LAUNCH. EMPOWER.</div>
-              
-              <p className="tf-description">
-                NeoCloudz Token Factory is an enterprise-grade platform for creating, deploying, and managing digital assets with speed, security, and scalability. Design custom tokenomics, launch secure smart contracts, and power the next generation of Web3, AI, gaming, and enterprise applications—all from a single unified platform
-                 </p>
-              
-              {/* Waitlist Premium Glass Box */}
-              <div className="tf-waitlist-card">
-                {!submitted ? (
-                  <form onSubmit={handleSubmit} className="tf-waitlist-form">
-                    <div className="tf-waitlist-header">
-                      <span className="tf-status-dot"></span>
-                      <span className="tf-waitlist-title">WAITLIST ALLOCATION ACCESS</span>
-                    </div>
-                    <p className="tf-waitlist-sub">
-                      Secure your priority deployment slot in the upcoming Token Factory release.
-                    </p>
-                    <div className="tf-input-group">
-                      <label htmlFor="tf-waitlist-email" className="sr-only">
-                        Enter your email address
-                      </label>
-                      <input
-                        id="tf-waitlist-email"
-                        name="email"
-                        type="email"
-                        required
-                        placeholder="Enter your email address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="tf-input"
-                        aria-label="Enter your email address"
-                      />
-                      <button type="submit" className="tf-btn" disabled={isSubmitting} aria-label="Notify Me for Token Factory Access">
-                        {isSubmitting ? "Syncing..." : "Notify Me"} <Send size={14} className="tf-btn-icon" aria-hidden="true" />
-                      </button>
-                    </div>
-                    {errorMessage ? (
-                      <div className="tf-waitlist-error" role="alert">
-                        {errorMessage}
-                      </div>
-                    ) : null}
-                  </form>
-                ) : (
-                  <div className="tf-waitlist-success">
-                    <div className="tf-success-badge">
-                      <Check size={16} /> [ REGISTRATION AUTHORIZED ]
-                    </div>
-                    <p className="tf-success-desc">
-                      Waitlist registration complete. early access credentials queued for <span className="g">{email}</span>.
-                    </p>
-                  </div>
-                )}
+              <div className="hp-label" style={{ marginBottom: "16px" }}>
+                Managed AI Inference
               </div>
-              
-              {/* Minimalist social proof */}
-              <div className="tf-social-proof">
-                <span className="tf-indicator-glow"></span>
-               
+              <div className="tf-badge">EARLY ACCESS · GTC BERLIN</div>
+
+              <h2 className="tf-title">
+                AI tuned for your business.
+                <br />
+                <span className="g">Infrastructure tuned for your AI.</span>
+              </h2>
+
+              <p className="tf-description">
+                Introducing NeoCloudz Token Factory — managed AI inference that brings model serving
+                and purpose-built GPU infrastructure together to help teams move from experimentation to production.
+              </p>
+
+              {/* CTAs */}
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                  flexWrap: "wrap",
+                  marginTop: "8px",
+                }}
+              >
+                <Link
+                  href="/token-factory"
+                  className="btn-launch"
+                  aria-label="Explore NeoCloudz Token Factory — Managed AI Inference"
+                >
+                  Explore Token Factory
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  href="/contact?source=homepage&cta=talk_to_our_team"
+                  className="btn-outline"
+                  aria-label="Talk to Our Team"
+                >
+                  Talk to Our Team
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M5 12h14M12 5l7 7-7 7" />
+                  </svg>
+                </Link>
               </div>
             </div>
-            
-            {/* Right Column: Glowing Neon Coin & Key Pillars */}
+
+            {/* Right Column: 3D Core & AI Feature Pillars */}
             <div className="tf-right-col">
               <div className="tf-coin-wrapper">
                 <div className="tf-coin-glow"></div>
-                
 
-  
                 <div className="tf-coin-container">
-                <TokenFactoryScene />
-                
-                {/* 4 Feature Pillars Floating Around (Minimalist glass panels) */}
+                  <TokenFactoryScene />
+
+                  {/* 3 AI Feature Pillars Floating Around */}
                   <div className="tf-pillar pillar-tl">
                     <div className="tf-pillar-icon-wrap">
-                      <Lock size={16} />
+                      <Code size={16} />
                     </div>
                     <div className="tf-pillar-content">
-                      <h3>NO CODE</h3>
-                      <p>Launch tokens without coding</p>
+                      <h3>ZERO DEVOPS</h3>
+                      <p>OpenAI-compatible REST endpoints</p>
                     </div>
                   </div>
-                  
+
                   <div className="tf-pillar pillar-tr">
                     <div className="tf-pillar-icon-wrap">
                       <Cpu size={16} />
                     </div>
                     <div className="tf-pillar-content">
-                      <h3>AI POWERED</h3>
-                      <p>Generate whitepapers, tokenomics & more</p>
+                      <h3>BLACKWELL SPEED</h3>
+                      <p>FP8 Tensor engines & 900 GB/s NVLink</p>
                     </div>
                   </div>
 
-                  
                   <div className="tf-pillar pillar-br">
                     <div className="tf-pillar-icon-wrap">
                       <ShieldCheck size={16} />
                     </div>
                     <div className="tf-pillar-content">
-                      <h3>ENTERPRISE SECURITY</h3>
-                      <p>Audited contracts & advanced controls</p>
+                      <h3>ZERO DATA RETENTION</h3>
+                      <p>Private VPCs & strict confidentiality</p>
                     </div>
                   </div>
-                  
                 </div>
               </div>
             </div>
-            
           </div>
         </div>
-        
-        {/* Bottom Banner Row: Grid of 5 features */}
+
+        {/* Bottom Banner Row: Grid of 5 AI Serving features */}
         <div className="tf-bottom-banner">
           <div className="tf-bottom-item">
             <Code size={18} className="tf-bottom-icon" />
-            <span>No Coding Required</span>
-          </div>
-
-
-
-
-          
-          <div className="tf-bottom-item">
-            <Globe size={18} className="tf-bottom-icon" />
-            <span>Deploy on Multiple Blockchains</span>
+            <span>OpenAI-Compatible API</span>
           </div>
           <div className="tf-bottom-item">
             <Cpu size={18} className="tf-bottom-icon" />
-            <span>AI-Powered Tools</span>
+            <span>Llama 3.3, DeepSeek & Mistral</span>
+          </div>
+          <div className="tf-bottom-item">
+            <Globe size={18} className="tf-bottom-icon" />
+            <span>Dedicated & Serverless Serving</span>
           </div>
           <div className="tf-bottom-item">
             <ShieldCheck size={18} className="tf-bottom-icon" />
-            <span>Enterprise-Grade Security</span>
+            <span>Zero Data Retention Policy</span>
           </div>
           <div className="tf-bottom-item">
             <TrendingUp size={18} className="tf-bottom-icon" />
-            <span>Advanced Analytics & Dashboard</span>
+            <span>Workload-Optimized Runtimes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function HomeTokenFactoryOverview() {
+  return (
+    <section className="hp-section dark tf-overview-section" id="token-factory-overview">
+      <div className="tf-overview-container">
+        {/* Section Header */}
+        <div className="tf-overview-header">
+          <div className="hp-label">
+            Platform Overview
+          </div>
+          <h2 className="hp-h2">
+            Managed AI Inference <span className="g">Built for Production</span>
+          </h2>
+          <p className="hp-sub">
+            Everything you need to know about NeoCloudz Token Factory — bringing model serving and purpose-built Blackwell GPU infrastructure together.
+          </p>
+        </div>
+
+        {/* 3-Card Grid: What It Is | Who It Serves | Its Benefits */}
+        <div className="tf-overview-grid">
+          {/* Card 1: What It Is */}
+          <div className="tf-overview-card">
+            <div className="tf-card-tag">
+              <Layers size={13} aria-hidden="true" />
+              <span>What It Is</span>
+            </div>
+            <h3 className="tf-card-title">What It Is</h3>
+            <p className="tf-card-lead">
+              Managed AI inference that brings model serving and purpose-built GPU infrastructure together to move teams from experimentation to production.
+            </p>
+
+            <div className="tf-card-list">
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <Zap size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">Turnkey Model Serving</div>
+                  <p className="tf-card-item-desc">
+                    OpenAI-compatible REST endpoints for leading foundation models and custom fine-tunes without cluster management.
+                  </p>
+                </div>
+              </div>
+
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <Cpu size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">Purpose-Built Silicon</div>
+                  <p className="tf-card-item-desc">
+                    Engineered directly on Blackwell B200 SXM GPUs with high-bandwidth HBM3e memory and 900 GB/s NVLink fabric.
+                  </p>
+                </div>
+              </div>
+
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <Code size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">Zero Operational DevOps</div>
+                  <p className="tf-card-item-desc">
+                    Eliminates the complexity of Kubernetes operators, CUDA driver crashes, container runtimes, and hardware maintenance.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 2: Who It Serves */}
+          <div className="tf-overview-card">
+            <div className="tf-card-tag">
+              <Users size={13} aria-hidden="true" />
+              <span>Who It Serves</span>
+            </div>
+            <h3 className="tf-card-title">Who It Serves</h3>
+            <p className="tf-card-lead">
+              Purpose-built for <strong>teams building AI applications, agents, and enterprise assistants</strong> who require predictable performance.
+            </p>
+
+            <div className="tf-card-list">
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <Bot size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">AI Application Teams</div>
+                  <p className="tf-card-item-desc">
+                    Product and engineering teams deploying consumer and B2B SaaS apps requiring predictable low latency and high token throughput.
+                  </p>
+                </div>
+              </div>
+
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <Zap size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">AI Agents & Workflows</div>
+                  <p className="tf-card-item-desc">
+                    Autonomous agent architectures and multi-step tool-calling workflows requiring ultra-fast Time-To-First-Token (TTFT).
+                  </p>
+                </div>
+              </div>
+
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <ShieldCheck size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">Enterprise Assistants & RAG</div>
+                  <p className="tf-card-item-desc">
+                    Internal copilots and enterprise retrieval systems demanding strict zero data retention and dedicated VPC isolation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 3: Its Benefits */}
+          <div className="tf-overview-card">
+            <div className="tf-card-tag">
+              <Sparkles size={13} aria-hidden="true" />
+              <span>Its Benefits</span>
+            </div>
+            <h3 className="tf-card-title">Its Benefits</h3>
+            <p className="tf-card-lead">
+              Silicon-to-API performance optimizations delivering lower costs, higher throughput, and seamless operational scaling.
+            </p>
+
+            <div className="tf-card-list">
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <Layers size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">Simpler Model Deployment</div>
+                  <p className="tf-card-item-desc">
+                    Deploy Llama 3.3, DeepSeek, Mistral, and custom fine-tunes instantly with standard OpenAI-compatible endpoints.
+                  </p>
+                </div>
+              </div>
+
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <Cpu size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">Workload-Optimized Inference</div>
+                  <p className="tf-card-item-desc">
+                    Direct hardware control over GPU compute and memory bandwidth to achieve minimal latency and maximum throughput.
+                  </p>
+                </div>
+              </div>
+
+              <div className="tf-card-item">
+                <div className="tf-card-item-icon">
+                  <TrendingUp size={16} aria-hidden="true" />
+                </div>
+                <div>
+                  <div className="tf-card-item-title">Support for Growing Demand</div>
+                  <p className="tf-card-item-desc">
+                    Seamlessly scale from early experimentation to high-volume production with dedicated cluster tiers and instant burst capacity.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Clear Request Early Access CTA Banner */}
+        <div className="tf-cta-banner">
+          <div className="tf-cta-content">
+            <div className="hp-label" style={{ marginBottom: "8px" }}>Early Access Open</div>
+            <h3>Ready to Scale Your Inference with Token Factory?</h3>
+            <p>
+              Request early access to test latency benchmarks on dedicated Blackwell clusters and secure priority pilot allocation for your engineering team.
+            </p>
+          </div>
+          <div className="tf-cta-actions">
+            <Link
+              href="/contact?interest=token_factory&intent=early-access&source=homepage&cta=overview_request_early_access"
+              className="btn-launch"
+              aria-label="Request Early Access to NeoCloudz Token Factory"
+            >
+              Request Early Access
+              <ArrowRight size={16} aria-hidden="true" />
+            </Link>
+            <Link
+              href="/token-factory"
+              className="btn-outline"
+              aria-label="Explore NeoCloudz Token Factory Product Page"
+            >
+              Explore Token Factory
+            </Link>
           </div>
         </div>
       </div>
@@ -996,11 +1171,6 @@ export function HomeCta() {
       </div>
     </div>
   );
-}
-
-interface FooterCol {
-  title: string;
-  items: Array<{ label: string; badge?: string }>;
 }
 
 interface WorkloadTab {

@@ -14,7 +14,7 @@ export interface ContactPayload {
 export interface ContactResponse {
   data: {
     id: number;
-    attributes: any;
+    attributes: Record<string, unknown>;
   };
 }
 
