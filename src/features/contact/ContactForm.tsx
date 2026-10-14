@@ -259,8 +259,7 @@ function ContactFormInner() {
   const [domainVerified, setDomainVerified] = useState<boolean | null>(null);
   const submitRef = useRef<HTMLButtonElement>(null);
 
-  const intentParam = (searchParams.get("intent") || "").toLowerCase().replace(/_/g, "-");
-  const isEarlyAccess = form.interest === "token_factory" && intentParam === "early-access";
+  const isEarlyAccess = form.interest === "token_factory" || form.interest === "gtc_berlin_meeting";
 
   useEffect(() => {
     if (status !== "loading") return;
@@ -321,6 +320,13 @@ function ContactFormInner() {
       clearTimeout(checkTimer);
     };
   }, [form.email]);
+
+  // Auto-check the GTC Berlin checkbox when user selects "Meet Us at GTC Berlin"
+  useEffect(() => {
+    if (form.interest === "gtc_berlin_meeting") {
+      setForm((prev) => ({ ...prev, interestedInGtcBerlin: true }));
+    }
+  }, [form.interest]);
 
   const nameValid = form.name.trim().length > 1;
   const normalizedEmail = normalizeEmail(form.email);
