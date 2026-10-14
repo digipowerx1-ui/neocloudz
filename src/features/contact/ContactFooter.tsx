@@ -97,9 +97,9 @@ export default function ContactFooter() {
       <div className="footer-bottom">
         <p>© 2026 NeoCloudz Inc. All rights reserved.</p>
         <div className="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Security</a>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          <Link href="/terms-of-service">Terms of Service</Link>
+          <Link href="/security">Security</Link>
         </div>
       </div>
     </footer>
