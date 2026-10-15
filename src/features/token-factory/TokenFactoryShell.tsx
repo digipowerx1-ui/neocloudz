@@ -13,8 +13,6 @@ import {
   CheckCircle2,
   ChevronDown,
   Activity,
-  MapPin,
-  Users,
 } from "lucide-react";
 import { HeroParticles } from "@/components/layout/HeroParticles";
 import PageEffects from "@/features/page-effects/PageEffects";
@@ -132,7 +130,7 @@ interface FaqItem {
 const FAQS: FaqItem[] = [
   {
     q: "Which foundation models are supported during early access?",
-    a: "Early access supports premier open foundation models including Meta Llama 3.3 (70B, 8B), DeepSeek-V3, DeepSeek-R1, Mistral Large 2, and Qwen 2.5. Dedicated endpoints also support custom fine-tuned checkpoints, LoRA adapters, and proprietary architectures.",
+    a: "Early access supports premier foundation models including Nemotron 3 Ultra (550B), GLM-5.3 Flash, Qwen3.8 (27B), Nemotron 3.5 Lightning, Gemma 3, and Kimi-VL-A3B. Dedicated endpoints also support custom fine-tuned checkpoints, LoRA adapters, and proprietary architectures.",
   },
   {
     q: "When will early-access applicants be onboarded?",
@@ -148,63 +146,11 @@ const FAQS: FaqItem[] = [
   },
   {
     q: "How does NeoCloudz protect data privacy and intellectual property?",
-    a: "NeoCloudz maintains a strict zero data retention policy. Your prompt inputs, token completions, and model weights are never stored on persistent storage without explicit configuration, and are NEVER used to train or tune foundation models. Dedicated endpoints operate within isolated private VPCs.",
+    a: "NeoCloudz maintains a strict zero data retention policy. Your prompt inputs, token completions, and model weights are never stored on persistent storage without explicit configuration, and are NEVER used to train or tune foundation models. Dedicated endpoints operate within isolated, single-tenant private network environments.",
   },
   {
     q: "How does Token Factory differ from AI Factory as a Service?",
     a: "Token Factory provides managed AI inference with turnkey API endpoints, automated vLLM acceleration, and dedicated model serving clusters. In contrast, AI Factory as a Service provides managed infrastructure pods (bare-metal GPU clusters, power, and physical hardware operations) where your team manages the model and serving stack.",
-  },
-];
-
-interface GtcEventItem {
-  id: string;
-  monthDay: string;
-  weekday: string;
-  timeRange: string;
-  title: string;
-  location: string;
-  guestsText: string;
-  posterTitle: string;
-  posterDate: string;
-  linkUrl: string;
-}
-
-const GTC_EVENTS: GtcEventItem[] = [
-  {
-    id: "meet-the-team",
-    monthDay: "Oct 20",
-    weekday: "Tuesday",
-    timeRange: "8:00 AM · 5:00 PM GMT+2",
-    title: "NeoCloudz Happy Hour: Meet the Team",
-    location: "Vox Restaurant & Bar",
-    guestsText: "No guests",
-    posterTitle: "Meet the Team",
-    posterDate: "OCTOBER 20, 2026 | 5-7 PM | BERLIN",
-    linkUrl: "https://luma.com/1cmdbxc6",
-  },
-  {
-    id: "lets-talk-inference",
-    monthDay: "Oct 21",
-    weekday: "Wednesday",
-    timeRange: "8:00 AM · 5:00 PM GMT+2",
-    title: "NeoCloudz Happy Hour: Let's Talk Inference",
-    location: "Vox Restaurant & Bar",
-    guestsText: "No guests",
-    posterTitle: "Let's Talk Inference",
-    posterDate: "OCTOBER 21, 2026 | 5-7 PM | BERLIN",
-    linkUrl: "https://luma.com/o1robneo",
-  },
-  {
-    id: "launch-celebration",
-    monthDay: "Oct 22",
-    weekday: "Thursday",
-    timeRange: "8:00 AM · 5:00 PM GMT+2",
-    title: "NeoCloudz Happy Hour: Token Factory Launch Celebration",
-    location: "Vox Restaurant & Bar",
-    guestsText: "No guests",
-    posterTitle: "Token Factory Launch Celebration",
-    posterDate: "OCTOBER 22, 2026 | 5-7 PM | BERLIN",
-    linkUrl: "https://luma.com/3hbr52g9",
   },
 ];
 
@@ -247,17 +193,33 @@ export function TokenFactoryShell() {
             />
           </div>
 
-          <div className="hero-content">
+          <div className="hero-content" style={{ maxWidth: "1140px" }}>
+            {/* High-Tech Badge */}
             <div className="tf-early-badge">
               <span className="dot" />
-              <span>Token Factory · Early Access</span>
+              <span>Managed AI Inference · Powered by NVIDIA Blackwell B200 & B300</span>
             </div>
 
+            {/* Powerful Headline */}
             <h1>
               Meet NeoCloudz <span className="g">Token Factory.</span>
+              <br />
+              <span
+                style={{
+                  fontSize: "clamp(20px, 2.6vw, 36px)",
+                  fontWeight: 700,
+                  color: "var(--text)",
+                  letterSpacing: "-0.02em",
+                  display: "block",
+                  marginTop: "8px",
+                }}
+              >
+                Production Model Serving Without GPU Operations.
+              </span>
             </h1>
 
-            <p className="hero-sub">
+            {/* Core Message & Description */}
+            <p className="hero-sub" style={{ maxWidth: "760px", marginBottom: "28px" }}>
               Token Factory provides managed AI inference;{" "}
               <Link href="/ai-factory-as-a-service" className="tf-desc-link">
                 AI Factory as a Service
@@ -265,150 +227,256 @@ export function TokenFactoryShell() {
               provides managed infrastructure.
             </p>
 
-            <div className="tf-hero-ctas">
+            {/* Primary Action Buttons */}
+            <div className="tf-hero-ctas" style={{ marginBottom: "32px" }}>
               <Link
-                href="/contact?interest=token_factory&intent=early-access&source=token-factory&cta=hero_request_early_access"
+                href="/contact?interest=token_factory&source=token-factory&cta=hero_get_started"
                 className="btn-launch"
-                aria-label="Request Early Access to NeoCloudz Token Factory"
+                aria-label="Get Started with NeoCloudz Token Factory"
               >
-                Request Early Access <ArrowRight size={18} aria-hidden="true" />
+                Get Started with Token Factory <ArrowRight size={18} aria-hidden="true" />
               </Link>
-              <a href="#overview" className="btn-outline" aria-label="Explore Architecture">
-                Explore Architecture ↓
-              </a>
+              <Link
+                href="/contact?interest=token_factory&source=token-factory&cta=hero_talk_to_us"
+                className="btn-outline"
+                aria-label="Talk to Infrastructure Architecture Team"
+              >
+                Talk to Us →
+              </Link>
             </div>
 
-            <div className="tf-hero-terminal">
-              <span className="prompt">$</span>
-              <div className="tf-terminal-cmd">
-                <span className="tf-term-tag">Serving: Llama-3.3-70B</span>
-                <span className="tf-term-sep">·</span>
-                <span className="tf-term-tag">Blackwell B200</span>
-                <span className="tf-term-sep">·</span>
-                <span className="tf-term-tag">TTFT: 42ms</span>
-                <span className="tf-term-sep">·</span>
-                <span className="tf-term-tag">FP8 Tensor Engine</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* GTC BERLIN CALLOUT CARD */}
-        <div className="tf-gtc-banner-wrap">
-          <div className="tf-gtc-card">
-            <div className="tf-gtc-left">
-              <div className="tf-gtc-badge">GTC Berlin 2026</div>
-              <div className="tf-gtc-info">
-                <div className="tf-gtc-title">Introducing Token Factory Live in Berlin</div>
-                <div className="tf-gtc-desc">
-                  Join our engineering leadership at GTC Berlin for a 1-on-1 private architecture session. Review your inference throughput requirements, test latency benchmarks, and secure your early-access capacity allocation.
-                </div>
-              </div>
-            </div>
-            <Link
-              href="/contact?interest=gtc_berlin_meeting&intent=meeting&gtc_meeting=true&source=token-factory&cta=gtc_berlin_callout"
-              className="tf-gtc-cta"
-              aria-label="Schedule a meeting with NeoCloudz at GTC Berlin"
+            {/* Supported Models Strip */}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "10px",
+                flexWrap: "wrap",
+                marginBottom: "40px",
+                padding: "10px 18px",
+                background: "rgba(255, 255, 255, 0.02)",
+                border: "1px solid rgba(255, 255, 255, 0.06)",
+                borderRadius: "9999px",
+                backdropFilter: "blur(8px)",
+              }}
             >
-              <span>Meet Us in Berlin</span>
-              <ArrowRight size={16} aria-hidden="true" />
-            </Link>
-          </div>
-        </div>
-
-        {/* GTC BERLIN SIDE EVENTS SECTION */}
-        <section className="tf-events-section" id="events">
-          <div className="tf-events-container">
-            {/* Header with Title and Badge */}
-            <div className="tf-events-header">
-              <div className="tf-events-title-wrap">
-                <h2 className="tf-events-title">Events</h2>
-              </div>
-              <span className="tf-events-badge">Upcoming</span>
+              <span
+                style={{
+                  fontFamily: "var(--font-mono)",
+                  fontSize: "11px",
+                  fontWeight: 700,
+                  color: "var(--muted)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  marginRight: "4px",
+                }}
+              >
+                Pre-Loaded Models:
+              </span>
+              {["Nemotron 3 Ultra", "GLM-5.3 Flash", "Qwen3.8", "Gemma 3", "Kimi-VL", "Custom LoRA Checkpoints"].map(
+                (model, i) => (
+                  <span
+                    key={model}
+                    style={{
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px",
+                      fontSize: "12px",
+                      fontWeight: 600,
+                      color: i === 0 ? "var(--green)" : "var(--white)",
+                      background: i === 0 ? "rgba(45, 255, 122, 0.08)" : "rgba(255, 255, 255, 0.04)",
+                      border: `1px solid ${i === 0 ? "rgba(45, 255, 122, 0.25)" : "rgba(255, 255, 255, 0.06)"}`,
+                      padding: "4px 12px",
+                      borderRadius: "14px",
+                    }}
+                  >
+                    <span
+                      style={{
+                        width: "5px",
+                        height: "5px",
+                        borderRadius: "50%",
+                        background: i === 0 ? "var(--green)" : "var(--blue)",
+                      }}
+                    />
+                    {model}
+                  </span>
+                )
+              )}
             </div>
 
-            {/* Timeline List */}
-            <div className="tf-timeline-wrap">
-              <div className="tf-timeline-line" aria-hidden="true" />
-              <div className="tf-timeline-list">
-                {GTC_EVENTS.map((event) => (
-                  <div key={event.id} className="tf-timeline-row">
-                    {/* Left: Date Column */}
-                    <div className="tf-event-date-col">
-                      <span className="tf-event-date-main">{event.monthDay}</span>
-                      <span className="tf-event-date-sep">·</span>
-                      <span className="tf-event-date-sub">{event.weekday}</span>
+            {/* 4 Architecture Spec Cards */}
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+                gap: "16px",
+                width: "100%",
+                textAlign: "left",
+              }}
+            >
+              <div
+                style={{
+                  background: "rgba(15, 20, 16, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  borderRadius: "18px",
+                  padding: "22px 20px",
+                  backdropFilter: "blur(12px)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "10px",
+                      background: "rgba(45, 255, 122, 0.1)",
+                      border: "1px solid rgba(45, 255, 122, 0.2)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Cpu size={18} color="var(--green)" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--green)", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.06em" }}>
+                      Hardware Engine
                     </div>
-
-                    {/* Center Node on Timeline Track */}
-                    <div className="tf-timeline-node" aria-hidden="true">
-                      <span className="tf-timeline-dot" />
-                    </div>
-
-                    {/* Right: Event Card */}
-                    <div className="tf-event-card">
-                      <div className="tf-event-details">
-                        <div className="tf-event-time">{event.timeRange}</div>
-                        <h3 className="tf-event-heading">{event.title}</h3>
-
-                        <div className="tf-event-meta-group">
-                          <div className="tf-event-meta-item">
-                            <MapPin size={15} className="tf-meta-icon" aria-hidden="true" />
-                            <span>{event.location}</span>
-                          </div>
-                          <div className="tf-event-meta-item">
-                            <Users size={15} className="tf-meta-icon" aria-hidden="true" />
-                            <span>{event.guestsText}</span>
-                          </div>
-                        </div>
-
-                        <div className="tf-event-actions">
-                          <a
-                            href={event.linkUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="tf-event-manage-btn"
-                            aria-label={`Register on Luma for ${event.title}`}
-                          >
-                            <span>Manage Event</span>
-                            <ArrowRight size={14} aria-hidden="true" />
-                          </a>
-                        </div>
-                      </div>
-
-                      {/* Right: Poster Graphic linking to Luma with NeoCloudz logo */}
-                      <a
-                        href={event.linkUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="tf-event-poster"
-                        aria-label={`Open Luma event for ${event.posterTitle}`}
-                      >
-                        <div className="tf-poster-grid" aria-hidden="true" />
-                        <div className="tf-poster-top">
-                          <Image
-                            src="/DigiPowerX Posts (17) 1.png"
-                            alt="NeoCloudz"
-                            width={120}
-                            height={26}
-                            style={{ height: "26px", width: "auto", display: "block", objectFit: "contain" }}
-                          />
-                        </div>
-
-                        <div className="tf-poster-badge">HAPPY HOUR</div>
-
-                        <div className="tf-poster-content">
-                          <h4 className="tf-poster-title">{event.posterTitle}</h4>
-                          <p className="tf-poster-tagline">Meet. Connect. Explore AI.</p>
-                        </div>
-
-                        <div className="tf-poster-footer">
-                          <span>{event.posterDate}</span>
-                        </div>
-                      </a>
+                    <div style={{ fontSize: "15px", fontWeight: 700, color: "var(--white)" }}>
+                      Blackwell B200 & B300
                     </div>
                   </div>
-                ))}
+                </div>
+                <p style={{ fontSize: "12.5px", color: "var(--text)", opacity: 0.75, lineHeight: 1.5, margin: 0 }}>
+                  Direct bare-metal compute with 5th-gen Tensor Cores and FP8 / FP4 precision runtimes.
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background: "rgba(15, 20, 16, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  borderRadius: "18px",
+                  padding: "22px 20px",
+                  backdropFilter: "blur(12px)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "10px",
+                      background: "rgba(77, 200, 255, 0.1)",
+                      border: "1px solid rgba(77, 200, 255, 0.2)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Activity size={18} color="var(--blue)" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--blue)", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.06em" }}>
+                      Latency Profile
+                    </div>
+                    <div style={{ fontSize: "15px", fontWeight: 700, color: "var(--white)" }}>
+                      Sub-Millisecond TTFT
+                    </div>
+                  </div>
+                </div>
+                <p style={{ fontSize: "12.5px", color: "var(--text)", opacity: 0.75, lineHeight: 1.5, margin: 0 }}>
+                  Up to 8 TB/s HBM3e bandwidth and optimized speculative decoding for responsive token streams.
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background: "rgba(15, 20, 16, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  borderRadius: "18px",
+                  padding: "22px 20px",
+                  backdropFilter: "blur(12px)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "10px",
+                      background: "rgba(255, 184, 77, 0.1)",
+                      border: "1px solid rgba(255, 184, 77, 0.2)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Layers size={18} color="var(--amber)" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--amber)", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.06em" }}>
+                      API Integration
+                    </div>
+                    <div style={{ fontSize: "15px", fontWeight: 700, color: "var(--white)" }}>
+                      OpenAI Compatible
+                    </div>
+                  </div>
+                </div>
+                <p style={{ fontSize: "12.5px", color: "var(--text)", opacity: 0.75, lineHeight: 1.5, margin: 0 }}>
+                  Drop-in replacement for OpenAI endpoints with full streaming SSE and tool-calling support.
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background: "rgba(15, 20, 16, 0.75)",
+                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  borderRadius: "18px",
+                  padding: "22px 20px",
+                  backdropFilter: "blur(12px)",
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <div
+                    style={{
+                      width: "36px",
+                      height: "36px",
+                      borderRadius: "10px",
+                      background: "rgba(45, 255, 122, 0.1)",
+                      border: "1px solid rgba(45, 255, 122, 0.2)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <ShieldCheck size={18} color="var(--green)" />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--green)", textTransform: "uppercase", fontWeight: 700, letterSpacing: "0.06em" }}>
+                      Data Security
+                    </div>
+                    <div style={{ fontSize: "15px", fontWeight: 700, color: "var(--white)" }}>
+                      Zero Data Retention
+                    </div>
+                  </div>
+                </div>
+                <p style={{ fontSize: "12.5px", color: "var(--text)", opacity: 0.75, lineHeight: 1.5, margin: 0 }}>
+                  Single-tenant private isolation, dedicated ingress controls, and U.S. Tier III hosting.
+                </p>
               </div>
             </div>
           </div>
@@ -420,21 +488,22 @@ export function TokenFactoryShell() {
             <div className="tf-section-header">
               <div className="hp-label" style={{ justifyContent: "center" }}>Product Overview</div>
               <h2>
-                Run Inference Without Managing <span className="g">GPU Serving Infrastructure</span>
+                Bring Your AI to Production. <br />
+                <span className="g">We Handle the Inference.</span>
               </h2>
               <p>
-                Eliminate the operational complexity of CUDA drivers, container orchestration, vLLM configuration, and hardware failures. Token Factory delivers production model serving as a reliable utility.
+                Token Factory turns leading open models into managed inference APIs, helping you launch faster, deliver responsive AI experiences, and control inference costs while we manage the infrastructure.
               </p>
             </div>
 
             <div className="tf-grid-3">
               <div className="tf-card">
                 <div className="tf-card-icon">
-                  <Zap size={24} />
+                  <Layers size={24} />
                 </div>
-                <h3>Zero Infrastructure DevOps</h3>
+                <h3>Build More. Manage Less.</h3>
                 <p>
-                  No Kubernetes GPU operators, no driver crashes, and no kernel debugging. Send requests to OpenAI-compatible REST endpoints or connect private endpoints directly to your VPC.
+                  Connect your application through an OpenAI-compatible API. We handle model serving and GPU operations so your engineers can focus on building features customers need.
                 </p>
               </div>
 
@@ -442,19 +511,19 @@ export function TokenFactoryShell() {
                 <div className="tf-card-icon">
                   <Activity size={24} />
                 </div>
-                <h3>Sub-Millisecond TTFT</h3>
+                <h3>Keep Your Applications Responsive.</h3>
                 <p>
-                  Purpose-built memory architectures and optimized speculative decoding runtimes deliver industry-leading Time-To-First-Token and sustained streaming throughput.
+                  Power assistants, agents, and interactive applications with inference optimized for fast responses and streaming output.
                 </p>
               </div>
 
               <div className="tf-card">
                 <div className="tf-card-icon">
-                  <ShieldCheck size={24} />
+                  <Cpu size={24} />
                 </div>
-                <h3>Automated High Availability</h3>
+                <h3>Make Every Token Count.</h3>
                 <p>
-                  Continuous cluster monitoring with instant node failover and load distribution ensures production workloads stay operational without manual intervention.
+                  Choose a model that fits your workload, quality requirements, and budget. Match capability to the task and understand inference costs as usage grows.
                 </p>
               </div>
             </div>
@@ -480,7 +549,7 @@ export function TokenFactoryShell() {
                 <span className="tf-scope-badge active">Early Access Available</span>
                 <h3>API-Based Inference</h3>
                 <p>
-                  Serverless, on-demand token serving powered by our high-density shared Blackwell B200 clusters. Instant deployment with zero capacity commitments.
+                  Serverless, on-demand token serving powered by our high-density shared Blackwell B200 and B300 clusters. Instant deployment with zero capacity commitments.
                 </p>
                 <ul className="tf-access-bullets">
                   <li>
@@ -497,7 +566,7 @@ export function TokenFactoryShell() {
                   </li>
                   <li>
                     <CheckCircle2 size={16} color="var(--green)" />
-                    <span>Pre-loaded Llama 3.3, DeepSeek, Mistral weights</span>
+                    <span>Pre-loaded Nemotron, GLM, Qwen, Gemma & Kimi weights</span>
                   </li>
                 </ul>
                 <Link
@@ -519,15 +588,15 @@ export function TokenFactoryShell() {
                 <ul className="tf-access-bullets">
                   <li>
                     <CheckCircle2 size={16} color="var(--blue)" />
-                    <span>Dedicated Blackwell B200 or H100 GPU compute pods</span>
+                    <span>Dedicated NVIDIA Blackwell B200 & B300 GPU compute pods</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} color="var(--blue)" />
-                    <span>Support for custom fine-tunes & proprietary weights</span>
+                    <span>Support for Nemotron, GLM, Qwen, Gemma, Kimi & custom fine-tunes</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} color="var(--blue)" />
-                    <span>Private VPC peering & zero public internet exposure</span>
+                    <span>Dedicated single-tenant network isolation & IP allowlisting</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} color="var(--blue)" />
@@ -584,8 +653,8 @@ export function TokenFactoryShell() {
                     opacity: 0.9,
                   }}
                 >
-                  <li>• Serverless token serving for Meta Llama 3.3, DeepSeek-V3/R1, and Mistral</li>
-                  <li>• Dedicated Blackwell B200 / H100 pods for custom fine-tunes & LoRA adapters</li>
+                  <li>• Serverless token serving for Nemotron, GLM-5.3, Qwen3.8, Gemma 3, and Kimi-VL</li>
+                  <li>• Dedicated Blackwell B200 & B300 pods for custom fine-tunes & LoRA adapters</li>
                   <li>• OpenAI-compatible REST API integration with streaming SSE tokens</li>
                   <li>• Strict zero data retention & U.S. Tier III certified facility hosting</li>
                 </ul>
@@ -656,9 +725,9 @@ export function TokenFactoryShell() {
                 <div className="tf-card-icon">
                   <Cpu size={24} />
                 </div>
-                <h3>1. GPU Compute Control</h3>
+                <h3>GPU Compute Control</h3>
                 <p>
-                  Direct, unvirtualized access to NVIDIA Blackwell B200 and Hopper H100 SXM5 accelerators featuring 5th-gen Tensor Cores and FP8/FP4 micro-scaling engines.
+                  Direct, unvirtualized access to NVIDIA Blackwell B200 and B300 accelerators featuring 5th-gen Tensor Cores and FP8/FP4 micro-scaling engines.
                 </p>
               </div>
 
@@ -666,7 +735,7 @@ export function TokenFactoryShell() {
                 <div className="tf-card-icon">
                   <Server size={24} />
                 </div>
-                <h3>2. Ultra-Fast Memory (HBM3e)</h3>
+                <h3>Ultra-Fast Memory (HBM3e)</h3>
                 <p>
                   Up to 8 TB/s per GPU memory bandwidth accelerates memory-bound attention operations, massive context window ingestion, and concurrent KV cache lookups.
                 </p>
@@ -676,7 +745,7 @@ export function TokenFactoryShell() {
                 <div className="tf-card-icon">
                   <Layers size={24} />
                 </div>
-                <h3>3. High-Throughput Storage</h3>
+                <h3>High-Throughput Storage</h3>
                 <p>
                   Ultra-low-latency parallel NVMe storage fabric enables instant weight hydration, fast checkpoint switching, and sustained RAG context pre-loading.
                 </p>
@@ -686,11 +755,21 @@ export function TokenFactoryShell() {
                 <div className="tf-card-icon">
                   <Zap size={24} />
                 </div>
-                <h3>4. 900 GB/s NVLink & Networking</h3>
+                <h3>900 GB/s NVLink & Networking</h3>
                 <p>
                   900 GB/s NVLink 4.0 interconnects paired with 400 Gb/s InfiniBand RDMA networking eliminate inter-GPU communication latency during tensor-parallel serving.
                 </p>
               </div>
+            </div>
+
+            <div style={{ marginTop: "40px", display: "flex", justifyContent: "center" }}>
+              <Link
+                href="/contact?interest=token_factory&source=token-factory&cta=why_talk_to_us"
+                className="btn-launch"
+                aria-label="Talk to Us"
+              >
+                Talk to Us <ArrowRight size={18} aria-hidden="true" />
+              </Link>
             </div>
           </div>
         </section>
@@ -864,20 +943,13 @@ export function TokenFactoryShell() {
             <p>
               Request early access to NeoCloudz Token Factory today. Our team will contact you to evaluate workload fit, allocate pilot capacity, and accelerate your time-to-production.
             </p>
-            <div className="tf-hero-ctas" style={{ marginBottom: 0 }}>
+            <div className="tf-hero-ctas" style={{ marginBottom: 0, justifyContent: "center" }}>
               <Link
-                href="/contact?interest=token_factory&intent=early-access&source=token-factory&cta=final_request_early_access"
+                href="/contact?interest=token_factory&source=token-factory&cta=talk_to_us"
                 className="btn-launch"
-                aria-label="Request Early Access to NeoCloudz Token Factory"
+                aria-label="Talk to Us about NeoCloudz Token Factory"
               >
-                Request Early Access <ArrowRight size={18} aria-hidden="true" />
-              </Link>
-              <Link
-                href="/contact?interest=gtc_berlin_meeting&intent=meeting&gtc_meeting=true&source=token-factory&cta=gtc_berlin_footer"
-                className="btn-outline"
-                aria-label="Meet NeoCloudz at GTC Berlin"
-              >
-                Meet Us at GTC Berlin →
+                Talk to Us <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </div>
           </div>

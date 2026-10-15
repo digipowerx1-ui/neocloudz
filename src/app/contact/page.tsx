@@ -13,7 +13,7 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <ContactPageEffects>
-      <div className="contact-layout" style={{ paddingTop: "64px" }}>
+      <div className="contact-layout" style={{ paddingTop: "96px" }}>
         <ContactFormSection />
         <ContactInfoPanel />
       </div>

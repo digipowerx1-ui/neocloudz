@@ -18,7 +18,7 @@ const LOGO_ROT = -Math.PI / 2;
 const LOGO_W = 0.88;
 
 const WORDMARK_SRC =
-  "/DigiPowerX%20Posts%20(17)%201.png";
+  "/Asset%201.png";
 
 function TokenFactoryScene() {
   const containerRef = useRef<HTMLDivElement | null>(null);

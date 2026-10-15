@@ -84,8 +84,8 @@ export function Header() {
           onClick={() => setMenuOpen(false)}
         >
           <img
-            src="/DigiPowerX%20Posts%20(17)%201.png"
-            alt="DigiPowerX - High-Performance AI Cloud"
+            src="/Asset%201.png"
+            alt="NeoCloudz - High-Performance AI Cloud"
             style={{ height: "45px", width: "auto", display: "block" }}
           />
         </Link>
@@ -139,9 +139,8 @@ export function Header() {
           })}
         </ul>
         <Link
-          href={`/contact?source=${
-            pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"
-          }&cta=talk_to_us`}
+          href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"
+            }&cta=talk_to_us`}
           className="site-nav-cta"
           aria-label="Talk to Us via Contact Sales"
           style={{ display: "flex", alignItems: "center", gap: "8px" }}

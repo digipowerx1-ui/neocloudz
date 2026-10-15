@@ -1,140 +1,257 @@
 "use client";
 
 import { useLiveContactMetrics } from "@/hooks/useLiveContactMetrics";
-import { Mail, Briefcase, Wrench, Zap, Activity } from "lucide-react";
+import { Mail, Briefcase, Wrench, Zap, Activity, ShieldCheck, ArrowUpRight } from "lucide-react";
 
-interface ContactCard {
+interface DirectChannel {
   icon: React.ReactNode;
   label: string;
-  title: string;
-  detail: string;
-  link: string;
-  cta: string;
-  color: string;
+  email: string;
+  desc: string;
+  accent: string;
 }
 
-const CONTACT_CARDS: ReadonlyArray<ContactCard> = [
+const DIRECT_CHANNELS: ReadonlyArray<DirectChannel> = [
   {
-    icon: <Mail size={28} color="var(--white)" />,
-    label: "Direct Email",
-    title: "hello@neocloudz.com",
-    detail: "General inquiries, billing, and global account management.",
-    link: "mailto:hello@neocloudz.com",
-    cta: "Send email →",
-    color: "var(--white)"
+    icon: <Briefcase size={18} color="var(--green)" />,
+    label: "Sales & Enterprise Architecture",
+    email: "sales@neocloudz.com",
+    desc: "Dedicated Blackwell B200 / B300 clusters, volume commitments, and SLA terms.",
+    accent: "var(--green)",
   },
   {
-    icon: <Briefcase size={28} color="var(--green)" />,
-    label: "Enterprise Solutions",
-    title: "sales@neocloudz.com",
-    detail: "Private clusters, custom contracts, and high-performance I/O.",
-    link: "mailto:sales@neocloudz.com",
-    cta: "Consult with sales →",
-    color: "var(--green)"
+    icon: <Wrench size={18} color="var(--blue)" />,
+    label: "Engineering & Technical Support",
+    email: "support@neocloudz.com",
+    desc: "24/7 cluster telemetry, API integration assistance, and latency optimization.",
+    accent: "var(--blue)",
   },
   {
-    icon: <Wrench size={28} color="var(--blue)" />,
-    label: "SLA Support",
-    title: "support@neocloudz.com",
-    detail: "Infrastructure troubleshooting, API assistance, and uptime logs.",
-    link: "mailto:support@neocloudz.com",
-    cta: "Contact engineering →",
-    color: "var(--blue)"
+    icon: <Mail size={18} color="var(--white)" />,
+    label: "General Inquiries & Partnerships",
+    email: "hello@neocloudz.com",
+    desc: "Global account management, vendor partnerships, billing, and media inquiries.",
+    accent: "var(--white)",
   },
 ];
 
-const SYSTEM_STATUS = [
-  { name: "Global API", status: "Operational", color: "var(--green)" },
-  { name: "GPU Provisioning", status: "Operational", color: "var(--green)" },
-  { name: "WEKA Mesh", status: "Operational", color: "var(--green)" },
-  { name: "Node Telemetry", status: "Active", color: "var(--green)" },
-] as const;
+const INFRA_HIGHLIGHTS = [
+  { label: "Blackwell B200 / B300", status: "Available" },
+  { label: "WEKA Storage Mesh", status: "Operational" },
+  { label: "Token Factory API", status: "Active" },
+  { label: "NVLink Interconnect", status: "Active" },
+];
 
 export default function ContactInfoPanel() {
   const { responseLabel, uptimeLabel } = useLiveContactMetrics();
 
   return (
-    <div className="info-panel" style={{ display: "flex", justifyContent: "center" }}>
-      <div className="info-content" style={{ width: "100%", maxWidth: "560px" }}>
-        <div className="contact-cards reveal">
-          {CONTACT_CARDS.map((card) => (
-            <div key={card.label} className="contact-card" style={{
-              background: "rgba(255, 255, 255, 0.03)",
-              backdropFilter: "blur(12px)",
-              border: `1px solid rgba(255,255,255,0.08)`,
-              padding: "32px",
-              borderRadius: "24px",
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
-              display: "flex",
-              flexDirection: "column"
-            }}>
-              <div className="card-icon" style={{
-                background: `linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01))`,
-                border: "1px solid rgba(255,255,255,0.1)",
-                width: "64px",
-                height: "64px",
-                borderRadius: "16px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: `0 0 20px ${card.color}20`,
-                marginBottom: "24px"
-              }}>{card.icon}</div>
-              <div className="card-body">
-                <div className="card-label" style={{ color: card.color, opacity: 0.9, fontWeight: 800 }}>{card.label}</div>
-                <div className="card-title" style={{ fontSize: "20px", marginBottom: "12px", color: "var(--white)", fontWeight: 700 }}>{card.title}</div>
-                <div className="card-detail" style={{ marginBottom: "24px", color: "var(--text)", lineHeight: "1.6" }}>{card.detail}</div>
-                <a href={card.link} className="card-link" style={{ color: card.color, display: "inline-flex", alignItems: "center", gap: "6px", fontWeight: 600 }}>
-                  {card.cta}
-                </a>
-              </div>
-            </div>
-          ))}
+    <aside className="info-panel" aria-label="NeoCloudz Contact & Infrastructure Telemetry">
+      <div className="info-content" style={{ width: "100%", display: "flex", flexDirection: "column", gap: "24px" }}>
+        
+        {/* Card 1: Direct Communication Channels */}
+        <div
+          className="contact-sidebar-card reveal"
+          style={{
+            background: "rgba(15, 20, 16, 0.75)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            borderRadius: "24px",
+            padding: "32px",
+            backdropFilter: "blur(16px)",
+            boxShadow: "0 16px 40px rgba(0, 0, 0, 0.35)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "20px" }}>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--green)",
+              }}
+            >
+              Direct Channels
+            </span>
+            <span style={{ fontSize: "12px", color: "var(--muted)" }}>Direct human response</span>
+          </div>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            {DIRECT_CHANNELS.map((ch) => (
+              <a
+                key={ch.email}
+                href={`mailto:${ch.email}`}
+                className="contact-channel-row"
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "14px",
+                  padding: "16px",
+                  borderRadius: "16px",
+                  background: "rgba(255, 255, 255, 0.02)",
+                  border: "1px solid rgba(255, 255, 255, 0.06)",
+                  textDecoration: "none",
+                  transition: "all 0.2s ease",
+                }}
+              >
+                <div
+                  style={{
+                    width: "36px",
+                    height: "36px",
+                    borderRadius: "10px",
+                    background: "rgba(255, 255, 255, 0.04)",
+                    border: "1px solid rgba(255, 255, 255, 0.08)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  {ch.icon}
+                </div>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                    <div style={{ fontSize: "11px", fontFamily: "var(--font-mono)", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.06em", fontWeight: 700 }}>
+                      {ch.label}
+                    </div>
+                    <ArrowUpRight size={14} color={ch.accent} style={{ opacity: 0.8 }} />
+                  </div>
+                  <div style={{ fontSize: "15px", fontWeight: 700, color: "var(--white)", marginTop: "2px", marginBottom: "4px" }}>
+                    {ch.email}
+                  </div>
+                  <div style={{ fontSize: "12.5px", color: "var(--text)", opacity: 0.75, lineHeight: 1.5 }}>
+                    {ch.desc}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
 
-        <div className="live-metrics reveal rd1" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginTop: "24px" }}>
-          <div className="live-metric" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", padding: "24px", borderRadius: "20px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", backdropFilter: "blur(12px)" }}>
-            <span className="lm-icon" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center", width: "48px", height: "48px", background: "rgba(45, 255, 122, 0.1)", borderRadius: "12px", border: "1px solid rgba(45, 255, 122, 0.2)" }}>
-              <Zap size={24} color="var(--green)" />
+        {/* Card 2: Platform Status & Assurance */}
+        <div
+          className="contact-sidebar-card reveal rd1"
+          style={{
+            background: "rgba(15, 20, 16, 0.75)",
+            border: "1px solid rgba(255, 255, 255, 0.08)",
+            borderRadius: "24px",
+            padding: "32px",
+            backdropFilter: "blur(16px)",
+            boxShadow: "0 16px 40px rgba(0, 0, 0, 0.35)",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "20px" }}>
+            <span
+              style={{
+                fontFamily: "var(--font-mono)",
+                fontSize: "11px",
+                fontWeight: 700,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                color: "var(--muted)",
+              }}
+            >
+              Operational Assurance
             </span>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div className="lm-label" style={{ fontSize: "11px", textTransform: "uppercase", color: "var(--muted)", letterSpacing: "0.1em", textAlign: "center", fontWeight: 700, marginBottom: "4px" }}>Global Response</div>
-              <div className="lm-val" style={{ fontSize: "24px", fontWeight: 800, color: "var(--green)", filter: "drop-shadow(0 0 10px rgba(45, 255, 122, 0.3))" }}>
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "11px",
+                color: "var(--green)",
+                background: "rgba(45, 255, 122, 0.1)",
+                border: "1px solid rgba(45, 255, 122, 0.2)",
+                padding: "3px 10px",
+                borderRadius: "20px",
+                fontWeight: 600,
+              }}
+            >
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "var(--green)" }} />
+              All Systems Operational
+            </div>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "20px" }}>
+            <div
+              style={{
+                background: "rgba(255, 255, 255, 0.02)",
+                border: "1px solid rgba(255, 255, 255, 0.06)",
+                borderRadius: "14px",
+                padding: "16px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700 }}>
+                <Zap size={14} color="var(--green)" /> Avg Response
+              </div>
+              <div style={{ fontSize: "22px", fontWeight: 800, color: "var(--green)" }}>
                 {responseLabel}
               </div>
             </div>
-          </div>
-          <div className="live-metric" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.08)", padding: "24px", borderRadius: "20px", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", backdropFilter: "blur(12px)" }}>
-            <span className="lm-icon" style={{ marginBottom: "16px", display: "flex", alignItems: "center", justifyContent: "center", width: "48px", height: "48px", background: "rgba(255, 255, 255, 0.05)", borderRadius: "12px", border: "1px solid rgba(255, 255, 255, 0.1)" }}>
-              <Activity size={24} color="var(--white)" />
-            </span>
-            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-              <div className="lm-label" style={{ fontSize: "11px", textTransform: "uppercase", color: "var(--muted)", letterSpacing: "0.1em", textAlign: "center", fontWeight: 700, marginBottom: "4px" }}>System Uptime</div>
-              <div className="lm-val" style={{ fontSize: "24px", fontWeight: 800, color: "var(--white)", filter: "drop-shadow(0 0 10px rgba(255, 255, 255, 0.3))" }}>
+
+            <div
+              style={{
+                background: "rgba(255, 255, 255, 0.02)",
+                border: "1px solid rgba(255, 255, 255, 0.06)",
+                borderRadius: "14px",
+                padding: "16px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "6px",
+              }}
+            >
+              <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em", fontWeight: 700 }}>
+                <Activity size={14} color="var(--white)" /> SLA Uptime
+              </div>
+              <div style={{ fontSize: "22px", fontWeight: 800, color: "var(--white)" }}>
                 {uptimeLabel}
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="status-section reveal rd2" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", padding: "32px", borderRadius: "24px", marginTop: "32px", backdropFilter: "blur(12px)" }}>
-          <div className="status-header">
-            <div className="status-title" style={{ fontSize: "14px", color: "var(--white)", fontWeight: 700, letterSpacing: "0.05em" }}>System Health</div>
-            <div className="status-all-good">
-              <span className="status-dot" />
-              Operational
-            </div>
-          </div>
-          <div className="status-rows">
-            {SYSTEM_STATUS.map((item) => (
-              <div key={item.name} className="status-row" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.05)" }}>
-                <span className="status-row-name" style={{ fontSize: "14px", color: "var(--text)" }}>{item.name}</span>
-                <span className="status-row-val status-green" style={{ fontSize: "10px" }}>{item.status}</span>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", marginBottom: "16px" }}>
+            {INFRA_HIGHLIGHTS.map((item) => (
+              <div
+                key={item.label}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "8px 12px",
+                  background: "rgba(255, 255, 255, 0.02)",
+                  borderRadius: "8px",
+                  border: "1px solid rgba(255, 255, 255, 0.04)",
+                  fontSize: "12px",
+                }}
+              >
+                <span style={{ color: "var(--text)", opacity: 0.85 }}>{item.label}</span>
+                <span style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "11px", fontWeight: 600 }}>{item.status}</span>
               </div>
             ))}
           </div>
+
+          <div
+            style={{
+              paddingTop: "14px",
+              borderTop: "1px solid rgba(255, 255, 255, 0.06)",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              fontSize: "12px",
+              color: "var(--muted)",
+            }}
+          >
+            <ShieldCheck size={16} color="var(--green)" style={{ flexShrink: 0 }} />
+            <span>Tier III U.S. Facility Hosting · Strict Zero Data Retention</span>
+          </div>
         </div>
+
       </div>
-    </div>
+    </aside>
   );
 }

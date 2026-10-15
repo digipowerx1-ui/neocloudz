@@ -17,12 +17,10 @@ import {
 const INTEREST_OPTIONS = [
   { value: "on_demand_gpus", label: "On-Demand GPUs" },
   { value: "enterprise_bare_metal", label: "Enterprise / Bare Metal" },
-  { value: "token_factory", label: "Token Factory (Early Access)" },
-  { value: "gtc_berlin_meeting", label: "Meet Us at GTC Berlin" },
+  { value: "token_factory", label: "Token Factory" },
   { value: "weka_storage", label: "WEKA Storage" },
   { value: "technical_support", label: "Technical Support" },
-  { value: "partnership", label: "Partnership" },
-  { value: "other", label: "Other" },
+  { value: "partnership", label: "Partnership & Other" },
 ] as const;
 
 const BUDGET_OPTIONS: ReadonlyArray<{ value: BudgetRange; label: string }> = [
@@ -37,11 +35,11 @@ const ENDPOINT_OPTIONS: ReadonlyArray<{
   value: EndpointPreference | "";
   label: string;
 }> = [
-  { value: "", label: "Select preference..." },
-  { value: "api_inference", label: "Serverless API (Pay-per-token)" },
-  { value: "dedicated_endpoint", label: "Dedicated Endpoint" },
-  { value: "undecided", label: "Undecided / Exploring" },
-];
+    { value: "", label: "Select preference..." },
+    { value: "api_inference", label: "Serverless API (Pay-per-token)" },
+    { value: "dedicated_endpoint", label: "Dedicated Endpoint" },
+    { value: "undecided", label: "Undecided / Exploring" },
+  ];
 
 const USAGE_OPTIONS = [
   { value: "", label: "Select expected usage..." },
@@ -52,11 +50,12 @@ const USAGE_OPTIONS = [
 ] as const;
 
 const POPULAR_MODELS = [
-  "DeepSeek-R1",
-  "Llama-3.3-70B",
-  "Qwen-2.5-Coder-32B",
-  "Mistral-Large-2",
-  "Kimi-k1.5",
+  "Nemotron 3 Ultra 550B",
+  "GLM-5.3 Flash",
+  "Qwen3.8 27B",
+  "Nemotron 3.5 Lightning 30B",
+  "Gemma 3 1B IT",
+  "Kimi-VL-A3B-Thinking",
   "Custom / Fine-tuned",
 ] as const;
 
@@ -568,7 +567,7 @@ function ContactFormInner() {
         <label className="field-label" htmlFor="f-interest">
           INTEREST CHANNEL
         </label>
-        <div className="interest-pills" style={{ marginTop: "12px" }}>
+        <div className="interest-pills" style={{ marginTop: "10px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
           {INTEREST_OPTIONS.map((option) => {
             const isActive = form.interest === option.value;
             return (
@@ -576,10 +575,15 @@ function ContactFormInner() {
                 key={option.value}
                 className={`interest-pill${isActive ? " active" : ""}`}
                 style={{
-                  padding: "10px 20px",
-                  borderRadius: "30px",
-                  background: isActive ? "rgba(45, 255, 122, 0.1)" : "rgba(255,255,255,0.03)",
-                  border: `1px solid ${isActive ? "var(--green)" : "rgba(255,255,255,0.1)"}`,
+                  padding: "8px 16px",
+                  borderRadius: "20px",
+                  fontSize: "13px",
+                  fontWeight: isActive ? 600 : 500,
+                  cursor: "pointer",
+                  transition: "all 0.2s ease",
+                  background: isActive ? "rgba(45, 255, 122, 0.12)" : "rgba(255,255,255,0.03)",
+                  border: `1px solid ${isActive ? "var(--green)" : "rgba(255,255,255,0.08)"}`,
+                  color: isActive ? "var(--white)" : "var(--text)",
                 }}
                 onClick={() => update("interest", option.value)}
                 role="button"
@@ -606,13 +610,12 @@ function ContactFormInner() {
             FULL IDENTITY *
           </label>
           <input
-            className={`field-input${
-              nameTouched && nameValid
+            className={`field-input${nameTouched && nameValid
                 ? " valid"
                 : nameTouched && form.name && !nameValid
-                ? " invalid"
-                : ""
-            }`}
+                  ? " invalid"
+                  : ""
+              }`}
             type="text"
             id="f-name"
             placeholder="Ada Lovelace"
@@ -628,15 +631,14 @@ function ContactFormInner() {
             WORK / DOMAIN EMAIL *
           </label>
           <input
-            className={`field-input${
-              emailTouched && emailValid
+            className={`field-input${emailTouched && emailValid
                 ? " valid"
                 : emailTouched && form.email && (emailChecking || domainVerified === null)
-                ? ""
-                : emailTouched && form.email && !emailValid
-                ? " invalid"
-                : ""
-            }`}
+                  ? ""
+                  : emailTouched && form.email && !emailValid
+                    ? " invalid"
+                    : ""
+              }`}
             type="email"
             id="f-email"
             placeholder="ada@company.com"
@@ -658,8 +660,8 @@ function ContactFormInner() {
                 color: emailValid
                   ? "var(--green)"
                   : emailChecking || (domainVerified === null && emailFormatValid && isBusinessEmail)
-                  ? "#ffb84d"
-                  : "#ff4d4d",
+                    ? "#ffb84d"
+                    : "#ff4d4d",
                 fontSize: "12px",
                 marginTop: "6px",
                 display: "flex",
@@ -686,9 +688,8 @@ function ContactFormInner() {
             ORGANIZATION {isEarlyAccess ? "*" : ""}
           </label>
           <input
-            className={`field-input${
-              companyTouched && isEarlyAccess && !companyValid ? " invalid" : ""
-            }`}
+            className={`field-input${companyTouched && isEarlyAccess && !companyValid ? " invalid" : ""
+              }`}
             type="text"
             id="f-company"
             placeholder="Acme AI Inc."
@@ -750,7 +751,7 @@ function ContactFormInner() {
               className="field-input"
               type="text"
               id="f-models"
-              placeholder="e.g. DeepSeek-R1, Llama-3.3-70B, Qwen..."
+              placeholder="e.g. Nemotron 3, GLM-5.3, Qwen3.8..."
               value={form.modelsOfInterest}
               style={{ padding: "14px 18px", borderRadius: "12px" }}
               onChange={(e) => update("modelsOfInterest", e.target.value)}
@@ -855,7 +856,7 @@ function ContactFormInner() {
           aria-required={isEarlyAccess ? "true" : undefined}
           placeholder={
             isEarlyAccess
-              ? "e.g., We are serving DeepSeek-R1 and Llama 3.3 70B for customer-facing chat. We need p95 TTFT < 200ms and 80+ tokens/sec throughput at ~40 concurrent streams. Seeking dedicated private endpoint pilot capacity starting next month..."
+              ? "e.g., We are serving Nemotron 3 Ultra and Qwen3.8 27B for customer-facing chat. We need p95 TTFT < 200ms and 80+ tokens/sec throughput at ~40 concurrent streams. Seeking dedicated private endpoint pilot capacity starting next month..."
               : "Tell us about your use case, cluster size, and deployment timeline..."
           }
           maxLength={MESSAGE_MAX}

@@ -26,14 +26,14 @@ const PRODUCTS: Product[] = [
   {
     eyebrow: "Managed AI Inference",
     icon: "⚡",
-    name: "NeoCloudz Token Factory (Early Access)",
+    name: "NeoCloudz Token Factory",
     bullets: [
       "Token Factory provides managed AI inference; AI Factory as a Service provides managed infrastructure",
-      "Deploy open foundation models (Llama 3.3, DeepSeek, Mistral) and custom weights without managing GPU servers",
+      "Deploy premier foundation models (Nemotron, GLM, Qwen, Gemma, Kimi) and custom weights without managing GPU servers",
       "API-based inference & dedicated endpoints with workload-optimized compute, memory, and networking",
       "Purpose-built for teams building AI applications, autonomous agents, and enterprise assistants",
     ],
-    cta: { label: "Explore Token Factory →", href: "/token-factory" },
+    cta: { label: "Explore Token Factory", href: "/token-factory" },
     lottie: "gpu",
     id: "token-factory",
   },

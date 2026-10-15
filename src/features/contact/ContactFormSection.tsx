@@ -13,17 +13,17 @@ function ContactFormHeader() {
 
   if (isEarlyAccess) {
     return (
-      <div style={{ marginBottom: "40px" }}>
-        <div className="hp-label" style={{ marginBottom: "16px" }}>
+      <div style={{ marginBottom: "32px" }}>
+        <div className="hp-label" style={{ marginBottom: "12px" }}>
           Token Factory Early Access
         </div>
         <h1
           className="form-title"
           style={{
-            fontSize: "44px",
-            letterSpacing: "-1.5px",
-            lineHeight: 1.1,
-            marginBottom: "16px",
+            fontSize: "36px",
+            letterSpacing: "-1.2px",
+            lineHeight: 1.15,
+            marginBottom: "12px",
             color: "var(--white)",
             fontWeight: 800,
           }}
@@ -33,48 +33,50 @@ function ContactFormHeader() {
         <div
           className="form-desc"
           style={{
-            fontSize: "16px",
+            fontSize: "15px",
             color: "var(--text)",
             opacity: 0.85,
             lineHeight: 1.6,
             maxWidth: "520px",
+            marginBottom: 0,
           }}
         >
-          Tell us what you’re building and the models you want to run. Our team will contact you to discuss early-access fit and next steps.
+          Tell us what you’re building and the models you want to run. Our team will contact you to discuss workload fit and dedicated pilot capacity.
         </div>
       </div>
     );
   }
 
   return (
-    <div style={{ marginBottom: "40px" }}>
-      <div className="hp-label" style={{ marginBottom: "16px" }}>
+    <div style={{ marginBottom: "32px" }}>
+      <div className="hp-label" style={{ marginBottom: "12px" }}>
         Communications Uplink
       </div>
       <h1
         className="form-title"
         style={{
-          fontSize: "48px",
-          letterSpacing: "-1.5px",
-          lineHeight: 1.1,
-          marginBottom: "16px",
+          fontSize: "40px",
+          letterSpacing: "-1.2px",
+          lineHeight: 1.15,
+          marginBottom: "12px",
           color: "var(--white)",
           fontWeight: 800,
         }}
       >
-        Let&apos;s build <br /> something <span style={{ color: "var(--green)" }}>massive.</span>
+        Let&apos;s build <span style={{ color: "var(--green)" }}>something massive.</span>
       </h1>
       <div
         className="form-desc"
         style={{
-          fontSize: "16px",
+          fontSize: "15px",
           color: "var(--text)",
           opacity: 0.8,
           lineHeight: 1.6,
-          maxWidth: "480px",
+          maxWidth: "520px",
+          marginBottom: 0,
         }}
       >
-        Whether you need a dedicated H100 cluster by Tuesday or have a complex technical requirement, our engineering team is ready to accelerate your workload.
+        Whether you need dedicated Blackwell B200 / B300 clusters, WEKA high-speed storage fabric, or managed token inference, our engineering team is ready to accelerate your workload.
       </div>
     </div>
   );
@@ -82,24 +84,24 @@ function ContactFormHeader() {
 
 export default function ContactFormSection() {
   return (
-    <div className="form-panel" style={{ display: "flex", justifyContent: "center" }}>
-      <div style={{ width: "100%", maxWidth: "560px", position: "relative", zIndex: 2 }}>
+    <div className="form-panel">
+      <div style={{ width: "100%", position: "relative", zIndex: 2 }}>
         <Suspense
           fallback={
-            <div style={{ marginBottom: "40px" }}>
-              <div className="hp-label" style={{ marginBottom: "16px" }}>Communications Uplink</div>
+            <div style={{ marginBottom: "32px" }}>
+              <div className="hp-label" style={{ marginBottom: "12px" }}>Communications Uplink</div>
               <div
                 className="form-title"
                 style={{
-                  fontSize: "48px",
-                  letterSpacing: "-1.5px",
-                  lineHeight: 1.1,
-                  marginBottom: "16px",
+                  fontSize: "40px",
+                  letterSpacing: "-1.2px",
+                  lineHeight: 1.15,
+                  marginBottom: "12px",
                   color: "var(--white)",
                   fontWeight: 800,
                 }}
               >
-                Let&apos;s build <br /> something <span style={{ color: "var(--green)" }}>massive.</span>
+                Let&apos;s build <span style={{ color: "var(--green)" }}>something massive.</span>
               </div>
             </div>
           }
@@ -107,13 +109,6 @@ export default function ContactFormSection() {
           <ContactFormHeader />
         </Suspense>
         <ContactForm />
-        <div style={{ marginTop: "48px", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(45, 255, 122, 0.15)", boxShadow: "0 20px 40px rgba(0,0,0,0.3)" }}>
-          <img 
-            src="/contact-footer.png" 
-            alt="NeoCloudz high-density GPU data center infrastructure server cluster" 
-            style={{ width: "100%", height: "auto", display: "block", filter: "brightness(0.9)" }} 
-          />
-        </div>
       </div>
     </div>
   );
