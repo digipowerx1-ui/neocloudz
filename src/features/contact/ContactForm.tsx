@@ -23,11 +23,6 @@ const INTEREST_OPTIONS = [
   { value: "partnership", label: "Partnership & Other" },
 ] as const;
 
-
-
-
-
-
 const BUDGET_OPTIONS: ReadonlyArray<{ value: BudgetRange; label: string }> = [
   { value: "under_5k", label: "< $5k" },
   { value: "range_5k_20k", label: "$5k – $20k" },
