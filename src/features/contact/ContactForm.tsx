@@ -320,13 +320,6 @@ function ContactFormInner() {
     };
   }, [form.email]);
 
-  // Auto-check the GTC Berlin checkbox when user selects "Meet Us at GTC Berlin"
-  useEffect(() => {
-    if (form.interest === "gtc_berlin_meeting") {
-      setForm((prev) => ({ ...prev, interestedInGtcBerlin: true }));
-    }
-  }, [form.interest]);
-
   const nameValid = form.name.trim().length > 1;
   const normalizedEmail = normalizeEmail(form.email);
   const emailFormatValid = EMAIL_REGEX.test(normalizedEmail);
@@ -339,7 +332,13 @@ function ContactFormInner() {
     charCount >= MESSAGE_MAX ? "max" : charCount > MESSAGE_NEAR_LIMIT ? "near" : "";
 
   function update<K extends keyof FormState>(key: K, value: FormState[K]) {
-    setForm((prev) => ({ ...prev, [key]: value }));
+    setForm((prev) => {
+      const next = { ...prev, [key]: value };
+      if (key === "interest" && value === "gtc_berlin_meeting") {
+        next.interestedInGtcBerlin = true;
+      }
+      return next;
+    });
   }
 
   function handleToggleModel(model: string) {

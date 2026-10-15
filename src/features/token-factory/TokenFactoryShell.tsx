@@ -2,7 +2,6 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
   Zap,
   Cpu,
@@ -16,6 +15,7 @@ import {
 } from "lucide-react";
 import { HeroParticles } from "@/components/layout/HeroParticles";
 import PageEffects from "@/features/page-effects/PageEffects";
+import { SupportedModelsSection } from "./SupportedModelsSection";
 import "./token-factory.css";
 
 /* Enterprise High-Tech Custom Icons */
@@ -276,8 +276,9 @@ export function TokenFactoryShell() {
               </span>
               {["Nemotron 3 Ultra", "GLM-5.3 Flash", "Qwen3.8", "Gemma 3", "Kimi-VL", "Custom LoRA Checkpoints"].map(
                 (model, i) => (
-                  <span
+                  <Link
                     key={model}
+                    href="#supported-models"
                     style={{
                       display: "inline-flex",
                       alignItems: "center",
@@ -289,6 +290,8 @@ export function TokenFactoryShell() {
                       border: `1px solid ${i === 0 ? "rgba(45, 255, 122, 0.25)" : "rgba(255, 255, 255, 0.06)"}`,
                       padding: "4px 12px",
                       borderRadius: "14px",
+                      textDecoration: "none",
+                      transition: "all 0.2s ease",
                     }}
                   >
                     <span
@@ -300,7 +303,7 @@ export function TokenFactoryShell() {
                       }}
                     />
                     {model}
-                  </span>
+                  </Link>
                 )
               )}
             </div>
@@ -530,7 +533,10 @@ export function TokenFactoryShell() {
           </div>
         </section>
 
-        {/* SECTION 2: ACCESS OPTIONS */}
+        {/* SECTION 2: SUPPORTED FOUNDATION MODELS CATALOG */}
+        <SupportedModelsSection />
+
+        {/* SECTION 3: ACCESS OPTIONS */}
         <section className="tf-section-block" id="access-options">
           <div className="tf-section-inner">
             <div className="tf-section-header">
@@ -933,23 +939,23 @@ export function TokenFactoryShell() {
         {/* SECTION 7: FINAL CTA */}
         <section className="tf-final-cta-section">
           <div className="tf-final-card">
-            <div className="hp-label" style={{ justifyContent: "center", marginBottom: "20px" }}>
+            <div className="hp-label" style={{ justifyContent: "center", marginBottom: "12px" }}>
               Get Started Today
             </div>
             <h2>
-              Ready to Accelerate Your AI Inference <br />
-              <span className="g">Without Managing GPUs?</span>
+              Ready to Accelerate Your AI Inference?
             </h2>
             <p>
-              Request early access to NeoCloudz Token Factory today. Our team will contact you to evaluate workload fit, allocate pilot capacity, and accelerate your time-to-production.
+              Request early access to Token Factory. Deploy premier foundation models and dedicated inference endpoints in minutes.
             </p>
             <div className="tf-hero-ctas" style={{ marginBottom: 0, justifyContent: "center" }}>
               <Link
                 href="/contact?interest=token_factory&source=token-factory&cta=talk_to_us"
                 className="btn-launch"
+                style={{ padding: "10px 22px", fontSize: "14px" }}
                 aria-label="Talk to Us about NeoCloudz Token Factory"
               >
-                Talk to Us <ArrowRight size={18} aria-hidden="true" />
+                Talk to Us <ArrowRight size={15} aria-hidden="true" />
               </Link>
             </div>
           </div>

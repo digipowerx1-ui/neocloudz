@@ -24,20 +24,6 @@ interface Product {
 
 const PRODUCTS: Product[] = [
   {
-    eyebrow: "Managed AI Inference",
-    icon: "⚡",
-    name: "NeoCloudz Token Factory",
-    bullets: [
-      "Token Factory provides managed AI inference; AI Factory as a Service provides managed infrastructure",
-      "Deploy premier foundation models (Nemotron, GLM, Qwen, Gemma, Kimi) and custom weights without managing GPU servers",
-      "API-based inference & dedicated endpoints with workload-optimized compute, memory, and networking",
-      "Purpose-built for teams building AI applications, autonomous agents, and enterprise assistants",
-    ],
-    cta: { label: "Explore Token Factory", href: "/token-factory" },
-    lottie: "gpu",
-    id: "token-factory",
-  },
-  {
     eyebrow: "Compute as a Service",
     icon: "⚙️",
     name: "Elastic Compute for AI and HPC Workloads",
