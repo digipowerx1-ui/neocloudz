@@ -77,6 +77,7 @@ const PRODUCTS: Product[] = [
     ],
     cta: { label: "About Managed Kubernetes", href: "/contact" },
     lottie: "serverRack",
+    id: "k8s",
   },
   {
     eyebrow: "AI Storage",
@@ -90,6 +91,7 @@ const PRODUCTS: Product[] = [
     ],
     cta: { label: "View Storage Options", href: "/contact" },
     lottie: "storage",
+    id: "storage",
   },
   {
     eyebrow: "JupyterLab® Applications",

@@ -36,19 +36,6 @@
   padding: 0;
 }
 
-/* SCROLL PROGRESS */
-.pricing-page .pricing-scroll-bar {
-  position: fixed;
-  top: 64px;
-  left: 0;
-  height: 2px;
-  z-index: 500;
-  background: linear-gradient(90deg, #2dff7a, #4dc8ff);
-  pointer-events: none;
-  transition: width 0.1s;
-  width: 0;
-}
-
 /* NAV */
 .pricing-page nav {
   position: fixed;

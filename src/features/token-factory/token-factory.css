@@ -1,0 +1,2397 @@
+/* ─────────────────────────────────────────────────────────────
+   Token Factory Product Page Styles
+   Strictly utilizes NeoCloudz Design Tokens
+───────────────────────────────────────────────────────────────── */
+
+.token-factory-page {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  padding-top: 104px; /* offset for announcement banner + header */
+}
+
+/* HERO */
+.tf-prod-hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px 90px;
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.tf-prod-hero .hero-content {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf-early-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(45, 255, 122, 0.12);
+  border: 1px solid rgba(45, 255, 122, 0.3);
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  margin-bottom: 22px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.tf-early-badge .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+  animation: pulse-dot 2s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+.tf-prod-hero h1 {
+  font-size: clamp(34px, 5.5vw, 64px);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--white);
+  margin-bottom: 18px;
+  max-width: 100%;
+  word-break: break-word;
+}
+
+.tf-prod-hero h1 .g {
+  color: var(--green);
+  text-shadow: 0 0 35px rgba(45, 255, 122, 0.3);
+}
+
+.tf-hero-tagline {
+  font-size: clamp(18px, 2.3vw, 28px);
+  font-weight: 700;
+  color: #e2ede2;
+  letter-spacing: -0.02em;
+  margin-top: 10px;
+  margin-bottom: 18px;
+  line-height: 1.3;
+  max-width: 820px;
+}
+
+.tf-prod-hero .hero-sub {
+  font-size: clamp(14.5px, 1.4vw, 17.5px);
+  font-weight: 450;
+  line-height: 1.6;
+  color: #a8b8a8;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto 32px;
+  padding: 0 8px;
+  box-sizing: border-box;
+  word-break: break-word;
+}
+
+.tf-prod-hero .hero-sub .tf-desc-link {
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-color: rgba(45, 255, 122, 0.4);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  display: inline;
+  white-space: normal;
+}
+
+.tf-prod-hero .hero-sub .tf-desc-link:hover {
+  color: #ffffff;
+  text-decoration-color: var(--green);
+}
+
+.tf-hero-ctas {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0;
+  box-sizing: border-box;
+}
+
+
+
+/* GTC BERLIN CALLOUT CARD */
+.tf-gtc-banner-wrap {
+  max-width: 1200px;
+  margin: -30px auto 60px;
+  padding: 0 24px;
+  position: relative;
+  z-index: 10;
+}
+
+.tf-gtc-card {
+  background: linear-gradient(90deg, rgba(12, 28, 16, 0.95) 0%, rgba(18, 38, 22, 0.95) 50%, rgba(10, 24, 14, 0.95) 100%);
+  border: 1px solid rgba(45, 255, 122, 0.35);
+  border-radius: 18px;
+  padding: 28px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 30px rgba(45, 255, 122, 0.12);
+}
+
+.tf-gtc-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.tf-gtc-badge {
+  background: rgba(45, 255, 122, 0.15);
+  color: var(--green);
+  border: 1px solid rgba(45, 255, 122, 0.4);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.tf-gtc-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.tf-gtc-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.tf-gtc-desc {
+  font-size: 14px;
+  color: #c0d0c0;
+  max-width: 600px;
+}
+
+.tf-gtc-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--green);
+  color: #0a0f0a;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.tf-gtc-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 0 25px rgba(45, 255, 122, 0.4);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   GTC Berlin Events Timeline Section
+───────────────────────────────────────────────────────────────── */
+.tf-events-section {
+  position: relative;
+  max-width: 1200px;
+  margin: -10px auto 70px;
+  padding: 0 24px;
+  z-index: 10;
+}
+
+.tf-events-container {
+  background: rgba(12, 18, 12, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(45, 255, 122, 0.05);
+  backdrop-filter: blur(12px);
+}
+
+.tf-events-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tf-events-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+/* Badge: Upcoming */
+.tf-events-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(45, 255, 122, 0.12);
+  color: var(--green);
+  border: 1px solid rgba(45, 255, 122, 0.35);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  box-shadow: 0 0 15px rgba(45, 255, 122, 0.1);
+}
+
+/* Timeline Layout */
+.tf-timeline-wrap {
+  position: relative;
+  padding: 10px 0;
+}
+
+.tf-timeline-line {
+  position: absolute;
+  top: 36px;
+  bottom: 80px;
+  left: 170px;
+  width: 2px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(45, 255, 122, 0.4) 0,
+    rgba(45, 255, 122, 0.4) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+.tf-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.tf-timeline-row {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+  gap: 24px;
+}
+
+/* Date Column */
+.tf-event-date-col {
+  width: 140px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  padding-top: 24px;
+}
+
+.tf-event-date-main {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.tf-event-date-sep {
+  display: none;
+}
+
+.tf-event-date-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* Timeline Node */
+.tf-timeline-node {
+  position: relative;
+  width: 20px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 30px;
+  z-index: 2;
+}
+
+.tf-timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green);
+  border: 2px solid #070e07;
+}
+
+/* Event Card */
+.tf-event-card {
+  flex: 1;
+  min-width: 0;
+  background: linear-gradient(135deg, rgba(20, 28, 20, 0.85) 0%, rgba(10, 16, 10, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 28px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  transition: all 0.25s ease;
+}
+
+.tf-event-card:hover {
+  border-color: rgba(45, 255, 122, 0.35);
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.4), 0 0 25px rgba(45, 255, 122, 0.08);
+}
+
+.tf-event-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.tf-event-time {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: #e5b95f; /* golden-amber time from image */
+  margin-bottom: 8px;
+}
+
+.tf-event-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.tf-event-meta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 22px;
+}
+
+.tf-event-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.tf-meta-icon {
+  color: var(--green);
+  flex-shrink: 0;
+}
+
+.tf-event-actions {
+  display: flex;
+  align-items: center;
+}
+
+.tf-event-manage-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.tf-event-manage-btn:hover {
+  background: rgba(45, 255, 122, 0.15);
+  border-color: rgba(45, 255, 122, 0.4);
+  color: var(--green);
+  transform: translateX(3px);
+}
+
+/* Right Poster Graphic */
+.tf-event-poster {
+  width: 200px;
+  min-height: 190px;
+  flex-shrink: 0;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  transition: all 0.25s ease;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.tf-event-poster:hover {
+  border-color: rgba(45, 255, 122, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(45, 255, 122, 0.2);
+  transform: translateY(-2px);
+}
+
+.tf-event-card:hover .tf-event-poster {
+  border-color: rgba(45, 255, 122, 0.4);
+}
+
+.tf-poster-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+}
+
+.tf-poster-top {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+.tf-poster-logo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.tf-poster-subbrand {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  color: var(--green);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.tf-poster-badge {
+  display: inline-block;
+  align-self: flex-start;
+  background: rgba(45, 255, 122, 0.15);
+  border: 1px solid rgba(45, 255, 122, 0.35);
+  color: var(--green);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.tf-poster-content {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 8px;
+}
+
+.tf-poster-title {
+  font-size: 14.5px;
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1.25;
+  margin-bottom: 3px;
+}
+
+.tf-poster-tagline {
+  font-size: 9.5px;
+  color: #a0b0a0;
+  line-height: 1.3;
+}
+
+.tf-poster-footer {
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 6px;
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #7b8e7b;
+  text-transform: uppercase;
+}
+
+.tf-events-empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--muted);
+}
+
+/* SECTION STRUCTURE */
+.tf-section-block {
+  padding: 90px 24px;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tf-section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.tf-section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.tf-section-header h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-top: 14px;
+  margin-bottom: 16px;
+}
+
+.tf-section-header h2 .g {
+  color: var(--green);
+}
+
+.tf-section-header p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+
+/* 3-GRID CARDS */
+.tf-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.tf-card {
+  background: linear-gradient(145deg, rgba(18, 24, 18, 0.8) 0%, rgba(10, 15, 10, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 32px 28px;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.tf-card:hover {
+  border-color: rgba(45, 255, 122, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(45, 255, 122, 0.08);
+}
+
+.tf-card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(45, 255, 122, 0.1);
+  border: 1px solid rgba(45, 255, 122, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--green);
+  margin-bottom: 20px;
+}
+
+.tf-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.tf-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* ACCESS OPTIONS CARDS */
+.tf-access-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.tf-access-card {
+  background: linear-gradient(135deg, rgba(20, 28, 20, 0.85) 0%, rgba(10, 16, 10, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px 36px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tf-access-card.featured {
+  border-color: rgba(45, 255, 122, 0.35);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(45, 255, 122, 0.08);
+}
+
+.tf-scope-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 16px;
+}
+
+.tf-scope-badge.active {
+  background: rgba(45, 255, 122, 0.15);
+  color: var(--green);
+  border: 1px solid rgba(45, 255, 122, 0.35);
+}
+
+.tf-scope-badge.pilot {
+  background: rgba(77, 200, 255, 0.15);
+  color: var(--blue);
+  border: 1px solid rgba(77, 200, 255, 0.35);
+}
+
+.tf-access-card h3 {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+
+.tf-access-card p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.85;
+  margin-bottom: 24px;
+}
+
+.tf-access-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tf-access-bullets li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #dbe7db;
+}
+
+.tf-access-card .btn-cta {
+  margin-top: auto;
+}
+
+/* 4-GRID USE CASES */
+.tf-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.tf-use-card {
+  background: rgba(14, 20, 14, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: all 0.25s ease;
+}
+
+.tf-use-card:hover {
+  border-color: rgba(45, 255, 122, 0.3);
+  transform: translateY(-3px);
+  background: rgba(16, 24, 16, 0.85);
+}
+
+.tf-use-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+  transition: all 0.25s ease;
+}
+
+.tf-use-icon.green {
+  background: rgba(45, 255, 122, 0.08);
+  border: 1px solid rgba(45, 255, 122, 0.22);
+  color: var(--green);
+  box-shadow: 0 0 20px rgba(45, 255, 122, 0.06);
+}
+
+.tf-use-icon.blue {
+  background: rgba(77, 200, 255, 0.08);
+  border: 1px solid rgba(77, 200, 255, 0.22);
+  color: var(--blue);
+  box-shadow: 0 0 20px rgba(77, 200, 255, 0.06);
+}
+
+.tf-use-icon.amber {
+  background: rgba(255, 184, 0, 0.08);
+  border: 1px solid rgba(255, 184, 0, 0.22);
+  color: var(--amber);
+  box-shadow: 0 0 20px rgba(255, 184, 0, 0.06);
+}
+
+.tf-use-icon.purple {
+  background: rgba(168, 85, 247, 0.08);
+  border: 1px solid rgba(168, 85, 247, 0.22);
+  color: #c084fc;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.06);
+}
+
+.tf-use-card:hover .tf-use-icon {
+  transform: translateY(-2px) scale(1.04);
+}
+
+.tf-use-card:hover .tf-use-icon.green {
+  border-color: rgba(45, 255, 122, 0.45);
+  box-shadow: 0 0 25px rgba(45, 255, 122, 0.18);
+}
+
+.tf-use-card:hover .tf-use-icon.blue {
+  border-color: rgba(77, 200, 255, 0.45);
+  box-shadow: 0 0 25px rgba(77, 200, 255, 0.18);
+}
+
+.tf-use-card:hover .tf-use-icon.amber {
+  border-color: rgba(255, 184, 0, 0.45);
+  box-shadow: 0 0 25px rgba(255, 184, 0, 0.18);
+}
+
+.tf-use-card:hover .tf-use-icon.purple {
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: 0 0 25px rgba(168, 85, 247, 0.18);
+}
+
+.tf-use-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.tf-use-card p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+/* EARLY ACCESS PROCESS ROADMAP */
+.tf-roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+}
+
+.tf-step-card {
+  background: rgba(14, 20, 14, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px 24px;
+  position: relative;
+}
+
+.tf-step-num {
+  font-family: var(--font-mono);
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--green);
+  opacity: 0.8;
+  margin-bottom: 14px;
+}
+
+.tf-step-card h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.tf-step-card p {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text);
+  opacity: 0.8;
+}
+
+/* FAQ ACCORDION */
+.tf-faq-list {
+  max-width: 860px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tf-faq-item {
+  background: rgba(12, 17, 12, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 24px 28px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tf-faq-item:hover {
+  border-color: rgba(45, 255, 122, 0.25);
+}
+
+.tf-faq-q {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.tf-faq-a {
+  margin-top: 14px;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+/* FINAL CTA BANNER */
+.tf-final-cta-section {
+  padding: 40px 20px 60px;
+  text-align: center;
+  position: relative;
+}
+
+.tf-final-card {
+  max-width: 680px;
+  margin: 0 auto;
+  background: rgba(15, 20, 16, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 32px 28px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.tf-final-card:hover {
+  border-color: rgba(45, 255, 122, 0.25);
+}
+
+.tf-final-card h2 {
+  font-size: clamp(21px, 2.8vw, 27px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.tf-final-card p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--text);
+  opacity: 0.85;
+  max-width: 520px;
+  margin: 0 auto 20px;
+}
+
+/* SCOPE DISTINCTION GRID */
+.tf-scope-distinction {
+  margin-top: 48px;
+  padding: 28px 32px;
+  background: rgba(12, 18, 12, 0.75);
+  border: 1px solid rgba(45, 255, 122, 0.2);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Responsive Breakpoints
+───────────────────────────────────────────────────────────────── */
+
+/* ── Tablet landscape ≤ 1024px ── */
+@media (max-width: 1024px) {
+  .tf-grid-3,
+  .tf-grid-4,
+  .tf-roadmap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tf-access-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tf-gtc-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 28px 24px;
+    gap: 20px;
+  }
+
+  .tf-gtc-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+    width: 100%;
+  }
+
+  .tf-gtc-badge {
+    align-self: center;
+    margin: 0 auto;
+  }
+
+  .tf-gtc-info {
+    text-align: center;
+  }
+
+  .tf-gtc-title {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+
+  .tf-gtc-desc {
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .tf-gtc-cta {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
+
+  /* Events Timeline 1024px */
+  .tf-timeline-line {
+    left: 140px;
+  }
+
+  .tf-event-date-col {
+    width: 120px;
+  }
+
+  .tf-event-poster {
+    width: 180px;
+  }
+
+  .tf-section-block {
+    padding: 70px 20px;
+  }
+
+  .tf-section-header {
+    margin-bottom: 44px;
+  }
+}
+
+/* ── Tablet portrait ≤ 768px ── */
+@media (max-width: 768px) {
+  .token-factory-page {
+    padding-top: 90px;
+  }
+
+  /* Hero */
+  .tf-prod-hero {
+    min-height: auto;
+    padding: 34px 16px 48px;
+    text-align: center;
+  }
+
+  .tf-prod-hero .hero-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tf-early-badge {
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    padding: 4px 12px;
+    gap: 6px;
+    margin-bottom: 16px;
+    max-width: 100%;
+  }
+
+  .tf-prod-hero h1 {
+    font-size: clamp(28px, 7.5vw, 42px);
+    margin-bottom: 14px;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  .tf-prod-hero .hero-sub {
+    font-size: 14.5px;
+    line-height: 1.55;
+    margin-bottom: 26px;
+    padding: 0 4px;
+    max-width: 100%;
+  }
+
+  .tf-hero-ctas {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .tf-hero-ctas .btn-launch,
+  .tf-hero-ctas .btn-outline {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 13px 20px;
+    font-size: 14.5px;
+  }
+
+  .tf-hero-terminal {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 14px;
+    font-size: 11.5px;
+    gap: 8px;
+    border-radius: 10px;
+    justify-content: center;
+  }
+
+  .tf-terminal-cmd {
+    gap: 6px;
+  }
+
+  /* GTC Berlin Card */
+  .tf-gtc-banner-wrap {
+    margin: -20px auto 40px;
+    padding: 0 16px;
+  }
+
+  .tf-gtc-card {
+    padding: 22px 18px;
+    gap: 18px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: 16px;
+  }
+
+  .tf-gtc-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .tf-gtc-badge {
+    align-self: center;
+    margin: 0 auto;
+    font-size: 11px;
+    padding: 5px 12px;
+  }
+
+  .tf-gtc-info {
+    text-align: center;
+    width: 100%;
+  }
+
+  .tf-gtc-title {
+    font-size: 17px;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .tf-gtc-desc {
+    font-size: 13px;
+    line-height: 1.55;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  .tf-gtc-cta {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+    font-size: 13.5px;
+    padding: 12px 20px;
+  }
+
+  /* Events Timeline 768px */
+  .tf-events-section {
+    margin: -10px auto 50px;
+    padding: 0 16px;
+  }
+
+  .tf-events-container {
+    padding: 24px 18px;
+    border-radius: 18px;
+  }
+
+  .tf-events-header {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+  }
+
+  .tf-events-title {
+    font-size: 26px;
+  }
+
+  .tf-timeline-line {
+    display: none;
+  }
+
+  .tf-timeline-node {
+    display: none;
+  }
+
+  .tf-timeline-list {
+    gap: 20px;
+  }
+
+  .tf-timeline-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .tf-event-date-col {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding-top: 0;
+    margin-bottom: 4px;
+    text-align: center;
+  }
+
+  .tf-event-date-main {
+    font-size: 19px;
+  }
+
+  .tf-event-date-sep {
+    display: inline-block;
+    color: var(--green);
+    font-weight: 700;
+    font-size: 16px;
+    opacity: 0.8;
+  }
+
+  .tf-event-date-sub {
+    font-size: 14px;
+    margin-top: 0;
+  }
+
+  .tf-event-card {
+    flex-direction: column-reverse;
+    padding: 24px 20px;
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    border-radius: 18px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .tf-event-details {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tf-event-time {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .tf-event-heading {
+    text-align: center;
+    font-size: 18px;
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+
+  .tf-event-meta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .tf-event-meta-item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 13.5px;
+    text-align: center;
+  }
+
+  .tf-event-actions {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .tf-event-manage-btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+    padding: 10px 20px;
+    margin: 0 auto;
+  }
+
+  .tf-event-poster {
+    width: 100%;
+    max-width: 280px;
+    height: 195px;
+    min-height: 195px;
+    max-height: 195px;
+    margin: 0 auto;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tf-poster-top {
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 6px;
+  }
+
+  .tf-poster-badge {
+    margin: 0 auto 6px;
+    align-self: center;
+  }
+
+  .tf-poster-content {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 6px;
+  }
+
+  .tf-poster-title {
+    text-align: center;
+    justify-content: center;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+
+  .tf-poster-tagline {
+    text-align: center;
+  }
+
+  .tf-poster-footer {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Grids */
+  .tf-grid-3,
+  .tf-grid-4,
+  .tf-roadmap-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Section */
+  .tf-section-block {
+    padding: 60px 16px;
+  }
+
+  .tf-section-header {
+    margin-bottom: 36px;
+    text-align: center;
+  }
+
+  .tf-section-header h2 {
+    font-size: clamp(24px, 5.5vw, 36px);
+    margin-top: 10px;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .tf-section-header p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  /* Cards - Center Aligned */
+  .tf-card {
+    padding: 24px 20px;
+    border-radius: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tf-card-icon {
+    margin: 0 auto 16px;
+  }
+
+  .tf-card h3 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .tf-card p {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* Scope distinction */
+  .tf-scope-distinction {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    margin-top: 32px;
+    gap: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tf-scope-distinction > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .tf-scope-distinction ul {
+    text-align: left;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
+  /* Access options - Center Aligned */
+  .tf-access-card {
+    padding: 28px 20px;
+    border-radius: 16px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tf-scope-badge {
+    align-self: center;
+    margin: 0 auto 16px;
+  }
+
+  .tf-access-card h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .tf-access-card p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .tf-access-bullets {
+    text-align: left;
+    margin: 0 auto 28px;
+    width: 100%;
+    max-width: 380px;
+  }
+
+  .tf-access-bullets li {
+    font-size: 13px;
+  }
+
+  .tf-access-card .btn-cta {
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Use cases - Center Aligned */
+  .tf-use-card {
+    padding: 24px 20px;
+    border-radius: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tf-use-icon {
+    margin: 0 auto 16px;
+  }
+
+  .tf-use-card h4 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .tf-use-card p {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* Roadmap steps - Center Aligned */
+  .tf-step-card {
+    padding: 24px 20px;
+    border-radius: 14px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tf-step-num {
+    font-size: 28px;
+    margin: 0 auto 12px;
+    text-align: center;
+  }
+
+  .tf-step-card h4 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .tf-step-card p {
+    font-size: 13px;
+    text-align: center;
+  }
+
+  /* FAQ */
+  .tf-faq-item {
+    padding: 18px 20px;
+    border-radius: 12px;
+  }
+
+  .tf-faq-q {
+    font-size: 15px;
+    gap: 12px;
+  }
+
+  .tf-faq-a {
+    font-size: 13.5px;
+  }
+
+  /* Final CTA */
+  .tf-final-cta-section {
+    padding: 60px 16px 80px;
+  }
+
+  .tf-final-card {
+    padding: 36px 20px;
+    border-radius: 18px;
+    text-align: center;
+  }
+
+  .tf-final-card h2 {
+    font-size: clamp(24px, 5.5vw, 36px);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+
+  .tf-final-card h2 br {
+    display: none;
+  }
+
+  .tf-final-card p {
+    font-size: 15px;
+    margin-bottom: 28px;
+    text-align: center;
+  }
+}
+
+/* ── Small mobile ≤ 480px ── */
+@media (max-width: 480px) {
+  .token-factory-page {
+    padding-top: 80px;
+  }
+
+  /* Hero */
+  .tf-prod-hero {
+    padding: 24px 12px 38px;
+  }
+
+  .tf-early-badge {
+    font-size: 10px;
+    letter-spacing: 0.03em;
+    padding: 4px 10px;
+    gap: 5px;
+    margin-bottom: 12px;
+  }
+
+  .tf-prod-hero h1 {
+    font-size: clamp(24px, 7.2vw, 32px);
+    margin-bottom: 12px;
+    letter-spacing: -0.025em;
+  }
+
+  .tf-prod-hero .hero-sub {
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+
+  .tf-hero-ctas {
+    gap: 10px;
+    margin-bottom: 22px;
+    width: 100%;
+  }
+
+  .tf-hero-ctas .btn-launch,
+  .tf-hero-ctas .btn-outline {
+    padding: 12px 16px;
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  .tf-hero-terminal {
+    padding: 8px 10px;
+    font-size: 10px;
+    gap: 6px;
+    border-radius: 8px;
+    line-height: 1.45;
+    justify-content: center;
+  }
+
+  .tf-terminal-cmd {
+    gap: 4px;
+  }
+
+  .tf-term-tag {
+    font-size: 10px;
+  }
+
+  /* GTC Berlin Card */
+  .tf-gtc-banner-wrap {
+    margin: -12px auto 28px;
+    padding: 0 12px;
+  }
+
+  .tf-gtc-card {
+    padding: 18px 14px;
+    border-radius: 14px;
+    gap: 14px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .tf-gtc-left {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .tf-gtc-badge {
+    font-size: 10.5px;
+    padding: 4px 10px;
+    align-self: center;
+    margin: 0 auto;
+  }
+
+  .tf-gtc-info {
+    text-align: center;
+  }
+
+  .tf-gtc-title {
+    font-size: 15.5px;
+    text-align: center;
+  }
+
+  .tf-gtc-desc {
+    font-size: 12.5px;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .tf-gtc-cta {
+    font-size: 13px;
+    padding: 11px 18px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Events Timeline 480px */
+  .tf-events-section {
+    margin: -10px auto 40px;
+    padding: 0 12px;
+  }
+
+  .tf-events-container {
+    padding: 18px 12px;
+    border-radius: 14px;
+  }
+
+  .tf-events-header {
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+  }
+
+  .tf-events-title {
+    font-size: 22px;
+  }
+
+  .tf-events-tab {
+    font-size: 12px;
+    padding: 6px 14px;
+  }
+
+  .tf-event-date-col {
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  .tf-event-date-main {
+    font-size: 17px;
+  }
+
+  .tf-event-date-sep {
+    font-size: 15px;
+  }
+
+  .tf-event-date-sub {
+    font-size: 13px;
+  }
+
+  .tf-event-card {
+    padding: 20px 14px;
+    border-radius: 16px;
+    gap: 18px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .tf-event-time {
+    font-size: 12px;
+    margin-bottom: 6px;
+  }
+
+  .tf-event-heading {
+    font-size: 16px;
+    min-height: 46px;
+    margin-bottom: 10px;
+    line-height: 1.35;
+  }
+
+  .tf-event-meta-group {
+    margin-bottom: 16px;
+    gap: 6px;
+  }
+
+  .tf-event-meta-item {
+    font-size: 12.5px;
+  }
+
+  .tf-event-manage-btn {
+    font-size: 13px;
+    padding: 9px 16px;
+    max-width: 270px;
+  }
+
+  .tf-event-poster {
+    width: 100%;
+    max-width: 270px;
+    height: 190px;
+    min-height: 190px;
+    max-height: 190px;
+    padding: 12px 14px;
+  }
+
+  .tf-poster-title {
+    font-size: 13.5px;
+    min-height: 34px;
+  }
+
+  .tf-poster-tagline {
+    font-size: 9px;
+  }
+
+  .tf-poster-footer {
+    font-size: 7.5px;
+  }
+
+  /* Section */
+  .tf-section-block {
+    padding: 44px 12px;
+  }
+
+  .tf-section-header {
+    margin-bottom: 28px;
+  }
+
+  .tf-section-header h2 {
+    font-size: clamp(22px, 6vw, 30px);
+  }
+
+  .tf-section-header p {
+    font-size: 13px;
+  }
+
+  /* Cards - Center Aligned */
+  .tf-card {
+    padding: 20px 16px;
+    border-radius: 12px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .tf-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 0 auto 14px;
+  }
+
+  .tf-card h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .tf-card p {
+    font-size: 12.5px;
+    text-align: center;
+  }
+
+  /* Scope distinction */
+  .tf-scope-distinction {
+    padding: 16px;
+    margin-top: 24px;
+    gap: 20px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .tf-scope-distinction ul {
+    font-size: 12.5px;
+  }
+
+  /* Access cards - Center Aligned */
+  .tf-access-card {
+    padding: 24px 16px;
+    border-radius: 14px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .tf-access-card h3 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .tf-access-card p {
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .tf-access-bullets {
+    margin-bottom: 24px;
+    gap: 10px;
+  }
+
+  .tf-access-bullets li {
+    font-size: 12.5px;
+    gap: 8px;
+  }
+
+  .tf-scope-badge {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .tf-access-card .btn-cta {
+    max-width: 100%;
+  }
+
+  /* Use cases - Center Aligned */
+  .tf-use-card {
+    padding: 20px 16px;
+    border-radius: 12px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .tf-use-icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    margin: 0 auto 14px;
+  }
+
+  .tf-use-card h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .tf-use-card p {
+    font-size: 12.5px;
+    text-align: center;
+  }
+
+  /* Roadmap - Center Aligned */
+  .tf-step-card {
+    padding: 20px 16px;
+    border-radius: 12px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .tf-step-num {
+    font-size: 24px;
+    margin: 0 auto 10px;
+    text-align: center;
+  }
+
+  .tf-step-card h4 {
+    font-size: 15px;
+    margin-bottom: 8px;
+    text-align: center;
+  }
+
+  .tf-step-card p {
+    font-size: 12.5px;
+    text-align: center;
+  }
+
+  /* FAQ */
+  .tf-faq-list {
+    gap: 12px;
+  }
+
+  .tf-faq-item {
+    padding: 16px 14px;
+    border-radius: 10px;
+  }
+
+  .tf-faq-q {
+    font-size: 14px;
+    gap: 10px;
+  }
+
+  .tf-faq-q span {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .tf-faq-a {
+    font-size: 12.5px;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+
+  /* Final CTA */
+  .tf-final-cta-section {
+    padding: 44px 12px 60px;
+  }
+
+  .tf-final-card {
+    padding: 28px 16px;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .tf-final-card h2 {
+    font-size: clamp(20px, 6vw, 28px);
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .tf-final-card p {
+    font-size: 13px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+
+  .tf-final-card .tf-hero-ctas {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .tf-final-card .tf-hero-ctas .btn-launch,
+  .tf-final-card .tf-hero-ctas .btn-outline {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   SUPPORTED MODELS CATALOG SECTION
+   Fidelity matching the models directory UI specification
+───────────────────────────────────────────────────────────────── */
+
+.tf-catalog-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tf-catalog-counter {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.tf-catalog-counter-num {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  font-family: var(--font-mono);
+}
+
+.tf-catalog-counter-text {
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.tf-catalog-filter-indicator {
+  font-size: 12px;
+  color: var(--green);
+  font-family: var(--font-mono);
+  background: rgba(45, 255, 122, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.tf-catalog-search-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 320px;
+}
+
+.tf-catalog-search-icon {
+  position: absolute;
+  left: 14px;
+  color: var(--muted);
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+
+.tf-catalog-search-input {
+  width: 100%;
+  padding: 9px 36px 9px 38px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  font-size: 13.5px;
+  color: var(--white);
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.tf-catalog-search-input::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
+}
+
+.tf-catalog-search-input:focus {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(45, 255, 122, 0.5);
+  box-shadow: 0 0 0 3px rgba(45, 255, 122, 0.12);
+}
+
+.tf-catalog-search-wrapper:focus-within .tf-catalog-search-icon {
+  color: var(--green);
+}
+
+.tf-catalog-search-clear {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.tf-catalog-search-clear:hover {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Category Filter Chips */
+.tf-category-chips {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.tf-category-chip {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text);
+  font-size: 12.5px;
+  font-weight: 500;
+  padding: 5px 14px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tf-category-chip:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.tf-category-chip.active {
+  background: rgba(45, 255, 122, 0.12);
+  border-color: rgba(45, 255, 122, 0.4);
+  color: var(--green);
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(45, 255, 122, 0.15);
+}
+
+/* Models Card Grid (Horizontal Layout) */
+.tf-models-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.tf-model-card {
+  background: rgba(15, 20, 16, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(14px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.tf-model-card:hover {
+  border-color: rgba(45, 255, 122, 0.3);
+  background: rgba(18, 26, 20, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -6px rgba(0, 0, 0, 0.5), 0 0 18px -4px rgba(45, 255, 122, 0.08);
+}
+
+/* Card Top: Provider Icon Box + Header Info */
+.tf-model-card-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tf-model-icon-box {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.tf-model-card:hover .tf-model-icon-box {
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.tf-model-header-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tf-model-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.tf-model-meta-provider {
+  color: #a3b8a3;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.tf-model-description {
+  font-size: 13px;
+  color: #b5c7b5;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Specs Row */
+.tf-model-meta-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.tf-meta-dot {
+  opacity: 0.5;
+}
+
+.tf-model-meta-spec {
+  color: var(--text);
+  opacity: 0.9;
+  font-weight: 500;
+}
+
+.tf-model-meta-quality {
+  color: var(--green);
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+}
+
+/* Badges / Tags */
+.tf-model-badges-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tf-model-badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 2.5px 8.5px;
+  border-radius: 9999px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+
+
+/* Badge Color Themes matching user image */
+.tf-badge-purple {
+  background: rgba(168, 85, 247, 0.14);
+  color: #d8b4fe;
+  border: 1px solid rgba(168, 85, 247, 0.3);
+}
+
+.tf-badge-emerald {
+  background: rgba(16, 185, 129, 0.14);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.tf-badge-blue {
+  background: rgba(59, 130, 246, 0.14);
+  color: #93c5fd;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.tf-badge-amber {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fcd34d;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.tf-badge-teal {
+  background: rgba(20, 184, 166, 0.14);
+  color: #5eead4;
+  border: 1px solid rgba(20, 184, 166, 0.3);
+}
+
+.tf-badge-sky {
+  background: rgba(14, 165, 233, 0.14);
+  color: #7dd3fc;
+  border: 1px solid rgba(14, 165, 233, 0.3);
+}
+
+.tf-badge-neutral {
+  background: rgba(255, 255, 255, 0.05);
+  color: #b0c0b0;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Empty State */
+.tf-models-empty {
+  text-align: center;
+  padding: 48px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tf-empty-icon {
+  color: var(--muted);
+  margin-bottom: 12px;
+  opacity: 0.6;
+}
+
+.tf-models-empty h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.tf-models-empty p {
+  font-size: 13.5px;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0;
+}
+
+
+
+@media (max-width: 1080px) {
+  .tf-models-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 680px) {
+  .tf-models-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .tf-catalog-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tf-catalog-search-wrapper {
+    max-width: 100%;
+  }
+
+  .tf-model-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .tf-model-icon-box {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+}
+

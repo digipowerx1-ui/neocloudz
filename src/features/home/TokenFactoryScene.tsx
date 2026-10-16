@@ -18,7 +18,7 @@ const LOGO_ROT = -Math.PI / 2;
 const LOGO_W = 0.88;
 
 const WORDMARK_SRC =
-  "/images/neocloudz-logo.png";
+  "/Asset%201.png";
 
 function TokenFactoryScene() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -432,7 +432,14 @@ function TokenFactoryScene() {
       let glowBoost = 0;
       coinGroup.getWorldPosition(coinWorld);
       for (const cube of featCubes) {
-        const u = cube.userData as any;
+        const u = cube.userData as {
+          ang: number;
+          speed: number;
+          radius: number;
+          yBase: number;
+          ySpeed: number;
+          phase: number;
+        };
         u.ang += u.speed * dt;
         cube.position.set(
           Math.cos(u.ang) * u.radius,

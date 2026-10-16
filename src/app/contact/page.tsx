@@ -13,9 +13,16 @@ export const metadata = {
 export default function ContactPage() {
   return (
     <ContactPageEffects>
-      <div className="contact-layout" style={{ paddingTop: "64px" }}>
-        <ContactFormSection />
-        <ContactInfoPanel />
+      <div className="contact-hero-wrap">
+        <div className="contact-bg-media" aria-hidden="true">
+          <div className="contact-bg-image" />
+          <div className="contact-bg-overlay" />
+          <div className="contact-bg-glow" />
+        </div>
+        <div className="contact-layout">
+          <ContactFormSection />
+          <ContactInfoPanel />
+        </div>
       </div>
       <ContactDcMapSection />
     </ContactPageEffects>

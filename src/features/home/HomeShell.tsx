@@ -1,9 +1,10 @@
 "use client";
 
 import { useRef } from "react";
-import { useFaqAccordion, useScrollProgressBar, useScrollReveal } from "./effects";
+import { useFaqAccordion, useScrollReveal } from "./effects";
 import { HomeHero } from "./HomeHero";
 import {
+  HomeAIModels,
   HomeCta,
   HomeFaq,
   HomeGpuCatalog,
@@ -20,16 +21,16 @@ import {
 
 export function HomeShell() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const scrollBarRef = useRef<HTMLDivElement>(null);
 
-  useScrollProgressBar(scrollBarRef);
   useScrollReveal(rootRef);
   useFaqAccordion(rootRef);
 
   return (
     <div className="home-page" ref={rootRef}>
-      <div className="home-scroll-bar" ref={scrollBarRef} />
       <HomeHero />
+      <HomeTokenFactory />
+      <HomeAIModels />
+      <div className="section-divider" />
       <HomePartners />
       <HomeWhy />
       <HomePricing />
@@ -43,8 +44,6 @@ export function HomeShell() {
       <div className="anim-divider" />
 
       <HomeStorage />
-      <div className="section-divider" />
-      <HomeTokenFactory />
       <div className="section-divider" />
       <HomeFaq />
       <HomeCta />

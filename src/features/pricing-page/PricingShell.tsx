@@ -14,7 +14,6 @@ import {
   usePricingMatrix,
 
   usePricingParticleCanvas,
-  usePricingScrollBar,
   usePricingScrollReveal,
   usePricingStars,
   usePricingTyping,
@@ -151,7 +150,6 @@ function fmtCurrency(n: number): string {
 
 export function PricingShell() {
   const rootRef = useRef<HTMLDivElement>(null);
-  const scrollBarRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
   const heroGridRef = useRef<HTMLDivElement>(null);
   const particleRef = useRef<HTMLCanvasElement>(null);
@@ -178,7 +176,6 @@ export function PricingShell() {
   const [tierParticleLeft, setTierParticleLeft] = useState("0%");
 
   // Page-level
-  usePricingScrollBar(scrollBarRef);
   usePricingScrollReveal(rootRef);
 
   // Hero
@@ -285,8 +282,6 @@ export function PricingShell() {
 
   return (
     <div className="pricing-page" ref={rootRef}>
-      <div className="pricing-scroll-bar" ref={scrollBarRef} />
-
       {/* HERO */}
       <section className="hero" id="hero" ref={heroRef}>
         <canvas id="particle-canvas" ref={particleRef} aria-hidden="true" />

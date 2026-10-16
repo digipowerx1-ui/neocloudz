@@ -62,7 +62,7 @@ export default function ContactFooter() {
       <div className="footer-top">
         <div className="footer-brand">
           <Link href="/" className="footer-brand-logo" aria-label="NeoCloudz Home">
-            <img src="/images/neocloudz-logo.png" alt="NeoCloudz - High-Performance AI Cloud" style={{ height: '80px', width: 'auto', display: 'block' }} />
+            <img src="/Asset%201.png" alt="NeoCloudz - High-Performance AI Cloud" style={{ height: '45px', width: 'auto', display: 'block' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,
@@ -97,9 +97,9 @@ export default function ContactFooter() {
       <div className="footer-bottom">
         <p>© 2026 NeoCloudz Inc. All rights reserved.</p>
         <div className="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms of Service</a>
-          <a href="#">Security</a>
+          <Link href="/privacy-policy">Privacy Policy</Link>
+          <Link href="/terms-of-service">Terms of Service</Link>
+          <Link href="/security">Security</Link>
         </div>
       </div>
     </footer>

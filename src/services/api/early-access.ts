@@ -7,7 +7,7 @@ export interface EarlyAccessPayload {
 export interface EarlyAccessResponse {
   data: {
     id: number;
-    attributes: any;
+    attributes: Record<string, unknown>;
   };
 }
 
