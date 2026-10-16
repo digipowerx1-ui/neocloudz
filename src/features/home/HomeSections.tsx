@@ -752,7 +752,7 @@ export function HomeTokenFactory() {
             {/* Left Column: Product details & waitlist early-access allocation */}
             <div className="tf-left-col">
               <div className="hp-label" style={{ marginBottom: "16px" }}>
-                Managed AI Inference
+                Token Factory
               </div>
 
               <h2 className="tf-title">
