@@ -870,7 +870,7 @@ export function HomeTokenFactory() {
           </div>
           <div className="tf-bottom-item">
             <Cpu size={18} className="tf-bottom-icon" />
-            <span>Nemotron, GLM, Qwen, Gemma & Kimi</span>
+            <span>Nemotron, GLM, Qwen, Gemma &amp; Kimi</span>
           </div>
           <div className="tf-bottom-item">
             <Globe size={18} className="tf-bottom-icon" />

@@ -281,7 +281,7 @@ export function SupportedModelsSection() {
           })}
         </div>
 
-        {/* Models List */}
+        {/* Models Grid */}
         <div className="tf-models-list">
           {filteredModels.length > 0 ? (
             filteredModels.map((model) => (
@@ -290,80 +290,77 @@ export function SupportedModelsSection() {
                 className="tf-model-card"
                 id={`model-${model.id}`}
               >
-                {/* Provider Icon Container */}
-                <div className="tf-model-icon-box" aria-hidden="true">
-                  {renderProviderLogo(model.providerType)}
+                {/* Card Top: Provider Icon Box + Header Info */}
+                <div className="tf-model-card-top">
+                  <div className="tf-model-icon-box" aria-hidden="true">
+                    {renderProviderLogo(model.providerType)}
+                  </div>
+                  <div className="tf-model-header-info">
+                    <h3 className="tf-model-title">{model.name}</h3>
+                    <span className="tf-model-meta-provider">by {model.provider}</span>
+                  </div>
                 </div>
 
-                {/* Model Details Body */}
-                <div className="tf-model-content">
-                  {/* Title & Actions Row */}
-                  <div className="tf-model-header-row">
-                    <h3 className="tf-model-title">{model.name}</h3>
+                {/* Optional Description (for Kimi, etc.) */}
+                {model.description && (
+                  <p className="tf-model-description">{model.description}</p>
+                )}
 
-                    <div className="tf-model-actions">
-                      <button
-                        type="button"
-                        onClick={() => handleCopySlug(model.modelSlug)}
-                        className="tf-copy-btn"
-                        title={`Copy model slug: ${model.modelSlug}`}
-                        aria-label={`Copy model slug: ${model.modelSlug}`}
-                      >
-                        {copiedSlug === model.modelSlug ? (
-                          <>
-                            <Check size={13} className="text-green" />
-                            <span>Copied</span>
-                          </>
-                        ) : (
-                          <>
-                            <Copy size={13} />
-                            <span>{model.modelSlug}</span>
-                          </>
-                        )}
-                      </button>
-
-                      <Link
-                        href={`/contact?interest=token_factory&model=${encodeURIComponent(model.name)}&source=model_catalog`}
-                        className="tf-deploy-btn"
-                        aria-label={`Deploy or Request Access for ${model.name}`}
-                      >
-                        <span>Deploy</span>
-                        <ArrowUpRight size={14} aria-hidden="true" />
-                      </Link>
-                    </div>
-                  </div>
-
-                  {/* Optional Description (for Kimi, etc.) */}
-                  {model.description && (
-                    <p className="tf-model-description">{model.description}</p>
+                {/* Metadata Row: [Context] · [Latency] · [Quality] */}
+                <div className="tf-model-meta-row">
+                  <span className="tf-model-meta-spec">{model.context}</span>
+                  <span className="tf-meta-dot" aria-hidden="true">·</span>
+                  <span className="tf-model-meta-spec">{model.latency}</span>
+                  {model.quality && (
+                    <>
+                      <span className="tf-meta-dot" aria-hidden="true">·</span>
+                      <span className="tf-model-meta-quality">{model.quality}</span>
+                    </>
                   )}
+                </div>
 
-                  {/* Metadata Row: by [Provider] · [Context] · [Latency] · [Quality] */}
-                  <div className="tf-model-meta-row">
-                    <span className="tf-model-meta-provider">by {model.provider}</span>
-                    <span className="tf-meta-dot" aria-hidden="true">·</span>
-                    <span className="tf-model-meta-spec">{model.context}</span>
-                    <span className="tf-meta-dot" aria-hidden="true">·</span>
-                    <span className="tf-model-meta-spec">{model.latency}</span>
-                    {model.quality && (
+                {/* Badges / Tags Row */}
+                <div className="tf-model-badges-row">
+                  {model.badges.map((badge, idx) => (
+                    <span
+                      key={idx}
+                      className={`tf-model-badge tf-badge-${badge.variant}`}
+                    >
+                      {badge.label}
+                    </span>
+                  ))}
+                </div>
+
+                {/* Card Footer: Slug Copy & Deploy Action */}
+                <div className="tf-model-card-footer">
+                  <button
+                    type="button"
+                    onClick={() => handleCopySlug(model.modelSlug)}
+                    className="tf-copy-btn"
+                    title={`Copy model slug: ${model.modelSlug}`}
+                    aria-label={`Copy model slug: ${model.modelSlug}`}
+                  >
+                    {copiedSlug === model.modelSlug ? (
                       <>
-                        <span className="tf-meta-dot" aria-hidden="true">·</span>
-                        <span className="tf-model-meta-quality">{model.quality}</span>
+                        <Check size={12} className="text-green" />
+                        <span>Copied</span>
+                      </>
+                    ) : (
+                      <>
+                        <Copy size={12} />
+                        <span className="tf-copy-slug-text">{model.modelSlug}</span>
                       </>
                     )}
-                  </div>
+                  </button>
 
-                  {/* Badges / Tags Row */}
-                  <div className="tf-model-badges-row">
-                    {model.badges.map((badge, idx) => (
-                      <span
-                        key={idx}
-                        className={`tf-model-badge tf-badge-${badge.variant}`}
-                      >
-                        {badge.label}
-                      </span>
-                    ))}
-                  </div>
+                  <Link
+                    href={`/contact?interest=token_factory&model=${encodeURIComponent(model.name)}&source=model_catalog`}
+                    className="tf-deploy-btn"
+                    aria-label={`Deploy or Request Access for ${model.name}`}
+                  >
+                    <span>Deploy</span>
+                    <ArrowUpRight size={13} aria-hidden="true" />
+                  </Link>
                 </div>
               </article>
             ))

@@ -18,7 +18,7 @@ import PageEffects from "@/features/page-effects/PageEffects";
 import { SupportedModelsSection } from "./SupportedModelsSection";
 import "./token-factory.css";
 
-/* Enterprise High-Tech Custom Icons */
+/* Production Use Case Icons */
 function NeuralChatIcon({ className }: { className?: string }) {
   return (
     <svg
@@ -197,7 +197,7 @@ export function TokenFactoryShell() {
             {/* High-Tech Badge */}
             <div className="tf-early-badge">
               <span className="dot" />
-              <span>Managed AI Inference · Powered by NVIDIA Blackwell B200 & B300</span>
+              <span>Managed AI Inference · Powered by NVIDIA Blackwell B200 &amp; B300</span>
             </div>
 
             {/* Powerful Headline */}
@@ -350,7 +350,7 @@ export function TokenFactoryShell() {
                       Hardware Engine
                     </div>
                     <div style={{ fontSize: "15px", fontWeight: 700, color: "var(--white)" }}>
-                      Blackwell B200 & B300
+                      Blackwell B200 &amp; B300
                     </div>
                   </div>
                 </div>
@@ -572,7 +572,7 @@ export function TokenFactoryShell() {
                   </li>
                   <li>
                     <CheckCircle2 size={16} color="var(--green)" />
-                    <span>Pre-loaded Nemotron, GLM, Qwen, Gemma & Kimi weights</span>
+                    <span>Pre-loaded Nemotron, GLM, Qwen, Gemma &amp; Kimi weights</span>
                   </li>
                 </ul>
                 <Link
@@ -594,19 +594,19 @@ export function TokenFactoryShell() {
                 <ul className="tf-access-bullets">
                   <li>
                     <CheckCircle2 size={16} color="var(--blue)" />
-                    <span>Dedicated NVIDIA Blackwell B200 & B300 GPU compute pods</span>
+                    <span>Dedicated NVIDIA Blackwell B200 &amp; B300 GPU compute pods</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} color="var(--blue)" />
-                    <span>Support for Nemotron, GLM, Qwen, Gemma, Kimi & custom fine-tunes</span>
+                    <span>Support for Nemotron, GLM, Qwen, Gemma, Kimi &amp; custom fine-tunes</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} color="var(--blue)" />
-                    <span>Dedicated single-tenant network isolation & IP allowlisting</span>
+                    <span>Dedicated single-tenant network isolation &amp; IP allowlisting</span>
                   </li>
                   <li>
                     <CheckCircle2 size={16} color="var(--blue)" />
-                    <span>Strict enterprise latency & uptime SLAs</span>
+                    <span>Strict enterprise latency &amp; uptime SLAs</span>
                   </li>
                 </ul>
                 <Link
@@ -660,7 +660,7 @@ export function TokenFactoryShell() {
                   }}
                 >
                   <li>• Serverless token serving for Nemotron, GLM-5.3, Qwen3.8, Gemma 3, and Kimi-VL</li>
-                  <li>• Dedicated Blackwell B200 & B300 pods for custom fine-tunes & LoRA adapters</li>
+                  <li>• Dedicated Blackwell B200 &amp; B300 pods for custom fine-tunes &amp; LoRA adapters</li>
                   <li>• OpenAI-compatible REST API integration with streaming SSE tokens</li>
                   <li>• Strict zero data retention & U.S. Tier III certified facility hosting</li>
                 </ul>

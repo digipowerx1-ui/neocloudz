@@ -11,19 +11,6 @@ export default function EnterprisePageEffects({ children }: { children: React.Re
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const bar = document.getElementById("scroll-bar");
-    function handleScroll() {
-      if (!bar) return;
-      const max = document.body.scrollHeight - window.innerHeight;
-      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
-      bar.style.width = `${pct}%`;
-    }
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
     const root = containerRef.current;
     if (!root) return;
 
@@ -70,7 +57,6 @@ export default function EnterprisePageEffects({ children }: { children: React.Re
 
   return (
     <div ref={containerRef} className="enterprise-page">
-      <div id="scroll-bar" />
       {children}
     </div>
   );

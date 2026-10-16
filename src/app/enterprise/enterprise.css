@@ -102,19 +102,6 @@
   opacity: 0.85;
 }
 
-/* ── SCROLL PROGRESS ── */
-.enterprise-page #scroll-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: var(--green);
-  z-index: 500;
-  width: 0;
-  transition: width 0.1s;
-  box-shadow: 0 0 8px var(--green);
-}
-
 /* ── HERO ── */
 .enterprise-page .hero {
   min-height: 100vh;

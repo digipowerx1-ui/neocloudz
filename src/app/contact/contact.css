@@ -29,18 +29,6 @@
   box-sizing: border-box;
 }
 
-/* ── SCROLL PROGRESS ── */
-.contact-page #scroll-bar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 2px;
-  background: var(--green);
-  z-index: 500;
-  width: 0;
-  box-shadow: 0 0 8px var(--green);
-}
-
 /* ── NAV ── */
 .contact-page nav.contact-nav {
   position: fixed;

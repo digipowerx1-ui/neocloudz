@@ -2627,19 +2627,6 @@
   animation: home-blink 2s ease-in-out infinite;
 }
 
-/* Scroll progress bar */
-.home-page .home-scroll-bar {
-  position: fixed;
-  top: 64px;
-  left: 0;
-  height: 2px;
-  z-index: 500;
-  background: linear-gradient(90deg, #2dff7a, #4dc8ff);
-  pointer-events: none;
-  transition: width 0.1s;
-  width: 0;
-}
-
 /* 3D rack inline stats */
 .home-page .rack-stats {
   display: grid;
