@@ -47,17 +47,23 @@ function TokenFactoryScene() {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(34, w / h, 0.1, 200);
     const HALF_V_FOV_TAN = Math.tan((34 / 2) * Math.PI / 180);
-    const SCENE_HALF_WIDTH = 9.8;
-    const SCENE_HALF_HEIGHT = 6.4;
-    const LOOK_Y = 1.8;
-    const fitDistance = (aspect: number) => {
-      const forWidth = SCENE_HALF_WIDTH / (HALF_V_FOV_TAN * aspect);
-      const forHeight = SCENE_HALF_HEIGHT / HALF_V_FOV_TAN;
+
+    const fitDistance = (aspect: number, width: number) => {
+      // For narrow mobile viewports, give extra margins so coin, halo, and platform never get clipped
+      const isMobile = width <= 768 || aspect < 1.1;
+      const sceneHalfWidth = isMobile ? 12.6 : 10.8;
+      const sceneHalfHeight = isMobile ? 8.6 : 7.0;
+      const forWidth = sceneHalfWidth / (HALF_V_FOV_TAN * aspect);
+      const forHeight = sceneHalfHeight / HALF_V_FOV_TAN;
       return Math.max(forWidth, forHeight);
     };
-    let camDist = fitDistance(w / h);
-    camera.position.set(0, 6.4, camDist);
-    camera.lookAt(0, LOOK_Y, 0);
+
+    const getLookY = (width: number) => (width <= 768 ? 2.8 : 2.2);
+    const getCamY = (width: number) => (width <= 768 ? 5.2 : 6.0);
+
+    let camDist = fitDistance(w / h, w);
+    camera.position.set(0, getCamY(w), camDist);
+    camera.lookAt(0, getLookY(w), 0);
 
     const raycaster = new THREE.Raycaster();
     const pointer = new THREE.Vector2(-2, -2);
@@ -492,11 +498,12 @@ function TokenFactoryScene() {
       wGeo.attributes.position.needsUpdate = true;
 
       if (!REDUCED) {
-        const camA = Math.sin(t * 0.05) * 0.06;
+        const isMobile = w <= 768;
+        const camA = Math.sin(t * 0.05) * (isMobile ? 0.035 : 0.06);
         camera.position.x = Math.sin(camA) * camDist;
         camera.position.z = Math.cos(camA) * camDist;
-        camera.position.y = 6.0 + Math.sin(t * 0.04) * 0.6;
-        camera.lookAt(0, LOOK_Y, 0);
+        camera.position.y = getCamY(w) + Math.sin(t * 0.04) * (isMobile ? 0.35 : 0.6);
+        camera.lookAt(0, getLookY(w), 0);
       }
       canvas.style.cursor = hit ? "pointer" : "default";
       renderer.render(scene, camera);
@@ -508,7 +515,7 @@ function TokenFactoryScene() {
       w = s.w;
       h = s.h;
       camera.aspect = w / h;
-      camDist = fitDistance(w / h);
+      camDist = fitDistance(w / h, w);
       camera.updateProjectionMatrix();
       renderer.setSize(w, h);
     });
