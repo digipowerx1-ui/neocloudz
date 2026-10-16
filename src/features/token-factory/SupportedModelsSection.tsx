@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import Link from "next/link";
-import { Search, X, Check, Copy, Sparkles, ArrowUpRight, Cpu } from "lucide-react";
+import { Search, X, Sparkles, Cpu } from "lucide-react";
 import {
   NvidiaLogo,
   ZaiOrgLogo,
@@ -156,7 +155,6 @@ function renderProviderLogo(type: ModelItem["providerType"]) {
 export function SupportedModelsSection() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [copiedSlug, setCopiedSlug] = useState<string | null>(null);
 
   const filteredModels = useMemo(() => {
     return SUPPORTED_MODELS.filter((model) => {
@@ -193,14 +191,6 @@ export function SupportedModelsSection() {
       );
     });
   }, [searchQuery, selectedCategory]);
-
-  const handleCopySlug = (slug: string) => {
-    navigator.clipboard?.writeText(slug);
-    setCopiedSlug(slug);
-    setTimeout(() => {
-      setCopiedSlug(null);
-    }, 2000);
-  };
 
   return (
     <section className="tf-section-block" id="supported-models" aria-labelledby="supported-models-heading">
@@ -330,38 +320,6 @@ export function SupportedModelsSection() {
                     </span>
                   ))}
                 </div>
-
-                {/* Card Footer: Slug Copy & Deploy Action */}
-                <div className="tf-model-card-footer">
-                  <button
-                    type="button"
-                    onClick={() => handleCopySlug(model.modelSlug)}
-                    className="tf-copy-btn"
-                    title={`Copy model slug: ${model.modelSlug}`}
-                    aria-label={`Copy model slug: ${model.modelSlug}`}
-                  >
-                    {copiedSlug === model.modelSlug ? (
-                      <>
-                        <Check size={12} className="text-green" />
-                        <span>Copied</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy size={12} />
-                        <span className="tf-copy-slug-text">{model.modelSlug}</span>
-                      </>
-                    )}
-                  </button>
-
-                  <Link
-                    href={`/contact?interest=token_factory&model=${encodeURIComponent(model.name)}&source=model_catalog`}
-                    className="tf-deploy-btn"
-                    aria-label={`Deploy or Request Access for ${model.name}`}
-                  >
-                    <span>Deploy</span>
-                    <ArrowUpRight size={13} aria-hidden="true" />
-                  </Link>
-                </div>
               </article>
             ))
           ) : (
@@ -385,19 +343,6 @@ export function SupportedModelsSection() {
               </button>
             </div>
           )}
-        </div>
-
-        {/* Footer Note */}
-        <div className="tf-catalog-footer-note">
-          <div className="tf-catalog-footer-inner">
-            <span className="tf-catalog-footer-badge">Custom Checkpoints</span>
-            <p>
-              Need a private LoRA adapter, deep distillation checkpoint, or proprietary architecture?{" "}
-              <Link href="/contact?interest=token_factory&intent=custom_weights" className="tf-catalog-footer-link">
-                Request Dedicated Node Allocation →
-              </Link>
-            </p>
-          </div>
         </div>
       </div>
     </section>

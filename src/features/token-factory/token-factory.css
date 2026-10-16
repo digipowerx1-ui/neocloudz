@@ -2282,67 +2282,7 @@
   letter-spacing: -0.01em;
 }
 
-/* Card Footer: Slug Copy & Deploy Button */
-.tf-model-card-footer {
-  margin-top: auto;
-  padding-top: 14px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
 
-.tf-copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  color: var(--muted);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  padding: 5px 9px;
-  border-radius: 7px;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  min-width: 0;
-  max-width: 65%;
-}
-
-.tf-copy-slug-text {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.tf-copy-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--white);
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-.tf-deploy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  background: rgba(45, 255, 122, 0.1);
-  border: 1px solid rgba(45, 255, 122, 0.3);
-  color: var(--green);
-  font-size: 12px;
-  font-weight: 600;
-  padding: 5px 12px;
-  border-radius: 7px;
-  text-decoration: none;
-  transition: all 0.18s ease;
-  flex-shrink: 0;
-}
-
-.tf-deploy-btn:hover {
-  background: var(--green);
-  color: #0a0f0a;
-  box-shadow: 0 0 14px rgba(45, 255, 122, 0.35);
-}
 
 /* Badge Color Themes matching user image */
 .tf-badge-purple {
@@ -2419,53 +2359,7 @@
   margin: 0;
 }
 
-/* Catalog Footer */
-.tf-catalog-footer-note {
-  margin-top: 24px;
-  padding: 16px 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
-}
 
-.tf-catalog-footer-inner {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-.tf-catalog-footer-badge {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--amber);
-  background: rgba(255, 184, 77, 0.1);
-  border: 1px solid rgba(255, 184, 77, 0.25);
-  padding: 3px 8px;
-  border-radius: 5px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.tf-catalog-footer-inner p {
-  font-size: 13px;
-  color: var(--text);
-  margin: 0;
-  opacity: 0.9;
-}
-
-.tf-catalog-footer-link {
-  color: var(--green);
-  text-decoration: none;
-  font-weight: 600;
-  transition: opacity 0.2s ease;
-}
-
-.tf-catalog-footer-link:hover {
-  text-decoration: underline;
-  opacity: 0.85;
-}
 
 @media (max-width: 1080px) {
   .tf-models-list {
@@ -2498,10 +2392,6 @@
     width: 40px;
     height: 40px;
     min-width: 40px;
-  }
-
-  .tf-copy-btn {
-    max-width: 60%;
   }
 }
 
