@@ -10,13 +10,16 @@ export default function ContactDcMapSection() {
   return (
     <div className="dc-section">
       <div className="dc-inner">
-        <div className="hp-label" style={{ justifyContent: "center", marginBottom: 16 }}>Global Infrastructure</div>
-        <div className="dc-title">
-          Your Cluster, <span>Anywhere.</span>
-        </div>
-        <div className="dc-sub">
-          8 data center regions across 4 continents — pick the one closest to your
-          team or your customers.
+        <div className="dc-header">
+          <div className="hp-label text-center">Global Infrastructure</div>
+          <h2 className="dc-title">
+            Your Cluster, <span>Anywhere.</span>
+          </h2>
+          <p className="dc-sub">
+            8 data center regions across 4 continents
+            <br className="dc-sub-break" />
+            pick the one closest to your team or your customers.
+          </p>
         </div>
         <div className="dc-canvas-wrap">
           <canvas ref={canvasRef} id="dc-canvas" aria-hidden="true" />
@@ -25,15 +28,5 @@ export default function ContactDcMapSection() {
     </div>
   );
 }
-
-
-
-
-
-
-
-
-
-
 
 

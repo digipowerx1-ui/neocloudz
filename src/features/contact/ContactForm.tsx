@@ -8,9 +8,6 @@ import {
   sendContactMessage,
   ContactPayload,
   EndpointPreference,
-  RequestType,
-  ProductInterest,
-  InterestType,
   BudgetRange,
 } from "@/services/api/contact";
 
@@ -561,29 +558,18 @@ function ContactFormInner() {
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate style={{ position: "relative", zIndex: 10 }}>
+    <form className="contact-form" onSubmit={handleSubmit} noValidate>
       <div className="field-group">
         <label className="field-label" htmlFor="f-interest">
           INTEREST CHANNEL
         </label>
-        <div className="interest-pills" style={{ marginTop: "10px", display: "flex", flexWrap: "wrap", gap: "8px" }}>
+        <div className="interest-pills">
           {INTEREST_OPTIONS.map((option) => {
             const isActive = form.interest === option.value;
             return (
               <span
                 key={option.value}
                 className={`interest-pill${isActive ? " active" : ""}`}
-                style={{
-                  padding: "8px 16px",
-                  borderRadius: "20px",
-                  fontSize: "13px",
-                  fontWeight: isActive ? 600 : 500,
-                  cursor: "pointer",
-                  transition: "all 0.2s ease",
-                  background: isActive ? "rgba(45, 255, 122, 0.12)" : "rgba(255,255,255,0.03)",
-                  border: `1px solid ${isActive ? "var(--green)" : "rgba(255,255,255,0.08)"}`,
-                  color: isActive ? "var(--white)" : "var(--text)",
-                }}
                 onClick={() => update("interest", option.value)}
                 role="button"
                 aria-label={`Select interest: ${option.label}`}
@@ -609,18 +595,18 @@ function ContactFormInner() {
             FULL IDENTITY *
           </label>
           <input
-            className={`field-input${nameTouched && nameValid
+            className={`field-input${
+              nameTouched && nameValid
                 ? " valid"
                 : nameTouched && form.name && !nameValid
                   ? " invalid"
                   : ""
-              }`}
+            }`}
             type="text"
             id="f-name"
             placeholder="Ada Lovelace"
             autoComplete="name"
             value={form.name}
-            style={{ padding: "14px 18px", borderRadius: "12px" }}
             onChange={(e) => update("name", e.target.value)}
             onBlur={() => setNameTouched(true)}
           />
@@ -630,20 +616,20 @@ function ContactFormInner() {
             WORK / DOMAIN EMAIL *
           </label>
           <input
-            className={`field-input${emailTouched && emailValid
+            className={`field-input${
+              emailTouched && emailValid
                 ? " valid"
                 : emailTouched && form.email && (emailChecking || domainVerified === null)
                   ? ""
                   : emailTouched && form.email && !emailValid
                     ? " invalid"
                     : ""
-              }`}
+            }`}
             type="email"
             id="f-email"
             placeholder="ada@company.com"
             autoComplete="email"
             value={form.email}
-            style={{ padding: "14px 18px", borderRadius: "12px" }}
             onChange={(e) => update("email", e.target.value)}
             onBlur={() => {
               setEmailTouched(true);
@@ -654,20 +640,14 @@ function ContactFormInner() {
             }}
           />
           {emailTouched && form.email && (
-            <span
-              style={{
-                color: emailValid
-                  ? "var(--green)"
+            <div
+              className={`field-feedback ${
+                emailValid
+                  ? "feedback-valid"
                   : emailChecking || (domainVerified === null && emailFormatValid && isBusinessEmail)
-                    ? "#ffb84d"
-                    : "#ff4d4d",
-                fontSize: "12px",
-                marginTop: "6px",
-                display: "flex",
-                alignItems: "center",
-                gap: "6px",
-                fontWeight: emailValid ? 600 : 400,
-              }}
+                    ? "feedback-pending"
+                    : "feedback-invalid"
+              }`}
             >
               {emailChecking || (domainVerified === null && emailFormatValid && isBusinessEmail) ? (
                 "⚡ Verifying domain in real-time..."
@@ -676,7 +656,7 @@ function ContactFormInner() {
               ) : (
                 "✕ Please enter a business or work email."
               )}
-            </span>
+            </div>
           )}
         </div>
       </div>
@@ -687,13 +667,13 @@ function ContactFormInner() {
             ORGANIZATION {isEarlyAccess ? "*" : ""}
           </label>
           <input
-            className={`field-input${companyTouched && isEarlyAccess && !companyValid ? " invalid" : ""
-              }`}
+            className={`field-input${
+              companyTouched && isEarlyAccess && !companyValid ? " invalid" : ""
+            }`}
             type="text"
             id="f-company"
             placeholder="Acme AI Inc."
             value={form.company}
-            style={{ padding: "14px 18px", borderRadius: "12px" }}
             onChange={(e) => update("company", e.target.value)}
             onBlur={() => setCompanyTouched(true)}
           />
@@ -707,7 +687,6 @@ function ContactFormInner() {
               className="field-select"
               id="f-gpu"
               value={form.budget}
-              style={{ padding: "14px 18px", borderRadius: "12px" }}
               onChange={(e) => update("budget", e.target.value)}
             >
               <option value="">Select range...</option>
@@ -727,7 +706,6 @@ function ContactFormInner() {
               className="field-select"
               id="f-endpoint"
               value={form.endpointPreference}
-              style={{ padding: "14px 18px", borderRadius: "12px" }}
               onChange={(e) => update("endpointPreference", e.target.value as EndpointPreference)}
             >
               {ENDPOINT_OPTIONS.map((opt) => (
@@ -752,7 +730,6 @@ function ContactFormInner() {
               id="f-models"
               placeholder="e.g. Nemotron 3, GLM-5.3, Qwen3.8..."
               value={form.modelsOfInterest}
-              style={{ padding: "14px 18px", borderRadius: "12px" }}
               onChange={(e) => update("modelsOfInterest", e.target.value)}
             />
             <div className="model-chips">
@@ -784,7 +761,6 @@ function ContactFormInner() {
                 className="field-select"
                 id="f-usage"
                 value={form.expectedUsage}
-                style={{ padding: "14px 18px", borderRadius: "12px" }}
                 onChange={(e) => update("expectedUsage", e.target.value)}
               >
                 {USAGE_OPTIONS.map((opt) => (
@@ -799,17 +775,16 @@ function ContactFormInner() {
                 TARGET START DATE (OPTIONAL)
               </label>
               <input
-                className="field-input"
+                className="field-input field-date"
                 type="date"
                 id="f-start-date"
                 value={form.targetStartDate}
-                style={{ padding: "14px 18px", borderRadius: "12px", colorScheme: "dark" }}
                 onChange={(e) => update("targetStartDate", e.target.value)}
               />
             </div>
           </div>
 
-          <div className="field-group" style={{ display: "flex", flexDirection: "column", gap: "10px", marginTop: "4px" }}>
+          <div className="checkboxes-stack">
             <label className={`field-checkbox-row${form.interestedInGtcBerlin ? " checked" : ""}`}>
               <input
                 type="checkbox"
@@ -860,15 +835,6 @@ function ContactFormInner() {
           }
           maxLength={MESSAGE_MAX}
           value={form.message}
-          style={{
-            padding: "14px 18px",
-            borderRadius: "12px",
-            minHeight: "140px",
-            fontFamily: "inherit",
-            fontSize: "14px",
-            lineHeight: 1.6,
-            marginTop: isEarlyAccess ? "8px" : "0",
-          }}
           onChange={(e) => update("message", e.target.value)}
         />
         <div className={`char-count${charCountClass ? ` ${charCountClass}` : ""}`}>
@@ -877,19 +843,7 @@ function ContactFormInner() {
       </div>
 
       {error && (
-        <div
-          className="form-error"
-          style={{
-            color: "#ff4d4d",
-            fontSize: "14px",
-            marginBottom: "16px",
-            padding: "12px",
-            background: "rgba(255, 77, 77, 0.1)",
-            border: "1px solid rgba(255, 77, 77, 0.2)",
-            borderRadius: "8px",
-            textAlign: "center",
-          }}
-        >
+        <div className="form-error">
           {error}
         </div>
       )}
@@ -901,7 +855,6 @@ function ContactFormInner() {
         id="submit-btn"
         aria-label={isEarlyAccess ? "Request Early Access" : "Submit Contact Request"}
         disabled={status === "loading"}
-        style={{ padding: "18px", borderRadius: "12px", fontSize: "16px" }}
       >
         {status === "loading" ? (
           <span>
