@@ -890,6 +890,175 @@ export function HomeTokenFactory() {
   );
 }
 
+/* ─── AI Models Data ─── */
+import {
+  NvidiaLogo,
+  ZaiOrgLogo,
+  QwenLogo,
+  GoogleLogo,
+  MoonshotLogo,
+} from "@/features/token-factory/ModelIcons";
+
+interface AIModelCard {
+  name: string;
+  provider: string;
+  icon: ReactNode;
+  iconBg: string;
+  context: string;
+  latency: string;
+  quality: number;
+  desc?: string;
+  tags: { label: string; variant: "green" | "blue" | "amber" | "muted" }[];
+}
+
+const AI_MODELS: AIModelCard[] = [
+  {
+    name: "Nemotron 3 Ultra 550B",
+    provider: "NVIDIA",
+    icon: <NvidiaLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #76b900, #4a7a00)",
+    context: "256K context",
+    latency: "160 ms latency",
+    quality: 9.4,
+    tags: [
+      { label: "Reasoning", variant: "green" },
+      { label: "flagship", variant: "muted" },
+      { label: "NVIDIA Open Model", variant: "muted" },
+    ],
+  },
+  {
+    name: "GLM-5.3 Flash",
+    provider: "zai-org",
+    icon: <ZaiOrgLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #18181b, #27272a)",
+    context: "1M context",
+    latency: "120 ms latency",
+    quality: 8.7,
+    tags: [
+      { label: "Low latency", variant: "blue" },
+      { label: "MIT", variant: "muted" },
+    ],
+  },
+  {
+    name: "Qwen3.8 27B",
+    provider: "Qwen",
+    icon: <QwenLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #7c3aed, #4c1d95)",
+    context: "256K context",
+    latency: "140 ms latency",
+    quality: 8.6,
+    tags: [
+      { label: "General purpose", variant: "green" },
+      { label: "open weights", variant: "muted" },
+      { label: "Apache 2.0", variant: "muted" },
+    ],
+  },
+  {
+    name: "Nemotron 3.5 Lightning 30B",
+    provider: "NVIDIA",
+    icon: <NvidiaLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #76b900, #4a7a00)",
+    context: "1M context",
+    latency: "80 ms latency",
+    quality: 8.6,
+    tags: [
+      { label: "Mixture of experts", variant: "amber" },
+      { label: "NVIDIA Open Model", variant: "muted" },
+    ],
+  },
+  {
+    name: "Gemma 3 1B IT",
+    provider: "Google",
+    icon: <GoogleLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #1a1a2e, #16213e)",
+    context: "32K context",
+    latency: "40 ms latency",
+    quality: 7.5,
+    tags: [
+      { label: "Small", variant: "blue" },
+      { label: "high throughput", variant: "muted" },
+      { label: "Gemma Terms", variant: "muted" },
+    ],
+  },
+  {
+    name: "Kimi-VL-A3B-Thinking",
+    provider: "Moonshot AI",
+    icon: <MoonshotLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #09090b, #1a1a2e)",
+    context: "128K context",
+    latency: "91 ms latency",
+    quality: 0,
+    desc: "Moonshot AI\u2019s vision-language \u201CThinking\u201D model (image + text in, text out), 131K context.",
+    tags: [{ label: "Text", variant: "green" }],
+  },
+];
+
+export function HomeAIModels() {
+  return (
+    <section className="hp-section dark ai-models-section" id="ai-models">
+      <div className="ai-models-container">
+        <div style={{ textAlign: "center", marginBottom: "52px" }}>
+          <div className="hp-label" style={{ justifyContent: "center", marginBottom: "16px" }}>
+            Supported Models
+          </div>
+          <h2 className="hp-h2" style={{ textAlign: "center", margin: "0 auto", maxWidth: "800px" }}>
+            Run the World&#39;s Best
+            <br />
+            <span className="g">Open Models — Instantly.</span>
+          </h2>
+          <p className="hp-sub" style={{ textAlign: "center", margin: "16px auto 0", maxWidth: "640px" }}>
+            Deploy frontier AI models on dedicated Blackwell GPUs with OpenAI-compatible
+            endpoints. No cold starts, no shared tenancy.
+          </p>
+        </div>
+
+        <div className="ai-models-grid">
+          {AI_MODELS.map((model, i) => (
+            <div className="ai-model-card" key={i}>
+              <div className="ai-model-header">
+                <div className="ai-model-icon" style={{ background: model.iconBg }}>
+                  {model.icon}
+                </div>
+                <div className="ai-model-identity">
+                  <div className="ai-model-name">{model.name}</div>
+                  <div className="ai-model-provider">by {model.provider}</div>
+                </div>
+              </div>
+
+              <div className="ai-model-specs">
+                <span>{model.context}</span>
+                <span className="ai-spec-dot">·</span>
+                <span>{model.latency}</span>
+                {model.quality > 0 && (
+                  <>
+                    <span className="ai-spec-dot">·</span>
+                    <span className="ai-model-quality">
+                      quality {model.quality.toFixed(1)}
+                    </span>
+                  </>
+                )}
+              </div>
+
+              {model.desc && (
+                <div className="ai-model-desc">{model.desc}</div>
+              )}
+
+              <div className="ai-model-tags">
+                {model.tags.map((tag, ti) => (
+                  <span className={`ai-tag ai-tag--${tag.variant}`} key={ti}>
+                    {tag.label}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
 export function HomeFaq() {
   return (
     <section className="hp-section dark" id="faq">

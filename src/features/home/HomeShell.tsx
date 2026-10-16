@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { useFaqAccordion, useScrollReveal } from "./effects";
 import { HomeHero } from "./HomeHero";
 import {
+  HomeAIModels,
   HomeCta,
   HomeFaq,
   HomeGpuCatalog,
@@ -28,6 +29,7 @@ export function HomeShell() {
     <div className="home-page" ref={rootRef}>
       <HomeHero />
       <HomeTokenFactory />
+      <HomeAIModels />
       <div className="section-divider" />
       <HomePartners />
       <HomeWhy />
