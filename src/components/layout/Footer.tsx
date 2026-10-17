@@ -15,12 +15,12 @@ const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Products",
     items: [
+      { label: "Token Factory", href: "/token-factory", badge: "Early Access" },
       { label: "AI Factory as a Service", href: "/ai-factory-as-a-service" },
       { label: "GPU as a Service", href: "/gpu-as-a-service" },
       { label: "ML as a Service", href: "/ml-as-a-service" },
       { label: "Managed Kubernetes", href: "/products#k8s" },
       { label: "AI Storage", href: "/products#storage" },
-      { label: "Token Factory", href: "/token-factory", badge: "Early Access" },
     ],
   },
   {
@@ -132,19 +132,59 @@ export function Footer() {
             <h3>{col.title}</h3>
             <ul>
               {col.items.map((it) => (
-                <li key={it.label}>
+                <li key={it.label} className="site-footer-item">
                   {it.href.startsWith("/") ? (
-                    <Link href={it.href}>
-                      {it.label}
+                    <Link
+                      href={it.href}
+                      className="site-footer-link"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <span>{it.label}</span>
                       {it.badge ? (
-                        <span className="site-badge-new">{it.badge}</span>
+                        <span
+                          className="site-footer-badge site-badge-new"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            whiteSpace: "nowrap",
+                            flexShrink: 0,
+                            margin: 0,
+                          }}
+                        >
+                          {it.badge}
+                        </span>
                       ) : null}
                     </Link>
                   ) : (
-                    <a href={it.href}>
-                      {it.label}
+                    <a
+                      href={it.href}
+                      className="site-footer-link"
+                      style={{
+                        display: "inline-flex",
+                        alignItems: "center",
+                        gap: "8px",
+                        whiteSpace: "nowrap",
+                      }}
+                    >
+                      <span>{it.label}</span>
                       {it.badge ? (
-                        <span className="site-badge-new">{it.badge}</span>
+                        <span
+                          className="site-footer-badge site-badge-new"
+                          style={{
+                            display: "inline-flex",
+                            alignItems: "center",
+                            whiteSpace: "nowrap",
+                            flexShrink: 0,
+                            margin: 0,
+                          }}
+                        >
+                          {it.badge}
+                        </span>
                       ) : null}
                     </a>
                   )}

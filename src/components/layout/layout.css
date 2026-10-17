@@ -426,29 +426,43 @@
   padding: 0;
 }
 
-.site-footer .site-footer-col a {
+.site-footer .site-footer-col a,
+.site-footer-link {
   color: #c8d4c8;
   text-decoration: none;
   font-size: 14px;
   transition: color 0.2s;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  white-space: nowrap !important;
 }
 
-.site-footer .site-footer-col a:hover {
+.site-footer .site-footer-col a:hover,
+.site-footer-link:hover {
   color: var(--green);
   text-shadow: 0 0 8px rgba(45, 255, 122, 0.4);
 }
 
+.site-footer-badge,
 .site-footer .site-badge-new {
-  display: inline-block;
-  background: rgba(45, 255, 122, 0.15);
-  color: var(--green);
-  font-size: 9px;
-  font-weight: 800;
-  padding: 1px 6px;
-  border-radius: 4px;
-  margin-left: 6px;
-  vertical-align: middle;
-  letter-spacing: 0.05em;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(45, 255, 122, 0.15) !important;
+  border: 1px solid rgba(45, 255, 122, 0.35) !important;
+  color: var(--green) !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  padding: 2px 7px !important;
+  border-radius: 4px !important;
+  margin-left: 0 !important;
+  line-height: 1.2 !important;
+  white-space: nowrap !important;
+  flex-shrink: 0 !important;
+  vertical-align: middle !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
 }
 
 .site-footer .site-footer-bottom {
@@ -655,14 +669,22 @@
     width: 100%;
   }
 
-  .site-footer .site-footer-col li {
+  .site-footer .site-footer-col li,
+  .site-footer-item {
     text-align: center;
     width: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
   }
 
-  .site-footer .site-footer-col a {
+  .site-footer .site-footer-col a,
+  .site-footer-link {
     text-align: center;
-    display: inline-block;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    white-space: nowrap !important;
   }
 
   .site-footer .site-footer-bottom {
@@ -696,13 +718,16 @@
   .site-header {
     padding: 0 20px;
   }
+
   .site-announcement-banner .banner-container {
     padding: 7px 16px;
   }
+
   .site-announcement-banner .banner-content {
     font-size: 12px;
     gap: 8px;
   }
+
   .site-announcement-banner .banner-cta {
     font-size: 12px;
     padding: 2px 8px;
@@ -752,6 +777,7 @@
     height: calc(100vh - 108px);
   }
 }
+
 /* ============================================================
    COOKIE CONSENT BANNER
    ============================================================ */
@@ -773,6 +799,7 @@
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
