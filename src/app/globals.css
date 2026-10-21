@@ -6,20 +6,72 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root,
+:root[data-theme="light"] .theme-dark,
+:root[data-theme="light"] .code-window,
+:root[data-theme="light"] .site-announcement-banner {
+  color-scheme: dark;
+  --bg-rgb: 10, 15, 10;
   --bg: #0a0f0a;
+  --bg-deep: #060a06;
+  --surface-rgb: 15, 20, 16;
   --surface: #0f1410;
   --surface2: #141a14;
-  --border: rgba(255, 255, 255, 0.07);
-  --green: #2dff7a;
-  --green-dim: #1aaa4e;
-  --amber: #ffb84d;
-  --blue: #4dc8ff;
+  --fg-rgb: 255, 255, 255;
+  --border: rgba(var(--fg-rgb), 0.07);
+  --text-rgb: 200, 212, 200;
   --text: #c8d4c8;
   --muted: #8fa68f;
+  --white-rgb: 240, 245, 240;
   --white: #f0f5f0;
+  --green-rgb: 45, 255, 122;
+  --green: #2dff7a;
+  --green-hover: #24cc62;
+  --green-dim: #1aaa4e;
+  --green-dark-rgb: 13, 51, 32;
+  --green-dark: #0d3320;
+  --on-accent: #000;
+  --amber-rgb: 255, 184, 77;
+  --amber: #ffb84d;
+  --blue-rgb: 77, 200, 255;
+  --blue: #4dc8ff;
+  --red-rgb: 255, 77, 77;
+  --red: #ff4d4d;
+  --shadow-rgb: 0, 0, 0;
   --font-mono: 'JetBrains Mono', monospace;
 }
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg-rgb: 247, 250, 247;
+  --bg: #f7faf7;
+  --bg-deep: #edf3ee;
+  --surface-rgb: 255, 255, 255;
+  --surface: #ffffff;
+  --surface2: #eef4ef;
+  --fg-rgb: 10, 25, 15;
+  --border: rgba(var(--fg-rgb), 0.1);
+  --text-rgb: 30, 46, 36;
+  --text: #1e2e24;
+  --muted: #5b6f61;
+  --white-rgb: 11, 26, 16;
+  --white: #0b1a10;
+  --green-rgb: 11, 138, 66;
+  --green: #0b8a42;
+  --green-hover: #0a7a3a;
+  --green-dim: #0f6b38;
+  --green-dark-rgb: 200, 240, 215;
+  --green-dark: #c8f0d7;
+  --on-accent: #ffffff;
+  --amber-rgb: 178, 106, 0;
+  --amber: #b26a00;
+  --blue-rgb: 11, 120, 184;
+  --blue: #0b78b8;
+  --red-rgb: 201, 42, 42;
+  --red: #c92a2a;
+  --shadow-rgb: 20, 40, 30;
+}
+
 
 /* ============================================================
    RESET + BASE
@@ -33,12 +85,10 @@
 }
 
 html {
-  background-color: #0a0f0a;
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #0a0f0a;
   background: var(--bg);
   color: var(--text);
   font-family: 'Inter', sans-serif;
@@ -100,7 +150,7 @@ p,
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #2dff7a;
+  color: var(--green);
   background-color: transparent;
   opacity: 1 !important;
   margin-bottom: 18px;
@@ -165,7 +215,7 @@ ul {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, #2dff7a, #4dc8ff);
+  background: linear-gradient(90deg, var(--green), var(--blue));
   z-index: 300;
   pointer-events: none;
   transform-origin: left;
@@ -181,7 +231,7 @@ nav {
   right: 0;
   z-index: 200;
   height: 64px;
-  background: rgba(10, 15, 10, 0.82);
+  background: rgba(var(--bg-rgb), 0.82);
   backdrop-filter: blur(20px) saturate(1.4);
   -webkit-backdrop-filter: blur(20px) saturate(1.4);
   border-bottom: 1px solid var(--border);
@@ -274,19 +324,19 @@ nav {
 
 .btn-green {
   background: var(--green);
-  color: #000;
+  color: var(--bg-deep);
 }
 
 .btn-green:hover {
-  background: #50ffaa;
+  background: var(--green-hover);
   transform: translateY(-1px);
-  box-shadow: 0 0 24px rgba(45, 255, 122, .35);
+  box-shadow: 0 0 24px rgba(var(--green-rgb), .35);
 }
 
 .btn-outline {
   background: transparent;
   color: var(--white);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(var(--fg-rgb), 0.15);
 }
 
 .btn-outline:hover {
@@ -334,8 +384,8 @@ nav {
   z-index: 1;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(45, 255, 122, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45, 255, 122, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(var(--green-rgb), 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--green-rgb), 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -355,7 +405,7 @@ nav {
   height: 400px;
   top: 5%;
   left: -10%;
-  background: radial-gradient(ellipse, rgba(45, 255, 122, 0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(var(--green-rgb), 0.07) 0%, transparent 70%);
   animation: aurora-wave 8s ease-in-out infinite;
 }
 
@@ -364,7 +414,7 @@ nav {
   height: 300px;
   top: 20%;
   right: -5%;
-  background: radial-gradient(ellipse, rgba(77, 200, 255, 0.06) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(var(--blue-rgb), 0.06) 0%, transparent 70%);
   animation: aurora-wave 12s ease-in-out infinite reverse;
 }
 
@@ -373,7 +423,7 @@ nav {
   height: 350px;
   bottom: 10%;
   left: 30%;
-  background: radial-gradient(ellipse, rgba(45, 255, 122, 0.04) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(var(--green-rgb), 0.04) 0%, transparent 70%);
   animation: aurora-wave 16s ease-in-out infinite;
 }
 
@@ -474,8 +524,8 @@ nav {
 
 /* Typing terminal */
 .hero-terminal {
-  background: rgba(15, 20, 16, 0.88);
-  border: 1px solid rgba(45, 255, 122, 0.18);
+  background: rgba(var(--surface-rgb), 0.88);
+  border: 1px solid rgba(var(--green-rgb), 0.18);
   border-radius: 10px;
   padding: 12px 22px;
   margin-bottom: 40px;
@@ -485,7 +535,7 @@ nav {
   align-items: center;
   gap: 10px;
   color: var(--green);
-  box-shadow: 0 0 32px rgba(45, 255, 122, 0.08);
+  box-shadow: 0 0 32px rgba(var(--green-rgb), 0.08);
 }
 
 .term-prompt {
@@ -533,8 +583,8 @@ nav {
 }
 
 .badge {
-  background: rgba(15, 20, 16, 0.9);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(var(--surface-rgb), 0.9);
+  border: 1px solid rgba(var(--fg-rgb), 0.1);
   border-radius: 8px;
   padding: 10px 18px;
   font-family: var(--font-mono);
@@ -547,22 +597,22 @@ nav {
 
 .badge:nth-child(1) {
   animation: badge-float 3.2s ease-in-out infinite;
-  border-color: rgba(45, 255, 122, 0.28);
+  border-color: rgba(var(--green-rgb), 0.28);
 }
 
 .badge:nth-child(2) {
   animation: badge-float 3.2s ease-in-out infinite .5s;
-  border-color: rgba(77, 200, 255, 0.28);
+  border-color: rgba(var(--blue-rgb), 0.28);
 }
 
 .badge:nth-child(3) {
   animation: badge-float 3.2s ease-in-out infinite 1.0s;
-  border-color: rgba(45, 255, 122, 0.28);
+  border-color: rgba(var(--green-rgb), 0.28);
 }
 
 .badge:nth-child(4) {
   animation: badge-float 3.2s ease-in-out infinite 1.5s;
-  border-color: rgba(255, 184, 77, 0.28);
+  border-color: rgba(var(--amber-rgb), 0.28);
 }
 
 .badge-icon {
@@ -589,7 +639,7 @@ nav {
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
-  background: rgba(15, 20, 16, 0.75);
+  background: rgba(var(--surface-rgb), 0.75);
   backdrop-filter: blur(12px);
   width: fit-content;
   margin: 0 auto;
@@ -780,7 +830,7 @@ section {
   position: absolute;
   inset: 0;
   background: radial-gradient(ellipse at 20% 50%,
-      rgba(45, 255, 122, 0.03),
+      rgba(var(--green-rgb), 0.03),
       transparent 65%);
   pointer-events: none;
 }
@@ -809,9 +859,9 @@ section {
 .sol-card.product-lottie-row::before {
   z-index: 0;
   background:
-    linear-gradient(90deg, var(--bg) 0%, rgba(5, 12, 7, 0.94) 28%, rgba(5, 12, 7, 0.5) 54%, transparent 82%),
-    radial-gradient(circle at 68% 46%, rgba(45, 255, 122, 0.2), transparent 30rem),
-    radial-gradient(circle at 92% 46%, rgba(45, 255, 122, 0.1), transparent 26rem);
+    linear-gradient(90deg, var(--bg) 0%, rgba(var(--surface-rgb), 0.94) 28%, rgba(var(--surface-rgb), 0.5) 54%, transparent 82%),
+    radial-gradient(circle at 68% 46%, rgba(var(--green-rgb), 0.2), transparent 30rem),
+    radial-gradient(circle at 92% 46%, rgba(var(--green-rgb), 0.1), transparent 26rem);
 }
 
 .sol-card.product-lottie-row .sol-info {
@@ -860,7 +910,7 @@ section {
   font-size: 52px;
   margin-bottom: 20px;
   display: block;
-  filter: drop-shadow(0 0 22px rgba(45, 255, 122, 0.32));
+  filter: drop-shadow(0 0 22px rgba(var(--green-rgb), 0.32));
 }
 
 .sol-title {
@@ -952,11 +1002,11 @@ section {
    TERMINAL WINDOW COMPONENT
    ============================================================ */
 .term-window {
-  background: #080c08;
-  border: 1px solid rgba(45, 255, 122, 0.15);
+  background: var(--bg-deep);
+  border: 1px solid rgba(var(--green-rgb), 0.15);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 20px 60px rgba(var(--shadow-rgb), 0.5);
 }
 
 .term-bar {
@@ -1030,7 +1080,7 @@ section {
 }
 
 .tl-success {
-  color: #2dff7a;
+  color: var(--green);
 }
 
 /* ============================================================
@@ -1115,7 +1165,7 @@ section {
   inset: 0;
   border-radius: 16px;
   background: radial-gradient(ellipse at 30% 0%,
-      rgba(45, 255, 122, 0.06),
+      rgba(var(--green-rgb), 0.06),
       transparent 60%);
   opacity: 0;
   transition: opacity .3s;
@@ -1124,8 +1174,8 @@ section {
 
 .prod-card:hover {
   transform: translateY(-7px);
-  border-color: rgba(45, 255, 122, 0.32);
-  box-shadow: 0 0 44px rgba(45, 255, 122, 0.12);
+  border-color: rgba(var(--green-rgb), 0.32);
+  box-shadow: 0 0 44px rgba(var(--green-rgb), 0.12);
 }
 
 .prod-card:hover::before {
@@ -1164,8 +1214,8 @@ section {
   align-items: center;
   justify-content: center;
   background: transparent;
-  -webkit-filter: drop-shadow(0 34px 62px rgba(0, 0, 0, 0.48)) drop-shadow(0 0 46px rgba(45, 255, 122, 0.16));
-  filter: drop-shadow(0 34px 62px rgba(0, 0, 0, 0.48)) drop-shadow(0 0 46px rgba(45, 255, 122, 0.16));
+  -webkit-filter: drop-shadow(0 34px 62px rgba(var(--shadow-rgb), 0.48)) drop-shadow(0 0 46px rgba(var(--green-rgb), 0.16));
+  filter: drop-shadow(0 34px 62px rgba(var(--shadow-rgb), 0.48)) drop-shadow(0 0 46px rgba(var(--green-rgb), 0.16));
 }
 
 .product-lottie-visual svg,
@@ -1181,8 +1231,8 @@ section {
   width: 56px;
   height: 56px;
   border-radius: 14px;
-  background: rgba(45, 255, 122, 0.08);
-  border: 1px solid rgba(45, 255, 122, 0.15);
+  background: rgba(var(--green-rgb), 0.08);
+  border: 1px solid rgba(var(--green-rgb), 0.15);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1248,7 +1298,7 @@ section {
 }
 
 .pillar:hover {
-  border-color: rgba(45, 255, 122, 0.28);
+  border-color: rgba(var(--green-rgb), 0.28);
   transform: translateY(-5px);
 }
 
@@ -1258,7 +1308,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  filter: drop-shadow(0 0 14px rgba(45, 255, 122, 0.22));
+  filter: drop-shadow(0 0 14px rgba(var(--green-rgb), 0.22));
 }
 
 .sol-icon-wrap,
@@ -1365,7 +1415,7 @@ section {
 }
 
 .logo-pill:hover {
-  border-color: rgba(45, 255, 122, 0.32);
+  border-color: rgba(var(--green-rgb), 0.32);
 }
 
 .logo-pill-icon {
@@ -1413,7 +1463,7 @@ section {
 
 .price-card {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0)),
+    linear-gradient(180deg, rgba(var(--fg-rgb), 0.035), rgba(var(--fg-rgb), 0)),
     var(--surface2);
   border: 1px solid var(--border);
   border-radius: 14px;
@@ -1428,13 +1478,13 @@ section {
 
 .price-card:hover {
   transform: translateY(-5px);
-  border-color: rgba(45, 255, 122, 0.34);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.24);
+  border-color: rgba(var(--green-rgb), 0.34);
+  box-shadow: 0 18px 45px rgba(var(--shadow-rgb), 0.24);
 }
 
 .price-card.featured {
   border-color: var(--green);
-  box-shadow: 0 0 40px rgba(45, 255, 122, 0.14);
+  box-shadow: 0 0 40px rgba(var(--green-rgb), 0.14);
   animation: glow-pulse 3s ease-in-out infinite;
 }
 
@@ -1442,11 +1492,11 @@ section {
 
   0%,
   100% {
-    box-shadow: 0 0 28px rgba(45, 255, 122, 0.12);
+    box-shadow: 0 0 28px rgba(var(--green-rgb), 0.12);
   }
 
   50% {
-    box-shadow: 0 0 60px rgba(45, 255, 122, 0.28);
+    box-shadow: 0 0 60px rgba(var(--green-rgb), 0.28);
   }
 }
 
@@ -1503,7 +1553,7 @@ section {
 
 .price-divider {
   height: 1px;
-  background: linear-gradient(90deg, rgba(45, 255, 122, 0.32), var(--border), transparent);
+  background: linear-gradient(90deg, rgba(var(--green-rgb), 0.32), var(--border), transparent);
   margin-bottom: 22px;
 }
 
@@ -1554,8 +1604,8 @@ section {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(45, 255, 122, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45, 255, 122, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(var(--green-rgb), 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--green-rgb), 0.025) 1px, transparent 1px);
   background-size: 50px 50px;
   pointer-events: none;
 }
@@ -1639,14 +1689,14 @@ section {
 }
 
 .testi-card:hover {
-  border-color: rgba(45, 255, 122, 0.2);
+  border-color: rgba(var(--green-rgb), 0.2);
   transform: translateY(-4px);
 }
 
 .testi-quote {
   font-size: 80px;
   line-height: .55;
-  color: rgba(45, 255, 122, 0.18);
+  color: rgba(var(--green-rgb), 0.18);
   font-family: Georgia, serif;
   margin-bottom: 18px;
   user-select: none;
@@ -1676,7 +1726,7 @@ section {
   font-family: var(--font-mono);
   font-size: 14px;
   font-weight: 700;
-  color: #000;
+  color: var(--bg-deep);
   flex-shrink: 0;
 }
 
@@ -1716,7 +1766,7 @@ section {
 }
 
 .faq-item.open {
-  border-color: rgba(45, 255, 122, 0.28);
+  border-color: rgba(var(--green-rgb), 0.28);
 }
 
 .faq-q {
@@ -1764,8 +1814,8 @@ section {
    ============================================================ */
 .cta-banner {
   padding: 100px 32px;
-  background: linear-gradient(135deg, #0a1a0a 0%, #061206 50%, #0a0f0a 100%);
-  border-top: 1px solid rgba(45, 255, 122, 0.1);
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface) 50%, var(--bg) 100%);
+  border-top: 1px solid rgba(var(--green-rgb), 0.1);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1784,7 +1834,7 @@ section {
   transform: translate(-50%, -50%);
   width: 600px;
   height: 300px;
-  background: radial-gradient(ellipse, rgba(45, 255, 122, 0.08) 0%, transparent 70%);
+  background: radial-gradient(ellipse, rgba(var(--green-rgb), 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -1803,7 +1853,7 @@ section {
 .cta-banner .cta-banner-h2 {
   font-size: clamp(32px, 4.5vw, 58px);
   font-weight: 800;
-  color: #f0f5f0;
+  color: var(--white);
   letter-spacing: -1.5px;
   line-height: 1.05;
   margin-bottom: 16px;
@@ -1815,13 +1865,13 @@ section {
 .cta-banner h2 span,
 .cta-banner .cta-banner-h2 span,
 .cta-banner .g {
-  color: #2dff7a;
+  color: var(--green);
 }
 
 .cta-banner p,
 .cta-banner .cta-banner-p {
   font-size: 17px;
-  color: rgba(200, 212, 200, 0.65);
+  color: rgba(var(--text-rgb), 0.65);
   max-width: 580px;
   margin: 0 auto 36px;
   line-height: 1.65;
@@ -1843,7 +1893,7 @@ section {
 
 .btn-launch {
   background: var(--green);
-  color: #060a06 !important;
+  color: var(--on-accent) !important;
   padding: 14px 28px;
   border-radius: 8px;
   font-weight: 700;
@@ -1862,9 +1912,9 @@ section {
 }
 
 .btn-launch:hover {
-  background: #39ff88;
-  color: #060a06 !important;
-  box-shadow: 0 0 28px rgba(45, 255, 122, 0.4);
+  background: var(--green-hover);
+  color: var(--on-accent) !important;
+  box-shadow: 0 0 28px rgba(var(--green-rgb), 0.4);
   transform: translateY(-1px);
 }
 
@@ -1877,8 +1927,8 @@ section {
 }
 
 .btn-outline {
-  background: rgba(255, 255, 255, 0.03);
-  color: #ffffff !important;
+  background: rgba(var(--fg-rgb), 0.03);
+  color: var(--white) !important;
   padding: 14px 28px;
   border-radius: 8px;
   font-weight: 700;
@@ -1888,16 +1938,16 @@ section {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(var(--fg-rgb), 0.18);
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.15s ease;
   cursor: pointer;
   line-height: 1.2;
 }
 
 .btn-outline:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(45, 255, 122, 0.5);
-  color: #ffffff !important;
+  background: rgba(var(--fg-rgb), 0.08);
+  border-color: rgba(var(--green-rgb), 0.5);
+  color: var(--white) !important;
   transform: translateY(-1px);
 }
 
@@ -1972,7 +2022,7 @@ footer {
 .footer-social:hover {
   border-color: var(--green);
   color: var(--green);
-  box-shadow: 0 0 15px rgba(45, 255, 122, 0.2);
+  box-shadow: 0 0 15px rgba(var(--green-rgb), 0.2);
   transform: translateY(-2px);
 }
 
@@ -2000,7 +2050,7 @@ footer {
 
 .footer-links a:hover {
   color: var(--green);
-  text-shadow: 0 0 8px rgba(45, 255, 122, 0.4);
+  text-shadow: 0 0 8px rgba(var(--green-rgb), 0.4);
 }
 
 .footer-bottom {
@@ -2111,8 +2161,8 @@ footer {
 
   .sol-card.product-lottie-row::before {
     background:
-      linear-gradient(180deg, var(--bg) 0%, rgba(5, 12, 7, 0.74) 42%, transparent 100%),
-      radial-gradient(circle at 50% 70%, rgba(45, 255, 122, 0.16), transparent 24rem);
+      linear-gradient(180deg, var(--bg) 0%, rgba(var(--surface-rgb), 0.74) 42%, transparent 100%),
+      radial-gradient(circle at 50% 70%, rgba(var(--green-rgb), 0.16), transparent 24rem);
   }
 
   .sol-card.product-lottie-row .sol-info {
@@ -2428,10 +2478,10 @@ footer {
   top: 7px;
   width: 6px;
   height: 6px;
-  background: #2dff7a;
+  background: var(--green);
   /* var(--green) */
   border-radius: 50%;
-  box-shadow: 0 0 10px #2dff7a;
+  box-shadow: 0 0 10px var(--green);
   display: block !important;
 }
 
@@ -2483,14 +2533,14 @@ footer {
 .solutions-context .btn-primary,
 .solutions-context .btn-outline,
 .solutions-context .price-cta {
-  border: 1px solid #ffffff !important;
+  border: 1px solid var(--white) !important;
 }
 
 .solutions-context .sol-card:hover,
 .solutions-context .price-card:hover,
 .solutions-context .prod-card:hover {
-  border-color: rgba(45, 255, 122, 0.4) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(45, 255, 122, 0.1) !important;
+  border-color: rgba(var(--green-rgb), 0.4) !important;
+  box-shadow: 0 10px 30px rgba(var(--shadow-rgb), 0.5), 0 0 20px rgba(var(--green-rgb), 0.1) !important;
 }
 
 .solutions-context .sol-card:active,
@@ -2498,7 +2548,7 @@ footer {
 .solutions-context .prod-card:active {
   border-color: var(--green) !important;
   border-width: 2px !important;
-  box-shadow: 0 0 30px rgba(45, 255, 122, 0.4), inset 0 0 15px rgba(45, 255, 122, 0.1) !important;
+  box-shadow: 0 0 30px rgba(var(--green-rgb), 0.4), inset 0 0 15px rgba(var(--green-rgb), 0.1) !important;
   transform: scale(0.985) !important;
   transition: all 0.1s ease !important;
   cursor: pointer;
@@ -2601,7 +2651,7 @@ footer {
 .sol-cta:hover {
   gap: 12px;
   border-bottom-color: var(--green);
-  text-shadow: 0 0 10px rgba(45, 255, 122, 0.4);
+  text-shadow: 0 0 10px rgba(var(--green-rgb), 0.4);
 }
 
 

@@ -110,7 +110,7 @@ export function HomeGpuCatalog() {
         <div className="gpu-cat-card vera">
           <div className="vera-overlay" />
           <div className="gpu-cat-badge soon">Coming Soon</div>
-          <div className="gpu-cat-name" style={{ color: "rgba(240,245,240,0.4)" }}>
+          <div className="gpu-cat-name" style={{ color: "rgba(var(--white-rgb),0.4)" }}>
             Vera Rubin
           </div>
           <div className="gpu-cat-series">NVIDIA Rubin &amp; Rubin Ultra</div>
@@ -305,14 +305,14 @@ export function HomeBenchmark() {
             <div className="bench-leg-item">
               <div
                 className="bench-leg-dot"
-                style={{ background: "linear-gradient(90deg,#1aaa4e,#2dff7a)" }}
+                style={{ background: "linear-gradient(90deg,var(--green-dim),var(--green))" }}
               />
               NeoCloudz B300
             </div>
             <div className="bench-leg-item">
               <div
                 className="bench-leg-dot"
-                style={{ background: "linear-gradient(90deg,#1a3060,#4dc8ff)" }}
+                style={{ background: "linear-gradient(90deg,#1a3060,var(--blue))" }}
               />
               CoreWeave
             </div>

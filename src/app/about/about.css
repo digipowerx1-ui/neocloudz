@@ -199,10 +199,10 @@
     align-items: center !important;
     justify-content: space-between !important;
     text-align: left !important;
-    background: rgba(45, 255, 122, 0.05) !important;
+    background: rgba(var(--green-rgb), 0.05) !important;
     padding: 12px 20px !important;
     border-radius: 12px !important;
-    border: 1px solid rgba(45, 255, 122, 0.1) !important;
+    border: 1px solid rgba(var(--green-rgb), 0.1) !important;
   }
 
   .impact-stat>div:first-child {

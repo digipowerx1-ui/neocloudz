@@ -1,5 +1,6 @@
 "use client";
 
+import { T } from "@/lib/theme";
 import { useEffect, useState, type RefObject } from "react";
 
 /* Hero particle canvas — 90 nodes, 130px connection */
@@ -45,7 +46,7 @@ export function usePricingParticleCanvas(canvasRef: RefObject<HTMLCanvasElement 
         if (p.y < 0 || p.y > H) p.vy *= -1;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(45,255,122,0.55)";
+        ctx.fillStyle = `rgba(${T.green},0.55)`;
         ctx.fill();
       });
       pts.forEach((a, i) => {
@@ -58,7 +59,7 @@ export function usePricingParticleCanvas(canvasRef: RefObject<HTMLCanvasElement 
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
             ctx.lineTo(b.x, b.y);
-            ctx.strokeStyle = `rgba(45,255,122,${0.18 * (1 - d / 130)})`;
+            ctx.strokeStyle = `rgba(${T.green},${0.18 * (1 - d / 130)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -91,10 +92,10 @@ export function usePricingWaveCanvas(canvasRef: RefObject<HTMLCanvasElement | nu
     window.addEventListener("resize", resize);
     let t = 0;
     const waves = [
-      { amp: 28, freq: 0.008, spd: 0.025, color: "rgba(45,255,122,0.4)", lw: 1.5 },
-      { amp: 18, freq: 0.012, spd: 0.035, color: "rgba(77,200,255,0.3)", lw: 1 },
-      { amp: 38, freq: 0.005, spd: 0.018, color: "rgba(45,255,122,0.2)", lw: 2 },
-      { amp: 14, freq: 0.018, spd: 0.045, color: "rgba(45,255,122,0.15)", lw: 1 },
+      { amp: 28, freq: 0.008, spd: 0.025, color: `rgba(${T.green},0.4)`, lw: 1.5 },
+      { amp: 18, freq: 0.012, spd: 0.035, color: `rgba(${T.blue},0.3)`, lw: 1 },
+      { amp: 38, freq: 0.005, spd: 0.018, color: `rgba(${T.green},0.2)`, lw: 2 },
+      { amp: 14, freq: 0.018, spd: 0.045, color: `rgba(${T.green},0.15)`, lw: 1 },
     ];
     let raf = 0;
     function draw() {
@@ -151,9 +152,9 @@ export function usePricingMeshCanvas(
     window.addEventListener("resize", sz);
     let t = 0;
     const blobs = [
-      { x: 0.12, y: 0.3, r: 340, c: "rgba(45,255,122,", sp: 0.0007, ph: 0 },
-      { x: 0.88, y: 0.65, r: 380, c: "rgba(77,200,255,", sp: 0.0005, ph: 2 },
-      { x: 0.5, y: 0.1, r: 260, c: "rgba(45,255,122,", sp: 0.0009, ph: 4 },
+      { x: 0.12, y: 0.3, r: 340, c: `rgba(${T.green},`, sp: 0.0007, ph: 0 },
+      { x: 0.88, y: 0.65, r: 380, c: `rgba(${T.blue},`, sp: 0.0005, ph: 2 },
+      { x: 0.5, y: 0.1, r: 260, c: `rgba(${T.green},`, sp: 0.0009, ph: 4 },
     ];
     let raf = 0;
     function draw() {
@@ -168,7 +169,7 @@ export function usePricingMeshCanvas(
         ctx.fillStyle = g;
         ctx.fillRect(0, 0, W, H);
       });
-      ctx.strokeStyle = "rgba(45,255,122,0.025)";
+      ctx.strokeStyle = `rgba(${T.green},0.025)`;
       ctx.lineWidth = 1;
       const gs = 55;
       for (let x = 0; x < W; x += gs) {
@@ -252,7 +253,7 @@ export function usePricingStars(heroRef: RefObject<HTMLElement | null>) {
     for (let i = 0; i < 70; i++) {
       const s = document.createElement("div");
       const sz = Math.random() * 1.8 + 0.3;
-      s.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;border-radius:50%;background:rgba(${Math.random() > 0.5 ? "45,255,122" : "180,220,180"},${Math.random() * 0.5 + 0.1});left:${Math.random() * 100}%;top:${Math.random() * 100}%;pointer-events:none;z-index:1;animation:pricing-twinkle ${1.5 + Math.random() * 3}s ${Math.random() * 3}s ease-in-out infinite;`;
+      s.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;border-radius:50%;background:rgba(${Math.random() > 0.5 ? `${T.green}` : "180,220,180"},${Math.random() * 0.5 + 0.1});left:${Math.random() * 100}%;top:${Math.random() * 100}%;pointer-events:none;z-index:1;animation:pricing-twinkle ${1.5 + Math.random() * 3}s ${Math.random() * 3}s ease-in-out infinite;`;
       hero.appendChild(s);
       elements.push(s);
     }
@@ -274,7 +275,7 @@ export function usePricingHeroGlow(heroRef: RefObject<HTMLElement | null>) {
       t += 0.005;
       const x = (50 + Math.sin(t) * 20).toFixed(1);
       const y = (45 + Math.cos(t * 0.7) * 15).toFixed(1);
-      glow.style.background = `radial-gradient(ellipse 60% 45% at ${x}% ${y}%, rgba(45,255,122,0.05) 0%, transparent 70%)`;
+      glow.style.background = `radial-gradient(ellipse 60% 45% at ${x}% ${y}%, rgba(var(--green-rgb),0.05) 0%, transparent 70%)`;
       raf = requestAnimationFrame(animate);
     }
     animate();
@@ -445,7 +446,7 @@ export function usePricingHoverSpotlight(rootRef: RefObject<HTMLElement | null>)
         const r = card.getBoundingClientRect();
         const x = e.clientX - r.left;
         const y = e.clientY - r.top;
-        card.style.backgroundImage = `radial-gradient(220px circle at ${x}px ${y}px, rgba(45,255,122,0.07), transparent 70%)`;
+        card.style.backgroundImage = `radial-gradient(220px circle at ${x}px ${y}px, rgba(var(--green-rgb),0.07), transparent 70%)`;
       };
       const leave = () => {
         card.style.backgroundImage = "";
@@ -469,12 +470,12 @@ export function usePricingCardSparklines(rootRef: RefObject<HTMLElement | null>)
     const root = rootRef.current;
     if (!root) return;
     const canvases = Array.from(root.querySelectorAll<HTMLCanvasElement>(".price-sparkline"));
-    const colors = ["#2dff7a", "#2dff7a", "#4dc8ff", "#4dc8ff"];
+    const colors = [`rgb(${T.green})`, `rgb(${T.green})`, `rgb(${T.blue})`, `rgb(${T.blue})`];
     const acolors = [
-      "rgba(45,255,122,",
-      "rgba(45,255,122,",
-      "rgba(77,200,255,",
-      "rgba(77,200,255,",
+      `rgba(${T.green},`,
+      `rgba(${T.green},`,
+      `rgba(${T.blue},`,
+      `rgba(${T.blue},`,
     ];
     const cleanups: Array<() => void> = [];
     canvases.forEach((canvas, ci) => {
@@ -584,7 +585,7 @@ export function usePricingCtaBurst(btnRef: RefObject<HTMLAnchorElement | null>) 
         const dx = Math.cos(angle) * dist;
         const dy = Math.sin(angle) * dist;
         const sz = 2 + Math.random() * 4;
-        p.style.cssText = `position:fixed;width:${sz}px;height:${sz}px;border-radius:50%;background:${Math.random() > 0.5 ? "#2dff7a" : "#4dc8ff"};left:${e.clientX}px;top:${e.clientY}px;pointer-events:none;z-index:9999;transition:transform .6s ease-out,opacity .6s ease-out;`;
+        p.style.cssText = `position:fixed;width:${sz}px;height:${sz}px;border-radius:50%;background:${Math.random() > 0.5 ? "var(--green)" : "var(--blue)"};left:${e.clientX}px;top:${e.clientY}px;pointer-events:none;z-index:9999;transition:transform .6s ease-out,opacity .6s ease-out;`;
         document.body.appendChild(p);
         requestAnimationFrame(() => {
           p.style.transform = `translate(${dx}px,${dy}px) scale(0)`;

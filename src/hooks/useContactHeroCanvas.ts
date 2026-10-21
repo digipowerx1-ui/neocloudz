@@ -1,3 +1,4 @@
+import { T } from "@/lib/theme";
 import { useEffect, useRef } from "react";
 
 interface HeroParticle {
@@ -12,9 +13,9 @@ interface HeroParticle {
 
 const PARTICLE_COUNT = 80;
 const CONNECT_DIST = 120;
-const COLOR_GREEN = "45,255,122";
-const COLOR_BLUE = "77,200,255";
-const COLOR_AMBER = "255,184,77";
+const COLOR_GREEN = `${T.green}`;
+const COLOR_BLUE = `${T.blue}`;
+const COLOR_AMBER = "${T.amber}";
 
 function pickColor(): string {
   const r = Math.random();

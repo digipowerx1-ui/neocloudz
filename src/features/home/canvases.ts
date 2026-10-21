@@ -1,5 +1,6 @@
 "use client";
 
+import { T } from "@/lib/theme";
 import { useEffect, type RefObject } from "react";
 
 /* Hero particle network — 90 nodes, 130px connection distance */
@@ -12,8 +13,8 @@ export function useHomeParticleCanvas(canvasRef: RefObject<HTMLCanvasElement | n
     let W = 0;
     let H = 0;
     const N = 90;
-    const G = "45,255,122";
-    const B = "77,200,255";
+    const G = `${T.green}`;
+    const B = `${T.blue}`;
 
     interface Pt {
       x: number;
@@ -142,7 +143,7 @@ export function useNvlinkCanvas(canvasRef: RefObject<HTMLCanvasElement | null>) 
       col: string;
       sz: number;
     }
-    const colors = ["#2dff7a", "#4dc8ff", "#ffb84d"];
+    const colors = [`rgb(${T.green})`, `rgb(${T.blue})`, `rgb(${T.amber})`];
     const pkts: Pkt[] = [];
     for (let i = 0; i < 22; i++) {
       const a = Math.floor(Math.random() * nodes.length);
@@ -189,7 +190,7 @@ export function useNvlinkCanvas(canvasRef: RefObject<HTMLCanvasElement | null>) 
           const d = Math.sqrt(dx * dx + dy * dy);
           if (d > 200) continue;
           ctx.beginPath();
-          ctx.strokeStyle = `rgba(45,255,122,${0.05 + 0.04 * gv})`;
+          ctx.strokeStyle = `rgba(${T.green},${0.05 + 0.04 * gv})`;
           ctx.lineWidth = 0.8;
           ctx.moveTo(nodes[i].x, nodes[i].y);
           ctx.lineTo(nodes[j].x, nodes[j].y);
@@ -221,27 +222,27 @@ export function useNvlinkCanvas(canvasRef: RefObject<HTMLCanvasElement | null>) 
       });
       nodes.forEach((n) => {
         const g = ctx.createLinearGradient(n.gx, n.gy, n.gx, n.gy + GH);
-        g.addColorStop(0, n.on ? "rgba(45,255,122,.16)" : "rgba(20,26,20,.6)");
-        g.addColorStop(1, "rgba(6,10,6,.9)");
+        g.addColorStop(0, n.on ? `rgba(${T.green},.16)` : `rgba(${T.surface},.6)`);
+        g.addColorStop(1, `rgba(${T.bg},.9)`);
         ctx.fillStyle = g;
         ctx.strokeStyle = n.on
-          ? `rgba(45,255,122,${0.3 + 0.2 * gv})`
-          : "rgba(255,255,255,.05)";
+          ? `rgba(${T.green},${0.3 + 0.2 * gv})`
+          : `rgba(${T.fg},.05)`;
         ctx.lineWidth = 1;
         rr(n.gx, n.gy, GW, GH, 4);
         ctx.fill();
         ctx.stroke();
         ctx.fillStyle = n.on
-          ? `rgba(45,255,122,${0.65 + 0.3 * gv})`
-          : "rgba(80,100,80,.4)";
+          ? `rgba(${T.green},${0.65 + 0.3 * gv})`
+          : `rgba(80,100,80,.4)`;
         ctx.font = 'bold 9px "JetBrains Mono",monospace';
         ctx.textAlign = "center";
         ctx.fillText(n.lbl, n.x, n.y + 3);
         ctx.beginPath();
         ctx.arc(n.gx + GW - 7, n.gy + 7, 2.5, 0, Math.PI * 2);
-        ctx.fillStyle = n.on ? "#2dff7a" : "rgba(255,77,77,.8)";
+        ctx.fillStyle = n.on ? `rgb(${T.green})` : `rgba(255,77,77,.8)`;
         if (n.on) {
-          ctx.shadowColor = "#2dff7a";
+          ctx.shadowColor = `rgb(${T.green})`;
           ctx.shadowBlur = 7;
         }
         ctx.fill();
@@ -267,10 +268,10 @@ export function useHomeWaveCanvas(canvasRef: RefObject<HTMLCanvasElement | null>
     let H = 0;
     let t = 0;
     const waves = [
-      { amp: 30, fr: 0.008, spd: 1.0, col: "rgba(45,255,122,", lw: 1.5, ph: 0 },
-      { amp: 18, fr: 0.014, spd: 1.7, col: "rgba(45,255,122,", lw: 0.8, ph: 2.1 },
-      { amp: 42, fr: 0.005, spd: 0.65, col: "rgba(77,200,255,", lw: 1.0, ph: 4.3 },
-      { amp: 14, fr: 0.02, spd: 2.2, col: "rgba(255,184,77,", lw: 0.6, ph: 1.0 },
+      { amp: 30, fr: 0.008, spd: 1.0, col: `rgba(${T.green},`, lw: 1.5, ph: 0 },
+      { amp: 18, fr: 0.014, spd: 1.7, col: `rgba(${T.green},`, lw: 0.8, ph: 2.1 },
+      { amp: 42, fr: 0.005, spd: 0.65, col: `rgba(${T.blue},`, lw: 1.0, ph: 4.3 },
+      { amp: 14, fr: 0.02, spd: 2.2, col: `rgba(${T.amber},`, lw: 0.6, ph: 1.0 },
     ];
     function resize() {
       if (!c) return;
@@ -334,9 +335,9 @@ export function usePricingMeshCanvas(
     window.addEventListener("resize", setSize);
     let t = 0;
     const blobs = [
-      { x: 0.15, y: 0.3, r: 380, color: "rgba(45,255,122,", speed: 0.0008, phase: 0 },
-      { x: 0.85, y: 0.6, r: 420, color: "rgba(77,200,255,", speed: 0.0006, phase: 1.8 },
-      { x: 0.5, y: 0.15, r: 300, color: "rgba(45,255,122,", speed: 0.001, phase: 3.5 },
+      { x: 0.15, y: 0.3, r: 380, color: `rgba(${T.green},`, speed: 0.0008, phase: 0 },
+      { x: 0.85, y: 0.6, r: 420, color: `rgba(${T.blue},`, speed: 0.0006, phase: 1.8 },
+      { x: 0.5, y: 0.15, r: 300, color: `rgba(${T.green},`, speed: 0.001, phase: 3.5 },
     ];
     let raf = 0;
     function draw() {
@@ -351,7 +352,7 @@ export function usePricingMeshCanvas(
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, W, H);
       });
-      ctx.strokeStyle = "rgba(45,255,122,0.025)";
+      ctx.strokeStyle = `rgba(${T.green},0.025)`;
       ctx.lineWidth = 1;
       const gs = 60;
       for (let x = 0; x < W; x += gs) {
@@ -410,7 +411,7 @@ export function useDataflowCanvas(
       x: Math.random() * canvas.width,
       speed: 1.5 + Math.random() * 3,
       len: 40 + Math.random() * 120,
-      color: Math.random() > 0.5 ? "45,255,122" : "77,200,255",
+      color: Math.random() > 0.5 ? `${T.green}` : `${T.blue}`,
       alpha: 0.15 + Math.random() * 0.35,
     }));
 

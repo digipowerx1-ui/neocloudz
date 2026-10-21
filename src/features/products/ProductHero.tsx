@@ -58,8 +58,8 @@ export default function ProductHero() {
             gap: "9px",
             padding: "6px 16px",
             borderRadius: "9999px",
-            background: "rgba(45, 255, 122, 0.08)",
-            border: "1px solid rgba(45, 255, 122, 0.3)",
+            background: "rgba(var(--green-rgb), 0.08)",
+            border: "1px solid rgba(var(--green-rgb), 0.3)",
             marginBottom: 24,
             backdropFilter: "blur(8px)",
           }}
@@ -108,7 +108,7 @@ export default function ProductHero() {
           className="hero-sub"
           style={{
             fontSize: "clamp(16px, 1.8vw, 19.5px)",
-            color: "#b4c9b6",
+            color: "var(--text)",
             maxWidth: 780,
             margin: "0 auto 36px",
             lineHeight: 1.65,
@@ -152,8 +152,8 @@ export default function ProductHero() {
             className="btn btn-outline btn-lg"
             aria-label="Talk to Infrastructure Architects"
             style={{
-              borderColor: "rgba(255, 255, 255, 0.15)",
-              color: "rgba(255, 255, 255, 0.85)",
+              borderColor: "rgba(var(--fg-rgb), 0.15)",
+              color: "rgba(var(--fg-rgb), 0.85)",
             }}
           >
             Talk to Architects

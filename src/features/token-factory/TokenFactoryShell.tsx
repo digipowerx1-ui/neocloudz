@@ -173,7 +173,7 @@ export function TokenFactoryShell() {
               className="aurora-band"
               style={
                 {
-                  background: "rgba(45, 255, 122, 0.28)",
+                  background: "rgba(var(--green-rgb), 0.28)",
                   top: "15%",
                   "--adur": "18s",
                   "--adel": "0s",
@@ -184,7 +184,7 @@ export function TokenFactoryShell() {
               className="aurora-band"
               style={
                 {
-                  background: "rgba(77, 200, 255, 0.22)",
+                  background: "rgba(var(--blue-rgb), 0.22)",
                   top: "55%",
                   "--adur": "24s",
                   "--adel": "3s",
@@ -255,8 +255,8 @@ export function TokenFactoryShell() {
                 flexWrap: "wrap",
                 marginBottom: "40px",
                 padding: "10px 18px",
-                background: "rgba(255, 255, 255, 0.02)",
-                border: "1px solid rgba(255, 255, 255, 0.06)",
+                background: "rgba(var(--fg-rgb), 0.02)",
+                border: "1px solid rgba(var(--fg-rgb), 0.06)",
                 borderRadius: "9999px",
                 backdropFilter: "blur(8px)",
               }}
@@ -286,8 +286,8 @@ export function TokenFactoryShell() {
                       fontSize: "12px",
                       fontWeight: 600,
                       color: i === 0 ? "var(--green)" : "var(--white)",
-                      background: i === 0 ? "rgba(45, 255, 122, 0.08)" : "rgba(255, 255, 255, 0.04)",
-                      border: `1px solid ${i === 0 ? "rgba(45, 255, 122, 0.25)" : "rgba(255, 255, 255, 0.06)"}`,
+                      background: i === 0 ? "rgba(var(--green-rgb), 0.08)" : "rgba(var(--fg-rgb), 0.04)",
+                      border: `1px solid ${i === 0 ? "rgba(var(--green-rgb), 0.25)" : "rgba(var(--fg-rgb), 0.06)"}`,
                       padding: "4px 12px",
                       borderRadius: "14px",
                       textDecoration: "none",
@@ -320,8 +320,8 @@ export function TokenFactoryShell() {
             >
               <div
                 style={{
-                  background: "rgba(15, 20, 16, 0.75)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  background: "rgba(var(--surface-rgb), 0.75)",
+                  border: "1px solid rgba(var(--fg-rgb), 0.08)",
                   borderRadius: "18px",
                   padding: "22px 20px",
                   backdropFilter: "blur(12px)",
@@ -336,8 +336,8 @@ export function TokenFactoryShell() {
                       width: "36px",
                       height: "36px",
                       borderRadius: "10px",
-                      background: "rgba(45, 255, 122, 0.1)",
-                      border: "1px solid rgba(45, 255, 122, 0.2)",
+                      background: "rgba(var(--green-rgb), 0.1)",
+                      border: "1px solid rgba(var(--green-rgb), 0.2)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -361,8 +361,8 @@ export function TokenFactoryShell() {
 
               <div
                 style={{
-                  background: "rgba(15, 20, 16, 0.75)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  background: "rgba(var(--surface-rgb), 0.75)",
+                  border: "1px solid rgba(var(--fg-rgb), 0.08)",
                   borderRadius: "18px",
                   padding: "22px 20px",
                   backdropFilter: "blur(12px)",
@@ -377,8 +377,8 @@ export function TokenFactoryShell() {
                       width: "36px",
                       height: "36px",
                       borderRadius: "10px",
-                      background: "rgba(77, 200, 255, 0.1)",
-                      border: "1px solid rgba(77, 200, 255, 0.2)",
+                      background: "rgba(var(--blue-rgb), 0.1)",
+                      border: "1px solid rgba(var(--blue-rgb), 0.2)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -402,8 +402,8 @@ export function TokenFactoryShell() {
 
               <div
                 style={{
-                  background: "rgba(15, 20, 16, 0.75)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  background: "rgba(var(--surface-rgb), 0.75)",
+                  border: "1px solid rgba(var(--fg-rgb), 0.08)",
                   borderRadius: "18px",
                   padding: "22px 20px",
                   backdropFilter: "blur(12px)",
@@ -418,8 +418,8 @@ export function TokenFactoryShell() {
                       width: "36px",
                       height: "36px",
                       borderRadius: "10px",
-                      background: "rgba(255, 184, 77, 0.1)",
-                      border: "1px solid rgba(255, 184, 77, 0.2)",
+                      background: "rgba(var(--amber-rgb), 0.1)",
+                      border: "1px solid rgba(var(--amber-rgb), 0.2)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -443,8 +443,8 @@ export function TokenFactoryShell() {
 
               <div
                 style={{
-                  background: "rgba(15, 20, 16, 0.75)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
+                  background: "rgba(var(--surface-rgb), 0.75)",
+                  border: "1px solid rgba(var(--fg-rgb), 0.08)",
                   borderRadius: "18px",
                   padding: "22px 20px",
                   backdropFilter: "blur(12px)",
@@ -459,8 +459,8 @@ export function TokenFactoryShell() {
                       width: "36px",
                       height: "36px",
                       borderRadius: "10px",
-                      background: "rgba(45, 255, 122, 0.1)",
-                      border: "1px solid rgba(45, 255, 122, 0.2)",
+                      background: "rgba(var(--green-rgb), 0.1)",
+                      border: "1px solid rgba(var(--green-rgb), 0.2)",
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",

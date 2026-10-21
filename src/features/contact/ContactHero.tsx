@@ -11,9 +11,9 @@ interface AuroraBand {
 }
 
 const AURORA_BANDS: ReadonlyArray<AuroraBand> = [
-  { background: "rgba(45,255,122,0.45)", top: "20%", adur: "18s", adel: "0s" },
-  { background: "rgba(77,200,255,0.3)", top: "55%", adur: "22s", adel: "7s" },
-  { background: "rgba(255,184,77,0.2)", top: "75%", adur: "15s", adel: "12s" },
+  { background: "rgba(var(--green-rgb),0.45)", top: "20%", adur: "18s", adel: "0s" },
+  { background: "rgba(var(--blue-rgb),0.3)", top: "55%", adur: "22s", adel: "7s" },
+  { background: "rgba(var(--amber-rgb),0.2)", top: "75%", adur: "15s", adel: "12s" },
 ];
 
 interface FloatBadge {

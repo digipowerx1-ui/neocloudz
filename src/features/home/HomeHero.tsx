@@ -404,7 +404,7 @@ export function HomeHero() {
           className="aurora-band"
           style={
             {
-              background: "radial-gradient(ellipse,rgba(45,255,122,1),transparent 70%)",
+              background: "radial-gradient(ellipse,rgba(var(--green-rgb),1),transparent 70%)",
               top: "60%",
               "--adur": "16s",
               "--ad": "0s",
@@ -415,7 +415,7 @@ export function HomeHero() {
           className="aurora-band"
           style={
             {
-              background: "radial-gradient(ellipse,rgba(77,200,255,1),transparent 70%)",
+              background: "radial-gradient(ellipse,rgba(var(--blue-rgb),1),transparent 70%)",
               top: "55%",
               "--adur": "20s",
               "--ad": "4s",
@@ -426,7 +426,7 @@ export function HomeHero() {
           className="aurora-band"
           style={
             {
-              background: "radial-gradient(ellipse,rgba(45,255,122,1),transparent 70%)",
+              background: "radial-gradient(ellipse,rgba(var(--green-rgb),1),transparent 70%)",
               top: "70%",
               "--adur": "13s",
               "--ad": "8s",

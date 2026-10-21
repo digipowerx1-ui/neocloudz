@@ -1,3 +1,4 @@
+import { T } from "@/lib/theme";
 import { useEffect, useRef } from "react";
 
 function deg(d: number) {
@@ -34,20 +35,20 @@ export function useLatencyGauge(canvasRef: React.RefObject<HTMLCanvasElement | n
 
       ctx.beginPath();
       ctx.arc(cx, cy, r, Math.PI, 0, false);
-      ctx.strokeStyle = "rgba(255,255,255,0.05)";
+      ctx.strokeStyle = `rgba(${T.fg},0.05)`;
       ctx.lineWidth = 28;
       ctx.lineCap = "butt";
       ctx.stroke();
 
       ctx.beginPath();
       ctx.arc(cx, cy, r, Math.PI, Math.PI + deg(60), false);
-      ctx.strokeStyle = "#2dff7a";
+      ctx.strokeStyle = `rgb(${T.green})`;
       ctx.lineWidth = 28;
       ctx.stroke();
 
       ctx.beginPath();
       ctx.arc(cx, cy, r, Math.PI + deg(60), Math.PI + deg(120), false);
-      ctx.strokeStyle = "#ffb84d";
+      ctx.strokeStyle = `rgb(${T.amber})`;
       ctx.lineWidth = 28;
       ctx.stroke();
 
@@ -59,9 +60,9 @@ export function useLatencyGauge(canvasRef: React.RefObject<HTMLCanvasElement | n
 
       ctx.font = "600 10px JetBrains Mono, monospace";
       ctx.textAlign = "center";
-      ctx.fillStyle = "#2dff7a";
+      ctx.fillStyle = `rgb(${T.green})`;
       ctx.fillText("< 5ms", cx - r * 0.64, cy - r * 0.05);
-      ctx.fillStyle = "#ffb84d";
+      ctx.fillStyle = `rgb(${T.amber})`;
       ctx.fillText("5-10ms", cx + 2, cy - r * 0.8);
       ctx.fillStyle = "#ff4d55";
       ctx.fillText("10ms+", cx + r * 0.64, cy - r * 0.05);
@@ -71,7 +72,7 @@ export function useLatencyGauge(canvasRef: React.RefObject<HTMLCanvasElement | n
         ctx.beginPath();
         ctx.moveTo(cx + (r - 20) * Math.cos(rad), cy + (r - 20) * Math.sin(rad));
         ctx.lineTo(cx + (r + 8) * Math.cos(rad), cy + (r + 8) * Math.sin(rad));
-        ctx.strokeStyle = "rgba(255,255,255,0.14)";
+        ctx.strokeStyle = `rgba(${T.fg},0.14)`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }
@@ -80,19 +81,19 @@ export function useLatencyGauge(canvasRef: React.RefObject<HTMLCanvasElement | n
       ctx.beginPath();
       ctx.moveTo(cx, cy);
       ctx.lineTo(cx + nLen * Math.cos(needleAngle), cy + nLen * Math.sin(needleAngle));
-      ctx.strokeStyle = "#f0f5f0";
+      ctx.strokeStyle = `rgb(${T.white})`;
       ctx.lineWidth = 3;
       ctx.lineCap = "round";
       ctx.stroke();
 
       ctx.beginPath();
       ctx.arc(cx, cy, 10, 0, Math.PI * 2);
-      ctx.fillStyle = "#f0f5f0";
+      ctx.fillStyle = `rgb(${T.white})`;
       ctx.fill();
 
       const msVal = (((needleAngle - Math.PI) / Math.PI) * 20).toFixed(1);
       ctx.font = "700 36px JetBrains Mono, monospace";
-      ctx.fillStyle = "#2dff7a";
+      ctx.fillStyle = `rgb(${T.green})`;
       ctx.textAlign = "center";
       ctx.fillText(msVal + "ms", cx, cy + r * 0.38);
       ctx.font = "500 12px Inter, sans-serif";

@@ -12,9 +12,9 @@ interface AuroraBand {
 }
 
 const AURORA_BANDS: ReadonlyArray<AuroraBand> = [
-  { background: "rgba(45,255,122,0.4)", top: "15%", adur: "16s", adel: "0s" },
-  { background: "rgba(77,200,255,0.3)", top: "45%", adur: "20s", adel: "5s" },
-  { background: "rgba(45,255,122,0.25)", top: "70%", adur: "13s", adel: "9s" },
+  { background: "rgba(var(--green-rgb),0.4)", top: "15%", adur: "16s", adel: "0s" },
+  { background: "rgba(var(--blue-rgb),0.3)", top: "45%", adur: "20s", adel: "5s" },
+  { background: "rgba(var(--green-rgb),0.25)", top: "70%", adur: "13s", adel: "9s" },
 ];
 
 interface StatBadge {

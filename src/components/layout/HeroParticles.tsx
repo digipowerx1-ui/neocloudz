@@ -1,5 +1,6 @@
 "use client";
 
+import { T } from "@/lib/theme";
 import React, { useEffect, useRef } from "react";
 
 export function HeroParticles() {
@@ -43,7 +44,7 @@ export function HeroParticles() {
       }
 
       draw(context: CanvasRenderingContext2D) {
-        context.fillStyle = `rgba(45, 255, 122, ${this.opacity})`;
+        context.fillStyle = `rgba(${T.green}, ${this.opacity})`;
         context.beginPath();
         context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         context.fill();
@@ -72,7 +73,7 @@ export function HeroParticles() {
       });
 
       // Draw lines between close particles
-      ctx.strokeStyle = "rgba(45, 255, 122, 0.05)";
+      ctx.strokeStyle = `rgba(${T.green}, 0.05)`;
       ctx.lineWidth = 0.5;
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {

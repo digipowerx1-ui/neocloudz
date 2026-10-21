@@ -1,3 +1,4 @@
+import { T } from "@/lib/theme";
 import { useEffect, useRef } from "react";
 
 interface InfraNode {
@@ -59,7 +60,7 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
         seg: Math.floor(Math.random() * 4),
         t: Math.random(),
         speed: 0.003 + Math.random() * 0.003,
-        col: Math.random() > 0.5 ? "45,255,122" : "77,200,255",
+        col: Math.random() > 0.5 ? `${T.green}` : `${T.blue}`,
       });
     }
 
@@ -101,7 +102,7 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
         ctx.beginPath();
         ctx.moveTo(a.x + gap, a.y);
         ctx.lineTo(b.x - gap, b.y);
-        ctx.strokeStyle = "rgba(45,255,122,0.18)";
+        ctx.strokeStyle = `rgba(${T.green},0.18)`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
       }
@@ -114,15 +115,15 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
         const pr = (58 + Math.sin(animT * 1.8 + i * 1.2) * 6) * nodeScale;
         ctx.beginPath();
         ctx.arc(pos.x, pos.y, pr, 0, Math.PI * 2);
-        ctx.strokeStyle = "rgba(45,255,122,0.07)";
+        ctx.strokeStyle = `rgba(${T.green},0.07)`;
         ctx.lineWidth = 1;
         ctx.stroke();
 
         ctx.beginPath();
         roundRect(ctx, pos.x - nW / 2, pos.y - nH / 2, nW, nH, 10 * nodeScale);
-        ctx.fillStyle = "rgba(15,20,16,0.96)";
+        ctx.fillStyle = `rgba(${T.surface},0.96)`;
         ctx.fill();
-        ctx.strokeStyle = i === 3 ? "rgba(45,255,122,0.55)" : "rgba(45,255,122,0.22)";
+        ctx.strokeStyle = i === 3 ? `rgba(${T.green},0.55)` : `rgba(${T.green},0.22)`;
         ctx.lineWidth = i === 3 ? 1.5 : 1;
         ctx.stroke();
 
@@ -131,7 +132,7 @@ export function useInfraCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
         ctx.fillText(n.icon, pos.x, pos.y - (10 * nodeScale));
 
         ctx.font = `600 ${10 * nodeScale}px Inter, sans-serif`;
-        ctx.fillStyle = "#f0f5f0";
+        ctx.fillStyle = `rgb(${T.white})`;
         ctx.fillText(n.label, pos.x, pos.y + (7 * nodeScale));
 
         ctx.font = `${9 * nodeScale}px Inter, sans-serif`;

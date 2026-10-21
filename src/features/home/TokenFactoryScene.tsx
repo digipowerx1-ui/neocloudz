@@ -27,6 +27,9 @@ function TokenFactoryScene() {
     const parent = containerRef.current;
     if (!parent) return;
 
+    // Read once per mount; ThemeShell re-mounts the page when the theme flips.
+    const isLight = document.documentElement.dataset.theme === "light";
+
     const canvas = document.createElement("canvas");
     canvas.setAttribute("aria-hidden", "true");
     canvas.style.width = "100%";
@@ -286,7 +289,11 @@ function TokenFactoryScene() {
     const platform = new THREE.Group();
     platform.position.set(0, -2.6, 0);
     scene.add(platform);
-    const darkMat = new THREE.MeshStandardMaterial({ color: 0x050807, metalness: 0.55, roughness: 0.62 });
+    const darkMat = new THREE.MeshStandardMaterial(
+      isLight
+        ? { color: 0x3a4540, metalness: 0.7, roughness: 0.38 } // graphite: reads lighter on the light panel
+        : { color: 0x050807, metalness: 0.55, roughness: 0.62 },
+    );
     const tierDefs = [
       { r: 9.0, h: 1.4, y: 0.0 },
       { r: 7.0, h: 1.3, y: 1.3 },

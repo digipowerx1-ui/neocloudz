@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
-import { MessageSquare } from "lucide-react";
+import { useState, useSyncExternalStore } from "react";
+import { MessageSquare, Moon, PlayCircle, Sun } from "lucide-react";
+
+const DEMO_URL = "https://demo.neocloudz.com/";
 import { AnnouncementBanner } from "./AnnouncementBanner";
 
 interface SubLink {
@@ -69,6 +71,36 @@ const NAV_LINKS: NavLink[] = [
 function isActive(pathname: string, link: NavLink): boolean {
   if (link.href === "/") return pathname === "/";
   return link.matches.some((m) => pathname === m || pathname.startsWith(m + "/"));
+}
+
+function subscribeTheme(cb: () => void) {
+  window.addEventListener("themechange", cb);
+  return () => window.removeEventListener("themechange", cb);
+}
+
+function ThemeToggle() {
+  const theme = useSyncExternalStore(
+    subscribeTheme,
+    () => (document.documentElement.dataset.theme === "light" ? "light" : "dark"),
+    () => "dark",
+  );
+  const toggle = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem("theme", next); } catch {}
+    window.dispatchEvent(new Event("themechange"));
+  };
+  return (
+    <button
+      type="button"
+      className="site-theme-toggle"
+      onClick={toggle}
+      aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+      title={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+    >
+      {theme === "dark" ? <Sun size={16} aria-hidden="true" /> : <Moon size={16} aria-hidden="true" />}
+    </button>
+  );
 }
 
 export function Header() {
@@ -140,15 +172,27 @@ export function Header() {
             );
           })}
         </ul>
-        <Link
-          href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"
-            }&cta=talk_to_us`}
-          className="site-nav-cta"
-          aria-label="Talk to Us via Contact Sales"
-          style={{ display: "flex", alignItems: "center", gap: "8px" }}
-        >
-          Talk to Us <MessageSquare size={16} aria-hidden="true" />
-        </Link>
+        <div className="site-header-actions">
+          <ThemeToggle />
+          <a
+            href={DEMO_URL}
+            className="site-nav-demo"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Try the NeoCloudz demo (opens in a new tab)"
+          >
+            Demo <PlayCircle size={16} aria-hidden="true" />
+          </a>
+          <Link
+            href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"
+              }&cta=talk_to_us`}
+            className="site-nav-cta"
+            aria-label="Talk to Us via Contact Sales"
+            style={{ display: "flex", alignItems: "center", gap: "8px" }}
+          >
+            Talk to Us <MessageSquare size={16} aria-hidden="true" />
+          </Link>
+        </div>
         <button
           className="site-nav-toggle"
           aria-label="Toggle navigation menu"
@@ -177,7 +221,7 @@ export function Header() {
                           display: "flex",
                           flexDirection: "column",
                           gap: 2,
-                          borderLeft: "1px solid rgba(45, 255, 122, 0.15)",
+                          borderLeft: "1px solid rgba(var(--green-rgb), 0.15)",
                           margin: "0 0 8px 16px",
                         }}
                       >

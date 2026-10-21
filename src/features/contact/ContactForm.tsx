@@ -477,7 +477,7 @@ function ContactFormInner() {
       <div
         className="form-success"
         style={{
-          background: "rgba(10,15,10,0.5)",
+          background: "rgba(var(--bg-rgb),0.5)",
           border: "1px solid var(--border)",
           borderRadius: "24px",
           padding: "60px 40px",
@@ -487,7 +487,7 @@ function ContactFormInner() {
           <CheckCircle2
             size={64}
             color="var(--green)"
-            style={{ filter: "drop-shadow(0 0 20px rgba(45, 255, 122, 0.4))" }}
+            style={{ filter: "drop-shadow(0 0 20px rgba(var(--green-rgb), 0.4))" }}
           />
         </div>
         <div className="success-title">
@@ -508,9 +508,9 @@ function ContactFormInner() {
         <div
           className="success-terminal"
           style={{
-            background: "#000",
-            border: "1px solid rgba(45, 255, 122, 0.3)",
-            boxShadow: "0 0 30px rgba(45, 255, 122, 0.1)",
+            background: "var(--bg-deep)",
+            border: "1px solid rgba(var(--green-rgb), 0.3)",
+            boxShadow: "0 0 30px rgba(var(--green-rgb), 0.1)",
             borderRadius: "16px",
           }}
         >

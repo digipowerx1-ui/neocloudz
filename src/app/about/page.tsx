@@ -18,9 +18,9 @@ export default function AboutPage() {
         <canvas id="particle-canvas" ref={particleCanvasRef} aria-hidden="true" />
         <div className="hero-grid" />
         <div className="hero-aurora">
-          <div className="aurora-band" style={{ background: "rgba(45,255,122,0.4)", top: "15%", "--adur": "16s", "--adel": "0s" } as React.CSSProperties} />
-          <div className="aurora-band" style={{ background: "rgba(77,200,255,0.3)", top: "45%", "--adur": "20s", "--adel": "5s" } as React.CSSProperties} />
-          <div className="aurora-band" style={{ background: "rgba(45,255,122,0.25)", top: "70%", "--adur": "13s", "--adel": "9s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--green-rgb),0.4)", top: "15%", "--adur": "16s", "--adel": "0s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--blue-rgb),0.3)", top: "45%", "--adur": "20s", "--adel": "5s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--green-rgb),0.25)", top: "70%", "--adur": "13s", "--adel": "9s" } as React.CSSProperties} />
         </div>
 
         {/* Abstract Floating Stats */}
@@ -101,7 +101,7 @@ export default function AboutPage() {
             <div className="mission-vision">
 
               <div className="vision-brief" style={{
-                background: "rgba(255,255,255,0.02)",
+                background: "rgba(var(--fg-rgb),0.02)",
                 borderLeft: "2px solid var(--green)",
                 padding: "24px 32px",
                 marginBottom: "40px"
@@ -132,14 +132,14 @@ export default function AboutPage() {
             </div>
 
             <div className="mission-console" style={{
-              background: "#050805",
-              border: "1px solid rgba(45, 255, 122, 0.15)",
+              background: "var(--bg-deep)",
+              border: "1px solid rgba(var(--green-rgb), 0.15)",
               borderRadius: "16px",
               padding: "40px",
               position: "relative",
               overflow: "hidden"
             }}>
-              <div style={{ position: "absolute", top: 0, right: 0, padding: "12px 20px", background: "rgba(45, 255, 122, 0.1)", color: "var(--green)", fontSize: "10px", fontFamily: "var(--font-mono)", borderRadius: "0 0 0 12px" }}>
+              <div style={{ position: "absolute", top: 0, right: 0, padding: "12px 20px", background: "rgba(var(--green-rgb), 0.1)", color: "var(--green)", fontSize: "10px", fontFamily: "var(--font-mono)", borderRadius: "0 0 0 12px" }}>
                 DIRECTIVE_ACTIVE
               </div>
 
@@ -161,7 +161,7 @@ export default function AboutPage() {
               </div>
 
               {/* Decorative scanline */}
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(transparent 50%, rgba(0,0,0,0.1) 50%)", backgroundSize: "100% 4px", pointerEvents: "none", opacity: 0.3 }}></div>
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(transparent 50%, rgba(var(--shadow-rgb),0.1) 50%)", backgroundSize: "100% 4px", pointerEvents: "none", opacity: 0.3 }}></div>
             </div>
 
           </div>
@@ -169,7 +169,7 @@ export default function AboutPage() {
       </section>
 
       {/* Reliability & Infrastructure Section - Redesigned as Technical Architecture Grid */}
-      <section className="hp-section mid" style={{ padding: "140px 0", background: "radial-gradient(circle at 50% -20%, rgba(45,255,122,0.05) 0%, transparent 50%)" }}>
+      <section className="hp-section mid" style={{ padding: "140px 0", background: "radial-gradient(circle at 50% -20%, rgba(var(--green-rgb),0.05) 0%, transparent 50%)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: "80px" }}>
             <div className="hp-label" style={{ justifyContent: "center" }}>RELIABILITY</div>
@@ -186,7 +186,7 @@ export default function AboutPage() {
             {/* Power Infrastructure Module */}
             <div className="arch-card" style={{
               background: "linear-gradient(145deg, rgba(8,12,8,0.9) 0%, rgba(2,5,2,0.95) 100%)",
-              border: "1px solid rgba(255,184,77,0.1)",
+              border: "1px solid rgba(var(--amber-rgb),0.1)",
               borderRadius: "24px",
               padding: "48px",
               position: "relative",
@@ -195,11 +195,11 @@ export default function AboutPage() {
               backdropFilter: "blur(10px)"
             }}>
               {/* Corner Accents */}
-              <div style={{ position: "absolute", top: "20px", left: "20px", width: "12px", height: "12px", borderTop: "2px solid rgba(255,184,77,0.3)", borderLeft: "2px solid rgba(255,184,77,0.3)" }}></div>
-              <div style={{ position: "absolute", bottom: "20px", right: "20px", width: "12px", height: "12px", borderBottom: "2px solid rgba(255,184,77,0.3)", borderRight: "2px solid rgba(255,184,77,0.3)" }}></div>
+              <div style={{ position: "absolute", top: "20px", left: "20px", width: "12px", height: "12px", borderTop: "2px solid rgba(var(--amber-rgb),0.3)", borderLeft: "2px solid rgba(var(--amber-rgb),0.3)" }}></div>
+              <div style={{ position: "absolute", bottom: "20px", right: "20px", width: "12px", height: "12px", borderBottom: "2px solid rgba(var(--amber-rgb),0.3)", borderRight: "2px solid rgba(var(--amber-rgb),0.3)" }}></div>
 
               {/* Radial Glow */}
-              <div style={{ position: "absolute", top: "-10%", right: "-10%", width: "200px", height: "200px", background: "radial-gradient(circle, rgba(255,184,77,0.05) 0%, transparent 70%)", pointerEvents: "none" }}></div>
+              <div style={{ position: "absolute", top: "-10%", right: "-10%", width: "200px", height: "200px", background: "radial-gradient(circle, rgba(var(--amber-rgb),0.05) 0%, transparent 70%)", pointerEvents: "none" }}></div>
 
               <div style={{ marginBottom: "40px", position: "relative", zIndex: 2 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
@@ -211,11 +211,11 @@ export default function AboutPage() {
 
               <div style={{ marginBottom: "40px", position: "relative", zIndex: 2 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
-                  <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>SYSTEM_HEALTH</span>
+                  <span style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>SYSTEM_HEALTH</span>
                   <span style={{ color: "var(--amber)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>NOMINAL 100%</span>
                 </div>
-                <div style={{ height: "6px", background: "rgba(255,255,255,0.03)", borderRadius: "100px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)" }}>
-                  <div style={{ height: "100%", width: "100%", background: "linear-gradient(90deg, #b37e2d, #ffb84d)", boxShadow: "0 0 15px rgba(255,184,77,0.3)" }}></div>
+                <div style={{ height: "6px", background: "rgba(var(--fg-rgb),0.03)", borderRadius: "100px", overflow: "hidden", border: "1px solid rgba(var(--fg-rgb),0.05)" }}>
+                  <div style={{ height: "100%", width: "100%", background: "linear-gradient(90deg, #b37e2d, var(--amber))", boxShadow: "0 0 15px rgba(var(--amber-rgb),0.3)" }}></div>
                 </div>
               </div>
 
@@ -226,7 +226,7 @@ export default function AboutPage() {
                   "24/7 clean energy matching algorithms",
                   "Carbon-neutral compute optimized"
                 ].map((item, idx) => (
-                  <li key={idx} style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "15px", color: "rgba(200,212,200,0.5)", transition: "color 0.3s" }}>
+                  <li key={idx} style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "15px", color: "rgba(var(--text-rgb),0.5)", transition: "color 0.3s" }}>
                     <div style={{ width: "6px", height: "6px", border: "1px solid var(--amber)", transform: "rotate(45deg)" }}></div>
                     {item}
                   </li>
@@ -234,13 +234,13 @@ export default function AboutPage() {
               </ul>
 
               {/* Background Micro-Grid */}
-              <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none", opacity: 0.5 }}></div>
+              <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(var(--fg-rgb),0.03) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none", opacity: 0.5 }}></div>
             </div>
 
             {/* Enterprise Reliability Module */}
             <div className="arch-card" style={{
               background: "linear-gradient(145deg, rgba(8,12,8,0.9) 0%, rgba(2,5,2,0.95) 100%)",
-              border: "1px solid rgba(77,200,255,0.1)",
+              border: "1px solid rgba(var(--blue-rgb),0.1)",
               borderRadius: "24px",
               padding: "48px",
               position: "relative",
@@ -249,11 +249,11 @@ export default function AboutPage() {
               backdropFilter: "blur(10px)"
             }}>
               {/* Corner Accents */}
-              <div style={{ position: "absolute", top: "20px", left: "20px", width: "12px", height: "12px", borderTop: "2px solid rgba(77,200,255,0.3)", borderLeft: "2px solid rgba(77,200,255,0.3)" }}></div>
-              <div style={{ position: "absolute", bottom: "20px", right: "20px", width: "12px", height: "12px", borderBottom: "2px solid rgba(77,200,255,0.3)", borderRight: "2px solid rgba(77,200,255,0.3)" }}></div>
+              <div style={{ position: "absolute", top: "20px", left: "20px", width: "12px", height: "12px", borderTop: "2px solid rgba(var(--blue-rgb),0.3)", borderLeft: "2px solid rgba(var(--blue-rgb),0.3)" }}></div>
+              <div style={{ position: "absolute", bottom: "20px", right: "20px", width: "12px", height: "12px", borderBottom: "2px solid rgba(var(--blue-rgb),0.3)", borderRight: "2px solid rgba(var(--blue-rgb),0.3)" }}></div>
 
               {/* Radial Glow */}
-              <div style={{ position: "absolute", top: "-10%", right: "-10%", width: "200px", height: "200px", background: "radial-gradient(circle, rgba(77,200,255,0.05) 0%, transparent 70%)", pointerEvents: "none" }}></div>
+              <div style={{ position: "absolute", top: "-10%", right: "-10%", width: "200px", height: "200px", background: "radial-gradient(circle, rgba(var(--blue-rgb),0.05) 0%, transparent 70%)", pointerEvents: "none" }}></div>
 
               <div style={{ marginBottom: "40px", position: "relative", zIndex: 2 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
@@ -265,11 +265,11 @@ export default function AboutPage() {
 
               <div style={{ marginBottom: "40px", position: "relative", zIndex: 2 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
-                  <span style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>SYSTEM_AVAILABILITY</span>
+                  <span style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>SYSTEM_AVAILABILITY</span>
                   <span style={{ color: "var(--blue)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>99.99% ONLINE</span>
                 </div>
-                <div style={{ height: "6px", background: "rgba(255,255,255,0.03)", borderRadius: "100px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.05)" }}>
-                  <div style={{ height: "100%", width: "99.99%", background: "linear-gradient(90deg, #3281a8, #4dc8ff)", boxShadow: "0 0 15px rgba(77,200,255,0.3)" }}></div>
+                <div style={{ height: "6px", background: "rgba(var(--fg-rgb),0.03)", borderRadius: "100px", overflow: "hidden", border: "1px solid rgba(var(--fg-rgb),0.05)" }}>
+                  <div style={{ height: "100%", width: "99.99%", background: "linear-gradient(90deg, #3281a8, var(--blue))", boxShadow: "0 0 15px rgba(var(--blue-rgb),0.3)" }}></div>
                 </div>
               </div>
 
@@ -280,7 +280,7 @@ export default function AboutPage() {
                   "Private interconnects for enterprise security",
                   "TIA-942 Rated 3 facility certification"
                 ].map((item, idx) => (
-                  <li key={idx} style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "15px", color: "rgba(200,212,200,0.5)", transition: "color 0.3s" }}>
+                  <li key={idx} style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "15px", color: "rgba(var(--text-rgb),0.5)", transition: "color 0.3s" }}>
                     <div style={{ width: "6px", height: "6px", border: "1px solid var(--blue)", transform: "rotate(45deg)" }}></div>
                     {item}
                   </li>
@@ -288,7 +288,7 @@ export default function AboutPage() {
               </ul>
 
               {/* Background Micro-Grid */}
-              <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none", opacity: 0.5 }}></div>
+              <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(var(--fg-rgb),0.03) 1px, transparent 1px)", backgroundSize: "20px 20px", pointerEvents: "none", opacity: 0.5 }}></div>
             </div>
 
           </div>
@@ -308,22 +308,22 @@ export default function AboutPage() {
               We engineer our infrastructure to minimize ecological footprint while maximizing computational density. Every watt is accounted for in our zero-waste energy lifecycle.
             </p>
 
-            <div className="stats-grid-mini" style={{ background: "rgba(45,255,122,0.02)", border: "1px solid rgba(45,255,122,0.1)", borderRadius: "24px", padding: "32px 40px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", maxWidth: "900px", margin: "0 auto" }}>
+            <div className="stats-grid-mini" style={{ background: "rgba(var(--green-rgb),0.02)", border: "1px solid rgba(var(--green-rgb),0.1)", borderRadius: "24px", padding: "32px 40px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", maxWidth: "900px", margin: "0 auto" }}>
               <div className="impact-stat">
                 <div style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>&lt;1.3</div>
-                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Target PUE</div>
+                <div style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Target PUE</div>
               </div>
               <div className="impact-stat">
                 <div style={{ color: "var(--blue)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>90%</div>
-                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Water Saved</div>
+                <div style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Water Saved</div>
               </div>
               <div className="impact-stat">
                 <div style={{ color: "var(--amber)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>24/7</div>
-                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Clean Energy</div>
+                <div style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Clean Energy</div>
               </div>
               <div className="impact-stat">
                 <div style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>NET_0</div>
-                <div style={{ color: "rgba(255,255,255,0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Carbon Goal</div>
+                <div style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Carbon Goal</div>
               </div>
             </div>
           </div>
@@ -332,8 +332,8 @@ export default function AboutPage() {
 
             {/* Card 01 */}
             <div className="eco-card" style={{
-              background: "rgba(255,255,255,0.02)",
-              border: "1px solid rgba(255,255,255,0.05)",
+              background: "rgba(var(--fg-rgb),0.02)",
+              border: "1px solid rgba(var(--fg-rgb),0.05)",
               borderRadius: "20px",
               padding: "40px",
               transition: "all 0.4s ease",
@@ -345,15 +345,15 @@ export default function AboutPage() {
                 <Leaf size={32} color="var(--green)" />
               </div>
               <h3 style={{ color: "var(--white)", fontSize: "20px", marginBottom: "16px" }}>Energy Lifecycle</h3>
-              <p style={{ color: "rgba(200,212,200,0.6)", fontSize: "14px", lineHeight: "1.6" }}>
+              <p style={{ color: "rgba(var(--text-rgb),0.6)", fontSize: "14px", lineHeight: "1.6" }}>
                 Utilizing a proprietary renewable and low-carbon energy mix sourced from DigiPowerX generation assets.
               </p>
             </div>
 
             {/* Card 02 */}
             <div className="eco-card" style={{
-              background: "rgba(255,255,255,0.02)",
-              border: "1px solid rgba(255,255,255,0.05)",
+              background: "rgba(var(--fg-rgb),0.02)",
+              border: "1px solid rgba(var(--fg-rgb),0.05)",
               borderRadius: "20px",
               padding: "40px",
               transition: "all 0.4s ease",
@@ -365,15 +365,15 @@ export default function AboutPage() {
                 <Droplet size={32} color="var(--blue)" />
               </div>
               <h3 style={{ color: "var(--white)", fontSize: "20px", marginBottom: "16px" }}>Thermal Dynamics</h3>
-              <p style={{ color: "rgba(200,212,200,0.6)", fontSize: "14px", lineHeight: "1.6" }}>
+              <p style={{ color: "rgba(var(--text-rgb),0.6)", fontSize: "14px", lineHeight: "1.6" }}>
                 Advanced closed-loop cooling architectures that virtually eliminate water consumption in high-density clusters.
               </p>
             </div>
 
             {/* Card 03 */}
             <div className="eco-card" style={{
-              background: "rgba(255,255,255,0.02)",
-              border: "1px solid rgba(255,255,255,0.05)",
+              background: "rgba(var(--fg-rgb),0.02)",
+              border: "1px solid rgba(var(--fg-rgb),0.05)",
               borderRadius: "20px",
               padding: "40px",
               transition: "all 0.4s ease",
@@ -385,7 +385,7 @@ export default function AboutPage() {
                 <Globe size={32} color="var(--amber)" />
               </div>
               <h3 style={{ color: "var(--white)", fontSize: "20px", marginBottom: "16px" }}>Ethical Sourcing</h3>
-              <p style={{ color: "rgba(200,212,200,0.6)", fontSize: "14px", lineHeight: "1.6" }}>
+              <p style={{ color: "rgba(var(--text-rgb),0.6)", fontSize: "14px", lineHeight: "1.6" }}>
                 Every facility is verified for environmental compliance and operates on 100% transparent carbon accounting.
               </p>
             </div>
@@ -397,7 +397,7 @@ export default function AboutPage() {
       {/* CTA Section - Advanced Deployment Hub */}
       <section className="hp-section" style={{ 
         padding: "160px 0", 
-        background: "#050805",
+        background: "var(--bg-deep)",
         position: "relative",
         overflow: "hidden"
       }}>
@@ -419,7 +419,7 @@ export default function AboutPage() {
                 <span className="g">Speed of Thought.</span>
               </h2>
 
-              <p style={{ color: "rgba(200,212,200,0.6)", fontSize: "18px", lineHeight: "1.6", marginBottom: "40px", maxWidth: "500px" }}>
+              <p style={{ color: "rgba(var(--text-rgb),0.6)", fontSize: "18px", lineHeight: "1.6", marginBottom: "40px", maxWidth: "500px" }}>
                 Join the elite teams building foundation models on the world's most efficient AI infrastructure. Zero waitlists, infinite scale.
               </p>
 
@@ -428,7 +428,7 @@ export default function AboutPage() {
                   href="/contact?source=about&cta=initialize_infrastructure"
                   className="btn-launch"
                   aria-label="Initialize Infrastructure"
-                  style={{ padding: "20px 48px", fontSize: "18px", borderRadius: "8px", boxShadow: "0 10px 30px rgba(45, 255, 122, 0.2)" }}
+                  style={{ padding: "20px 48px", fontSize: "18px", borderRadius: "8px", boxShadow: "0 10px 30px rgba(var(--green-rgb), 0.2)" }}
                 >
                   Initialize Infrastructure
                   <ArrowRight size={20} aria-hidden="true" />
@@ -438,13 +438,13 @@ export default function AboutPage() {
 
             {/* Right: Deployment Log Terminal */}
             <div className="deployment-log-terminal" style={{ 
-              background: "rgba(0,0,0,0.4)", 
-              border: "1px solid rgba(255,255,255,0.08)", 
+              background: "rgba(var(--shadow-rgb),0.4)", 
+              border: "1px solid rgba(var(--fg-rgb),0.08)", 
               borderRadius: "16px",
               padding: "32px",
               fontFamily: "var(--font-mono)",
               fontSize: "12px",
-              color: "rgba(45,255,122,0.7)",
+              color: "rgba(var(--green-rgb),0.7)",
               position: "relative",
               height: "360px",
               display: "flex",
@@ -453,8 +453,8 @@ export default function AboutPage() {
             }}>
               {/* Corner Accents */}
               <div style={{ position: "absolute", top: "12px", right: "12px", display: "flex", gap: "6px" }}>
-                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "rgba(255,255,255,0.1)" }}></div>
-                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "rgba(255,255,255,0.1)" }}></div>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "rgba(var(--fg-rgb),0.1)" }}></div>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "rgba(var(--fg-rgb),0.1)" }}></div>
                 <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--green)", opacity: 0.5 }}></div>
               </div>
 
@@ -470,7 +470,7 @@ export default function AboutPage() {
                 <div className="cursor" style={{ width: "8px", height: "15px", background: "var(--green)", marginTop: "4px" }}></div>
               </div>
 
-              <div style={{ marginTop: "20px", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.05)", display: "flex", justifyContent: "space-between" }}>
+              <div style={{ marginTop: "20px", paddingTop: "20px", borderTop: "1px solid rgba(var(--fg-rgb),0.05)", display: "flex", justifyContent: "space-between" }}>
                 <span>SEQ_ID: 9928-AX</span>
                 <span style={{ color: "var(--blue)" }}>REGION: US_SOUTH_1</span>
               </div>

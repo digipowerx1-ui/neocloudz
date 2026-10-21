@@ -91,8 +91,8 @@ export default function EnterpriseSla() {
                 className="sla-resp-fill"
                 data-width="75"
                 style={{
-                  background: "linear-gradient(90deg,#1aaa4e,#2dff7a)",
-                  boxShadow: "0 0 8px rgba(45,255,122,0.5)",
+                  background: "linear-gradient(90deg,var(--green-dim),var(--green))",
+                  boxShadow: "0 0 8px rgba(var(--green-rgb),0.5)",
                 }}
               />
             </div>
@@ -128,8 +128,8 @@ export default function EnterpriseSla() {
                 className="sla-resp-fill"
                 data-width="96"
                 style={{
-                  background: "linear-gradient(90deg,#b85000,#ffb84d)",
-                  boxShadow: "0 0 8px rgba(255,184,77,0.4)",
+                  background: "linear-gradient(90deg,#b85000,var(--amber))",
+                  boxShadow: "0 0 8px rgba(var(--amber-rgb),0.4)",
                 }}
               />
             </div>

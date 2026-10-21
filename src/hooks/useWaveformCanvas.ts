@@ -1,19 +1,20 @@
+import { T } from "@/lib/theme";
 import { useEffect, useRef } from "react";
 
 interface WaveConfig {
   amp: number;
   fr: number;
   spd: number;
-  col: string;
+  col: "green" | "blue" | "amber";
   lw: number;
   ph: number;
 }
 
 const WAVES: WaveConfig[] = [
-  { amp: 28, fr: 0.008, spd: 1.0, col: "rgba(45,255,122,", lw: 1.5, ph: 0 },
-  { amp: 16, fr: 0.014, spd: 1.7, col: "rgba(45,255,122,", lw: 0.8, ph: 2.1 },
-  { amp: 38, fr: 0.005, spd: 0.65, col: "rgba(77,200,255,", lw: 1.0, ph: 4.3 },
-  { amp: 12, fr: 0.02, spd: 2.2, col: "rgba(255,184,77,", lw: 0.6, ph: 1.0 },
+  { amp: 28, fr: 0.008, spd: 1.0, col: "green", lw: 1.5, ph: 0 },
+  { amp: 16, fr: 0.014, spd: 1.7, col: "green", lw: 0.8, ph: 2.1 },
+  { amp: 38, fr: 0.005, spd: 0.65, col: "blue", lw: 1.0, ph: 4.3 },
+  { amp: 12, fr: 0.02, spd: 2.2, col: "amber", lw: 0.6, ph: 1.0 },
 ];
 
 export function useWaveformCanvas(canvasRef: React.RefObject<HTMLCanvasElement | null>) {
@@ -53,7 +54,7 @@ export function useWaveformCanvas(canvasRef: React.RefObject<HTMLCanvasElement |
               ctx.lineTo(x, y);
             }
           }
-          ctx.strokeStyle = w.col + alpha + ")";
+          ctx.strokeStyle = `rgba(${T[w.col]},${alpha})`;
           ctx.lineWidth = gi ? w.lw * 7 : w.lw;
           ctx.stroke();
         });

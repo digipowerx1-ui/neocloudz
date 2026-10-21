@@ -1,3 +1,4 @@
+import { T } from "@/lib/theme";
 import { useEffect, useRef } from "react";
 
 interface ArchNode {
@@ -40,7 +41,7 @@ function buildPackets(): ArchPacket[] {
         b,
         t: Math.random(),
         speed: 0.004 + Math.random() * 0.005,
-        col: Math.random() > 0.5 ? "rgba(45,255,122,1)" : "rgba(77,200,255,1)",
+        col: Math.random() > 0.5 ? `rgba(${T.green},1)` : `rgba(${T.blue},1)`,
         sz: 3 + Math.random() * 2,
       });
     }
@@ -80,7 +81,7 @@ export function useEnterpriseArchCanvas(canvasRef: React.RefObject<HTMLCanvasEle
         const [ax, ay] = projectNode(NODES[a]);
         const [bx, by] = projectNode(NODES[b]);
         ctx.beginPath();
-        ctx.strokeStyle = "rgba(45,255,122,0.14)";
+        ctx.strokeStyle = `rgba(${T.green},0.14)`;
         ctx.lineWidth = 2;
         ctx.setLineDash([10, 7]);
         ctx.moveTo(ax, ay);
@@ -116,34 +117,34 @@ export function useEnterpriseArchCanvas(canvasRef: React.RefObject<HTMLCanvasEle
 
         ctx.beginPath();
         ctx.arc(nx, ny, 38 + pf * 8, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(45,255,122,${0.06 + pf * 0.06})`;
+        ctx.strokeStyle = `rgba(${T.green},${0.06 + pf * 0.06})`;
         ctx.lineWidth = 1;
         ctx.stroke();
 
         const grad = ctx.createRadialGradient(nx, ny, 0, nx, ny, 30);
-        grad.addColorStop(0, "rgba(45,255,122,0.18)");
-        grad.addColorStop(1, "rgba(10,20,10,0.9)");
+        grad.addColorStop(0, `rgba(${T.green},0.18)`);
+        grad.addColorStop(1, `rgba(${T.surface},0.9)`);
         ctx.beginPath();
         ctx.arc(nx, ny, 30, 0, Math.PI * 2);
         ctx.fillStyle = grad;
         ctx.fill();
         ctx.beginPath();
         ctx.arc(nx, ny, 30, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(45,255,122,${0.35 + pf * 0.3})`;
+        ctx.strokeStyle = `rgba(${T.green},${0.35 + pf * 0.3})`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
-        ctx.fillStyle = "rgba(45,255,122,0.8)";
+        ctx.fillStyle = `rgba(${T.green},0.8)`;
         ctx.font = 'bold 13px "JetBrains Mono", monospace';
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
         ctx.fillText(ICONS[i], nx, ny);
 
-        ctx.fillStyle = "#f0f5f0";
+        ctx.fillStyle = `rgb(${T.white})`;
         ctx.font = 'bold 12px "JetBrains Mono", monospace';
         ctx.textBaseline = "alphabetic";
         ctx.fillText(node.label, nx, ny + 52);
-        ctx.fillStyle = "rgba(74,90,74,0.9)";
+        ctx.fillStyle = `rgba(74,90,74,0.9)`;
         ctx.font = '10px "JetBrains Mono", monospace';
         ctx.fillText(node.sub, nx, ny + 68);
       });

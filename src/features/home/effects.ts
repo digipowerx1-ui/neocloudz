@@ -1,5 +1,6 @@
 "use client";
 
+import { T } from "@/lib/theme";
 import { useEffect, useState, type RefObject } from "react";
 
 /* Hero live counter strip (GPUs / util / jobs / pflops / bw) */
@@ -136,7 +137,7 @@ export function useHomeOrbs(heroRef: RefObject<HTMLElement | null>) {
   useEffect(() => {
     const hero = heroRef.current;
     if (!hero) return;
-    const cols = ["rgba(45,255,122", "rgba(77,200,255", "rgba(45,255,122"];
+    const cols = [`rgba(${T.green}`, `rgba(${T.blue}`, `rgba(${T.green}`];
     const elements: HTMLDivElement[] = [];
     for (let i = 0; i < 16; i++) {
       const orb = document.createElement("div");
@@ -164,7 +165,7 @@ export function useHomeStars(heroRef: RefObject<HTMLElement | null>) {
     for (let i = 0; i < 60; i++) {
       const s = document.createElement("div");
       const sz = Math.random() * 1.5 + 0.4;
-      s.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;border-radius:50%;background:rgba(${Math.random() > 0.5 ? "45,255,122" : "200,212,200"},${Math.random() * 0.6 + 0.1});left:${Math.random() * 100}%;top:${Math.random() * 100}%;pointer-events:none;z-index:1;animation:home-blink ${1.5 + Math.random() * 3}s ${Math.random() * 3}s ease-in-out infinite;`;
+      s.style.cssText = `position:absolute;width:${sz}px;height:${sz}px;border-radius:50%;background:rgba(${Math.random() > 0.5 ? `${T.green}` : "200,212,200"},${Math.random() * 0.6 + 0.1});left:${Math.random() * 100}%;top:${Math.random() * 100}%;pointer-events:none;z-index:1;animation:home-blink ${1.5 + Math.random() * 3}s ${Math.random() * 3}s ease-in-out infinite;`;
       hero.appendChild(s);
       elements.push(s);
     }
@@ -376,7 +377,7 @@ export function usePricingSpotlight(rootRef: RefObject<HTMLElement | null>) {
         const r = card.getBoundingClientRect();
         const x = e.clientX - r.left;
         const y = e.clientY - r.top;
-        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(45,255,122,.08) 0%, var(--surface2) 55%)`;
+        card.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(var(--green-rgb),.08) 0%, var(--surface2) 55%)`;
       };
     }
     function makeLeave(card: HTMLElement) {
@@ -410,13 +411,13 @@ export function useStorageBandwidthBars(stBodyRef: RefObject<HTMLDivElement | nu
     const wrap = document.createElement("div");
     wrap.style.cssText = "margin-top:14px;display:flex;flex-direction:column;gap:5px;";
     wrap.innerHTML =
-      '<div style="font-size:11px;color:#8fa68f;margin-bottom:5px;font-family:var(--font-mono);">── live throughput ──</div>' +
+      '<div style="font-size:11px;color:var(--muted);margin-bottom:5px;font-family:var(--font-mono);">── live throughput ──</div>' +
       labels
         .map(
           (lbl, i) =>
             `<div style="display:flex;gap:8px;align-items:center;">
-        <span style="font-size:11px;color:#8fa68f;width:96px;font-family:var(--font-mono);flex-shrink:0">${lbl}</span>
-        <div style="flex:1;height:4px;background:rgba(255,255,255,.05);border-radius:2px;overflow:hidden;position:relative;">
+        <span style="font-size:11px;color:var(--muted);width:96px;font-family:var(--font-mono);flex-shrink:0">${lbl}</span>
+        <div style="flex:1;height:4px;background:rgba(var(--fg-rgb),.05);border-radius:2px;overflow:hidden;position:relative;">
           <div class="lb" style="height:100%;border-radius:2px;background:var(--green);box-shadow:0 0 6px var(--green);width:${40 + i * 10}%;transition:width .9s ease;"></div>
         </div>
         <span class="lbv" style="font-size:11px;font-family:var(--font-mono);color:var(--green);width:34px;text-align:right;">${40 + i * 10}%</span>
@@ -460,11 +461,11 @@ export function useGpuCatalogSparklines(rootRef: RefObject<HTMLElement | null>) 
       const ctx = spark.getContext("2d");
       if (!ctx) return;
       const data = Array.from({ length: 30 }, () => 55 + Math.random() * 38);
-      const colors = ["#2dff7a", "#4dc8ff", "#ffb84d"];
+      const colors = [`rgb(${T.green})`, `rgb(${T.blue})`, `rgb(${T.amber})`];
       const alphaColors = [
-        "rgba(45,255,122,",
-        "rgba(77,200,255,",
-        "rgba(255,184,77,",
+        `rgba(${T.green},`,
+        `rgba(${T.blue},`,
+        `rgba(${T.amber},`,
       ];
       const clr = colors[ci % colors.length];
       const aclr = alphaColors[ci % alphaColors.length];
@@ -536,10 +537,10 @@ export function useGpuHeatmapPulse(rootRef: RefObject<HTMLElement | null>) {
     if (!root) return;
     const id = window.setInterval(() => {
       root.querySelectorAll<HTMLElement>(".gpu-node.util-high").forEach((n) => {
-        n.style.boxShadow = `inset 0 0 ${7 + Math.random() * 9}px rgba(45,255,122,.14)`;
+        n.style.boxShadow = `inset 0 0 ${7 + Math.random() * 9}px rgba(var(--green-rgb),.14)`;
       });
       root.querySelectorAll<HTMLElement>(".gpu-node.util-error").forEach((n) => {
-        n.style.boxShadow = `inset 0 0 ${5 + Math.random() * 7}px rgba(255,77,77,.18)`;
+        n.style.boxShadow = `inset 0 0 ${5 + Math.random() * 7}px rgba(var(--red-rgb),.18)`;
       });
     }, 900);
     return () => window.clearInterval(id);
@@ -561,7 +562,7 @@ export function useCtaParticleBurst(btnRef: RefObject<HTMLAnchorElement | null>)
         const sz = 2 + Math.random() * 4;
         p.className = "burst-particle";
         p.style.cssText = `position:fixed;width:${sz}px;height:${sz}px;border-radius:50%;
-          background:${Math.random() > 0.5 ? "#2dff7a" : "#4dc8ff"};
+          background:${Math.random() > 0.5 ? `rgb(${T.green})` : `rgb(${T.blue})`};
           left:${e.clientX}px;top:${e.clientY}px;
           pointer-events:none;z-index:9999;
           transition:transform 0.6s ease-out,opacity 0.6s ease-out;opacity:1;`;

@@ -17,8 +17,8 @@ export default function MlServicePage() {
         <HeroParticles />
         <div className="hero-grid" />
         <div className="hero-aurora">
-          <div className="aurora-band" style={{ background: "rgba(45,255,122,0.3)", top: "15%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />
-          <div className="aurora-band" style={{ background: "rgba(77,200,255,0.25)", top: "60%", "--adur": "25s", "--adel": "3s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--green-rgb),0.3)", top: "15%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--blue-rgb),0.25)", top: "60%", "--adur": "25s", "--adel": "3s" } as React.CSSProperties} />
         </div>
 
         <div className="hero-content" style={{ marginTop: "-5vh" }}>
@@ -229,7 +229,7 @@ export default function MlServicePage() {
               { icon: Rocket, step: "04", title: "Deploy", desc: "Streamline the path to production. Deploy trained models as scalable, reliable APIs." }
             ].map((stage, idx) => (
               <div key={idx} style={{ flex: "1 1 220px", position: "relative", zIndex: 10, display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
-                <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "var(--surface)", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px", boxShadow: "0 0 20px rgba(10,15,10,0.8)" }}>
+                <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "var(--surface)", border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px", boxShadow: "0 0 20px rgba(var(--bg-rgb),0.8)" }}>
                   <stage.icon size={32} color="var(--green)" />
                 </div>
                 <div style={{ fontSize: "12px", fontFamily: "var(--font-mono)", color: "var(--blue)", marginBottom: "8px" }}>STEP {stage.step}</div>
@@ -250,7 +250,7 @@ export default function MlServicePage() {
           </h2>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
-            <div style={{ flex: "1 1 400px", background: "var(--surface)", border: "1px solid rgba(77,200,255,0.2)", borderRadius: "20px", padding: "40px" }}>
+            <div style={{ flex: "1 1 400px", background: "var(--surface)", border: "1px solid rgba(var(--blue-rgb),0.2)", borderRadius: "20px", padding: "40px" }}>
               <h3 style={{ color: "var(--white)", fontSize: "24px", fontWeight: 700, marginBottom: "16px" }}>Provision in Minutes</h3>
               <p style={{ color: "var(--text)", fontSize: "15px", marginBottom: "32px", lineHeight: "1.6" }}>
                 Cost-efficient for experimentation and development workloads.
@@ -268,10 +268,10 @@ export default function MlServicePage() {
               </ul>
             </div>
 
-            <div style={{ flex: "1 1 400px", background: "var(--surface)", border: "1px solid rgba(45,255,122,0.3)", borderRadius: "20px", padding: "40px", boxShadow: "0 0 30px rgba(45,255,122,0.05)" }}>
+            <div style={{ flex: "1 1 400px", background: "var(--surface)", border: "1px solid rgba(var(--green-rgb),0.3)", borderRadius: "20px", padding: "40px", boxShadow: "0 0 30px rgba(var(--green-rgb),0.05)" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "16px" }}>
                 <h3 style={{ color: "var(--white)", fontSize: "24px", fontWeight: 700 }}>Dedicated Infrastructure</h3>
-                <span style={{ fontSize: "11px", background: "rgba(45,255,122,0.1)", color: "var(--green)", padding: "4px 8px", borderRadius: "12px", fontWeight: 700, letterSpacing: "0.05em" }}>ENTERPRISE</span>
+                <span style={{ fontSize: "11px", background: "rgba(var(--green-rgb),0.1)", color: "var(--green)", padding: "4px 8px", borderRadius: "12px", fontWeight: 700, letterSpacing: "0.05em" }}>ENTERPRISE</span>
               </div>
               <p style={{ color: "var(--text)", fontSize: "15px", marginBottom: "32px", lineHeight: "1.6" }}>
                 Physically isolated for production and mission-critical workloads.

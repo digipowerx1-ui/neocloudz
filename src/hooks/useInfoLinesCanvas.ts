@@ -1,3 +1,4 @@
+import { T } from "@/lib/theme";
 import { useEffect, useRef } from "react";
 
 interface FlowLine {
@@ -20,7 +21,7 @@ function createLines(): FlowLine[] {
       amp: 60 + Math.random() * 80,
       fr: 0.005 + Math.random() * 0.008,
       ph: Math.random() * Math.PI * 2,
-      col: Math.random() > 0.5 ? "rgba(45,255,122," : "rgba(77,200,255,",
+      col: Math.random() > 0.5 ? `rgba(${T.green},` : `rgba(${T.blue},`,
     });
   }
   return lines;

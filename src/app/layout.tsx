@@ -4,6 +4,7 @@ import "@/components/layout/layout.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { CookieConsent } from "@/components/layout/CookieConsent";
+import { ThemeShell, THEME_INIT_SCRIPT } from "@/components/layout/ThemeShell";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.neocloudz.com"),
@@ -24,10 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+      </head>
       <body>
         <Header />
-        {children}
+        <ThemeShell>{children}</ThemeShell>
         <Footer />
         <CookieConsent />
       </body>

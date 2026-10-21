@@ -1,3 +1,4 @@
+import { T } from "@/lib/theme";
 import { useEffect, useRef } from "react";
 
 interface DataCenter {
@@ -80,7 +81,7 @@ export function useDcMapCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
       ctx.clearRect(0, 0, W, H);
       t += 0.008;
 
-      ctx.strokeStyle = "rgba(45,255,122,0.04)";
+      ctx.strokeStyle = `rgba(${T.green},0.04)`;
       ctx.lineWidth = 1;
       for (let i = 0; i < 8; i++) {
         ctx.beginPath();
@@ -107,7 +108,7 @@ export function useDcMapCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
         ctx.beginPath();
         ctx.moveTo(ax, ay);
         ctx.quadraticCurveTo(midX, midY, bx, by);
-        ctx.strokeStyle = "rgba(45,255,122,0.12)";
+        ctx.strokeStyle = `rgba(${T.green},0.12)`;
         ctx.lineWidth = 1;
         ctx.setLineDash([5, 5]);
         ctx.stroke();
@@ -131,8 +132,8 @@ export function useDcMapCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
         const ny = (1 - tt) * (1 - tt) * ay + 2 * (1 - tt) * tt * midY + tt * tt * by;
         ctx.beginPath();
         ctx.arc(nx, ny, 3.5, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(45,255,122,0.9)";
-        ctx.shadowColor = "rgba(45,255,122,1)";
+        ctx.fillStyle = `rgba(${T.green},0.9)`;
+        ctx.shadowColor = `rgba(${T.green},1)`;
         ctx.shadowBlur = 8;
         ctx.fill();
         ctx.shadowBlur = 0;
@@ -145,29 +146,29 @@ export function useDcMapCanvas(canvasRef: React.RefObject<HTMLCanvasElement | nu
 
         ctx.beginPath();
         ctx.arc(nx, ny, 16 + pulse * 5, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(45,255,122,${0.06 + pulse * 0.08})`;
+        ctx.strokeStyle = `rgba(${T.green},${0.06 + pulse * 0.08})`;
         ctx.lineWidth = 1;
         ctx.stroke();
 
         ctx.beginPath();
         ctx.arc(nx, ny, 10, 0, Math.PI * 2);
         const grad = ctx.createRadialGradient(nx, ny, 0, nx, ny, 10);
-        grad.addColorStop(0, "rgba(45,255,122,0.8)");
-        grad.addColorStop(1, "rgba(45,255,122,0.15)");
+        grad.addColorStop(0, `rgba(${T.green},0.8)`);
+        grad.addColorStop(1, `rgba(${T.green},0.15)`);
         ctx.fillStyle = grad;
         ctx.fill();
         ctx.beginPath();
         ctx.arc(nx, ny, 10, 0, Math.PI * 2);
-        ctx.strokeStyle = `rgba(45,255,122,${0.5 + pulse * 0.3})`;
+        ctx.strokeStyle = `rgba(${T.green},${0.5 + pulse * 0.3})`;
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
-        ctx.fillStyle = "rgba(240,245,240,0.85)";
+        ctx.fillStyle = `rgba(${T.white},0.85)`;
         ctx.font = 'bold 11px "JetBrains Mono", monospace';
         ctx.textAlign = "center";
         ctx.textBaseline = "alphabetic";
         ctx.fillText(dc.label, nx, ny + 26);
-        ctx.fillStyle = "rgba(74,90,74,0.8)";
+        ctx.fillStyle = `rgba(74,90,74,0.8)`;
         ctx.font = '9px "JetBrains Mono", monospace';
         ctx.fillText(dc.sub, nx, ny + 38);
       });

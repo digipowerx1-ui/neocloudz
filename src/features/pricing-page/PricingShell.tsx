@@ -291,7 +291,7 @@ export function PricingShell() {
             className="aurora-band"
             style={
               {
-                background: "radial-gradient(ellipse,rgba(45,255,122,1),transparent 70%)",
+                background: "radial-gradient(ellipse,rgba(var(--green-rgb),1),transparent 70%)",
                 top: "55%",
                 "--adur": "16s",
                 "--ad": "0s",
@@ -302,7 +302,7 @@ export function PricingShell() {
             className="aurora-band"
             style={
               {
-                background: "radial-gradient(ellipse,rgba(0,0,0,1),transparent 70%)",
+                background: "radial-gradient(ellipse,rgba(var(--shadow-rgb),1),transparent 70%)",
                 top: "60%",
                 "--adur": "20s",
                 "--ad": "5s",
@@ -313,7 +313,7 @@ export function PricingShell() {
             className="aurora-band"
             style={
               {
-                background: "radial-gradient(ellipse,rgba(45,255,122,1),transparent 70%)",
+                background: "radial-gradient(ellipse,rgba(var(--green-rgb),1),transparent 70%)",
                 top: "70%",
                 "--adur": "13s",
                 "--ad": "9s",
@@ -466,14 +466,14 @@ export function PricingShell() {
                         c.customSavingsTag.color === "blue"
                           ? {
                             color: "var(--blue)",
-                            background: "#000",
-                            borderColor: "rgba(77,200,255,.25)",
+                            background: "var(--bg-deep)",
+                            borderColor: "rgba(var(--blue-rgb),.25)",
                             opacity: 1,
                           }
                           : {
                             color: "var(--amber)",
-                            background: "rgba(255,184,77,.1)",
-                            borderColor: "rgba(255,184,77,.25)",
+                            background: "rgba(var(--amber-rgb),.1)",
+                            borderColor: "rgba(var(--amber-rgb),.25)",
                             opacity: 1,
                           }
                       }

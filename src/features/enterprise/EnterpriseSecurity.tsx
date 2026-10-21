@@ -64,9 +64,9 @@ export default function EnterpriseSecurity() {
           <div className="terminal-bar">
             <div className="tbar-dots" style={{ display: "flex", alignItems: "center" }}>
               <svg className="shield-svg" viewBox="0 0 80 96" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style={{ width: 18, height: 20 }}>
-                <path d="M40 4L8 18V44C8 64.8 21.6 84.1 40 92C58.4 84.1 72 64.8 72 44V18L40 4Z" stroke="#2dff7a" strokeWidth="4" strokeOpacity="0.8" fill="rgba(45, 255, 122, 0.1)" />
-                <circle ref={ringRef} cx="40" cy="48" r="40" stroke="#2dff7a" strokeWidth="3" strokeOpacity="0.4" fill="none" />
-                <path d="M30 48L37 55L50 40" stroke="#2dff7a" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M40 4L8 18V44C8 64.8 21.6 84.1 40 92C58.4 84.1 72 64.8 72 44V18L40 4Z" stroke="var(--green)" strokeWidth="4" strokeOpacity="0.8" fill="rgba(var(--green-rgb), 0.1)" />
+                <circle ref={ringRef} cx="40" cy="48" r="40" stroke="var(--green)" strokeWidth="3" strokeOpacity="0.4" fill="none" />
+                <path d="M30 48L37 55L50 40" stroke="var(--green)" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </div>
             <div className="tbar-title">

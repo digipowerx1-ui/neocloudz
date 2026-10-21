@@ -45,8 +45,8 @@ export default function CareerPage() {
         <canvas ref={canvasRef} id="particle-canvas" aria-hidden="true" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", zIndex: 2, pointerEvents: "none" }} />
         <div className="hero-grid" />
         <div className="hero-aurora">
-          <div className="aurora-band" style={{ background: "rgba(45,255,122,0.4)", top: "25%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />
-          <div className="aurora-band" style={{ background: "rgba(77,200,255,0.3)", top: "50%", "--adur": "22s", "--adel": "3s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--green-rgb),0.4)", top: "25%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--blue-rgb),0.3)", top: "50%", "--adur": "22s", "--adel": "3s" } as React.CSSProperties} />
         </div>
 
         <div className="hero-content career-hero-content" style={{ marginTop: "-2vh", zIndex: 10, position: "relative", textAlign: "center", margin: "0 auto" }}>
@@ -76,7 +76,7 @@ export default function CareerPage() {
       {/* Pathways Section */}
       <section className="hp-section mid" style={{ position: "relative", overflow: "hidden" }}>
         {/* Subtle background matrix lines */}
-        <div style={{ position: "absolute", inset: 0, opacity: 0.03, backgroundImage: "linear-gradient(rgba(45, 255, 122, 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(45, 255, 122, 0.5) 1px, transparent 1px)", backgroundSize: "100px 100px", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, opacity: 0.03, backgroundImage: "linear-gradient(rgba(var(--green-rgb), 0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(var(--green-rgb), 0.5) 1px, transparent 1px)", backgroundSize: "100px 100px", pointerEvents: "none" }} />
         
         <div className="career-section-inner" style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 2 }}>
           <div style={{ textAlign: "center", marginBottom: "72px" }}>
@@ -131,7 +131,7 @@ export default function CareerPage() {
               }
             ].map((dept, i) => (
               <div key={i} className="career-card" style={{ 
-                background: "linear-gradient(180deg, rgba(20,26,20,0.8) 0%, #000 100%)", 
+                background: "linear-gradient(180deg, rgba(20,26,20,0.8) 0%, var(--bg-deep) 100%)", 
                 padding: "36px 28px", 
                 borderRadius: "20px",
                 border: `1px solid rgba(${dept.color === "var(--green)" ? "45,255,122" : dept.color === "var(--blue)" ? "77,200,255" : dept.color === "var(--amber)" ? "255,184,77" : "255,255,255"}, 0.15)`,
@@ -192,7 +192,7 @@ export default function CareerPage() {
                   </div>
                 </div>
 
-                <h3 style={{ fontSize: "22px", marginBottom: "14px", fontWeight: "800", color: "#fff", textAlign: "center", width: "100%" }}>{dept.title}</h3>
+                <h3 style={{ fontSize: "22px", marginBottom: "14px", fontWeight: "800", color: "var(--white)", textAlign: "center", width: "100%" }}>{dept.title}</h3>
                 <p style={{ fontSize: "14px", lineHeight: "1.65", color: "var(--text)", opacity: 0.75, marginBottom: "28px", textAlign: "center", maxWidth: "260px" }}>
                   {dept.desc}
                 </p>
@@ -243,8 +243,8 @@ export default function CareerPage() {
                 href={`/contact?source=career&cta=view_spec_${role.title.toLowerCase().replace(/ /g, "_")}`}
                 style={{ 
                   display: "grid", 
-                  background: "linear-gradient(90deg, #000 0%, #050805 100%)", 
-                  border: "1px solid rgba(255,255,255,0.06)", 
+                  background: "linear-gradient(90deg, var(--bg-deep) 0%, var(--bg-deep) 100%)", 
+                  border: "1px solid rgba(var(--fg-rgb),0.06)", 
                   borderRadius: "12px",
                   textDecoration: "none",
                   transition: "all 0.4s ease",
@@ -254,27 +254,27 @@ export default function CareerPage() {
                 className="spec-card"
               >
                 {/* Left Identity Block */}
-                <div style={{ padding: "40px", borderRight: "1px solid rgba(255,255,255,0.06)", position: "relative" }}>
+                <div style={{ padding: "40px", borderRight: "1px solid rgba(var(--fg-rgb),0.06)", position: "relative" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
                     <span style={{ fontFamily: "var(--font-mono)", fontSize: "10px", color: "var(--green)", letterSpacing: "0.15em" }}>SPEC: NC-{7000 + idx}</span>
-                    <div style={{ height: "1px", flex: 1, background: "rgba(255,255,255,0.06)" }} />
+                    <div style={{ height: "1px", flex: 1, background: "rgba(var(--fg-rgb),0.06)" }} />
                   </div>
-                  <h3 style={{ color: "#fff", fontSize: "26px", fontWeight: "800", letterSpacing: "-0.02em", marginBottom: "16px" }}>{role.title}</h3>
+                  <h3 style={{ color: "var(--white)", fontSize: "26px", fontWeight: "800", letterSpacing: "-0.02em", marginBottom: "16px" }}>{role.title}</h3>
                   <div style={{ display: "flex", gap: "12px" }}>
                     <span style={{ fontSize: "11px", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{role.department}</span>
-                    <span style={{ color: "rgba(255,255,255,0.2)" }}>/</span>
+                    <span style={{ color: "rgba(var(--fg-rgb),0.2)" }}>/</span>
                     <span style={{ fontSize: "11px", color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.1em" }}>{role.location}</span>
                   </div>
                 </div>
 
                 {/* Right Capability Block */}
-                <div style={{ padding: "40px", background: "rgba(255,255,255,0.01)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div style={{ padding: "40px", background: "rgba(var(--fg-rgb),0.01)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   <div>
                     <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
                       <span style={{ fontSize: "9px", fontFamily: "var(--font-mono)", color: "var(--muted)" }}>TECH COMPATIBILITY</span>
                       <span style={{ fontSize: "9px", fontFamily: "var(--font-mono)", color: "var(--green)" }}>98.4%</span>
                     </div>
-                    <div style={{ height: "2px", background: "rgba(255,255,255,0.05)", borderRadius: "2px", overflow: "hidden" }}>
+                    <div style={{ height: "2px", background: "rgba(var(--fg-rgb),0.05)", borderRadius: "2px", overflow: "hidden" }}>
                       <div style={{ height: "100%", width: "98.4%", background: "var(--green)", boxShadow: "0 0 10px var(--green)" }} />
                     </div>
                   </div>
@@ -282,8 +282,8 @@ export default function CareerPage() {
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "32px" }}>
                     <div style={{ display: "flex", gap: "8px" }}>
                       <span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "var(--green)" }} />
-                      <span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "rgba(255,255,255,0.1)" }} />
-                      <span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "rgba(255,255,255,0.1)" }} />
+                      <span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "rgba(var(--fg-rgb),0.1)" }} />
+                      <span style={{ width: "8px", height: "8px", borderRadius: "2px", background: "rgba(var(--fg-rgb),0.1)" }} />
                     </div>
                     <div className="spec-action" style={{ 
                       color: "var(--white)", 

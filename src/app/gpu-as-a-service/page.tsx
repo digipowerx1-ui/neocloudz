@@ -17,8 +17,8 @@ export default function GpuServicePage() {
         <HeroParticles />
         <div className="hero-grid" />
         <div className="hero-aurora">
-          <div className="aurora-band" style={{ background: "rgba(45,255,122,0.3)", top: "15%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />
-          <div className="aurora-band" style={{ background: "rgba(77,200,255,0.25)", top: "60%", "--adur": "25s", "--adel": "3s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--green-rgb),0.3)", top: "15%", "--adur": "18s", "--adel": "0s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--blue-rgb),0.25)", top: "60%", "--adur": "25s", "--adel": "3s" } as React.CSSProperties} />
         </div>
 
         <div className="hero-content" style={{ marginTop: "-5vh" }}>
@@ -63,7 +63,7 @@ export default function GpuServicePage() {
           <div className="ent-features-grid">
             <div className="ent-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: "20px" }}>
-                <div className="ent-icon" style={{ margin: 0, background: "rgba(77,200,255,0.1)", border: "1px solid rgba(77,200,255,0.2)" }}>
+                <div className="ent-icon" style={{ margin: 0, background: "rgba(var(--blue-rgb),0.1)", border: "1px solid rgba(var(--blue-rgb),0.2)" }}>
                   <Cloud size={24} color="var(--blue)" />
                 </div>
                 <h3 className="ent-card-title" style={{ margin: 0, fontSize: "22px" }}>Shared Cloud GPUs</h3>
@@ -78,7 +78,7 @@ export default function GpuServicePage() {
 
             <div className="ent-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: "20px" }}>
-                <div className="ent-icon" style={{ margin: 0, background: "rgba(45,255,122,0.1)", border: "1px solid rgba(45,255,122,0.2)" }}>
+                <div className="ent-icon" style={{ margin: 0, background: "rgba(var(--green-rgb),0.1)", border: "1px solid rgba(var(--green-rgb),0.2)" }}>
                   <Server size={24} color="var(--green)" />
                 </div>
                 <h3 className="ent-card-title" style={{ margin: 0, fontSize: "22px" }}>Dedicated Bare-Metal</h3>
@@ -93,7 +93,7 @@ export default function GpuServicePage() {
 
             <div className="ent-card" style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px", marginBottom: "20px" }}>
-                <div className="ent-icon" style={{ margin: 0, background: "rgba(255,184,77,0.1)", border: "1px solid rgba(255,184,77,0.2)" }}>
+                <div className="ent-icon" style={{ margin: 0, background: "rgba(var(--amber-rgb),0.1)", border: "1px solid rgba(var(--amber-rgb),0.2)" }}>
                   <Blocks size={24} color="var(--amber)" />
                 </div>
                 <h3 className="ent-card-title" style={{ margin: 0, fontSize: "22px" }}>GPU-as-a-Service</h3>
@@ -143,7 +143,7 @@ export default function GpuServicePage() {
           <div style={{ width: "100%", maxWidth: "600px", position: "relative", marginTop: "40px" }}>
             <div style={{ background: "var(--surface)", border: "1px solid var(--border)", borderRadius: "24px", padding: "40px", position: "relative", overflow: "hidden", minHeight: "400px", display: "flex", alignItems: "center", justifyItems: "center" }}>
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green/5 via-transparent to-transparent" />
-              <div style={{ width: "100%", border: "1px solid rgba(45,255,122,0.15)", borderRadius: "12px", background: "rgba(10,15,10,0.6)", padding: "20px", position: "relative", zIndex: 10 }}>
+              <div style={{ width: "100%", border: "1px solid rgba(var(--green-rgb),0.15)", borderRadius: "12px", background: "rgba(var(--bg-rgb),0.6)", padding: "20px", position: "relative", zIndex: 10 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", borderBottom: "1px solid var(--border)", paddingBottom: "12px", marginBottom: "16px" }}>
                   <span style={{ fontSize: "12px", color: "var(--muted)", fontFamily: "var(--font-mono)" }}>SERVER_STATUS</span>
                   <span style={{ fontSize: "12px", color: "var(--green)", fontFamily: "var(--font-mono)" }}>ONLINE</span>
@@ -291,12 +291,12 @@ export default function GpuServicePage() {
               color: "var(--white)", 
               fontWeight: 700, 
               fontSize: "18px", 
-              background: "rgba(10,15,10,0.85)", 
+              background: "rgba(var(--bg-rgb),0.85)", 
               padding: "16px 32px", 
               borderRadius: "40px", 
-              border: "1px solid rgba(45,255,122,0.25)", 
+              border: "1px solid rgba(var(--green-rgb),0.25)", 
               backdropFilter: "blur(8px)",
-              boxShadow: "0 10px 30px rgba(0,0,0,0.5)"
+              boxShadow: "0 10px 30px rgba(var(--shadow-rgb),0.5)"
             }}>
               Deploy closest to your users.
             </div>

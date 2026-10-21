@@ -61,18 +61,18 @@ export default function ContactChannelsSection() {
               key={channel.name}
               className={`channel-card ${channel.cardClass} reveal${delay ? ` ${delay}` : ""}`}
               style={{
-                background: "rgba(255, 255, 255, 0.03)",
+                background: "rgba(var(--fg-rgb), 0.03)",
                 backdropFilter: "blur(12px)",
-                border: "1px solid rgba(255,255,255,0.08)",
+                border: "1px solid rgba(var(--fg-rgb),0.08)",
                 borderRadius: "20px",
                 padding: "32px",
-                boxShadow: "0 4px 24px rgba(0,0,0,0.2)",
+                boxShadow: "0 4px 24px rgba(var(--shadow-rgb),0.2)",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease"
               }}
             >
               <div className={`ch-icon-wrap ${channel.variant}`} style={{ 
-                background: "rgba(255,255,255,0.05)", 
-                border: "1px solid rgba(255,255,255,0.1)", 
+                background: "rgba(var(--fg-rgb),0.05)", 
+                border: "1px solid rgba(var(--fg-rgb),0.1)", 
                 width: "56px", 
                 height: "56px", 
                 borderRadius: "14px",
@@ -80,7 +80,7 @@ export default function ContactChannelsSection() {
                 alignItems: "center",
                 justifyContent: "center",
                 marginBottom: "24px",
-                boxShadow: "0 0 16px rgba(255,255,255,0.05)"
+                boxShadow: "0 0 16px rgba(var(--fg-rgb),0.05)"
               }}>
                 {channel.icon}
               </div>

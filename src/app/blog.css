@@ -2,9 +2,9 @@
   min-height: 100vh;
   padding: 132px 0 96px;
   background:
-    radial-gradient(circle at 76% 8%, rgba(45, 255, 122, 0.08), transparent 32rem),
-    linear-gradient(rgba(45, 255, 122, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45, 255, 122, 0.018) 1px, transparent 1px),
+    radial-gradient(circle at 76% 8%, rgba(var(--green-rgb), 0.08), transparent 32rem),
+    linear-gradient(rgba(var(--green-rgb), 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--green-rgb), 0.018) 1px, transparent 1px),
     var(--bg);
   background-size: auto, 40px 40px, 40px 40px, auto;
   color: var(--text);
@@ -64,7 +64,7 @@
 
 .blog-heading-row p {
   max-width: 560px;
-  color: rgba(200, 212, 200, 0.68);
+  color: rgba(var(--text-rgb), 0.68);
   font-size: 16px;
   line-height: 1.7;
   margin: 0;
@@ -82,7 +82,7 @@
   appearance: none;
   border: 0;
   background: transparent;
-  color: rgba(200, 212, 200, 0.58);
+  color: rgba(var(--text-rgb), 0.58);
   cursor: pointer;
   font-size: 12px;
   font-weight: 700;
@@ -98,7 +98,7 @@
 }
 
 .blog-category-nav button:focus-visible {
-  outline: 1px solid rgba(45, 255, 122, 0.7);
+  outline: 1px solid rgba(var(--green-rgb), 0.7);
   outline-offset: 6px;
 }
 
@@ -107,7 +107,7 @@
   grid-template-columns: 1.1fr 0.9fr;
   min-height: 540px;
   margin: 96px 0;
-  background: rgba(255, 255, 255, 0.012);
+  background: rgba(var(--fg-rgb), 0.012);
   border: 1px solid var(--border);
   overflow: hidden;
 }
@@ -116,7 +116,7 @@
 .blog-row-visual {
   position: relative;
   overflow: hidden;
-  background: #000;
+  background: var(--bg-deep);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -141,7 +141,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle at 70% 30%, rgba(45, 255, 122, 0.1), transparent);
+  background: radial-gradient(circle at 70% 30%, rgba(var(--green-rgb), 0.1), transparent);
   color: var(--white);
   font-size: 80px;
   font-weight: 800;
@@ -159,7 +159,7 @@
   display: flex;
   align-items: center;
   gap: 32px;
-  color: rgba(200, 212, 200, 0.54);
+  color: rgba(var(--text-rgb), 0.54);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.08em;
@@ -187,7 +187,7 @@
 
 .blog-featured p,
 .blog-row-copy p {
-  color: rgba(200, 212, 200, 0.68);
+  color: rgba(var(--text-rgb), 0.68);
   line-height: 1.65;
 }
 
@@ -222,8 +222,8 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  background: rgba(45, 255, 122, 0.1);
-  border: 1px solid rgba(45, 255, 122, 0.22);
+  background: rgba(var(--green-rgb), 0.1);
+  border: 1px solid rgba(var(--green-rgb), 0.22);
   color: var(--green);
   font-family: var(--font-mono);
   font-size: 11px;
@@ -252,7 +252,7 @@
   font-size: 12px;
   font-weight: 800;
   text-decoration: none;
-  border-bottom: 1px solid rgba(45, 255, 122, 0.7);
+  border-bottom: 1px solid rgba(var(--green-rgb), 0.7);
   padding-bottom: 4px;
   transition: color 0.2s, border-color 0.2s;
   white-space: nowrap;
@@ -306,7 +306,7 @@
 
 .blog-short-desc {
   font-size: 20px;
-  color: rgba(200, 212, 200, 0.7);
+  color: rgba(var(--text-rgb), 0.7);
   line-height: 1.6;
   max-width: 800px;
 }
@@ -330,7 +330,7 @@
   max-width: 800px;
   font-size: 18px;
   line-height: 1.8;
-  color: rgba(200, 212, 200, 0.85);
+  color: rgba(var(--text-rgb), 0.85);
 }
 
 .blog-detail-content p {
@@ -375,8 +375,8 @@
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 74% 30%, rgba(45, 255, 122, 0.13), transparent 12rem),
-    #0e150f;
+    radial-gradient(circle at 74% 30%, rgba(var(--green-rgb), 0.13), transparent 12rem),
+    var(--surface);
 }
 
 .blog-featured .blog-visual {
@@ -388,8 +388,8 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(45, 255, 122, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(45, 255, 122, 0.06) 1px, transparent 1px);
+    linear-gradient(rgba(var(--green-rgb), 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(var(--green-rgb), 0.06) 1px, transparent 1px);
   background-size: 34px 34px;
   mask-image: linear-gradient(135deg, transparent 0%, black 26%, black 74%, transparent 100%);
   opacity: 0.65;
@@ -399,16 +399,16 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(0, 0, 0, 0.18) 3px, rgba(0, 0, 0, 0.18) 4px);
+  background: repeating-linear-gradient(0deg, transparent, transparent 3px, rgba(var(--shadow-rgb), 0.18) 3px, rgba(var(--shadow-rgb), 0.18) 4px);
 }
 
 .blog-visual-grid {
   position: absolute;
   inset: 18%;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(var(--fg-rgb), 0.08);
   box-shadow:
-    72px -48px 0 rgba(77, 200, 255, 0.08),
-    -72px 48px 0 rgba(45, 255, 122, 0.06);
+    72px -48px 0 rgba(var(--blue-rgb), 0.08),
+    -72px 48px 0 rgba(var(--green-rgb), 0.06);
 }
 
 .blog-visual-card {
@@ -421,14 +421,14 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 30px;
-  background: rgba(45, 255, 122, 0.12);
-  border: 1px solid rgba(45, 255, 122, 0.26);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.36);
+  background: rgba(var(--green-rgb), 0.12);
+  border: 1px solid rgba(var(--green-rgb), 0.26);
+  box-shadow: 0 24px 80px rgba(var(--shadow-rgb), 0.36);
   z-index: 2;
 }
 
 .blog-visual-card span {
-  color: rgba(240, 245, 240, 0.78);
+  color: rgba(var(--white-rgb), 0.78);
   font-size: 14px;
 }
 
@@ -453,7 +453,7 @@
 .blog-visual-guide,
 .blog-visual-storage {
   background:
-    radial-gradient(circle at 30% 72%, rgba(77, 200, 255, 0.12), transparent 12rem),
+    radial-gradient(circle at 30% 72%, rgba(var(--blue-rgb), 0.12), transparent 12rem),
     #0a1514;
 }
 
@@ -461,13 +461,13 @@
 .blog-visual-storage .blog-visual-card {
   left: 24px;
   right: auto;
-  background: rgba(77, 200, 255, 0.12);
-  border-color: rgba(77, 200, 255, 0.26);
+  background: rgba(var(--blue-rgb), 0.12);
+  border-color: rgba(var(--blue-rgb), 0.26);
 }
 
 .blog-visual-security .blog-visual-card {
-  background: rgba(255, 184, 77, 0.12);
-  border-color: rgba(255, 184, 77, 0.24);
+  background: rgba(var(--amber-rgb), 0.12);
+  border-color: rgba(var(--amber-rgb), 0.24);
 }
 
 .blog-article-list {

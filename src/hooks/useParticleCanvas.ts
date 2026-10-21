@@ -1,3 +1,4 @@
+import { T } from "@/lib/theme";
 import { useEffect, useRef } from "react";
 
 interface Particle {
@@ -13,8 +14,6 @@ interface Particle {
 }
 
 const N = 90;
-const G = "45,255,122";
-const B = "77,200,255";
 const CONNECT_DIST = 130;
 
 function createParticle(W: number, H: number): Particle {
@@ -25,7 +24,7 @@ function createParticle(W: number, H: number): Particle {
     p.vx = (Math.random() - 0.5) * 0.45;
     p.vy = (Math.random() - 0.5) * 0.45;
     p.r = Math.random() * 1.8 + 0.5;
-    p.col = Math.random() > 0.7 ? B : G;
+    p.col = Math.random() > 0.7 ? T.blue : T.green;
     p.a = Math.random() * 0.5 + 0.2;
   };
   p.tick = () => {

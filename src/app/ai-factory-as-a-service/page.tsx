@@ -17,8 +17,8 @@ export default function AiFactoryPage() {
         <HeroParticles />
         <div className="hero-grid" />
         <div className="hero-aurora">
-          <div className="aurora-band" style={{ background: "rgba(45,255,122,0.3)", top: "20%", "--adur": "15s", "--adel": "0s" } as React.CSSProperties} />
-          <div className="aurora-band" style={{ background: "rgba(77,200,255,0.25)", top: "50%", "--adur": "20s", "--adel": "4s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--green-rgb),0.3)", top: "20%", "--adur": "15s", "--adel": "0s" } as React.CSSProperties} />
+          <div className="aurora-band" style={{ background: "rgba(var(--blue-rgb),0.25)", top: "50%", "--adur": "20s", "--adel": "4s" } as React.CSSProperties} />
         </div>
 
         <div className="hero-content" style={{ marginTop: "-5vh" }}>
@@ -75,7 +75,7 @@ export default function AiFactoryPage() {
           </div>
 
           <div className="ent-features-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))" }}>
-            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, var(--bg-deep) 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div className="ent-icon" style={{ margin: "0 auto 18px auto" }}>
                 <Box size={24} color="var(--green)" />
               </div>
@@ -85,7 +85,7 @@ export default function AiFactoryPage() {
               </p>
             </div>
             
-            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, var(--bg-deep) 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div className="ent-icon" style={{ margin: "0 auto 18px auto" }}>
                 <Lock size={24} color="var(--blue)" />
               </div>
@@ -95,7 +95,7 @@ export default function AiFactoryPage() {
               </p>
             </div>
             
-            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
+            <div className="ent-card" style={{ background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, var(--bg-deep) 100%)", backdropFilter: "blur(10px)", display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center" }}>
               <div className="ent-icon" style={{ margin: "0 auto 18px auto" }}>
                 <Settings size={24} color="var(--amber)" />
               </div>
@@ -144,7 +144,7 @@ export default function AiFactoryPage() {
                   textAlign: "center",
                   gap: "24px",
                   padding: "40px 32px",
-                  background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)", 
+                  background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, var(--bg-deep) 100%)", 
                   backdropFilter: "blur(10px)",
                   flex: "1 1 320px",
                   maxWidth: "400px"
@@ -161,7 +161,7 @@ export default function AiFactoryPage() {
                   justifyContent: "center", 
                   flexShrink: 0,
                   margin: "0 auto",
-                  boxShadow: "0 8px 16px rgba(0,0,0,0.2)"
+                  boxShadow: "0 8px 16px rgba(var(--shadow-rgb),0.2)"
                 }}>
                   <item.icon size={24} color="var(--green)" />
                 </div>
@@ -243,7 +243,7 @@ export default function AiFactoryPage() {
               <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-blue/10 via-transparent to-transparent" />
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", position: "relative", zIndex: 10 }}>
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} style={{ width: "120px", height: "160px", background: "rgba(10, 15, 10, 0.8)", border: "1px solid rgba(77, 200, 255, 0.3)", borderRadius: "12px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", boxShadow: "0 0 30px rgba(77, 200, 255, 0.1)" }}>
+                  <div key={i} style={{ width: "120px", height: "160px", background: "rgba(var(--bg-rgb), 0.8)", border: "1px solid rgba(var(--blue-rgb), 0.3)", borderRadius: "12px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: "12px", boxShadow: "0 0 30px rgba(var(--blue-rgb), 0.1)" }}>
                     <Layers size={32} color="var(--blue)" />
                     <div style={{ width: "60%", height: "4px", background: "var(--blue)", borderRadius: "2px", opacity: 0.5 }} />
                     <div style={{ width: "40%", height: "4px", background: "var(--blue)", borderRadius: "2px", opacity: 0.3 }} />
@@ -279,7 +279,7 @@ export default function AiFactoryPage() {
               { name: "Cerebras", detail: "Wafer-scale engines" },
               { name: "Custom ASICs", detail: "Partner or custom silicon" }
             ].map((chip, idx) => (
-              <div key={idx} style={{ background: "var(--surface2)", border: "1px solid rgba(45, 255, 122, 0.2)", borderRadius: "12px", padding: "24px 16px", minWidth: "0" }}>
+              <div key={idx} style={{ background: "var(--surface2)", border: "1px solid rgba(var(--green-rgb), 0.2)", borderRadius: "12px", padding: "24px 16px", minWidth: "0" }}>
                 <Cpu size={28} color="var(--green)" style={{ margin: "0 auto 12px" }} />
                 <h4 style={{ color: "var(--white)", fontWeight: 700, fontSize: "16px", marginBottom: "4px" }}>{chip.name}</h4>
                 <p style={{ color: "var(--muted)", fontSize: "13px" }}>{chip.detail}</p>
@@ -323,12 +323,12 @@ export default function AiFactoryPage() {
                   padding: "24px",
                   flex: "1 1 280px",
                   maxWidth: "320px",
-                  background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, #000 100%)",
+                  background: "linear-gradient(180deg, rgba(20, 26, 20, 0.8) 0%, var(--bg-deep) 100%)",
                   backdropFilter: "blur(10px)"
                 }}
               >
                 <div style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
-                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(45, 255, 122, 0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(var(--green-rgb), 0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                     <Factory size={16} color="var(--green)" />
                   </div>
                   <p style={{ color: "var(--text)", fontSize: "15px", lineHeight: "1.5", margin: 0 }}>{service}</p>

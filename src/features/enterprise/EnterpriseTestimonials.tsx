@@ -13,7 +13,7 @@ const TESTIMONIALS: ReadonlyArray<Testimonial> = [
     initials: "SR",
     name: "Sarah R.",
     role: "VP of Infrastructure · Acme AI",
-    avatarBg: "linear-gradient(135deg,#2dff7a,#1aaa4e)",
+    avatarBg: "linear-gradient(135deg,var(--green),var(--green-dim))",
   },
   {
     quote:
@@ -21,7 +21,7 @@ const TESTIMONIALS: ReadonlyArray<Testimonial> = [
     initials: "MK",
     name: "Marcus K.",
     role: "CTO · Meridian AI",
-    avatarBg: "linear-gradient(135deg,#4dc8ff,#1a5080)",
+    avatarBg: "linear-gradient(135deg,var(--blue),#1a5080)",
   },
   {
     quote:
@@ -29,7 +29,7 @@ const TESTIMONIALS: ReadonlyArray<Testimonial> = [
     initials: "JL",
     name: "Jessica L.",
     role: "Head of ML Ops · Vertex Labs",
-    avatarBg: "linear-gradient(135deg,#ffb84d,#b85000)",
+    avatarBg: "linear-gradient(135deg,var(--amber),#b85000)",
   },
 ];
 
