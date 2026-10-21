@@ -173,16 +173,16 @@ export function Header() {
           })}
         </ul>
         <div className="site-header-actions">
-          <ThemeToggle />
           <a
             href={DEMO_URL}
             className="site-nav-demo"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Try the NeoCloudz demo (opens in a new tab)"
+            aria-label="Live Demo (opens in a new tab)"
           >
-            Demo <PlayCircle size={16} aria-hidden="true" />
+            Live Demo <PlayCircle size={16} aria-hidden="true" />
           </a>
+          <ThemeToggle />
           <Link
             href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"
               }&cta=talk_to_us`}
