@@ -10,11 +10,9 @@ import {
   HomeGpuCatalog,
   HomeNvlink,
   HomePartners,
-  HomePricing,
   HomeRack,
   HomeStorage,
   HomeWhy,
-  HomeWorkloads,
 } from "./HomeSections";
 
 export function HomeShell() {
@@ -30,8 +28,7 @@ export function HomeShell() {
       <div className="section-divider" />
       <HomePartners />
       <HomeWhy />
-      {/* <HomePricing /> */}
-      <HomeWorkloads />
+      <div className="section-divider" />
       <HomeGpuCatalog />
       <div className="section-divider" />
       <HomeNvlink />
