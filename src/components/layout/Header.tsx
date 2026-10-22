@@ -121,7 +121,14 @@ export function Header() {
           <img
             src="/Asset%201.png"
             alt="NeoCloudz - High-Performance AI Cloud"
+            className="site-logo-img site-logo-dark"
             style={{ height: "45px", width: "auto", display: "block" }}
+          />
+          <img
+            src="/Asset%201-light.png"
+            alt="NeoCloudz - High-Performance AI Cloud"
+            className="site-logo-img site-logo-light"
+            style={{ height: "45px", width: "auto", display: "none" }}
           />
         </Link>
         <ul className="site-nav-links">

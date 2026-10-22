@@ -107,7 +107,18 @@ export function Footer() {
       <div className="site-footer-top">
         <div className="site-footer-brand">
           <Link href="/" className="site-footer-brand-logo" aria-label="NeoCloudz Home">
-            <img src="/Asset%201.png" alt="NeoCloudz - High-Performance AI Cloud" style={{ height: '45px', width: 'auto', display: 'block' }} />
+            <img
+              src="/Asset%201.png"
+              alt="NeoCloudz - High-Performance AI Cloud"
+              className="site-logo-img site-logo-dark"
+              style={{ height: '45px', width: 'auto', display: 'block' }}
+            />
+            <img
+              src="/Asset%201-light.png"
+              alt="NeoCloudz - High-Performance AI Cloud"
+              className="site-logo-img site-logo-light"
+              style={{ height: '45px', width: 'auto', display: 'none' }}
+            />
           </Link>
           <p>
             The future of Al compute starts here. Powered by DigiPower • U.S. Tier Ill Data Centers TIA-942

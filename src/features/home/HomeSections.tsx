@@ -1169,7 +1169,8 @@ export function HomeFooter() {
               marginBottom: "14px"
             }}
           >
-            <img src="/Asset%201.png" alt="NeoCloudz - High-Performance AI Cloud" style={{ height: '45px', width: 'auto', display: 'block' }} />
+            <img src="/Asset%201.png" alt="NeoCloudz - High-Performance AI Cloud" className="site-logo-img site-logo-dark" style={{ height: '45px', width: 'auto', display: 'block' }} />
+            <img src="/Asset%201-light.png" alt="NeoCloudz - High-Performance AI Cloud" className="site-logo-img site-logo-light" style={{ height: '45px', width: 'auto', display: 'none' }} />
           </Link>
           <p>
             The fastest, most powerful GPU cloud for AI teams. Blackwell on-demand,

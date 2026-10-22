@@ -1012,6 +1012,7 @@
     text-align: center;
   }
 }
+
 /* ── LIGHT THEME ADJUSTMENTS ── */
 :root[data-theme="light"] .home-page .hero::before,
 :root[data-theme="light"] .contact-page .hero::before,
@@ -1020,14 +1021,40 @@
   opacity: 0.25;
 }
 
-/* Logo artwork has white "Neo" lettering; give it its dark plate on light surfaces */
-:root[data-theme="light"] .site-header .site-logo img,
-:root[data-theme="light"] .site-footer .site-footer-brand-logo img {
-  background: #0a0f0a;
-  border-radius: 10px;
-  padding: 4px 10px;
-  box-sizing: content-box;
+/* Logo theme toggle: light mode uses black "Neo" text with no background or border */
+.site-logo-light {
+  display: none !important;
 }
+
+.site-logo-dark {
+  display: block !important;
+}
+
+:root[data-theme="light"] .site-logo-dark {
+  display: none !important;
+}
+
+:root[data-theme="light"] .site-logo-light {
+  display: block !important;
+}
+
+:root[data-theme="light"] .site-header .site-logo img,
+:root[data-theme="light"] .site-footer .site-footer-brand-logo img,
+:root[data-theme="light"] .footer-brand-logo img {
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Fallback for standalone logo img tags without light/dark classes */
+:root[data-theme="light"] .site-header .site-logo img:not(.site-logo-dark):not(.site-logo-light),
+:root[data-theme="light"] .site-footer .site-footer-brand-logo img:not(.site-logo-dark):not(.site-logo-light),
+:root[data-theme="light"] .footer-brand-logo img:not(.site-logo-dark):not(.site-logo-light) {
+  content: url("/Asset%201-light.png");
+}
+
 
 /* Small phones: make room for theme toggle + Demo + menu beside the logo */
 @media (max-width: 420px) {
@@ -1066,9 +1093,6 @@
     height: 24px !important;
   }
 
-  :root[data-theme="light"] .site-header .site-logo img {
-    padding: 4px 6px;
-  }
 }
 
 /* Medium screens: tighten nav so links + Sign In/Sign Up + toggle + Talk to Us fit */
@@ -1082,13 +1106,7 @@
   }
 }
 
-/* Phones, light theme: slimmer logo plate */
 @media (max-width: 480px) {
-  :root[data-theme="light"] .site-header .site-logo img {
-    padding: 3px 6px;
-    border-radius: 8px;
-  }
-
   .site-header .site-header-actions {
     gap: 5px;
   }
@@ -1135,4 +1153,3 @@
     margin-right: 6px;
   }
 }
-

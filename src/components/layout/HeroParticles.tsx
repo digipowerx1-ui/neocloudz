@@ -56,7 +56,7 @@ export function HeroParticles() {
       const height = canvas.offsetHeight;
       canvas.width = width;
       canvas.height = height;
-      
+
       particles = [];
       const particleCount = Math.floor((width * height) / 10000);
       for (let i = 0; i < particleCount; i++) {
@@ -66,7 +66,7 @@ export function HeroParticles() {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
       particles.forEach(p => {
         p.update(canvas.width, canvas.height);
         p.draw(ctx);
@@ -80,7 +80,7 @@ export function HeroParticles() {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          
+
           if (distance < 100) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
