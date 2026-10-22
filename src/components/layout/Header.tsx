@@ -260,6 +260,14 @@ export function Header() {
                 );
               })}
             </ul>
+            <div className="site-mobile-nav-actions">
+              <a href={SIGN_IN_URL} className="site-mobile-signin">
+                Sign In
+              </a>
+              <a href={SIGN_UP_URL} className="site-mobile-signup">
+                Sign Up
+              </a>
+            </div>
           </nav>
         )}
       </header>

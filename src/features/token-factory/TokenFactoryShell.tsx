@@ -194,10 +194,9 @@ export function TokenFactoryShell() {
           </div>
 
           <div className="hero-content" style={{ maxWidth: "1140px" }}>
-            {/* High-Tech Badge */}
-            <div className="tf-early-badge">
-              <span className="dot" />
-              <span>Managed AI Inference · Powered by NVIDIA Blackwell B200 &amp; B300</span>
+            {/* Eyebrow Label matching other sections */}
+            <div className="hp-label tf-hero-label" style={{ justifyContent: "center" }}>
+              Managed AI Inference
             </div>
 
             {/* Powerful Headline */}
@@ -246,21 +245,7 @@ export function TokenFactoryShell() {
             </div>
 
             {/* Supported Models Strip */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "10px",
-                flexWrap: "wrap",
-                marginBottom: "40px",
-                padding: "10px 18px",
-                background: "rgba(var(--fg-rgb), 0.02)",
-                border: "1px solid rgba(var(--fg-rgb), 0.06)",
-                borderRadius: "9999px",
-                backdropFilter: "blur(8px)",
-              }}
-            >
+            <div className="tf-models-strip">
               <span
                 style={{
                   fontFamily: "var(--font-mono)",
