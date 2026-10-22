@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
-import { MessageSquare, Moon, PlayCircle, Sun } from "lucide-react";
+import { MessageSquare, Moon, Sun } from "lucide-react";
 
-const DEMO_URL = "https://demo.neocloudz.com/";
+const SIGN_IN_URL = "https://console.neocloudz.com/authentication/signin";
+const SIGN_UP_URL = "https://console.neocloudz.com/authentication/signup";
 import { AnnouncementBanner } from "./AnnouncementBanner";
 
 interface SubLink {
@@ -173,14 +174,11 @@ export function Header() {
           })}
         </ul>
         <div className="site-header-actions">
-          <a
-            href={DEMO_URL}
-            className="site-nav-demo"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Live Demo (opens in a new tab)"
-          >
-            Live Demo <PlayCircle size={16} aria-hidden="true" />
+          <a href={SIGN_IN_URL} className="site-nav-signin">
+            Sign In
+          </a>
+          <a href={SIGN_UP_URL} className="site-nav-signup">
+            Sign Up
           </a>
           <ThemeToggle />
           <Link
