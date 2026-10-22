@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
-import { MessageSquare, Moon, Sun } from "lucide-react";
+import { Moon, Sun } from "lucide-react";
 
 const SIGN_IN_URL = "https://console.neocloudz.com/authentication/signin";
 const SIGN_UP_URL = "https://console.neocloudz.com/authentication/signup";
@@ -174,13 +174,15 @@ export function Header() {
           })}
         </ul>
         <div className="site-header-actions">
+          <ThemeToggle />
           <a href={SIGN_IN_URL} className="site-nav-signin">
             Sign In
           </a>
           <a href={SIGN_UP_URL} className="site-nav-signup">
             Sign Up
           </a>
-          <ThemeToggle />
+          {/* Talk to Us removed from the header per client request; restore by uncommenting
+              (and re-adding MessageSquare to the lucide-react import).
           <Link
             href={`/contact?source=${pathname === "/" ? "homepage" : pathname.replace("/", "") || "unknown"
               }&cta=talk_to_us`}
@@ -190,6 +192,7 @@ export function Header() {
           >
             Talk to Us <MessageSquare size={16} aria-hidden="true" />
           </Link>
+          */}
         </div>
         <button
           className="site-nav-toggle"

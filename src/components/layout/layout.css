@@ -1136,25 +1136,3 @@
   }
 }
 
-/* Small tablets (769–900px): full nav + four actions don't fit, use the menu layout */
-@media (min-width: 769px) and (max-width: 900px) {
-  .site-header .site-nav-links,
-  .site-header .site-nav-cta {
-    display: none !important;
-  }
-
-  .site-header .site-nav-toggle {
-    display: flex !important;
-  }
-
-  .site-header .site-header-actions {
-    margin-left: auto;
-    margin-right: 12px;
-  }
-
-  .site-mobile-nav {
-    display: block;
-    top: 108px;
-    height: calc(100vh - 108px);
-  }
-}
