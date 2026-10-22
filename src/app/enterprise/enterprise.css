@@ -2789,3 +2789,121 @@
     gap: 18px;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   AI FACTORY AS A SERVICE CARDS (Dark & Light Theme)
+───────────────────────────────────────────────────────────────── */
+.enterprise-page.ai-factory-page .ent-card {
+  background: linear-gradient(180deg, rgba(var(--surface-rgb), 0.85) 0%, var(--bg-deep) 100%);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+  transition: all 0.25s ease;
+}
+
+.enterprise-page.ai-factory-page .ent-card:hover {
+  border-color: rgba(var(--green-rgb), 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(var(--shadow-rgb), 0.25), 0 0 20px rgba(var(--green-rgb), 0.08);
+}
+
+.enterprise-page.ai-factory-page .silicon-chip-card {
+  background: var(--surface2);
+  border: 1px solid rgba(var(--green-rgb), 0.2);
+  border-radius: 12px;
+  padding: 24px 16px;
+  min-width: 0;
+  transition: all 0.25s ease;
+}
+
+.enterprise-page.ai-factory-page .silicon-chip-card:hover {
+  border-color: rgba(var(--green-rgb), 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(var(--shadow-rgb), 0.15);
+}
+
+/* Light Theme Overrides */
+:root[data-theme="light"] .enterprise-page.ai-factory-page .ent-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(var(--fg-rgb), 0.09);
+  box-shadow: 0 4px 18px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .ent-card:hover {
+  background: #ffffff;
+  border-color: rgba(var(--green-rgb), 0.4);
+  box-shadow: 0 12px 30px rgba(var(--shadow-rgb), 0.08), 0 0 20px rgba(var(--green-rgb), 0.1);
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .ent-card-title,
+:root[data-theme="light"] .enterprise-page.ai-factory-page .ent-card h3,
+:root[data-theme="light"] .enterprise-page.ai-factory-page .ent-card h4 {
+  color: var(--white);
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .ent-card-desc,
+:root[data-theme="light"] .enterprise-page.ai-factory-page .ent-card p {
+  color: var(--text);
+  opacity: 0.88;
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .persona-icon-box {
+  background: rgba(var(--green-rgb), 0.08) !important;
+  border: 1px solid rgba(var(--green-rgb), 0.2) !important;
+  box-shadow: 0 4px 12px rgba(var(--shadow-rgb), 0.04) !important;
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .silicon-chip-card {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(var(--green-rgb), 0.28);
+  box-shadow: 0 4px 16px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .silicon-chip-card h4 {
+  color: var(--white);
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .silicon-chip-card p {
+  color: var(--text);
+  opacity: 0.85;
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .pod-arch-outer {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(var(--fg-rgb), 0.09) !important;
+  box-shadow: 0 8px 28px rgba(var(--shadow-rgb), 0.05);
+}
+
+:root[data-theme="light"] .enterprise-page.ai-factory-page .pod-node-unit {
+  background: rgba(var(--surface-rgb), 0.95) !important;
+  border: 1px solid rgba(var(--blue-rgb), 0.35) !important;
+  box-shadow: 0 4px 16px rgba(var(--blue-rgb), 0.08) !important;
+}
+
+:root[data-theme="light"] .enterprise-page.career-page .career-card {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(var(--fg-rgb), 0.12) !important;
+  box-shadow: 0 6px 24px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .enterprise-page.career-page .career-card h3 {
+  color: var(--white) !important;
+}
+
+:root[data-theme="light"] .enterprise-page.career-page .career-card p {
+  color: var(--text) !important;
+  opacity: 0.88;
+}
+
+:root[data-theme="light"] .enterprise-page.career-page .spec-card {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border-color: rgba(var(--fg-rgb), 0.12) !important;
+  box-shadow: 0 4px 20px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .enterprise-page.career-page .spec-card h3 {
+  color: var(--white) !important;
+}
+
+:root[data-theme="light"] .enterprise-page.career-page .spec-action {
+  color: var(--white) !important;
+}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import CtaSection from "@/features/cta/CtaSection";
 import PageEffects from "@/features/page-effects/PageEffects";
 import ProductHero from "@/features/products/ProductHero";
@@ -168,7 +169,8 @@ export default function ProductsPage() {
                     className="btn btn-green"
                     aria-label={`${p.cta.label} for ${p.name}`}
                   >
-                    {p.cta.label} →
+                    <span>{p.cta.label}</span>
+                    <ArrowRight size={16} aria-hidden="true" />
                   </Link>
                 </div>
               </div>
@@ -252,7 +254,8 @@ export default function ProductsPage() {
               </ul>
               <div style={{ marginTop: 32 }}>
                 <Link href="/contact?source=products&cta=explore_hardware" className="btn btn-green" aria-label="Explore Hardware">
-                  Explore Hardware →
+                  <span>Explore Hardware</span>
+                  <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             </div>

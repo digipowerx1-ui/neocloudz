@@ -299,3 +299,175 @@
     padding: 10px 16px !important;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   About / Company Page Card Styles & Light Theme Support
+───────────────────────────────────────────────────────────────── */
+
+/* Architecture Cards */
+.about-page-container .arch-card {
+  background: linear-gradient(145deg, rgba(8, 14, 8, 0.92) 0%, rgba(3, 7, 3, 0.96) 100%);
+  border-radius: 24px;
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  backdrop-filter: blur(10px);
+}
+
+.about-page-container .arch-card-power {
+  border: 1px solid rgba(var(--amber-rgb), 0.18);
+}
+
+.about-page-container .arch-card-persist {
+  border: 1px solid rgba(var(--blue-rgb), 0.18);
+}
+
+.about-page-container .arch-card-title {
+  color: var(--white);
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.about-page-container .arch-system-label {
+  color: rgba(var(--fg-rgb), 0.45);
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+
+.about-page-container .arch-card-li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 15px;
+  color: var(--text);
+  opacity: 0.85;
+  transition: color 0.3s;
+}
+
+/* Eco Cards */
+.about-page-container .eco-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 40px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-page-container .eco-card h3 {
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.about-page-container .eco-card p {
+  color: var(--text);
+  opacity: 0.82;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* Mission Console */
+.about-page-container .mission-console {
+  background: var(--bg-deep);
+  border: 1px solid rgba(var(--green-rgb), 0.18);
+  border-radius: 16px;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Deployment Terminal */
+.about-page-container .deployment-log-terminal {
+  background: #080d08;
+  border: 1px solid rgba(var(--green-rgb), 0.25);
+  border-radius: 16px;
+  padding: 32px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: rgba(var(--green-rgb), 0.8);
+  position: relative;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Light Theme Overrides */
+:root[data-theme="light"] .about-page-container .arch-card {
+  background: rgba(255, 255, 255, 0.96) !important;
+  box-shadow: 0 8px 30px rgba(var(--shadow-rgb), 0.05);
+}
+
+:root[data-theme="light"] .about-page-container .arch-card-power {
+  border: 1px solid rgba(var(--amber-rgb), 0.32) !important;
+}
+
+:root[data-theme="light"] .about-page-container .arch-card-persist {
+  border: 1px solid rgba(var(--blue-rgb), 0.32) !important;
+}
+
+:root[data-theme="light"] .about-page-container .arch-card-title {
+  color: var(--white) !important;
+}
+
+:root[data-theme="light"] .about-page-container .arch-card-li {
+  color: var(--text) !important;
+  opacity: 0.92;
+}
+
+:root[data-theme="light"] .about-page-container .arch-system-label {
+  color: var(--muted) !important;
+}
+
+:root[data-theme="light"] .about-page-container .eco-card {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(var(--fg-rgb), 0.1) !important;
+  box-shadow: 0 6px 24px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .about-page-container .eco-card:hover {
+  background: #ffffff !important;
+  border-color: rgba(var(--green-rgb), 0.35) !important;
+  box-shadow: 0 12px 32px rgba(var(--shadow-rgb), 0.08);
+}
+
+:root[data-theme="light"] .about-page-container .eco-card h3 {
+  color: var(--white) !important;
+}
+
+:root[data-theme="light"] .about-page-container .eco-card p {
+  color: var(--text) !important;
+  opacity: 0.9;
+}
+
+:root[data-theme="light"] .about-page-container .stats-grid-mini {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(var(--green-rgb), 0.22) !important;
+  box-shadow: 0 4px 20px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .about-page-container .impact-stat-label {
+  color: var(--muted) !important;
+}
+
+:root[data-theme="light"] .about-page-container .mission-console {
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 1px solid rgba(var(--green-rgb), 0.25) !important;
+  box-shadow: 0 8px 28px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .about-page-container .mission-console p {
+  color: var(--text) !important;
+}
+
+:root[data-theme="light"] .about-page-container .vision-brief {
+  background: rgba(var(--green-rgb), 0.06) !important;
+  border-left: 3px solid var(--green) !important;
+}

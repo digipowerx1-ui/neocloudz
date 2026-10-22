@@ -251,18 +251,7 @@ export function PricingShell() {
     return () => obs.disconnect();
   }, []);
 
-  // Pill slider position
-  const pillContainerRef = useRef<HTMLDivElement>(null);
-  const pillSliderRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const cont = pillContainerRef.current;
-    const slider = pillSliderRef.current;
-    if (!cont || !slider) return;
-    const target = cont.querySelector<HTMLButtonElement>(`.plan-pill[data-plan="${plan}"]`);
-    if (!target) return;
-    slider.style.width = target.offsetWidth + "px";
-    slider.style.left = target.offsetLeft + "px";
-  }, [plan]);
+
 
   // Tier particle pixel position derived from line width on tier change / resize
   useEffect(() => {
@@ -397,8 +386,8 @@ export function PricingShell() {
       {/* PLAN TOGGLE */}
       <div className="plan-toggle-section">
         <div className="hp-label" style={{ justifyContent: "center" }}>Billing Plan</div>
-        <div className="plan-toggle-pills" ref={pillContainerRef}>
-          <div className="pill-slider" ref={pillSliderRef} style={{ width: 140 }} />
+        <div className="plan-toggle-pills" data-plan={plan}>
+          <div className="pill-slider" />
           <button
             type="button"
             className={`plan-pill${plan === "ondemand" ? " active" : ""}`}

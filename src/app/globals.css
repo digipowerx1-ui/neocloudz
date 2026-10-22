@@ -309,8 +309,9 @@ nav {
 .btn {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 10px 22px;
+  padding: 12px 24px;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 700;
@@ -319,12 +320,21 @@ nav {
   transition: all .2s;
   font-family: 'Inter', sans-serif;
   text-decoration: none;
-  line-height: 1;
+  line-height: 1.2;
+}
+
+.btn svg {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.btn:hover svg {
+  transform: translateX(3px);
 }
 
 .btn-green {
   background: var(--green);
-  color: var(--bg-deep);
+  color: var(--on-accent);
 }
 
 .btn-green:hover {

@@ -184,16 +184,7 @@ export default function AboutPage() {
           <div className="architecture-grid" style={{ display: "grid", gap: "40px" }}>
 
             {/* Power Infrastructure Module */}
-            <div className="arch-card" style={{
-              background: "linear-gradient(145deg, rgba(8,12,8,0.9) 0%, rgba(2,5,2,0.95) 100%)",
-              border: "1px solid rgba(var(--amber-rgb),0.1)",
-              borderRadius: "24px",
-              padding: "48px",
-              position: "relative",
-              overflow: "hidden",
-              transition: "all 0.5s cubic-bezier(0.23, 1, 0.32, 1)",
-              backdropFilter: "blur(10px)"
-            }}>
+            <div className="arch-card arch-card-power">
               {/* Corner Accents */}
               <div style={{ position: "absolute", top: "20px", left: "20px", width: "12px", height: "12px", borderTop: "2px solid rgba(var(--amber-rgb),0.3)", borderLeft: "2px solid rgba(var(--amber-rgb),0.3)" }}></div>
               <div style={{ position: "absolute", bottom: "20px", right: "20px", width: "12px", height: "12px", borderBottom: "2px solid rgba(var(--amber-rgb),0.3)", borderRight: "2px solid rgba(var(--amber-rgb),0.3)" }}></div>
@@ -206,12 +197,12 @@ export default function AboutPage() {
                   <div style={{ width: "8px", height: "2px", background: "var(--amber)" }}></div>
                   <div style={{ color: "var(--amber)", fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.2em", fontWeight: 700 }}>MODULE_01 // PW_CORE</div>
                 </div>
-                <h3 style={{ color: "var(--white)", fontSize: "28px", fontWeight: 800, letterSpacing: "-0.02em", margin: 0 }}>Clean Energy Core</h3>
+                <h3 className="arch-card-title">Clean Energy Core</h3>
               </div>
 
               <div style={{ marginBottom: "40px", position: "relative", zIndex: 2 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
-                  <span style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>SYSTEM_HEALTH</span>
+                  <span className="arch-system-label">SYSTEM_HEALTH</span>
                   <span style={{ color: "var(--amber)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>NOMINAL 100%</span>
                 </div>
                 <div style={{ height: "6px", background: "rgba(var(--fg-rgb),0.03)", borderRadius: "100px", overflow: "hidden", border: "1px solid rgba(var(--fg-rgb),0.05)" }}>
@@ -226,7 +217,7 @@ export default function AboutPage() {
                   "24/7 clean energy matching algorithms",
                   "Carbon-neutral compute optimized"
                 ].map((item, idx) => (
-                  <li key={idx} style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "15px", color: "rgba(var(--text-rgb),0.5)", transition: "color 0.3s" }}>
+                  <li key={idx} className="arch-card-li">
                     <div style={{ width: "6px", height: "6px", border: "1px solid var(--amber)", transform: "rotate(45deg)" }}></div>
                     {item}
                   </li>
@@ -238,16 +229,7 @@ export default function AboutPage() {
             </div>
 
             {/* Enterprise Reliability Module */}
-            <div className="arch-card" style={{
-              background: "linear-gradient(145deg, rgba(8,12,8,0.9) 0%, rgba(2,5,2,0.95) 100%)",
-              border: "1px solid rgba(var(--blue-rgb),0.1)",
-              borderRadius: "24px",
-              padding: "48px",
-              position: "relative",
-              overflow: "hidden",
-              transition: "all 0.5s cubic-bezier(0.23, 1, 0.32, 1)",
-              backdropFilter: "blur(10px)"
-            }}>
+            <div className="arch-card arch-card-persist">
               {/* Corner Accents */}
               <div style={{ position: "absolute", top: "20px", left: "20px", width: "12px", height: "12px", borderTop: "2px solid rgba(var(--blue-rgb),0.3)", borderLeft: "2px solid rgba(var(--blue-rgb),0.3)" }}></div>
               <div style={{ position: "absolute", bottom: "20px", right: "20px", width: "12px", height: "12px", borderBottom: "2px solid rgba(var(--blue-rgb),0.3)", borderRight: "2px solid rgba(var(--blue-rgb),0.3)" }}></div>
@@ -260,12 +242,12 @@ export default function AboutPage() {
                   <div style={{ width: "8px", height: "2px", background: "var(--blue)" }}></div>
                   <div style={{ color: "var(--blue)", fontFamily: "var(--font-mono)", fontSize: "11px", letterSpacing: "0.2em", fontWeight: 700 }}>MODULE_02 // UP_PERSIST</div>
                 </div>
-                <h3 style={{ color: "var(--white)", fontSize: "28px", fontWeight: 800, letterSpacing: "-0.02em", margin: 0 }}>Enterprise Persistence</h3>
+                <h3 className="arch-card-title">Enterprise Persistence</h3>
               </div>
 
               <div style={{ marginBottom: "40px", position: "relative", zIndex: 2 }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "12px" }}>
-                  <span style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>SYSTEM_AVAILABILITY</span>
+                  <span className="arch-system-label">SYSTEM_AVAILABILITY</span>
                   <span style={{ color: "var(--blue)", fontSize: "11px", fontFamily: "var(--font-mono)" }}>99.99% ONLINE</span>
                 </div>
                 <div style={{ height: "6px", background: "rgba(var(--fg-rgb),0.03)", borderRadius: "100px", overflow: "hidden", border: "1px solid rgba(var(--fg-rgb),0.05)" }}>
@@ -280,7 +262,7 @@ export default function AboutPage() {
                   "Private interconnects for enterprise security",
                   "TIA-942 Rated 3 facility certification"
                 ].map((item, idx) => (
-                  <li key={idx} style={{ display: "flex", alignItems: "center", gap: "16px", fontSize: "15px", color: "rgba(var(--text-rgb),0.5)", transition: "color 0.3s" }}>
+                  <li key={idx} className="arch-card-li">
                     <div style={{ width: "6px", height: "6px", border: "1px solid var(--blue)", transform: "rotate(45deg)" }}></div>
                     {item}
                   </li>
@@ -308,22 +290,22 @@ export default function AboutPage() {
               We engineer our infrastructure to minimize ecological footprint while maximizing computational density. Every watt is accounted for in our zero-waste energy lifecycle.
             </p>
 
-            <div className="stats-grid-mini" style={{ background: "rgba(var(--green-rgb),0.02)", border: "1px solid rgba(var(--green-rgb),0.1)", borderRadius: "24px", padding: "32px 40px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", maxWidth: "900px", margin: "0 auto" }}>
+            <div className="stats-grid-mini" style={{ borderRadius: "24px", padding: "32px 40px", display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "24px", maxWidth: "900px", margin: "0 auto" }}>
               <div className="impact-stat">
                 <div style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>&lt;1.3</div>
-                <div style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Target PUE</div>
+                <div className="impact-stat-label" style={{ fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Target PUE</div>
               </div>
               <div className="impact-stat">
                 <div style={{ color: "var(--blue)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>90%</div>
-                <div style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Water Saved</div>
+                <div className="impact-stat-label" style={{ fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Water Saved</div>
               </div>
               <div className="impact-stat">
                 <div style={{ color: "var(--amber)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>24/7</div>
-                <div style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Clean Energy</div>
+                <div className="impact-stat-label" style={{ fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Clean Energy</div>
               </div>
               <div className="impact-stat">
                 <div style={{ color: "var(--green)", fontFamily: "var(--font-mono)", fontSize: "28px", fontWeight: 800 }}>NET_0</div>
-                <div style={{ color: "rgba(var(--fg-rgb),0.4)", fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Carbon Goal</div>
+                <div className="impact-stat-label" style={{ fontSize: "11px", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.1em" }}>Carbon Goal</div>
               </div>
             </div>
           </div>
@@ -331,61 +313,37 @@ export default function AboutPage() {
           <div className="eco-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
 
             {/* Card 01 */}
-            <div className="eco-card" style={{
-              background: "rgba(var(--fg-rgb),0.02)",
-              border: "1px solid rgba(var(--fg-rgb),0.05)",
-              borderRadius: "20px",
-              padding: "40px",
-              transition: "all 0.4s ease",
-              position: "relative",
-              overflow: "hidden"
-            }}>
+            <div className="eco-card">
               <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "2px", background: "linear-gradient(90deg, transparent, var(--green), transparent)" }}></div>
               <div style={{ marginBottom: "24px" }}>
                 <Leaf size={32} color="var(--green)" />
               </div>
-              <h3 style={{ color: "var(--white)", fontSize: "20px", marginBottom: "16px" }}>Energy Lifecycle</h3>
-              <p style={{ color: "rgba(var(--text-rgb),0.6)", fontSize: "14px", lineHeight: "1.6" }}>
+              <h3>Energy Lifecycle</h3>
+              <p>
                 Utilizing a proprietary renewable and low-carbon energy mix sourced from DigiPowerX generation assets.
               </p>
             </div>
 
             {/* Card 02 */}
-            <div className="eco-card" style={{
-              background: "rgba(var(--fg-rgb),0.02)",
-              border: "1px solid rgba(var(--fg-rgb),0.05)",
-              borderRadius: "20px",
-              padding: "40px",
-              transition: "all 0.4s ease",
-              position: "relative",
-              overflow: "hidden"
-            }}>
+            <div className="eco-card">
               <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "2px", background: "linear-gradient(90deg, transparent, var(--blue), transparent)" }}></div>
               <div style={{ marginBottom: "24px" }}>
                 <Droplet size={32} color="var(--blue)" />
               </div>
-              <h3 style={{ color: "var(--white)", fontSize: "20px", marginBottom: "16px" }}>Thermal Dynamics</h3>
-              <p style={{ color: "rgba(var(--text-rgb),0.6)", fontSize: "14px", lineHeight: "1.6" }}>
+              <h3>Thermal Dynamics</h3>
+              <p>
                 Advanced closed-loop cooling architectures that virtually eliminate water consumption in high-density clusters.
               </p>
             </div>
 
             {/* Card 03 */}
-            <div className="eco-card" style={{
-              background: "rgba(var(--fg-rgb),0.02)",
-              border: "1px solid rgba(var(--fg-rgb),0.05)",
-              borderRadius: "20px",
-              padding: "40px",
-              transition: "all 0.4s ease",
-              position: "relative",
-              overflow: "hidden"
-            }}>
+            <div className="eco-card">
               <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "2px", background: "linear-gradient(90deg, transparent, var(--amber), transparent)" }}></div>
               <div style={{ marginBottom: "24px" }}>
                 <Globe size={32} color="var(--amber)" />
               </div>
-              <h3 style={{ color: "var(--white)", fontSize: "20px", marginBottom: "16px" }}>Ethical Sourcing</h3>
-              <p style={{ color: "rgba(var(--text-rgb),0.6)", fontSize: "14px", lineHeight: "1.6" }}>
+              <h3>Ethical Sourcing</h3>
+              <p>
                 Every facility is verified for environmental compliance and operates on 100% transparent carbon accounting.
               </p>
             </div>
@@ -419,7 +377,7 @@ export default function AboutPage() {
                 <span className="g">Speed of Thought.</span>
               </h2>
 
-              <p style={{ color: "rgba(var(--text-rgb),0.6)", fontSize: "18px", lineHeight: "1.6", marginBottom: "40px", maxWidth: "500px" }}>
+              <p style={{ color: "var(--text)", opacity: 0.85, fontSize: "18px", lineHeight: "1.6", marginBottom: "40px", maxWidth: "500px" }}>
                 Join the elite teams building foundation models on the world's most efficient AI infrastructure. Zero waitlists, infinite scale.
               </p>
 
@@ -437,40 +395,27 @@ export default function AboutPage() {
             </div>
 
             {/* Right: Deployment Log Terminal */}
-            <div className="deployment-log-terminal" style={{ 
-              background: "rgba(var(--shadow-rgb),0.4)", 
-              border: "1px solid rgba(var(--fg-rgb),0.08)", 
-              borderRadius: "16px",
-              padding: "32px",
-              fontFamily: "var(--font-mono)",
-              fontSize: "12px",
-              color: "rgba(var(--green-rgb),0.7)",
-              position: "relative",
-              height: "360px",
-              display: "flex",
-              flexDirection: "column",
-              backdropFilter: "blur(12px)"
-            }}>
+            <div className="deployment-log-terminal">
               {/* Corner Accents */}
               <div style={{ position: "absolute", top: "12px", right: "12px", display: "flex", gap: "6px" }}>
-                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "rgba(var(--fg-rgb),0.1)" }}></div>
-                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "rgba(var(--fg-rgb),0.1)" }}></div>
-                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--green)", opacity: 0.5 }}></div>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "rgba(255,255,255,0.15)" }}></div>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "rgba(255,255,255,0.15)" }}></div>
+                <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--green)", opacity: 0.8 }}></div>
               </div>
 
-              <div style={{ marginBottom: "20px", color: "var(--white)", opacity: 0.3 }}>[DEPLOYMENT_LOG_FEED]</div>
+              <div style={{ marginBottom: "20px", color: "rgba(255,255,255,0.4)" }}>[DEPLOYMENT_LOG_FEED]</div>
 
               <div style={{ flex: 1, overflow: "hidden", display: "flex", flexDirection: "column", gap: "10px" }}>
                 <div style={{ color: "var(--blue)" }}>&gt; Initializing Blackwell Cluster B_01...</div>
                 <div style={{ color: "var(--green)" }}>&gt; Locating optimized US-EAST node...</div>
-                <div style={{ color: "var(--white)", opacity: 0.5 }}>&gt; Thermal dynamics: NOMINAL [32°C]</div>
+                <div style={{ color: "rgba(255,255,255,0.7)" }}>&gt; Thermal dynamics: NOMINAL [32°C]</div>
                 <div style={{ color: "var(--amber)" }}>&gt; Net throughput: 800Gbps verified.</div>
                 <div style={{ color: "var(--green)" }}>&gt; Security handshake complete (AES-256)</div>
-                <div style={{ color: "var(--white)" }}>&gt; Cluster state: READY_FOR_TRAINING</div>
+                <div style={{ color: "#ffffff", fontWeight: 600 }}>&gt; Cluster state: READY_FOR_TRAINING</div>
                 <div className="cursor" style={{ width: "8px", height: "15px", background: "var(--green)", marginTop: "4px" }}></div>
               </div>
 
-              <div style={{ marginTop: "20px", paddingTop: "20px", borderTop: "1px solid rgba(var(--fg-rgb),0.05)", display: "flex", justifyContent: "space-between" }}>
+              <div style={{ marginTop: "20px", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.08)", display: "flex", justifyContent: "space-between", color: "rgba(255,255,255,0.6)" }}>
                 <span>SEQ_ID: 9928-AX</span>
                 <span style={{ color: "var(--blue)" }}>REGION: US_SOUTH_1</span>
               </div>

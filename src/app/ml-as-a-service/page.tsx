@@ -133,10 +133,12 @@ export default function MlServicePage() {
       {/* Core Features Section */}
       <section className="hp-section dark border-y border-border">
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div className="hp-label" style={{ justifyContent: "center" }}>CORE FEATURES</div>
-          <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "56px" }}>
-            Built for <strong className="g">Engineers</strong>
-          </h2>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "56px" }}>
+            <div className="hp-label" style={{ justifyContent: "center" }}>CORE FEATURES</div>
+            <h2 className="hp-h2" style={{ textAlign: "center", margin: 0 }}>
+              Built for <strong className="g">Engineers</strong>
+            </h2>
+          </div>
 
           <div className="ent-features-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", marginTop: 0 }}>
             {/* Compute */}
@@ -211,10 +213,12 @@ export default function MlServicePage() {
       {/* Supporting Your ML Journey Section */}
       <section className="hp-section mid">
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div className="hp-label" style={{ justifyContent: "center" }}>THE LIFECYCLE</div>
-          <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "64px" }}>
-            Supporting Your <strong className="g">ML Journey</strong>
-          </h2>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "64px" }}>
+            <div className="hp-label" style={{ justifyContent: "center" }}>THE LIFECYCLE</div>
+            <h2 className="hp-h2" style={{ textAlign: "center", margin: 0 }}>
+              Supporting Your <strong className="g">ML Journey</strong>
+            </h2>
+          </div>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: "32px", position: "relative" }}>
             {/* Connecting line for larger screens */}
@@ -244,10 +248,12 @@ export default function MlServicePage() {
       {/* Supported Workloads Section */}
       <section className="hp-section dark border-y border-border">
         <div style={{ maxWidth: "1000px", margin: "0 auto" }}>
-          <div className="hp-label" style={{ justifyContent: "center" }}>DEPLOYMENT TIERS</div>
-          <h2 className="hp-h2" style={{ textAlign: "center", marginBottom: "48px" }}>
-            Supported <strong className="g">Workloads</strong>
-          </h2>
+          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", marginBottom: "48px" }}>
+            <div className="hp-label" style={{ justifyContent: "center" }}>DEPLOYMENT TIERS</div>
+            <h2 className="hp-h2" style={{ textAlign: "center", margin: 0 }}>
+              Supported <strong className="g">Workloads</strong>
+            </h2>
+          </div>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
             <div style={{ flex: "1 1 400px", background: "var(--surface)", border: "1px solid rgba(var(--blue-rgb),0.2)", borderRadius: "20px", padding: "40px" }}>

@@ -581,6 +581,28 @@
   margin: 0 auto 60px;
 }
 
+.token-factory-page .hp-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 18px;
+}
+
+.token-factory-page .hp-label::before {
+  content: '';
+  width: 18px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
 .tf-section-header h2 {
   font-size: clamp(32px, 4vw, 48px);
   font-weight: 800;
@@ -742,8 +764,8 @@
 }
 
 .tf-use-card {
-  background: rgba(14, 20, 14, 0.7);
-  border: 1px solid rgba(var(--fg-rgb), 0.07);
+  background: rgba(var(--surface-rgb), 0.72);
+  border: 1px solid rgba(var(--fg-rgb), 0.08);
   border-radius: 16px;
   padding: 28px 24px;
   transition: all 0.25s ease;
@@ -752,7 +774,7 @@
 .tf-use-card:hover {
   border-color: rgba(var(--green-rgb), 0.3);
   transform: translateY(-3px);
-  background: rgba(16, 24, 16, 0.85);
+  background: rgba(var(--surface-rgb), 0.88);
 }
 
 .tf-use-icon {
@@ -840,11 +862,12 @@
 }
 
 .tf-step-card {
-  background: rgba(14, 20, 14, 0.8);
+  background: rgba(var(--surface-rgb), 0.75);
   border: 1px solid rgba(var(--fg-rgb), 0.08);
   border-radius: 16px;
   padding: 32px 24px;
   position: relative;
+  transition: all 0.25s ease;
 }
 
 .tf-step-num {
@@ -880,7 +903,7 @@
 }
 
 .tf-faq-item {
-  background: rgba(12, 17, 12, 0.8);
+  background: rgba(var(--surface-rgb), 0.75);
   border: 1px solid rgba(var(--fg-rgb), 0.08);
   border-radius: 14px;
   padding: 24px 28px;
@@ -890,6 +913,7 @@
 
 .tf-faq-item:hover {
   border-color: rgba(var(--green-rgb), 0.25);
+  background: rgba(var(--surface-rgb), 0.88);
 }
 
 .tf-faq-q {
@@ -2403,3 +2427,78 @@
 :root[data-theme="light"] .tf-badge-amber { color: #a16207; }
 :root[data-theme="light"] .tf-badge-teal { color: #0f766e; }
 :root[data-theme="light"] .tf-badge-sky { color: #0369a1; }
+
+/* ── Light theme: Production Use Cases, Onboarding Roadmap & FAQ ── */
+:root[data-theme="light"] .token-factory-page .tf-use-card {
+  background: rgba(var(--surface-rgb), 0.95);
+  border: 1px solid rgba(var(--fg-rgb), 0.09);
+  box-shadow: 0 4px 18px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-use-card:hover {
+  background: #ffffff;
+  border-color: rgba(var(--green-rgb), 0.38);
+  box-shadow: 0 12px 30px rgba(var(--shadow-rgb), 0.08), 0 0 20px rgba(var(--green-rgb), 0.1);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-use-card h4 {
+  color: var(--white);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-use-card p {
+  color: var(--text);
+  opacity: 0.88;
+}
+
+:root[data-theme="light"] .token-factory-page .tf-use-icon.purple {
+  color: #7e22ce;
+  background: rgba(126, 34, 206, 0.08);
+  border-color: rgba(126, 34, 206, 0.25);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-step-card {
+  background: rgba(var(--surface-rgb), 0.95);
+  border: 1px solid rgba(var(--fg-rgb), 0.09);
+  box-shadow: 0 4px 18px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-step-card:hover {
+  background: #ffffff;
+  border-color: rgba(var(--green-rgb), 0.38);
+  box-shadow: 0 12px 30px rgba(var(--shadow-rgb), 0.08), 0 0 20px rgba(var(--green-rgb), 0.1);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-step-num {
+  color: var(--green);
+  opacity: 1;
+}
+
+:root[data-theme="light"] .token-factory-page .tf-step-card h4 {
+  color: var(--white);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-step-card p {
+  color: var(--text);
+  opacity: 0.88;
+}
+
+:root[data-theme="light"] .token-factory-page .tf-faq-item {
+  background: rgba(var(--surface-rgb), 0.95);
+  border: 1px solid rgba(var(--fg-rgb), 0.09);
+  box-shadow: 0 2px 12px rgba(var(--shadow-rgb), 0.04);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-faq-item:hover {
+  background: #ffffff;
+  border-color: rgba(var(--green-rgb), 0.38);
+  box-shadow: 0 8px 24px rgba(var(--shadow-rgb), 0.06);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-faq-q {
+  color: var(--white);
+}
+
+:root[data-theme="light"] .token-factory-page .tf-faq-a {
+  color: var(--text);
+  opacity: 0.9;
+}

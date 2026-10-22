@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import CtaSection from "@/features/cta/CtaSection";
 import { usePathname } from "next/navigation";
 import { useRef } from "react";
@@ -90,7 +91,8 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
                 className="btn btn-outline btn-lg"
                 aria-label={data.secondaryCta.label}
               >
-                {data.secondaryCta.label} →
+                <span>{data.secondaryCta.label}</span>
+                <ArrowRight size={16} aria-hidden="true" />
               </Link>
             ) : null}
           </div>
@@ -142,7 +144,8 @@ export default function ProductDetailShell({ data }: { data: ProductDetailData }
                   className="btn btn-green"
                   aria-label={data.featureCta.label}
                 >
-                  {data.featureCta.label} →
+                  <span>{data.featureCta.label}</span>
+                  <ArrowRight size={16} aria-hidden="true" />
                 </Link>
               </div>
             </div>

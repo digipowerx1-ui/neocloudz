@@ -8,13 +8,11 @@ import {
   HomeCta,
   HomeFaq,
   HomeGpuCatalog,
-  HomeLogos,
   HomeNvlink,
   HomePartners,
   HomePricing,
   HomeRack,
   HomeStorage,
-  HomeTokenFactory,
   HomeWhy,
   HomeWorkloads,
 } from "./HomeSections";
@@ -28,18 +26,16 @@ export function HomeShell() {
   return (
     <div className="home-page" ref={rootRef}>
       <HomeHero />
-      <HomeTokenFactory />
       <HomeAIModels />
       <div className="section-divider" />
       <HomePartners />
       <HomeWhy />
-      <HomePricing />
+      {/* <HomePricing /> */}
       <HomeWorkloads />
       <HomeGpuCatalog />
       <div className="section-divider" />
       <HomeNvlink />
       <div className="section-divider" />
-      <HomeLogos />
       <HomeRack />
       <div className="anim-divider" />
 

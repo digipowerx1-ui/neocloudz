@@ -2,16 +2,6 @@
 
 import Link from "next/link";
 import { useRef, type ReactNode } from "react";
-import {
-  ArrowRight,
-  Code,
-  Cpu,
-  Globe,
-  ShieldCheck,
-  TrendingUp,
-} from "lucide-react";
-
-import TokenFactoryScene from "./TokenFactoryScene";
 
 import {
   useDataflowCanvas,
@@ -153,31 +143,6 @@ export function HomeNvlink() {
   );
 }
 
-const LOGO_NAMES = [
-  "Mistral AI",
-  "Cohere",
-  "Together AI",
-  "Replicate",
-  "Modal",
-  "Weights & Biases",
-  "Hugging Face",
-  "LlamaIndex",
-];
-
-export function HomeLogos() {
-  return (
-    <div className="logos-section">
-      <div className="logos-label">Trusted by AI teams at</div>
-      <div className="logos-row">
-        {LOGO_NAMES.map((n) => (
-          <div key={n} className="logo-pill">
-            {n}
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 const INFRASTRUCTURE_PARTNERS = [
   {
@@ -740,155 +705,6 @@ const FAQS = [
   },
 ];
 
-export function HomeTokenFactory() {
-  return (
-    <section className="hp-section dark tf-section" id="token-factory">
-      {/* Soft ambient gradient backdrop */}
-      <div className="tf-ambient-glow" />
-
-      <div className="tf-container">
-        <div className="tf-deck-glass">
-          <div className="tf-grid">
-            {/* Left Column: Product details & waitlist early-access allocation */}
-            <div className="tf-left-col">
-              <div className="hp-label" style={{ marginBottom: "16px" }}>
-                Token Factory
-              </div>
-
-              <h2 className="tf-title">
-                AI tuned for your business.
-                <br />
-                <span className="g">Infrastructure tuned for your AI.</span>
-              </h2>
-
-              <p className="tf-description">
-                Introducing NeoCloudz Token Factory — managed AI inference that brings model serving
-                and purpose-built GPU infrastructure together to help teams move from experimentation to production.
-              </p>
-
-              {/* CTAs */}
-              <div
-                style={{
-                  display: "flex",
-                  gap: "12px",
-                  flexWrap: "wrap",
-                  marginTop: "8px",
-                }}
-              >
-                <Link
-                  href="/token-factory"
-                  className="btn-launch"
-                  aria-label="Explore NeoCloudz Token Factory — Managed AI Inference"
-                >
-                  Explore Token Factory
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </Link>
-                <Link
-                  href="/contact?source=homepage&cta=talk_to_our_team"
-                  className="btn-outline"
-                  aria-label="Talk to Our Team"
-                >
-                  Talk to Our Team
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
-                  >
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Column: 3D Core & AI Feature Pillars */}
-            <div className="tf-right-col">
-              <div className="tf-coin-wrapper">
-                <div className="tf-coin-glow"></div>
-
-                <div className="tf-coin-container">
-                  <TokenFactoryScene />
-
-                  {/* 3 AI Feature Pillars Floating Around */}
-                  <div className="tf-pillar pillar-tl">
-                    <div className="tf-pillar-icon-wrap">
-                      <Code size={16} />
-                    </div>
-                    <div className="tf-pillar-content">
-                      <h3>ZERO DEVOPS</h3>
-                      <p>OpenAI-compatible REST endpoints</p>
-                    </div>
-                  </div>
-
-                  <div className="tf-pillar pillar-tr">
-                    <div className="tf-pillar-icon-wrap">
-                      <Cpu size={16} />
-                    </div>
-                    <div className="tf-pillar-content">
-                      <h3>BLACKWELL SPEED</h3>
-                      <p>FP8 Tensor engines & 900 GB/s NVLink</p>
-                    </div>
-                  </div>
-
-                  <div className="tf-pillar pillar-br">
-                    <div className="tf-pillar-icon-wrap">
-                      <ShieldCheck size={16} />
-                    </div>
-                    <div className="tf-pillar-content">
-                      <h3>ZERO DATA RETENTION</h3>
-                      <p>Private VPCs & strict confidentiality</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Banner Row: Grid of 5 AI Serving features */}
-        <div className="tf-bottom-banner">
-          <div className="tf-bottom-item">
-            <Code size={18} className="tf-bottom-icon" />
-            <span>OpenAI-Compatible API</span>
-          </div>
-          <div className="tf-bottom-item">
-            <Cpu size={18} className="tf-bottom-icon" />
-            <span>Nemotron, GLM, Qwen, Gemma &amp; Kimi</span>
-          </div>
-          <div className="tf-bottom-item">
-            <Globe size={18} className="tf-bottom-icon" />
-            <span>Dedicated & Serverless Serving</span>
-          </div>
-          <div className="tf-bottom-item">
-            <ShieldCheck size={18} className="tf-bottom-icon" />
-            <span>Zero Data Retention Policy</span>
-          </div>
-          <div className="tf-bottom-item">
-            <TrendingUp size={18} className="tf-bottom-icon" />
-            <span>Workload-Optimized Runtimes</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ─── AI Models Data ─── */
 import {
@@ -1168,18 +984,6 @@ const WORKLOADS: WorkloadTab[] = [
     ],
     cta: "Contact Sales",
   },
-  {
-    id: "prototyping",
-    title: "Rapid Prototyping",
-    subtitle: "R&D environment for AI engineering teams.",
-    description: "Launch isolated JupyterLab® environments with pre-installed AI frameworks, GPU access, and secure data connectors.",
-    bullets: [
-      "Pre-configured PyTorch/TensorFlow",
-      "Secure dataset ingestion",
-      "One-click environment cloning",
-    ],
-    cta: "Open Notebook",
-  },
 ];
 
 export function HomeWorkloads() {
@@ -1243,7 +1047,7 @@ export function HomeWorkloads() {
                       <span className="side-item">Auto-healing</span>
                     </div>
                   </div>
-                ) : w.id === "inference" ? (
+                ) : (
                   <div className="inference-visual">
                     <div className="inf-header-pill">
                       <span className="inf-pill-dot" />
@@ -1271,28 +1075,6 @@ export function HomeWorkloads() {
                           </svg>
                         </div>
                         <div className="inf-rel-label">PRODUCTION RELIABILITY</div>
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="prototype-visual">
-                    <div className="proto-dashboard">
-                      <div className="proto-header">
-                        <div className="proto-dot" />
-                        <span style={{ fontSize: '11px', color: 'var(--muted)' }}>jupyter-lab-01</span>
-                      </div>
-                      <div className="proto-grid">
-                        {[1, 2, 3, 4].map(n => (
-                          <div key={n} className="proto-gauge">
-                            <div className="gauge-arc" style={{ ['--fill' as string]: `${20 + n * 15}%` }} />
-                            <div className="gauge-val">{20 + n * 15}%</div>
-                          </div>
-                        ))}
-                      </div>
-                      <div className="proto-spark">
-                        <svg width="100%" height="40" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
-                          <path d="M0,20 Q12.5,6 25,20 T50,20 T75,20 T100,20" fill="none" stroke="var(--green)" strokeWidth="1" />
-                        </svg>
                       </div>
                     </div>
                   </div>
