@@ -360,8 +360,8 @@ export function HomeHero() {
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </a>
-          <a href="/contact?source=homepage&cta=request_private_cluster" className="btn-outline" aria-label="Request Private GPU Cluster">
-            Request Private Cluster
+          <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline" aria-label="Sign Up">
+            Sign Up
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

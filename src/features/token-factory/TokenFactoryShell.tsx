@@ -235,13 +235,13 @@ export function TokenFactoryShell() {
               >
                 Get Started with Token Factory <ArrowRight size={18} aria-hidden="true" />
               </Link>
-              <Link
-                href="/contact?interest=token_factory&source=token-factory&cta=hero_talk_to_us"
+              <a
+                href="https://console.neocloudz.com/authentication/signup"
                 className="btn-outline"
-                aria-label="Talk to Infrastructure Architecture Team"
+                aria-label="Sign Up"
               >
-                Talk to Us →
-              </Link>
+                Sign Up →
+              </a>
             </div>
 
             {/* Supported Models Strip */}

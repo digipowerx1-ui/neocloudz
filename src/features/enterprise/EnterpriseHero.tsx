@@ -98,8 +98,8 @@ export default function EnterpriseHero() {
           <a href="/contact?source=enterprise&cta=request_a_demo" className="btn-launch" aria-label="Request an Enterprise Demo">
             Request a Demo →
           </a>
-          <a href="/contact?source=enterprise&cta=security_brief" className="btn-outline" aria-label="Download Enterprise Security Brief">
-            Download Security Brief
+          <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline" aria-label="Sign Up">
+            Sign Up
           </a>
         </div>
 

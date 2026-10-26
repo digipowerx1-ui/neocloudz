@@ -42,9 +42,9 @@ export default function GpuServicePage() {
             <Link href="/contact?source=gpu-as-a-service&cta=contact_sales" className="btn-launch" aria-label="Contact Sales">
               Contact Sales <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link href="/pricing" className="btn-outline" aria-label="View Pricing">
-              View Pricing
-            </Link>
+            <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline" aria-label="Sign Up">
+              Sign Up
+            </a>
           </div>
         </div>
       </section>

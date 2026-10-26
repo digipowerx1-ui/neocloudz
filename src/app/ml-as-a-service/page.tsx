@@ -42,9 +42,9 @@ export default function MlServicePage() {
             <Link href="/contact?source=ml-as-a-service&cta=talk_to_an_architect" className="btn-launch" aria-label="Talk to an Architect">
               Talk to an Architect <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link href="/pricing" className="btn-outline" aria-label="Request Pricing">
-              Request Pricing
-            </Link>
+            <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline" aria-label="Sign Up">
+              Sign Up
+            </a>
           </div>
         </div>
       </section>

@@ -5,8 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useSyncExternalStore } from "react";
 import { Moon, Sun } from "lucide-react";
 
-const SIGN_IN_URL = "https://console.neocloudz.com/authentication/signin";
-const SIGN_UP_URL = "https://console.neocloudz.com/authentication/signup";
+import { SIGN_IN_URL, SIGN_UP_URL } from "@/lib/constants";
 import { AnnouncementBanner } from "./AnnouncementBanner";
 
 interface SubLink {
@@ -54,8 +53,6 @@ const NAV_LINKS: NavLink[] = [
       { label: "Research & Experimentation", href: "/solution#research" },
     ],
   },
-
-  { label: "Pricing", href: "/pricing", matches: ["/pricing"] },
   { label: "Enterprise", href: "/enterprise", matches: ["/enterprise"] },
   {
     label: "Company",

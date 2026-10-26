@@ -31,9 +31,9 @@ export function FinalCTA() {
           <Link href={`/contact?source=${source}&cta=contact_sales`} className="btn-launch">
             Contact Sales ▶
           </Link>
-          <Link href={`/contact?source=${source}&cta=talk_to_sales`} className="btn-outline">
-            Talk to Sales →
-          </Link>
+          <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline">
+            Sign Up →
+          </a>
         </div>
       </div>
     </section>

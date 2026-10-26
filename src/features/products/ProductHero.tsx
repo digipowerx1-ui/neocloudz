@@ -147,17 +147,17 @@ export default function ProductHero() {
           >
             Deploy GPU Clusters <ArrowRight size={16} aria-hidden="true" />
           </Link>
-          <Link
-            href="/contact?source=products&cta=talk_to_architects"
+          <a
+            href="https://console.neocloudz.com/authentication/signup"
             className="btn btn-outline btn-lg"
-            aria-label="Talk to Infrastructure Architects"
+            aria-label="Sign Up"
             style={{
               borderColor: "rgba(var(--fg-rgb), 0.15)",
               color: "rgba(var(--fg-rgb), 0.85)",
             }}
           >
-            Talk to Architects
-          </Link>
+            Sign Up
+          </a>
         </div>
       </div>
     </section>

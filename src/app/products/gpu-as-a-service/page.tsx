@@ -15,7 +15,7 @@ const DATA: ProductDetailData = {
   titleAccent: "No Contracts. No Guesswork.",
   lede: "Cloud GPU and Bare Metal GPU infrastructure for AI, HPC, and enterprise workloads. Spin up NVIDIA Blackwell B200 in minutes — pay only for what you use.",
   primaryCta: { label: "Launch GPU", href: "/contact" },
-  secondaryCta: { label: "View Pricing", href: "/pricing" },
+  secondaryCta: { label: "Sign Up", href: "https://console.neocloudz.com/authentication/signup" },
 
   offeringsLabel: "What We Offer",
   offeringsTitle: "Flexible GPU infrastructure",
@@ -107,8 +107,8 @@ const DATA: ProductDetailData = {
   related: [
     { label: "AI Factory as a Service", href: "/products" },
     { label: "ML as a Service", href: "/products" },
-    { label: "All Solutions", href: "/solutions" },
-    { label: "Pricing", href: "/pricing" },
+    { label: "All Solutions", href: "/solution" },
+    { label: "Enterprise", href: "/enterprise" },
   ],
 };
 

@@ -54,9 +54,9 @@ export default function AboutPage() {
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </Link>
-            <Link href="/contact?source=about&cta=request_private_clusters" className="btn-outline" aria-label="Request Private Clusters">
-              Request Private Clusters
-            </Link>
+            <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline" aria-label="Sign Up">
+              Sign Up
+            </a>
           </div>
 
           <div className="hero-live-strip mt-12">

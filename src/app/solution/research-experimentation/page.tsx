@@ -15,7 +15,7 @@ const DATA: SolutionDetailData = {
   titleAccent: "On-Demand GPU Labs.",
   lede: "NeoCloudz makes it easy for researchers and educators to explore AI and data science projects without complex setup or infrastructure management. Launch isolated JupyterLab environments with instant GPU access.",
   primaryCta: { label: "Launch a Research Environment", href: "/contact" },
-  secondaryCta: { label: "View Pricing", href: "/pricing" },
+  secondaryCta: { label: "Sign Up", href: "https://console.neocloudz.com/authentication/signup" },
   icon: "🔬",
   cardTitle: "Zero-setup labs for AI research",
   cardDescription:

@@ -54,9 +54,9 @@ export default function AiFactoryPage() {
             <Link href="/contact?source=ai-factory-as-a-service&cta=talk_to_an_architect" className="btn-launch" aria-label="Talk to an Architect">
               Talk to an Architect <ArrowRight size={18} aria-hidden="true" />
             </Link>
-            <Link href="/contact?source=ai-factory-as-a-service&cta=request_a_pod_design" className="btn-outline" aria-label="Request a Pod Design">
-              Request a Pod Design
-            </Link>
+            <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline" aria-label="Sign Up">
+              Sign Up
+            </a>
           </div>
         </div>
       </section>

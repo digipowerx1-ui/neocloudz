@@ -38,7 +38,6 @@ const FOOTER_COLUMNS: FooterColumn[] = [
     title: "Company",
     items: [
       { label: "About NeoCloudz", href: "/about" },
-      { label: "Pricing", href: "/pricing" },
       { label: "Contact Us", href: "/contact?source=footer&cta=contact" },
       { label: "Careers", href: "/career" },
     ],
@@ -46,7 +45,6 @@ const FOOTER_COLUMNS: FooterColumn[] = [
   {
     title: "Resources",
     items: [
-      { label: "Pricing Calculator", href: "/pricing#calculator" },
       { label: "Documentation", href: "/contact?source=footer&cta=documentation" },
       { label: "API Reference", href: "/contact?source=footer&cta=api_reference" },
       { label: "Support", href: "/contact?source=footer&cta=support" },

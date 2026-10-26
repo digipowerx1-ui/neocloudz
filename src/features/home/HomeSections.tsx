@@ -12,12 +12,11 @@ import {
   useBenchBars,
   useCtaParticleBurst,
   useGpuCatalogSparklines,
-  usePricingSpotlight,
   useStorageBandwidthBars,
 } from "./effects";
 import { useRackSlots } from "./useRackSlots";
 
-import { PRICING_CARDS, PRICING_TICKER_ITEMS } from "@/lib/pricing-data";
+import { PRICING_TICKER_ITEMS } from "@/lib/pricing-data";
 
 const TICKER_ITEMS = PRICING_TICKER_ITEMS;
 
@@ -368,73 +367,7 @@ export function HomeRack() {
 }
 
 
-const PRICE_CARDS = PRICING_CARDS.map(pc => ({
-  tier: pc.badge,
-  name: pc.name,
-  amount: pc.price || pc.pricePrefix || "Custom",
-  period: pc.priceSuffix,
-  quota: pc.sub,
-  desc: pc.tagline,
-  features: pc.specs.map(s => s.label === 'GPU' ? s.value : `${s.label}: ${s.value}`),
-  cta: pc.cta,
-  ctaVariant: pc.ctaClass === 'primary' ? 'primary' as const : 'outline' as const,
-  featured: pc.featured
-}));
 
-export function HomePricing() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-
-  usePricingSpotlight(sectionRef);
-  return (
-    <section className="hp-section mid" id="pricing" ref={sectionRef}>
-
-      <div className="hp-label">Pricing</div>
-      <div className="hp-h2">
-        Simple, <span className="g">Transparent Pricing.</span>
-      </div>
-      <p className="hp-sub">
-        No hidden fees. No egress charges. Pay only for the compute you use — by the
-        hour or lock in savings with reserved instances.
-      </p>
-
-      <div className="pricing-grid technical">
-        {PRICE_CARDS.map((card, i) => (
-          <div
-            key={i}
-            className={`price-card technical${card.featured ? " featured" : ""}`}
-          >
-            <div className="price-tier">{card.tier}</div>
-            <div className="price-gpu-name">{card.name}</div>
-            <div className="price-amount">
-              {card.amount}
-              <span className="price-amount-suffix">{card.period}</span>
-            </div>
-            <div className="price-quota">{card.quota}</div>
-            <p className="price-desc">{card.desc}</p>
-
-            <div className="price-divider"></div>
-
-            <ul className="price-features">
-              {card.features.map((f, fi) => (
-                <li className="price-feature" key={fi}>
-                  {f}
-                </li>
-              ))}
-            </ul>
-            <a href={`/contact?source=homepage&cta=${card.name.toLowerCase().replace(/ /g, "_")}`} className={`price-btn-tech ${card.ctaVariant}`} aria-label={`${card.cta} for ${card.name}`}>
-              {card.cta}
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
 
 interface WhyItem {
   icon: ReactNode;
@@ -938,8 +871,8 @@ export function HomeCta() {
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
-        <a href="/contact?source=homepage&cta=request_private_clusters" className="btn-outline" aria-label="Request Private Clusters">
-          Request Private Clusters
+        <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline" aria-label="Sign Up">
+          Sign Up
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
@@ -1150,7 +1083,6 @@ const FOOTER_COLS = [
       { label: "Documentation", href: "/contact?source=homepage&cta=footer_documentation" },
       { label: "API Reference", href: "/contact?source=homepage&cta=footer_api_reference" },
       { label: "Benchmarks", href: "#benchmarks" },
-      { label: "Pricing Calculator", href: "#pricing" },
       { label: "Support", href: "/contact?source=homepage&cta=footer_support" },
     ],
   },

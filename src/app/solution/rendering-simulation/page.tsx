@@ -15,7 +15,7 @@ const DATA: SolutionDetailData = {
   titleAccent: "Visualization Workloads.",
   lede: "Power 3D rendering, VFX, animation pipelines, scientific simulations, and digital twins on GPU-accelerated infrastructure with low-latency storage and pay-as-you-go compute.",
   primaryCta: { label: "Start Rendering", href: "/contact" },
-  secondaryCta: { label: "View Pricing", href: "/pricing" },
+  secondaryCta: { label: "Sign Up", href: "https://console.neocloudz.com/authentication/signup" },
   icon: "🎬",
   cardTitle: "Studio-grade rendering on demand",
   cardDescription:

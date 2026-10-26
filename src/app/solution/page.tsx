@@ -6,7 +6,6 @@ import ProductsSection from "@/features/products/ProductsSection";
 import WhySection from "@/features/why/WhySection";
 import PartnersSection from "@/features/partners/PartnersSection";
 import InfraSection from "@/features/infrastructure/InfraSection";
-import PricingSection from "@/features/pricing/PricingSection";
 import DcStatsSection from "@/features/dc-stats/DcStatsSection";
 import TestimonialsSection from "@/features/testimonials/TestimonialsSection";
 import FaqSection from "@/features/faq/FaqSection";
@@ -29,7 +28,6 @@ export default function SolutionsPage() {
         <WhySection />
         <PartnersSection />
         <InfraSection />
-        <PricingSection />
         <DcStatsSection />
         <TestimonialsSection />
         <FaqSection />

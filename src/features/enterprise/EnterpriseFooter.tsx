@@ -43,7 +43,6 @@ const COLUMNS: ReadonlyArray<FooterColumn> = [
       { label: "Documentation" },
       { label: "API Reference" },
       { label: "Benchmarks" },
-      { label: "Pricing Calculator" },
       { label: "Support" },
     ],
   },

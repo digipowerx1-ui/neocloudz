@@ -22,9 +22,6 @@ import {
 import {
   PRICING_CARDS,
   PRICING_TICKER_ITEMS,
-  GPU_RATES,
-  GPU_LABELS,
-  COMPETITOR_MULT,
 } from "@/lib/pricing-data";
 
 /* ── Plan Toggle + Cards ── */
@@ -142,11 +139,7 @@ const MATRIX: MatrixGroup[] = [
   },
 ];
 
-function fmtCurrency(n: number): string {
-  return "$" + Math.round(n).toLocaleString();
-}
 
-// GPU_RATES, GPU_LABELS, and COMPETITOR_MULT are imported from @/lib/pricing-data
 
 export function PricingShell() {
   const rootRef = useRef<HTMLDivElement>(null);
@@ -165,11 +158,6 @@ export function PricingShell() {
   const [plan, setPlan] = useState<Plan>("ondemand");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  // Calculator state
-  const [gpuType, setGpuType] = useState<keyof typeof GPU_RATES>("b200");
-  const [numGpus, setNumGpus] = useState(8);
-  const [hours, setHours] = useState(12);
-  const [days, setDays] = useState(22);
 
   // Tier
   const [activeTier, setActiveTier] = useState(0);
@@ -200,32 +188,6 @@ export function PricingShell() {
   usePricingWaveCanvas(ctaCanvasRef);
   usePricingCtaBurst(ctaLaunchRef);
 
-  // Calculator computed values
-  const neoMonthly = (GPU_RATES[gpuType] || 0) * numGpus * hours * days;
-  const awsMonthly = Math.round(neoMonthly * COMPETITOR_MULT.aws);
-  const gcpMonthly = Math.round(neoMonthly * COMPETITOR_MULT.gcp);
-  const azMonthly = Math.round(neoMonthly * COMPETITOR_MULT.az);
-  const maxMonthly = Math.max(neoMonthly, awsMonthly, gcpMonthly, azMonthly) || 1;
-  const calcSavings = awsMonthly - neoMonthly;
-  const calcSavePct = awsMonthly > 0 ? Math.round((calcSavings / awsMonthly) * 100) : 0;
-
-  // Animated total
-  const [animatedTotal, setAnimatedTotal] = useState(neoMonthly);
-  useEffect(() => {
-    let raf = 0;
-    let current = animatedTotal;
-    function step() {
-      const target = neoMonthly;
-      const diff = target - current;
-      current += diff * 0.12;
-      if (Math.abs(diff) < 1) current = target;
-      setAnimatedTotal(current);
-      if (Math.abs(target - current) > 0.5) raf = requestAnimationFrame(step);
-    }
-    step();
-    return () => cancelAnimationFrame(raf);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [neoMonthly]);
 
   // Tier auto-step on intersect
   useEffect(() => {
@@ -266,8 +228,6 @@ export function PricingShell() {
     return () => window.removeEventListener("resize", recompute);
   }, [activeTier]);
 
-  const planLabel = GPU_LABELS[gpuType];
-  const totalPeriodLabel = `estimated monthly spend · ${numGpus}× ${planLabel} · ${hours}h/day · ${days} days`;
 
   return (
     <div className="pricing-page" ref={rootRef}>
@@ -332,8 +292,8 @@ export function PricingShell() {
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="/contact?source=pricing&cta=request_custom_quote" className="btn-outline-cta" aria-label="Request Custom Pricing Quote">
-              Request Custom Quote
+            <a href="https://console.neocloudz.com/authentication/signup" className="btn-outline-cta" aria-label="Sign Up">
+              Sign Up
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
@@ -518,186 +478,7 @@ export function PricingShell() {
         </div>
       </div>
 
-      <div className="anim-divider" />
 
-      {/* CALCULATOR */}
-      <section className="calc-section" id="calculator">
-        <div className="calc-header" style={{ marginBottom: 60, textAlign: "center" }}>
-          <div className="hp-label reveal" style={{ justifyContent: "center" }}>Cost Calculator</div>
-          <div className="hp-h2 reveal" style={{ textAlign: "center" }}>
-            Estimate Your<br />
-            <span className="g">Monthly Spend.</span>
-          </div>
-          <p className="hp-sub reveal" style={{ margin: "0 auto", textAlign: "center" }}>
-            Configure your workload and see exactly what you&#39;ll pay. Compare
-            against major cloud providers in real time.
-          </p>
-        </div>
-
-        <div className="calc-grid">
-          <div>
-
-            <div className="calc-terminal reveal">
-              <div className="calc-term-bar">
-                <div className="calc-dot" style={{ background: "#ff5f57" }} />
-                <div className="calc-dot" style={{ background: "#febc2e" }} />
-                <div className="calc-dot" style={{ background: "#28c840" }} />
-                <div className="calc-term-title">neocloudz — cost-estimator</div>
-              </div>
-              <div className="calc-body">
-                <div className="calc-label">GPU Type</div>
-                <div className="gpu-selector">
-                  {(Object.keys(GPU_RATES) as Array<keyof typeof GPU_RATES>).map((g) => (
-                    <button
-                      type="button"
-                      key={g}
-                      className={`gpu-sel-btn${gpuType === g ? " active" : ""}`}
-                      aria-label={`Select ${GPU_LABELS[g]} GPU for cost estimation`}
-                      onClick={() => setGpuType(g)}
-                    >
-                      {GPU_LABELS[g]} · {GPU_RATES[g] === 0 ? "Custom" : `$${GPU_RATES[g]}/hr`}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="calc-label">Number of GPUs</div>
-                <div className="calc-slider-wrap">
-                  <div className="calc-slider-row">
-                    <span className="calc-slider-name">GPUs</span>
-                    <span className="calc-slider-val">{numGpus}</span>
-                  </div>
-                  <input
-                    type="range"
-                    aria-label="Number of GPUs"
-                    min={1}
-                    max={512}
-                    step={1}
-                    value={numGpus}
-                    onChange={(e) => setNumGpus(parseInt(e.target.value, 10))}
-                  />
-                </div>
-
-                <div className="calc-label">Hours per day</div>
-                <div className="calc-slider-wrap">
-                  <div className="calc-slider-row">
-                    <span className="calc-slider-name">Hours</span>
-                    <span className="calc-slider-val">{hours}</span>
-                  </div>
-                  <input
-                    type="range"
-                    aria-label="Hours per day"
-                    min={1}
-                    max={24}
-                    step={1}
-                    value={hours}
-                    onChange={(e) => setHours(parseInt(e.target.value, 10))}
-                  />
-                </div>
-
-                <div className="calc-label">Days per month</div>
-                <div className="calc-slider-wrap">
-                  <div className="calc-slider-row">
-                    <span className="calc-slider-name">Days</span>
-                    <span className="calc-slider-val">{days}</span>
-                  </div>
-                  <input
-                    type="range"
-                    aria-label="Days per month"
-                    min={1}
-                    max={31}
-                    step={1}
-                    value={days}
-                    onChange={(e) => setDays(parseInt(e.target.value, 10))}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div>
-            <div className="calc-result reveal">
-              <div className="calc-result-header">
-                <div className="calc-prompt">$ neocloudz estimate --format monthly</div>
-                <div className="calc-total">{fmtCurrency(animatedTotal)}</div>
-                <div className="calc-total-period">{totalPeriodLabel}</div>
-              </div>
-              <div className="calc-compare">
-                <div className="calc-compare-title">── vs. major cloud providers ──</div>
-                <div className="compare-bar-row">
-                  <div className="compare-bar-label-row">
-                    <span className="compare-bar-name">NeoCloudz {planLabel}</span>
-                    <span className="compare-bar-val">{fmtCurrency(neoMonthly)}</span>
-                  </div>
-                  <div className="compare-track">
-                    <div
-                      className="compare-fill neo"
-                      style={{ width: (neoMonthly / maxMonthly) * 100 + "%" }}
-                    />
-                  </div>
-                </div>
-                <div className="compare-bar-row">
-                  <div className="compare-bar-label-row">
-                    <span className="compare-bar-name">AWS p5.48xlarge</span>
-                    <span className="compare-bar-val">{fmtCurrency(awsMonthly)}</span>
-                  </div>
-                  <div className="compare-track">
-                    <div
-                      className="compare-fill aws"
-                      style={{ width: (awsMonthly / maxMonthly) * 100 + "%" }}
-                    />
-                  </div>
-                </div>
-                <div className="compare-bar-row">
-                  <div className="compare-bar-label-row">
-                    <span className="compare-bar-name">GCP A3 Ultra</span>
-                    <span className="compare-bar-val">{fmtCurrency(gcpMonthly)}</span>
-                  </div>
-                  <div className="compare-track">
-                    <div
-                      className="compare-fill gcp"
-                      style={{ width: (gcpMonthly / maxMonthly) * 100 + "%" }}
-                    />
-                  </div>
-                </div>
-                <div className="compare-bar-row">
-                  <div className="compare-bar-label-row">
-                    <span className="compare-bar-name">Azure NDmv5</span>
-                    <span className="compare-bar-val">{fmtCurrency(azMonthly)}</span>
-                  </div>
-                  <div className="compare-track">
-                    <div
-                      className="compare-fill az"
-                      style={{ width: (azMonthly / maxMonthly) * 100 + "%" }}
-                    />
-                  </div>
-                </div>
-                <div className="calc-savings-callout">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="mr-2 inline-block align-middle" style={{ marginTop: '-2px' }} aria-hidden="true">
-                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                    <polyline points="12 5 19 12 12 19"></polyline>
-                  </svg>
-                  You save <span>{fmtCurrency(calcSavings)}</span> per month vs AWS ·{" "}
-                  <span>{calcSavePct}%</span> cheaper
-                </div>
-              </div>
-            </div>
-
-            <div className="calc-notes reveal">
-              <span className="calc-notes-title">// Pricing notes</span>
-              <br />
-              · Billed per minute, rounded up to nearest minute
-              <br />
-              · No setup fees or cancellation penalties
-              <br />
-              · Reserved pricing available for 1, 3, 12-month terms
-              <br />
-              · Egress: $0.00/GB — always free
-              <br />
-              · NVMe storage: included with fractional instances
-            </div>
-          </div>
-        </div>
-      </section>
 
       <div className="anim-divider" />
 

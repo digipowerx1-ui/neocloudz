@@ -15,7 +15,7 @@ const DATA: SolutionDetailData = {
   titleAccent: "Lightning Speed.",
   lede: "Deploy high-throughput inference endpoints powered by NVIDIA H200 GPUs. Deliver real-time predictions for LLMs, vision, and multimodal applications — all while reducing latency and optimizing GPU utilization.",
   primaryCta: { label: "Deploy Inference", href: "/contact" },
-  secondaryCta: { label: "View Pricing", href: "/pricing" },
+  secondaryCta: { label: "Sign Up", href: "https://console.neocloudz.com/authentication/signup" },
   icon: "⚡",
   cardTitle: "Sub-5ms p99 inference, production-ready",
   cardDescription:
