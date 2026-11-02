@@ -605,11 +605,11 @@
 .site-mobile-nav {
   display: block;
   position: fixed;
-  top: 104px;
+  top: 64px;
   left: 0;
   right: 0;
   bottom: 0;
-  height: calc(100vh - 104px);
+  height: calc(100vh - 64px);
   background: var(--bg-deep);
   z-index: 9999;
   padding: 32px 20px 48px;
@@ -932,8 +932,8 @@
 
   .site-mobile-nav {
     display: block;
-    top: 96px;
-    height: calc(100vh - 96px);
+    top: 56px;
+    height: calc(100vh - 56px);
   }
 }
 
@@ -1211,8 +1211,8 @@
   }
 
   .site-mobile-nav {
-    top: 90px;
-    height: calc(100vh - 90px);
+    top: 56px;
+    height: calc(100vh - 56px);
     padding: 24px 16px;
   }
 }

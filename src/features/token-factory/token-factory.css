@@ -7,7 +7,7 @@
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  padding-top: 104px; /* offset for announcement banner + header */
+  padding-top: 64px; /* offset for header */
 }
 
 /* HERO */
@@ -1096,7 +1096,7 @@
 /* ── Tablet portrait ≤ 768px ── */
 @media (max-width: 768px) {
   .token-factory-page {
-    padding-top: 104px;
+    padding-top: 56px;
   }
 
   /* Hero */
