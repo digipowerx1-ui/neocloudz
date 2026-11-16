@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Search, X, Sparkles, Cpu } from "lucide-react";
+import { Search, X, Sparkles, Cpu, ChevronRight } from "lucide-react";
 import {
   NvidiaLogo,
   ZaiOrgLogo,
@@ -34,6 +34,10 @@ export interface ModelItem {
   context: string;
   latency: string;
   quality?: string;
+  pricing?: {
+    rate: string;
+    cached: string;
+  };
   badges: ModelBadge[];
 }
 
@@ -45,26 +49,15 @@ export const SUPPORTED_MODELS: ModelItem[] = [
     provider: "NVIDIA",
     providerType: "nvidia",
     context: "256K context",
-    latency: "160 ms latency",
-    quality: "quality 9.4",
+    latency: "104 ms TTFT",
+    quality: "quality 9.7",
+    pricing: {
+      rate: "$0.63 / $3.13",
+      cached: "$0.20",
+    },
     badges: [
       { label: "Reasoning", variant: "purple" },
       { label: "flagship", variant: "neutral" },
-      { label: "NVIDIA Open Model", variant: "neutral" },
-    ],
-  },
-  {
-    id: "glm-5.3-flash",
-    modelSlug: "zai-org/glm-5.3-flash",
-    name: "GLM-5.3 Flash",
-    provider: "zai-org",
-    providerType: "zai-org",
-    context: "1M context",
-    latency: "120 ms latency",
-    quality: "quality 8.7",
-    badges: [
-      { label: "Low latency", variant: "emerald" },
-      { label: "MIT", variant: "neutral" },
     ],
   },
   {
@@ -73,42 +66,33 @@ export const SUPPORTED_MODELS: ModelItem[] = [
     name: "Qwen3.8 27B",
     provider: "Qwen",
     providerType: "qwen",
-    context: "256K context",
-    latency: "140 ms latency",
-    quality: "quality 8.6",
+    context: "32K context",
+    latency: "117 ms TTFT",
+    quality: "quality 9.6",
+    pricing: {
+      rate: "$0.40 / $2.40",
+      cached: "$0.03",
+    },
     badges: [
       { label: "General purpose", variant: "blue" },
       { label: "open weights", variant: "neutral" },
-      { label: "Apache 2.0", variant: "neutral" },
     ],
   },
   {
-    id: "nemotron-3.5-lightning-30b",
-    modelSlug: "nvidia/nemotron-3.5-lightning-30b",
-    name: "Nemotron 3.5 Lightning 30B",
-    provider: "NVIDIA",
-    providerType: "nvidia",
-    context: "1M context",
-    latency: "80 ms latency",
-    quality: "quality 8.6",
-    badges: [
-      { label: "Mixture of experts", variant: "amber" },
-      { label: "NVIDIA Open Model", variant: "neutral" },
-    ],
-  },
-  {
-    id: "gemma-3-1b-it",
-    modelSlug: "google/gemma-3-1b-it",
-    name: "Gemma 3 1B IT",
-    provider: "Google",
-    providerType: "google",
+    id: "glm-5.3-flash",
+    modelSlug: "zai-org/glm-5.3-flash",
+    name: "GLM-5.3 Flash",
+    provider: "zai-org",
+    providerType: "zai-org",
     context: "32K context",
-    latency: "40 ms latency",
-    quality: "quality 7.5",
+    latency: "200 ms TTFT",
+    quality: "quality 9.5",
+    pricing: {
+      rate: "$0.15 / $0.50",
+      cached: "$0.06",
+    },
     badges: [
-      { label: "Small", variant: "teal" },
-      { label: "high throughput", variant: "neutral" },
-      { label: "Gemma Terms", variant: "neutral" },
+      { label: "Low latency", variant: "emerald" },
     ],
   },
   {
@@ -118,10 +102,53 @@ export const SUPPORTED_MODELS: ModelItem[] = [
     provider: "Moonshot AI",
     providerType: "moonshot",
     description:
-      'Moonshot AI\'s vision-language "Thinking" model (image + text in, text out), 131K context.',
+      'Moonshot AI\'s vision-language "Thinking" model (image + text in, text out), 128K context.',
     context: "128K context",
-    latency: "91 ms latency",
-    badges: [{ label: "Text", variant: "sky" }],
+    latency: "91 ms TTFT",
+    quality: "quality 9.5",
+    pricing: {
+      rate: "$0.20 / $0.80",
+      cached: "$0.04",
+    },
+    badges: [
+      { label: "General purpose", variant: "blue" },
+      { label: "workhorse", variant: "neutral" },
+    ],
+  },
+  {
+    id: "gemma-3-1b-it",
+    modelSlug: "google/gemma-3-1b-it",
+    name: "Gemma 3 1B IT",
+    provider: "Google",
+    providerType: "google",
+    context: "32K context",
+    latency: "104 ms TTFT",
+    quality: "quality 9.4",
+    pricing: {
+      rate: "$0.10 / $0.10",
+      cached: "$0.00",
+    },
+    badges: [
+      { label: "Small", variant: "teal" },
+      { label: "high throughput", variant: "neutral" },
+    ],
+  },
+  {
+    id: "nemotron-3.5-lightning-30b",
+    modelSlug: "nvidia/nemotron-3.5-lightning-30b",
+    name: "Nemotron 3.5 Lightning 30B",
+    provider: "NVIDIA",
+    providerType: "nvidia",
+    context: "128K context",
+    latency: "138 ms TTFT",
+    quality: "quality 9.4",
+    pricing: {
+      rate: "$0.06 / $0.16",
+      cached: "$0.02",
+    },
+    badges: [
+      { label: "Mixture of experts", variant: "amber" },
+    ],
   },
 ];
 
@@ -320,6 +347,28 @@ export function SupportedModelsSection() {
                     </span>
                   ))}
                 </div>
+
+                {/* Pricing & Playground Row */}
+                {model.pricing && (
+                  <div className="tf-model-pricing-row">
+                    <div className="tf-model-pricing-info">
+                      <div className="tf-pricing-rate">{model.pricing.rate}</div>
+                      <div className="tf-pricing-cached">
+                        Cached <span>{model.pricing.cached}</span>
+                      </div>
+                    </div>
+                    <a
+                      href="https://console.neocloudz.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="tf-model-playground-btn"
+                      aria-label={`Try ${model.name} in Playground`}
+                    >
+                      <span>Try in Playground</span>
+                      <ChevronRight size={13} />
+                    </a>
+                  </div>
+                )}
               </article>
             ))
           ) : (

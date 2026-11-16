@@ -656,8 +656,12 @@ interface AIModelCard {
   context: string;
   latency: string;
   quality: number;
+  pricing: {
+    rate: string;
+    cached: string;
+  };
   desc?: string;
-  tags: { label: string; variant: "green" | "blue" | "amber" | "muted" }[];
+  tags: { label: string; variant: "green" | "blue" | "amber" | "muted" | "purple" }[];
 }
 
 const AI_MODELS: AIModelCard[] = [
@@ -666,26 +670,16 @@ const AI_MODELS: AIModelCard[] = [
     provider: "NVIDIA",
     icon: <NvidiaLogo size={28} />,
     iconBg: "linear-gradient(135deg, #76b900, #4a7a00)",
-    context: "256K context",
-    latency: "160 ms latency",
-    quality: 9.4,
+    context: "256K",
+    latency: "104 ms",
+    quality: 9.7,
+    pricing: {
+      rate: "$0.63 / $3.13",
+      cached: "$0.20",
+    },
     tags: [
-      { label: "Reasoning", variant: "green" },
+      { label: "Reasoning", variant: "purple" },
       { label: "flagship", variant: "muted" },
-      { label: "NVIDIA Open Model", variant: "muted" },
-    ],
-  },
-  {
-    name: "GLM-5.3 Flash",
-    provider: "zai-org",
-    icon: <ZaiOrgLogo size={28} />,
-    iconBg: "linear-gradient(135deg, #18181b, #27272a)",
-    context: "1M context",
-    latency: "120 ms latency",
-    quality: 8.7,
-    tags: [
-      { label: "Low latency", variant: "blue" },
-      { label: "MIT", variant: "muted" },
     ],
   },
   {
@@ -693,40 +687,32 @@ const AI_MODELS: AIModelCard[] = [
     provider: "Qwen",
     icon: <QwenLogo size={28} />,
     iconBg: "linear-gradient(135deg, #7c3aed, #4c1d95)",
-    context: "256K context",
-    latency: "140 ms latency",
-    quality: 8.6,
+    context: "32K",
+    latency: "117 ms",
+    quality: 9.6,
+    pricing: {
+      rate: "$0.40 / $2.40",
+      cached: "$0.03",
+    },
     tags: [
-      { label: "General purpose", variant: "green" },
+      { label: "General purpose", variant: "blue" },
       { label: "open weights", variant: "muted" },
-      { label: "Apache 2.0", variant: "muted" },
     ],
   },
   {
-    name: "Nemotron 3.5 Lightning 30B",
-    provider: "NVIDIA",
-    icon: <NvidiaLogo size={28} />,
-    iconBg: "linear-gradient(135deg, #76b900, #4a7a00)",
-    context: "1M context",
-    latency: "80 ms latency",
-    quality: 8.6,
+    name: "GLM-5.3 Flash",
+    provider: "zai-org",
+    icon: <ZaiOrgLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #18181b, #27272a)",
+    context: "32K",
+    latency: "200 ms",
+    quality: 9.5,
+    pricing: {
+      rate: "$0.15 / $0.50",
+      cached: "$0.06",
+    },
     tags: [
-      { label: "Mixture of experts", variant: "amber" },
-      { label: "NVIDIA Open Model", variant: "muted" },
-    ],
-  },
-  {
-    name: "Gemma 3 1B IT",
-    provider: "Google",
-    icon: <GoogleLogo size={28} />,
-    iconBg: "linear-gradient(135deg, #1a1a2e, #16213e)",
-    context: "32K context",
-    latency: "40 ms latency",
-    quality: 7.5,
-    tags: [
-      { label: "Small", variant: "blue" },
-      { label: "high throughput", variant: "muted" },
-      { label: "Gemma Terms", variant: "muted" },
+      { label: "Low latency", variant: "green" },
     ],
   },
   {
@@ -734,11 +720,50 @@ const AI_MODELS: AIModelCard[] = [
     provider: "Moonshot AI",
     icon: <MoonshotLogo size={28} />,
     iconBg: "linear-gradient(135deg, #09090b, #1a1a2e)",
-    context: "128K context",
-    latency: "91 ms latency",
-    quality: 0,
-    desc: "Moonshot AI\u2019s vision-language \u201CThinking\u201D model (image + text in, text out), 131K context.",
-    tags: [{ label: "Text", variant: "green" }],
+    context: "128K",
+    latency: "91 ms",
+    quality: 9.5,
+    pricing: {
+      rate: "$0.20 / $0.80",
+      cached: "$0.04",
+    },
+    tags: [
+      { label: "General purpose", variant: "blue" },
+      { label: "workhorse", variant: "muted" },
+    ],
+  },
+  {
+    name: "Gemma 3 1B IT",
+    provider: "Google",
+    icon: <GoogleLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #1a1a2e, #16213e)",
+    context: "32K",
+    latency: "104 ms",
+    quality: 9.4,
+    pricing: {
+      rate: "$0.10 / $0.10",
+      cached: "$0.00",
+    },
+    tags: [
+      { label: "Small", variant: "blue" },
+      { label: "high throughput", variant: "muted" },
+    ],
+  },
+  {
+    name: "Nemotron 3.5 Lightning 30B",
+    provider: "NVIDIA",
+    icon: <NvidiaLogo size={28} />,
+    iconBg: "linear-gradient(135deg, #76b900, #4a7a00)",
+    context: "128K",
+    latency: "138 ms",
+    quality: 9.4,
+    pricing: {
+      rate: "$0.06 / $0.16",
+      cached: "$0.02",
+    },
+    tags: [
+      { label: "Mixture of experts", variant: "amber" },
+    ],
   },
 ];
 
@@ -774,24 +799,6 @@ export function HomeAIModels() {
                 </div>
               </div>
 
-              <div className="ai-model-specs">
-                <span>{model.context}</span>
-                <span className="ai-spec-dot">·</span>
-                <span>{model.latency}</span>
-                {model.quality > 0 && (
-                  <>
-                    <span className="ai-spec-dot">·</span>
-                    <span className="ai-model-quality">
-                      quality {model.quality.toFixed(1)}
-                    </span>
-                  </>
-                )}
-              </div>
-
-              {model.desc && (
-                <div className="ai-model-desc">{model.desc}</div>
-              )}
-
               <div className="ai-model-tags">
                 {model.tags.map((tag, ti) => (
                   <span className={`ai-tag ai-tag--${tag.variant}`} key={ti}>
@@ -799,9 +806,52 @@ export function HomeAIModels() {
                   </span>
                 ))}
               </div>
+
+              <div className="ai-model-specs">
+                <span title="Context Window">{model.context}</span>
+                <span className="ai-spec-dot">·</span>
+                <span title="Time to first token">{model.latency}</span>
+                <span className="ai-spec-dot">·</span>
+                <span className="ai-model-quality" title="Quality Benchmark Index">
+                  quality {model.quality.toFixed(1)}
+                </span>
+              </div>
+
+              {model.desc && (
+                <div className="ai-model-desc">{model.desc}</div>
+              )}
+
+              <div className="ai-model-pricing">
+                <div className="ai-model-pricing-info">
+                  <div className="ai-pricing-label">Pricing</div>
+                  <div className="ai-pricing-rate">
+                    <span className="ai-rate-val">{model.pricing.rate}</span>
+                  </div>
+                  <div className="ai-pricing-cached">
+                    Cached <span className="ai-cached-val">{model.pricing.cached}</span>
+                  </div>
+                </div>
+
+                <a
+                  href="https://console.neocloudz.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="ai-model-playground-btn"
+                  aria-label={`Try ${model.name} in Playground`}
+                >
+                  <span>Try in Playground</span>
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <polyline points="9 18 15 12 9 6" />
+                  </svg>
+                </a>
+              </div>
             </div>
           ))}
         </div>
+
+        <p className="ai-models-footnote">
+          TTFT is median time to first token - quality is a 0-10 benchmark index - prices are list prices in USD per 1M tokens
+        </p>
       </div>
     </section>
   );
