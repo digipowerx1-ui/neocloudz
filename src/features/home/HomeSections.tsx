@@ -831,19 +831,6 @@ export function HomeAIModels() {
                     Cached <span className="ai-cached-val">{model.pricing.cached}</span>
                   </div>
                 </div>
-
-                <a
-                  href="https://console.neocloudz.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ai-model-playground-btn"
-                  aria-label={`Try ${model.name} in Playground`}
-                >
-                  <span>Try in Playground</span>
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <polyline points="9 18 15 12 9 6" />
-                  </svg>
-                </a>
               </div>
             </div>
           ))}

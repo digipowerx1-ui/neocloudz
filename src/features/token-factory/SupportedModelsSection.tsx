@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Search, X, Sparkles, Cpu, ChevronRight } from "lucide-react";
+import { Search, X, Sparkles, Cpu } from "lucide-react";
 import {
   NvidiaLogo,
   ZaiOrgLogo,
@@ -348,7 +348,7 @@ export function SupportedModelsSection() {
                   ))}
                 </div>
 
-                {/* Pricing & Playground Row */}
+                {/* Pricing Row */}
                 {model.pricing && (
                   <div className="tf-model-pricing-row">
                     <div className="tf-model-pricing-info">
@@ -357,16 +357,6 @@ export function SupportedModelsSection() {
                         Cached <span>{model.pricing.cached}</span>
                       </div>
                     </div>
-                    <a
-                      href="https://console.neocloudz.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="tf-model-playground-btn"
-                      aria-label={`Try ${model.name} in Playground`}
-                    >
-                      <span>Try in Playground</span>
-                      <ChevronRight size={13} />
-                    </a>
                   </div>
                 )}
               </article>
