@@ -5,10 +5,10 @@ import "../legal.css";
 export const metadata: Metadata = {
   title: "Cookie Policy — NeoCloudz",
   description:
-    "How NeoCloudz uses cookies and similar technologies. We do not use tracking or advertising cookies.",
+    "How NeoCloudz uses cookies and similar technologies. Advertising cookies (LinkedIn Insight Tag) are set only if you accept them.",
 };
 
-const LAST_UPDATED = "June 13, 2026";
+const LAST_UPDATED = "November 23, 2026";
 
 export default function CookiePolicyPage() {
   return (
@@ -25,9 +25,11 @@ export default function CookiePolicyPage() {
 
         <section className="legal-section">
           <div className="legal-callout">
-            <strong>In short:</strong> NeoCloudz does not use tracking,
-            analytics, or advertising cookies. We don&apos;t profile you, and we
-            don&apos;t sell or share your browsing data with advertisers.
+            <strong>In short:</strong> NeoCloudz sets no tracking or
+            advertising cookies unless you click &ldquo;Accept&rdquo; in our
+            cookie notice. If you do, we load the LinkedIn Insight Tag to measure
+            our LinkedIn ad campaigns. Choose &ldquo;Necessary only&rdquo; and
+            it stays off. We never sell your browsing data.
           </div>
         </section>
 
@@ -55,11 +57,9 @@ export default function CookiePolicyPage() {
               Google Analytics).
             </li>
             <li>
-              We do <strong>not</strong> use advertising, marketing, or
-              retargeting cookies or pixels.
-            </li>
-            <li>
-              We do <strong>not</strong> use social-media tracking pixels.
+              We use <strong>one</strong> advertising pixel, the LinkedIn
+              Insight Tag, and <strong>only</strong> if you click
+              &ldquo;Accept&rdquo; in our cookie notice (see section 4).
             </li>
             <li>
               We do <strong>not</strong> require an account to browse the site,
@@ -84,9 +84,9 @@ export default function CookiePolicyPage() {
           <h2>4. Third-party services we rely on</h2>
           <p>
             Our website is delivered using a small number of third-party service
-            providers. These providers do not place tracking cookies on your
-            device through our site, but it&apos;s useful to know they are
-            involved:
+            providers. Apart from LinkedIn, which runs only with your consent,
+            these providers do not place tracking cookies on your device through
+            our site, but it&apos;s useful to know they are involved:
           </p>
           <ul className="legal-list">
             <li>
@@ -107,6 +107,25 @@ export default function CookiePolicyPage() {
               Google Fonts. This does not set cookies, although your IP address
               is shared with Google in order to deliver the fonts.
             </li>
+            <li>
+              <strong>Advertising (LinkedIn Insight Tag).</strong> Only if you
+              click &ldquo;Accept,&rdquo; we load LinkedIn&apos;s Insight Tag.
+              It lets LinkedIn set cookies and collect data about your visit
+              (such as the pages you view, your IP address, and browser
+              details) so we can measure conversions from our LinkedIn ads, see
+              aggregated insights about our visitors, and show our ads on
+              LinkedIn to people who have visited this site. LinkedIn handles
+              this data under its own{" "}
+              <a
+                href="https://www.linkedin.com/legal/cookie-policy"
+                className="legal-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cookie Policy
+              </a>
+              .
+            </li>
           </ul>
         </section>
 
@@ -123,23 +142,21 @@ export default function CookiePolicyPage() {
         <section className="legal-section">
           <h2>6. Managing cookies</h2>
           <p>
-            Because we don&apos;t set tracking cookies, there&apos;s nothing you
-            need to opt out of for advertising or analytics. You can still
-            control cookies and local storage at any time through your
-            browser&apos;s settings, including clearing existing data or blocking
-            it for specific sites. Clearing your browser data will remove your
-            saved cookie-notice preference, and the notice will appear again on
-            your next visit.
+            Advertising cookies stay off unless you click &ldquo;Accept.&rdquo;
+            To change your choice later, clear this site&apos;s data in your
+            browser settings; the notice will appear again on your next visit
+            and you can pick &ldquo;Necessary only.&rdquo; You can also control
+            or block cookies and local storage at any time through your
+            browser&apos;s settings.
           </p>
         </section>
 
         <section className="legal-section">
           <h2>7. Changes to this policy</h2>
           <p>
-            If we introduce cookies in the future — for example, analytics to
-            understand how the site is used — we will update this policy and,
-            where required, present a consent banner so you can make a choice
-            before any non-essential cookies are set. Please check this page
+            If we add other cookies or tracking tools in the future, we will
+            update this policy and ask for your consent before any
+            non-essential cookies are set. Please check this page
             periodically for updates.
           </p>
         </section>

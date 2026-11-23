@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     "How NeoCloudz collects, uses, and protects your personal information.",
 };
 
-const LAST_UPDATED = "June 13, 2026";
+const LAST_UPDATED = "November 23, 2026";
 
 export default function PrivacyPolicyPage() {
   return (
@@ -27,8 +27,8 @@ export default function PrivacyPolicyPage() {
           <div className="legal-callout">
             <strong>In short:</strong> We collect only the information you give
             us (mainly through our contact form) plus basic technical data
-            needed to run the site securely. We don&apos;t use tracking cookies,
-            and we never sell your personal information.
+            needed to run the site securely. We use tracking cookies only if you
+            accept them, and we never sell your personal information.
           </div>
         </section>
 
@@ -58,7 +58,9 @@ export default function PrivacyPolicyPage() {
             When you visit the site, our hosting and infrastructure providers
             process limited technical data needed to deliver and secure the site,
             such as your IP address, browser type, and the pages you request.
-            This site does not use analytics or advertising cookies — see our{" "}
+            If you click &ldquo;Accept&rdquo; in our cookie notice, LinkedIn
+            also collects data about your visit through its Insight Tag for
+            advertising — see our{" "}
             <Link href="/cookie-policy" className="legal-link">
               Cookie Policy
             </Link>{" "}
@@ -81,7 +83,8 @@ export default function PrivacyPolicyPage() {
           <p>
             We do not sell your personal information. We share it only as needed
             with trusted service providers who help us operate the site and
-            communicate with you, and only for those purposes. These include:
+            communicate with you, and, only if you accept cookies, with
+            LinkedIn for advertising. These include:
           </p>
           <ul className="legal-list">
             <li>
@@ -95,6 +98,12 @@ export default function PrivacyPolicyPage() {
             <li>
               <strong>Fonts (Google Fonts).</strong> Delivers the typefaces used
               on the site; your IP address is shared with Google to load them.
+            </li>
+            <li>
+              <strong>Advertising (LinkedIn).</strong> Only if you accept
+              cookies, LinkedIn&apos;s Insight Tag receives data about your
+              visit (such as pages viewed, IP address, and browser details) to
+              measure and target our LinkedIn ads.
             </li>
           </ul>
           <p>
@@ -122,8 +131,11 @@ export default function PrivacyPolicyPage() {
             request a copy of it, and to object to or restrict certain
             processing. Residents of California and similar jurisdictions have the
             right to opt out of the &ldquo;sale&rdquo; or &ldquo;sharing&rdquo; of
-            personal information; we do not sell or share personal information for
-            cross-context behavioral advertising. To exercise any right, please{" "}
+            personal information. We do not sell personal information. If you
+            accept cookies, data about your visit is shared with LinkedIn for
+            advertising, which may count as &ldquo;sharing&rdquo; under
+            California law; choosing &ldquo;Necessary only&rdquo; in our cookie
+            notice keeps it off. To exercise any right, please{" "}
             <Link href="/contact?source=privacy_policy&cta=contact" className="legal-link">
               contact us
             </Link>
