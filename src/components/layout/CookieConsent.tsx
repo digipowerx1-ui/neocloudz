@@ -7,7 +7,8 @@ import Script from "next/script";
 // We deliberately persist the visitor's choice in localStorage rather than a
 // cookie, so declining keeps the site cookie-free. Marketing scripts (LinkedIn
 // Insight Tag) load only when this key says "accepted".
-const CONSENT_KEY = "nc_cookie_consent";
+// v2: re-asks everyone after the LinkedIn tag was added (v1 banner said "no tracking").
+const CONSENT_KEY = "nc_cookie_consent_v2";
 
 type ConsentValue = "accepted" | "rejected";
 
