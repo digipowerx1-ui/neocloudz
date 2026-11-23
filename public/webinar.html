@@ -1659,5 +1659,55 @@ if(reduce){draw(0);window.addEventListener('resize',function(){draw(0)})}else{ra
     });
   })();
 </script>
+<!-- Cookie notice + LinkedIn Insight Tag. The tag loads only after "Accept".
+     Same storage key/format as the main site, so www.neocloudz.com/webinar shares
+     the choice; webinar.neocloudz.com is a separate origin and asks once. -->
+<style>
+.nc-cc{position:fixed;left:16px;right:16px;bottom:16px;z-index:9999;max-width:760px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:18px 20px;border-radius:14px;background:#010a05;border:1px solid rgba(209,243,161,.2);box-shadow:0 12px 40px rgba(0,0,0,.35);font-family:Manrope,"Host Grotesk",sans-serif;color:#f4efea;-webkit-font-smoothing:antialiased}
+.nc-cc[hidden]{display:none}
+.nc-cc p{margin:0;flex:1;font-size:14px;line-height:1.55}
+.nc-cc a{color:#d1f3a1;text-decoration:underline}
+.nc-cc-actions{display:flex;gap:10px;flex-shrink:0}
+.nc-cc button{font:600 14px Manrope,"Host Grotesk",sans-serif;padding:11px 18px;border-radius:10px;cursor:pointer;border:1px solid rgba(244,239,234,.25);background:transparent;color:#f4efea;white-space:nowrap}
+.nc-cc button:hover{border-color:rgba(244,239,234,.5)}
+.nc-cc .nc-cc-yes{background:#d1f3a1;border-color:#d1f3a1;color:#010a05}
+.nc-cc .nc-cc-yes:hover{background:#e2f8c2;border-color:#e2f8c2}
+@media (max-width:640px){.nc-cc{flex-direction:column;align-items:stretch}.nc-cc-actions button{flex:1}}
+</style>
+<div class="nc-cc" id="nc-cc" role="dialog" aria-live="polite" aria-label="Cookie notice" hidden>
+<p>We use strictly necessary storage to run this page. If you click Accept, we also load the LinkedIn Insight Tag, which sets advertising cookies to measure our LinkedIn campaigns. &ldquo;Necessary only&rdquo; keeps it off. Read our <a href="https://www.neocloudz.com/cookie-policy" target="_blank" rel="noopener noreferrer">Cookie Policy</a>.</p>
+<div class="nc-cc-actions"><button type="button" data-v="rejected" aria-label="Accept necessary cookies only">Necessary only</button><button type="button" class="nc-cc-yes" data-v="accepted" aria-label="Accept all cookies">Accept</button></div>
+</div>
+<script>
+(function () {
+  var KEY = 'nc_cookie_consent_v2', box = document.getElementById('nc-cc'), stored = null;
+  try { stored = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+
+  function loadLinkedIn() {
+    window._linkedin_partner_id = "10463508";
+    window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+    window._linkedin_data_partner_ids.push(window._linkedin_partner_id);
+    (function(l) {
+    if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
+    window.lintrk.q=[]}
+    var s = document.getElementsByTagName("script")[0];
+    var b = document.createElement("script");
+    b.type = "text/javascript";b.async = true;
+    b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+    s.parentNode.insertBefore(b, s);})(window.lintrk);
+  }
+
+  if (stored && stored.value === 'accepted') loadLinkedIn();
+  else if (!stored) box.hidden = false;
+
+  box.addEventListener('click', function (e) {
+    var v = e.target.getAttribute('data-v');
+    if (!v) return;
+    try { localStorage.setItem(KEY, JSON.stringify({ value: v, ts: new Date().toISOString() })); } catch (err) {}
+    box.hidden = true;
+    if (v === 'accepted') loadLinkedIn();
+  });
+})();
+</script>
 </body>
 </html>
